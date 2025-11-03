@@ -1008,67 +1008,118 @@ def main():
     with tab6:
         st.header("🧬 Evolution & Forms")
         
-        game_df = load_game_data()
-        
-        if game_df is not None:
-            st.success(f"✅ Game data loaded for {len(game_df)} Pokémon forms & variants")
+        # Load main data with all forms
+        if df is not None:
+            st.success(f"✅ Data loaded for {len(df)} Pokémon (including forms & variants)")
             
-            # Search for Pokemon
+            # Search for Pokemon (case-insensitive)
             evo_search = st.text_input(
                 "Search Pokémon for evolution info",
-                placeholder="e.g., Bulbasaur, Eevee, Charizard"
+                placeholder="e.g., Bulbasaur, Eevee, Charizard, Pikachu",
+                help="Search is case-insensitive. Try 'char' or 'EEVEE' or 'pikachu'"
             )
             
             if evo_search:
-                # Find matching Pokemon
-                matching = game_df[
-                    game_df['name'].str.contains(evo_search, case=False, na=False)
+                # Find matching Pokemon (case-insensitive search)
+                search_lower = evo_search.lower().strip()
+                matching = df[
+                    df['name'].str.lower().str.contains(search_lower, na=False)
                 ]
                 
                 if len(matching) > 0:
-                    for idx, pokemon_form in matching.iterrows():
+                    st.info(f"Found {len(matching)} Pokémon matching '{evo_search}'")
+                    
+                    for idx, pokemon in matching.iterrows():
+                        # Check if this Pokemon has alternate forms
+                        alt_name = pokemon.get('alt_name', '')
+                        form_indicator = " 🔀" if pd.notna(alt_name) and alt_name.lower() != pokemon['name'].lower() else ""
+                        
                         with st.expander(
-                            f"{pokemon_form['name']} - {pokemon_form.get('form_name', 'Standard Form')}",
-                            expanded=True
+                            f"#{int(pokemon['pokedex_number'])} {pokemon['name']}{form_indicator}",
+                            expanded=len(matching) <= 3  # Auto-expand if 3 or fewer results
                         ):
-                            col1, col2 = st.columns([1, 2])
+                            col1, col2, col3 = st.columns([1, 2, 1])
                             
                             with col1:
-                                poke_id = int(pokemon_form['pokedex_number'])
+                                poke_id = int(pokemon['pokedex_number'])
                                 sprite_data = load_sprite(poke_id, use_animated=use_animations)
-                                display_sprite(sprite_data, width=200)
+                                display_sprite(sprite_data, width=150)
+                                
+                                # Show types with colored badges
+                                type1_color = get_type_color(pokemon["type_1"])
+                                type_html = (
+                                    f'<span style="background-color: {type1_color}; '
+                                    f'color: white; padding: 5px 10px; border-radius: 5px; '
+                                    f'margin: 2px; display: inline-block;">'
+                                    f'{pokemon["type_1"]}</span>'
+                                )
+                                if pd.notna(pokemon.get("type_2")):
+                                    type2_color = get_type_color(pokemon["type_2"])
+                                    type_html += (
+                                        f' <span style="background-color: {type2_color}; '
+                                        f'color: white; padding: 5px 10px; border-radius: 5px; '
+                                        f'margin: 2px; display: inline-block;">'
+                                        f'{pokemon["type_2"]}</span>'
+                                    )
+                                st.markdown(type_html, unsafe_allow_html=True)
                             
                             with col2:
-                                st.markdown(f"**Pokédex #:** {int(pokemon_form['pokedex_number'])}")
-                                st.markdown(f"**Generation:** {int(pokemon_form['generation'])}")
+                                st.markdown(f"### {pokemon['name']}")
+                                st.markdown(f"**Pokédex #:** {int(pokemon['pokedex_number'])}")
+                                st.markdown(f"**Generation:** {int(pokemon['generation'])}")
+                                st.markdown(f"**Species:** {pokemon.get('species', 'Unknown')}")
                                 
-                                if pd.notna(pokemon_form.get('form_name')):
-                                    st.markdown(f"**Form:** {pokemon_form['form_name']}")
+                                # Show alternate form info
+                                if pd.notna(alt_name) and alt_name.lower() != pokemon['name'].lower():
+                                    st.markdown(f"**Alternate Form:** {alt_name}")
+                                    if pd.notna(pokemon.get('alternate_info')):
+                                        st.caption(pokemon['alternate_info'])
                                 
-                                if pd.notna(pokemon_form.get('species')):
-                                    st.markdown(f"**Species:** {pokemon_form['species']}")
-                                
-                                # Evolution info
-                                if pd.notna(pokemon_form.get('evolution_details')):
-                                    st.markdown("### Evolution Requirements")
-                                    st.info(pokemon_form['evolution_details'])
-                                
-                                # Form-specific stats
-                                if all(k in pokemon_form for k in ['hp', 'attack', 'defense']):
-                                    st.markdown("### Base Stats")
-                                    col_a, col_b, col_c = st.columns(3)
-                                    with col_a:
-                                        st.metric("HP", int(pokemon_form.get('hp', 0)))
-                                    with col_b:
-                                        st.metric("Attack", int(pokemon_form.get('attack', 0)))
-                                    with col_c:
-                                        st.metric("Defense", int(pokemon_form.get('defense', 0)))
+                                # Evolution chain info
+                                if pd.notna(pokemon.get('evolution_chain')):
+                                    evo_chain_id = pokemon['evolution_chain']
+                                    # Find all Pokemon in same evolution chain
+                                    chain_members = df[df['evolution_chain'] == evo_chain_id]['name'].tolist()
+                                    if len(chain_members) > 1:
+                                        st.markdown(f"**Evolution Chain:** {' → '.join(chain_members)}")
+                                    else:
+                                        st.markdown("**Evolution:** Does not evolve")
+                                else:
+                                    st.markdown("**Evolution:** No evolution data")
+                            
+                            with col3:
+                                st.markdown("#### Base Stats")
+                                st.metric("HP", int(pokemon.get('hp', 0)))
+                                st.metric("Attack", int(pokemon.get('attack', 0)))
+                                st.metric("Defense", int(pokemon.get('defense', 0)))
+                                st.metric("Sp. Atk", int(pokemon.get('sp_attack', 0)))
+                                st.metric("Sp. Def", int(pokemon.get('sp_defense', 0)))
+                                st.metric("Speed", int(pokemon.get('speed', 0)))
+                                st.metric("Total", int(pokemon.get('total_points', 0)))
+                            
+                            # Show abilities
+                            abilities = []
+                            if pd.notna(pokemon.get('ability_1')):
+                                abilities.append(pokemon['ability_1'])
+                            if pd.notna(pokemon.get('ability_2')):
+                                abilities.append(pokemon['ability_2'])
+                            if pd.notna(pokemon.get('ability_hidden')):
+                                abilities.append(f"{pokemon['ability_hidden']} (Hidden)")
+                            
+                            if abilities:
+                                st.markdown(f"**Abilities:** {', '.join(abilities)}")
+                            
+                            # Show description if available
+                            if pd.notna(pokemon.get('description')):
+                                with st.expander("📖 Description"):
+                                    st.write(pokemon['description'])
                 else:
-                    st.warning("No Pokémon found matching that search.")
+                    st.warning(f"No Pokémon found matching '{evo_search}'. Try a different search term.")
             else:
                 st.info("👆 Enter a Pokémon name to view evolution & form details")
+                st.caption("💡 The search is case-insensitive - try 'PIKACHU', 'eevee', or 'Charizard'")
         else:
-            st.warning("⏳ Comprehensive game data not yet loaded. The Evolution & Forms feature requires the enhanced game dataset.")
+            st.error("⏳ Data not loaded. Please check the data files.")
     
     # ==================== TAB 7: BY GAME ====================
     with tab7:

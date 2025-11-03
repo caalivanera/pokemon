@@ -1,153 +1,303 @@
-# ⚡ Enhanced Interactive Pokédex Dashboard
+# 🎮 Pokemon National Dex Dashboard v4.0.0# ⚡ Enhanced Interactive Pokédex Dashboard
 
-A modern, interactive web application featuring all 1,076 Pokémon from Generations 1-9 with animated sprites, comprehensive stats, and advanced filtering. This dashboard combines data from multiple authoritative sources with a sleek dark theme featuring green accents.
 
-The application provides a professional, responsive interface with animated Pokemon sprites, TBA placeholders for missing visuals, and deep analytical capabilities for Pokemon research and exploration.
+
+[![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)A modern, interactive web application featuring all 1,076 Pokémon from Generations 1-9 with animated sprites, comprehensive stats, and advanced filtering. This dashboard combines data from multiple authoritative sources with a sleek dark theme featuring green accents.
+
+[![Streamlit](https://img.shields.io/badge/streamlit-1.51.0-red.svg)](https://streamlit.io/)
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)The application provides a professional, responsive interface with animated Pokemon sprites, TBA placeholders for missing visuals, and deep analytical capabilities for Pokemon research and exploration.
+
+[![Live Demo](https://img.shields.io/badge/demo-live-green.svg)](https://1pokemon.streamlit.app/)
 
 ## 📖 What is a Pokédex?
 
+> **Comprehensive Pokemon Database Dashboard** featuring all 1,025 Pokemon (Generations I-IX) with interactive visualizations, competitive data, and game availability tracking.
+
 A **Pokédex** is a digital electronic encyclopedia that acts as a guide for Pokémon trainers, recording data on Pokémon species they encounter. In the games, it tracks the player's progress in catching or observing Pokémon, with detailed entries unlocked as a trainer catches or obtains a species. It's an essential tool for any trainer, and in some versions of the games and the anime, it functions as a reference tool to learn about Pokémon types, sizes, and locations.
+
+🌐 **Live Application:** [https://1pokemon.streamlit.app/](https://1pokemon.streamlit.app/)
 
 This dashboard serves as your **digital Pokédex companion**, providing comprehensive data analysis and exploration tools for the complete National Pokédex spanning Generations 1 through 9.
 
+---
+
 ## 📁 Project Structure
-
-**This project has been reorganized with a use-case-based directory structure!**
-
-See **[PROJECT_STRUCTURE.md](PROJECT_STRUCTURE.md)** for the complete directory layout and file organization.
-
-**Quick Navigation:**
-- Source Code: `src/` (core, data_loaders, database)
-- Configuration: `config/` (docker, github, vscode)
-- Documentation: `docs/` (guides, technical)
-- Tests: `tests/`
-- Scripts: `scripts/`
-- Data: `data/` and `pokemondbgit/`
 
 ## ✨ Features
 
-### 🎨 **Modern Dark Theme with Green Accents**
-* **Professional Design:** Sleek dark theme (#141414) with vibrant green accents (#10B981)
-* **Smooth Animations:** 0.15s-0.3s transitions for snappy, responsive interactions
-* **Animated Sprites:** Floating Pokemon sprites with bounce effects on hover
-* **TBA Placeholders:** Stylish "TBA" visual indicators for missing sprites
-* **Responsive Layout:** Optimized for desktop and mobile viewing
+**This project has been reorganized with a use-case-based directory structure!**
+
+### 📊 Core Capabilities
+
+- **Complete Pokemon Database**: All 1,025 Pokemon from Gen I through Gen IXSee **[PROJECT_STRUCTURE.md](PROJECT_STRUCTURE.md)** for the complete directory layout and file organization.
+
+- **Multi-Tab Interface**: 9 specialized tabs for different analyses
+
+- **Dark Theme**: Modern, eye-friendly dark mode design**Quick Navigation:**
+
+- **Interactive Visualizations**: Plotly-powered charts and graphs- Source Code: `src/` (core, data_loaders, database)
+
+- **Real-Time Search**: Case-insensitive search across all Pokemon- Configuration: `config/` (docker, github, vscode)
+
+- **Sprite Support**: Static and animated sprites with fallback support- Documentation: `docs/` (guides, technical)
+
+- **Game Filtering**: Filter Pokemon by 38+ games including Pokemon Legends: Z-A- Tests: `tests/`
+
+- Scripts: `scripts/`
+
+### 🎯 Dashboard Tabs- Data: `data/` and `pokemondbgit/`
+
+
+
+1. **🏠 Home & Stats** - Overall statistics and distribution charts## ✨ Features
+
+2. **🔍 Pokemon Search** - Advanced search with comprehensive filters
+
+3. **📊 Stats Analysis** - Detailed base stats visualization and comparisons### 🎨 **Modern Dark Theme with Green Accents**
+
+4. **⚔️ Competitive Data** - Smogon tier information and strategies* **Professional Design:** Sleek dark theme (#141414) with vibrant green accents (#10B981)
+
+5. **🎲 Randomizer** - Generate random Pokemon for team building* **Smooth Animations:** 0.15s-0.3s transitions for snappy, responsive interactions
+
+6. **🧬 Evolution & Forms** - Evolution chains and alternate forms* **Animated Sprites:** Floating Pokemon sprites with bounce effects on hover
+
+7. **🎮 Pokemon by Game** - Filter by 38+ Pokemon games* **TBA Placeholders:** Stylish "TBA" visual indicators for missing sprites
+
+8. **🎯 Type Effectiveness** - Interactive type matchup chart* **Responsive Layout:** Optimized for desktop and mobile viewing
+
+9. **🎮 Mini-Game** - "Who's That Pokemon?" quiz
 
 ### 🏠 **5-Tab Navigation System**
-* **Gallery Tab:** Grid view displaying all 1,076 Pokemon with animated sprites
-* **Search & Filter Tab:** Advanced multi-select filters for generation, type, and BST
-* **Statistics Tab:** Analytics dashboard with charts, rankings, and insights
-* **Glossary Tab:** 100+ Pokemon terms with searchable definitions
-* **Settings Tab:** Display options, data export, and about information
 
-### 🔍 **Advanced Filtering System**
-* **Generation Filters:** Filter by 9 generations (Kanto through Paldea)
-* **Type Filters:** 18 Pokemon types with color-coded badges
-* **BST Range Slider:** Filter by Base Stat Total (0-1000)
+---* **Gallery Tab:** Grid view displaying all 1,076 Pokemon with animated sprites
+
+* **Search & Filter Tab:** Advanced multi-select filters for generation, type, and BST
+
+## 🚀 Quick Start* **Statistics Tab:** Analytics dashboard with charts, rankings, and insights
+
+* **Glossary Tab:** 100+ Pokemon terms with searchable definitions
+
+### Installation* **Settings Tab:** Display options, data export, and about information
+
+
+
+```bash### 🔍 **Advanced Filtering System**
+
+# Clone the repository* **Generation Filters:** Filter by 9 generations (Kanto through Paldea)
+
+git clone https://github.com/caalivanera/pokemon.git* **Type Filters:** 18 Pokemon types with color-coded badges
+
+cd pokedex-dashboard* **BST Range Slider:** Filter by Base Stat Total (0-1000)
+
 * **Text Search:** Quick search across all Pokemon names
-* **Real-time Updates:** Instant filter application with session state
+
+# Install dependencies* **Real-time Updates:** Instant filter application with session state
+
+pip install -r requirements.txt
 
 ### � **Comprehensive Pokemon Details**
-* **Complete Stats:** All 6 base stats (HP, Attack, Defense, Sp. Attack, Sp. Defense, Speed)
-* **High-Quality Sprites:** 475x475px official artwork from PokeAPI
-* **Type Effectiveness:** Visual type badges with proper color coding
+
+# Run the dashboard* **Complete Stats:** All 6 base stats (HP, Attack, Defense, Sp. Attack, Sp. Defense, Speed)
+
+streamlit run enhanced_dashboard.py* **High-Quality Sprites:** 475x475px official artwork from PokeAPI
+
+```* **Type Effectiveness:** Visual type badges with proper color coding
+
 * **Detailed Information:** Abilities, breeding info, descriptions, and percentiles
-* **Multiple Data Sources:** Integration of 4+ Pokemon datasets
+
+### Access* **Multiple Data Sources:** Integration of 4+ Pokemon datasets
+
+Open your browser and navigate to `http://localhost:8501`
 
 ### 🎬 **Animation Features**
-* **Floating Sprites:** Continuous 3s float animation on all Pokemon sprites
-* **Hover Bounce:** Dynamic bounce effect when hovering over cards
-* **Smooth Transitions:** Optimized timing (0.15s-0.3s) for seamless UX
-* **Card Effects:** Scale, shadow, and border animations on interaction
-* **Sticky Header:** Animated slideDown header with backdrop blur
 
-## �️ **Data Sources**
+---* **Floating Sprites:** Continuous 3s float animation on all Pokemon sprites
+
+* **Hover Bounce:** Dynamic bounce effect when hovering over cards
+
+## 📊 Data Coverage* **Smooth Transitions:** Optimized timing (0.15s-0.3s) for seamless UX
+
+* **Card Effects:** Scale, shadow, and border animations on interaction
+
+- **Pokemon**: 1,025 (Gen I-IX)* **Sticky Header:** Animated slideDown header with backdrop blur
+
+- **Games**: 38 Pokemon games
+
+- **Latest Update**: Pokemon Legends: Z-A (457 Pokemon, Kalos Pokedex)## �️ **Data Sources**
+
+- **Data Sources**: Bulbapedia, Serebii, Smogon University
 
 This enhanced dashboard integrates multiple high-quality Pokemon datasets:
 
+---
+
 ### **Primary Data Sources:**
-- **`pokedex.csv`** - Comprehensive Pokemon statistics, abilities, competitive analysis, and detailed game mechanics
+
+## 🎯 Latest Updates (v4.0.0)- **`pokedex.csv`** - Comprehensive Pokemon statistics, abilities, competitive analysis, and detailed game mechanics
+
 - **`pokemon_glossary.csv`** - 100+ Pokemon terms and definitions for educational reference
-- **`pokedex_otherVer.csv`** - Alternative Pokemon descriptions and flavor text
-- **`poke_corpus.csv`** - Detailed Pokemon lore, descriptions, and extensive background information
 
-### **Enhanced Data Integration:**
-The application intelligently combines these sources to provide:
-- **Complete stat analysis** with competitive insights
-- **Multiple description sources** for comprehensive Pokemon information  
+- ✅ Enhanced Evolution & Forms tab with case-insensitive search- **`pokedex_otherVer.csv`** - Alternative Pokemon descriptions and flavor text
+
+- ✅ Fixed Pokemon Legends: Z-A to official Kalos Pokedex (457 Pokemon)- **`poke_corpus.csv`** - Detailed Pokemon lore, descriptions, and extensive background information
+
+- ✅ Improved alternate forms display (Mega, Regional, Gigantamax)
+
+- ✅ Added evolution chain visualization### **Enhanced Data Integration:**
+
+- ✅ Workspace cleanup - removed 19 redundant filesThe application intelligently combines these sources to provide:
+
+- ✅ Code quality improvements and validation- **Complete stat analysis** with competitive insights
+
+- ✅ Synchronized deployment files- **Multiple description sources** for comprehensive Pokemon information  
+
 - **Educational glossary** integration for learning Pokemon mechanics
-- **Rich metadata** including abilities, breeding info, and experience systems
 
-## 🛠️ Tech Stack
+---- **Rich metadata** including abilities, breeding info, and experience systems
 
-* **Language:** Python 3.8+
-* **Frontend Framework:** [Streamlit](https://streamlit.io/)
-* **Data Processing:** [pandas](https://pandas.pydata.org/) + [numpy](https://numpy.org/)
-* **HTTP Requests:** [requests](https://requests.readthedocs.io/en/latest/) (for sprite URLs)
-* **Progress Indicators:** [tqdm](https://github.com/tqdm/tqdm)
-* **Data Sources:** Multiple CSV datasets (see Data Sources section)
 
-## � Installation
 
-### **Prerequisites:**
+## 🛠️ Development## 🛠️ Tech Stack
+
+
+
+### File Structure* **Language:** Python 3.8+
+
+```* **Frontend Framework:** [Streamlit](https://streamlit.io/)
+
+pokedex-dashboard/* **Data Processing:** [pandas](https://pandas.pydata.org/) + [numpy](https://numpy.org/)
+
+├── data/                      # Pokemon databases* **HTTP Requests:** [requests](https://requests.readthedocs.io/en/latest/) (for sprite URLs)
+
+├── assets/sprites/            # Sprite cache* **Progress Indicators:** [tqdm](https://github.com/tqdm/tqdm)
+
+├── src/core/app.py            # Streamlit Cloud entry point* **Data Sources:** Multiple CSV datasets (see Data Sources section)
+
+├── enhanced_dashboard.py      # Main application
+
+├── requirements.txt           # Dependencies## � Installation
+
+└── .streamlit/config.toml     # Configuration
+
+```### **Prerequisites:**
+
 * Python 3.8+
-* `git` (for cloning)
-* Access to the Pokemon CSV data files (included in project)
 
-### **Installation Steps:**
+### Testing* `git` (for cloning)
 
-1.  **Clone the Repository:**
-    ```bash
+```bash* Access to the Pokemon CSV data files (included in project)
+
+# Validate data integrity
+
+python check_version.py### **Installation Steps:**
+
+
+
+# Run comprehensive audit1.  **Clone the Repository:**
+
+python comprehensive_audit.py    ```bash
+
     git clone https://github.com/caalivanera/pokemon.git
-    cd pokemon/pokedex-dashboard
-    ```
+
+# Test locally    cd pokemon/pokedex-dashboard
+
+streamlit run enhanced_dashboard.py    ```
+
+```
 
 2.  **Create and Activate a Virtual Environment (Recommended):**
-    ```bash
+
+---    ```bash
+
     # For Mac/Linux
-    python3 -m venv venv
+
+## 📝 Documentation    python3 -m venv venv
+
     source venv/bin/activate
-    
-    # For Windows
-    python -m venv venv
+
+- **Complete Guide**: See full documentation in repo    
+
+- **CHANGELOG**: Version history and updates    # For Windows
+
+- **SECURITY**: Security policy and guidelines    python -m venv venv
+
     .\venv\Scripts\activate
-    ```
 
-3.  **Install Dependencies:**
+---    ```
+
+
+
+## 🤝 Contributing3.  **Install Dependencies:**
+
     ```bash
-    pip install -r requirements.txt
-    ```
 
-## 🚀 Usage
+Contributions welcome! Please:    pip install -r requirements.txt
+
+1. Fork the repository    ```
+
+2. Create a feature branch
+
+3. Test changes locally## 🚀 Usage
+
+4. Submit a Pull Request
 
 ### **Running Locally:**
 
+---
+
 1. **Start the Streamlit App:**
-    ```bash
+
+## 📄 License    ```bash
+
     streamlit run src/core/app.py
-    ```
+
+MIT License - See [LICENSE](LICENSE) for details    ```
+
     Your browser will automatically open at `http://localhost:8501`
 
-2. **Explore the Dashboard:**
-    - Use the sidebar filters to select Pokemon by type, stats, or physical attributes
-    - Click on any Pokemon to see detailed information
-    - Export filtered data as CSV for further analysis
-    - Search the glossary for Pokemon terminology
+---
 
-### **Running with Docker:**
+2. **Explore the Dashboard:**
+
+## 🙏 Acknowledgments    - Use the sidebar filters to select Pokemon by type, stats, or physical attributes
+
+    - Click on any Pokemon to see detailed information
+
+- The Pokemon Company - Pokemon data and sprites    - Export filtered data as CSV for further analysis
+
+- Bulbapedia - Comprehensive Pokemon database    - Search the glossary for Pokemon terminology
+
+- Serebii.net - Game data and Pokedex information
+
+- Smogon University - Competitive data### **Running with Docker:**
+
+- Streamlit - Dashboard framework
 
 1. **Build and run using Docker Compose:**
-    ```bash
+
+---    ```bash
+
     cd config/docker
-    docker-compose up -d
+
+<div align="center">    docker-compose up -d
+
     ```
+
+**Made with ❤️ for Pokemon Trainers Worldwide**
 
 2. **Access the dashboard at:** `http://localhost:8501`
 
+*Gotta Catch 'Em All!*
+
 ### **Key Features to Try:**
 
+[Live Demo](https://1pokemon.streamlit.app/) • [Report Bug](https://github.com/caalivanera/pokemon/issues) • [Request Feature](https://github.com/caalivanera/pokemon/issues)
+
 - **Multi-Type Filtering:** Select multiple types to see Pokemon matching any selected type
-- **Stat Filtering:** Use sliders to find Pokemon within specific stat ranges
+
+</div>- **Stat Filtering:** Use sliders to find Pokemon within specific stat ranges
+
 - **Glossary Search:** Look up Pokemon terms and mechanics
 - **Data Export:** Download filtered datasets for your own analysis
 
