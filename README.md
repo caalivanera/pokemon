@@ -1,28 +1,56 @@
-# 🎮 Pokemon National Dex Dashboard v4.0.0# ⚡ Enhanced Interactive Pokédex Dashboard
+# ⚡ Pokemon National Dex Dashboard v5.0.0
 
-
-
-[![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)A modern, interactive web application featuring all 1,076 Pokémon from Generations 1-9 with animated sprites, comprehensive stats, and advanced filtering. This dashboard combines data from multiple authoritative sources with a sleek dark theme featuring green accents.
-
-[![Streamlit](https://img.shields.io/badge/streamlit-1.51.0-red.svg)](https://streamlit.io/)
-
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)The application provides a professional, responsive interface with animated Pokemon sprites, TBA placeholders for missing visuals, and deep analytical capabilities for Pokemon research and exploration.
-
-[![Live Demo](https://img.shields.io/badge/demo-live-green.svg)](https://1pokemon.streamlit.app/)
-
-## 📖 What is a Pokédex?
-
-# 🎮 Pokemon National Dex Dashboard v4.1.0
-
-[![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
-[![Streamlit](https://img.shields.io/badge/streamlit-1.51.0-red.svg)](https://streamlit.io/)
+[![Python 3.13+](https://img.shields.io/badge/python-3.13+-blue.svg)](https://www.python.org/downloads/)
+[![Streamlit](https://img.shields.io/badge/streamlit-1.28+-red.svg)](https://streamlit.io/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Live Demo](https://img.shields.io/badge/demo-live-green.svg)](https://1pokemon.streamlit.app/)
-[![Data: 1,025 Pokemon](https://img.shields.io/badge/pokemon-1,025-red.svg)](https://bulbapedia.bulbagarden.net)
+[![Data: 1,130 Forms](https://img.shields.io/badge/forms-1,130-red.svg)](https://bulbapedia.bulbagarden.net)
+[![Dark Mode](https://img.shields.io/badge/dark%20mode-enabled-purple.svg)]()
+[![Type Calculator](https://img.shields.io/badge/type-calculator-orange.svg)]()
+[![Team Builder](https://img.shields.io/badge/team-builder-green.svg)]()
 
-> **Comprehensive Pokemon Database Dashboard** featuring all 1,025 Pokemon (Generations I-IX) with interactive visualizations, competitive data, game availability tracking, and enhanced user experience.
+> **Comprehensive Pokemon Database Dashboard** featuring all 1,130 Pokemon forms (1,025 base Pokemon + 105 variants) from Generations I-IX with **Dark Mode**, **Type Calculator**, **Team Builder**, **Advanced Search**, interactive visualizations, competitive data, and 2,909 high-quality sprites (including animated Gen 1-5 sprites).
 
 🌐 **Live Application:** [https://1pokemon.streamlit.app/](https://1pokemon.streamlit.app/)
+
+---
+
+## 🎉 What's New in v5.0.0
+
+### 🌙 **Dark Mode**
+Toggle between light and dark themes with persistent settings! Optimized color schemes for Pokemon data visualization with smooth transitions.
+
+### ⚡ **Type Effectiveness Calculator**
+- Complete 18x18 type effectiveness matrix
+- Calculate damage multipliers (0x, 0.25x, 0.5x, 1x, 2x, 4x)
+- Offensive and defensive coverage analysis
+- Interactive type matchup heatmap
+- Real-time dual-type combination analysis
+
+### 👥 **Advanced Team Builder**
+- Build and manage 6-Pokemon competitive teams
+- Team type coverage analysis
+- Defensive weakness tracking
+- Offensive coverage visualization
+- Average team stats with radar chart
+- Export teams to JSON
+- Coverage heatmap showing team synergy
+
+### 🔍 **Advanced Search & Filters**
+- Quick search bar for instant results
+- BST range filtering
+- Individual stat sliders (HP, Attack, Defense, Sp.Attack, Sp.Defense, Speed)
+- Type combination filters
+- Ability search
+- Generation filtering (Gen 1-9)
+- Variant type filtering
+- **5 Predefined Presets**:
+  - Starter Pokemon (all 9 generations)
+  - Pseudo-Legendaries (BST 600)
+  - Fast Attackers (Speed 100+, Attack 100+)
+  - Tanks (HP 100+, Defense 80+, Sp.Defense 80+)
+  - Glass Cannons (Attack 110+, Defense ≤70)
+- Filter result summaries with match rates
 
 ---
 
@@ -54,41 +82,32 @@ This dashboard serves as your **digital Pokédex companion**, providing comprehe
 
 **This project has been reorganized with a use-case-based directory structure!**
 
+## ✨ Features
+
 ### 📊 Core Capabilities
 
-- **Complete Pokemon Database**: All 1,025 Pokemon from Gen I through Gen IXSee **[PROJECT_STRUCTURE.md](PROJECT_STRUCTURE.md)** for the complete directory layout and file organization.
+- **Complete Pokemon Database**: All 1,130 forms (1,025 base + 105 variants) from Gen I-IX
+- **2,909 High-Quality Sprites**: Base, shiny, variant, and animated sprites (Gen 1-5)
+- **Multi-Tab Interface**: 11 specialized tabs for different analyses
+- **Light/Dark Theme**: Toggle-able themes with persistent settings
+- **Interactive Visualizations**: Plotly-powered charts and graphs
+- **Real-Time Search**: Advanced filtering with instant results
+- **Competitive Data**: Complete stat analysis and team building tools
+- **Game Filtering**: Filter Pokemon by 38+ Pokemon games
 
-- **Multi-Tab Interface**: 9 specialized tabs for different analyses
+### 🎯 Dashboard Tabs
 
-- **Dark Theme**: Modern, eye-friendly dark mode design**Quick Navigation:**
-
-- **Interactive Visualizations**: Plotly-powered charts and graphs- Source Code: `src/` (core, data_loaders, database)
-
-- **Real-Time Search**: Case-insensitive search across all Pokemon- Configuration: `config/` (docker, github, vscode)
-
-- **Sprite Support**: Static and animated sprites with fallback support- Documentation: `docs/` (guides, technical)
-
-- **Game Filtering**: Filter Pokemon by 38+ games including Pokemon Legends: Z-A- Tests: `tests/`
-
-- Scripts: `scripts/`
-
-### 🎯 Dashboard Tabs- Data: `data/` and `pokemondbgit/`
-
-
-
-1. **🏠 Home & Stats** - Overall statistics and distribution charts## ✨ Features
-
-2. **🔍 Pokemon Search** - Advanced search with comprehensive filters
-
-3. **📊 Stats Analysis** - Detailed base stats visualization and comparisons### 🎨 **Modern Dark Theme with Green Accents**
-
-4. **⚔️ Competitive Data** - Smogon tier information and strategies* **Professional Design:** Sleek dark theme (#141414) with vibrant green accents (#10B981)
-
-5. **🎲 Randomizer** - Generate random Pokemon for team building* **Smooth Animations:** 0.15s-0.3s transitions for snappy, responsive interactions
-
-6. **🧬 Evolution & Forms** - Evolution chains and alternate forms* **Animated Sprites:** Floating Pokemon sprites with bounce effects on hover
-
-7. **🎮 Pokemon by Game** - Filter by 38+ Pokemon games* **TBA Placeholders:** Stylish "TBA" visual indicators for missing sprites
+1. **📊 Overview** - Overall statistics and distribution charts
+2. **🔍 Pokemon Search** - Advanced search with comprehensive filters (NEW: Advanced Filters!)
+3. **⚔️ Competitive Analysis** - Tier information and strategies
+4. **📈 Statistics & Trends** - Detailed base stats visualization
+5. **🎨 Type Analysis** - Type distribution and effectiveness
+6. **🧬 Evolution & Forms** - Evolution chains and alternate forms
+7. **🎮 By Game** - Filter by Pokemon games
+8. **🎨 Sprite Gallery** - Browse all Pokemon sprites
+9. **⚡ Type Calculator** - NEW! Type effectiveness calculator with heatmap
+10. **👥 Team Builder** - NEW! Build and analyze 6-Pokemon teams
+11. **🏆 Legacy Team Builder** - Classic team builder interface
 
 8. **🎯 Type Effectiveness** - Interactive type matchup chart* **Responsive Layout:** Optimized for desktop and mobile viewing
 
