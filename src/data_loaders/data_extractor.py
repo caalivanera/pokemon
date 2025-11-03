@@ -61,11 +61,12 @@ def load_pokemon_glossary(
 
 def load_enhanced_pokemon_data(
     pokedex_path: str = None,
-    pokedex_other_path: str = None, 
+    pokedex_other_path: str = None,
     poke_corpus_path: str = None
 ) -> pd.DataFrame:
     """
     Loads and combines Pokemon data from multiple CSV sources.
+    Uses absolute paths to locate CSV files in the data/ directory.
     
     Args:
         pokedex_path (str): Path to the main pokedex CSV file.
