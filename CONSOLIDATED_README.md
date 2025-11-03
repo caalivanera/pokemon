@@ -106,7 +106,9 @@ This will:
    - Main file: `pokedex-dashboard/enhanced_dashboard.py`
 5. Click "Deploy!"
 
-**Your app will be live at:** `https://[your-subdomain].streamlit.app`
+**🌐 Live App:** https://1pokemon.streamlit.app/
+
+**✅ Auto-Deploy:** Every push to `main` automatically updates the live app!
 
 📖 **Detailed Guide:** See [STREAMLIT_DEPLOY.md](STREAMLIT_DEPLOY.md)
 

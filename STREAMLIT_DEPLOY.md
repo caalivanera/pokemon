@@ -60,15 +60,17 @@ Click **"Deploy!"** and wait 2-3 minutes for:
 ### Post-Deployment
 
 #### App URL
-Your app will be available at:
+Your app is already deployed and live at:
 ```
-https://[your-subdomain].streamlit.app
+https://1pokemon.streamlit.app/
 ```
 
-#### Automatic Updates
-- Every push to `main` branch triggers automatic redeployment
-- No manual intervention needed
-- Changes live within 1-2 minutes
+#### Automatic Updates (ENABLED ✅)
+- ✅ Connected to GitHub repository `caalivanera/pokemon`
+- ✅ Every push to `main` branch triggers automatic redeployment
+- ✅ No manual intervention needed
+- ✅ Changes live within 1-2 minutes
+- ✅ Current version: 4.0.0
 
 #### Monitor Deployment
 - View logs in Streamlit Cloud dashboard

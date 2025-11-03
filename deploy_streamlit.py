@@ -10,7 +10,7 @@ import time
 def deploy_to_streamlit_cloud():
     """Open Streamlit Cloud deployment page"""
     
-    print("🚀 Deploying Pokemon National Dex Dashboard to Streamlit Cloud")
+    print("🚀 Deploying to Pokemon National Dex Dashboard")
     print("=" * 60)
     print()
     
@@ -20,6 +20,10 @@ def deploy_to_streamlit_cloud():
     branch = "main"
     app_file = "pokedex-dashboard/enhanced_dashboard.py"
     
+    # Your existing Streamlit Cloud app
+    app_url = "https://1pokemon.streamlit.app/"
+    manage_url = "https://share.streamlit.io/deploy"
+    
     print("📦 Repository Configuration:")
     print(f"   Owner: {repo_owner}")
     print(f"   Repo: {repo_name}")
@@ -27,44 +31,41 @@ def deploy_to_streamlit_cloud():
     print(f"   App: {app_file}")
     print()
     
-    # Streamlit Cloud URLs
-    streamlit_cloud_url = "https://share.streamlit.io/"
+    print("🌐 Existing Streamlit Cloud App:")
+    print(f"   Live URL: {app_url}")
+    print(f"   Status: ✅ Active")
+    print()
     
     # Pre-fill deployment URL (if Streamlit supports it)
     github_url = f"https://github.com/{repo_owner}/{repo_name}"
     
-    print("🌐 Opening Streamlit Cloud Dashboard...")
-    print(f"   URL: {streamlit_cloud_url}")
+    print("📋 Automatic Deployment:")
+    print("   ✅ Your app is already deployed!")
+    print("   ✅ Updates auto-deploy on push to main branch")
+    print("   ✅ No manual deployment needed")
     print()
     
-    print("📋 Deployment Steps:")
-    print("   1. Sign in with GitHub")
-    print("   2. Click 'New app'")
-    print("   3. Enter repository details:")
-    print(f"      - Repository: {github_url}")
-    print(f"      - Branch: {branch}")
-    print(f"      - Main file: {app_file}")
-    print("   4. Click 'Deploy!'")
-    print()
-    
-    print("⏱️  Expected deployment time: 2-3 minutes")
+    print("🔄 Latest changes will be live in 1-2 minutes after push")
     print()
     
     # Open browser
-    print("🌐 Opening browser...")
+    print("🌐 Opening your live app...")
     time.sleep(1)
-    webbrowser.open(streamlit_cloud_url)
+    webbrowser.open(app_url)
     
     print()
-    print("✅ Streamlit Cloud dashboard opened!")
+    print("✅ Live app opened in browser!")
+    print()
+    print("📊 To manage your app, visit:")
+    print(f"   {manage_url}")
     print()
     print("📖 For detailed instructions, see: STREAMLIT_DEPLOY.md")
     print()
-    print("🎉 Your app will be available at:")
-    print("   https://[your-subdomain].streamlit.app")
+    print("🎉 Your app is live at:")
+    print(f"   {app_url}")
     print()
     print("=" * 60)
-    print("Happy deploying! 🚀")
+    print("Deployment ready! Changes auto-deploy on git push! 🚀")
 
 if __name__ == "__main__":
     deploy_to_streamlit_cloud()
