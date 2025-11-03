@@ -1,6 +1,6 @@
 """
 Enhanced Pokémon Dashboard - Comprehensive Statistics & Competitive Analysis
-Version 4.0.0 - Enhanced UI/UX with Interactive Features (1,025 Pokémon)
+Version 5.0.0 - Enhanced Features (Dark Mode, Type Calculator, Team Builder, Advanced Search)
 Latest Update: November 2025
 """
 
@@ -13,6 +13,17 @@ from pathlib import Path
 from PIL import Image
 import io
 import base64
+import sys
+
+# Add features directory to path
+features_path = Path(__file__).parent.parent / "features"
+sys.path.insert(0, str(features_path))
+
+# Import feature modules
+from dark_mode import dark_mode_toggle, apply_dark_mode, get_theme_colors
+from type_calculator import display_type_calculator
+from team_builder import display_team_builder
+from advanced_search import create_advanced_filters, quick_search_bar, display_filter_summary
 
 # ==================== CONFIGURATION ====================
 
@@ -488,10 +499,17 @@ def main():
         return
     
     # Display actual data count
-    st.sidebar.info(f"📊 **Loaded {len(df)} Pokémon** | v4.0.0")
+    st.sidebar.info(f"📊 **Loaded {len(df)} Pokémon** | v5.0.0")
     
-    # Sidebar - Global Filters
+    # Sidebar - Dark Mode & Global Filters
     with st.sidebar:
+        # Dark Mode Toggle (NEW in v5.0.0!)
+        st.markdown("### 🌙 Theme")
+        dark_mode = dark_mode_toggle()
+        apply_dark_mode(dark_mode)
+        
+        st.markdown("---")
+        
         st.header("🔍 Filters")
         
         # Cache management
@@ -580,8 +598,8 @@ def main():
         
         st.markdown(f"**{len(filtered_df)}** Pokémon match filters")
     
-    # Main Tabs
-    tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9 = st.tabs([
+    # Main Tabs (v5.0.0 - Added Type Calculator & Enhanced Team Builder)
+    tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9, tab10, tab11 = st.tabs([
         "📊 Overview",
         "🔍 Pokémon Search",
         "⚔️ Competitive Analysis",
@@ -590,7 +608,9 @@ def main():
         "🧬 Evolution & Forms",
         "🎮 By Game",
         "🎨 Sprite Gallery",
-        "🏆 Team Builder"
+        "⚡ Type Calculator",
+        "👥 Team Builder",
+        "🏆 Legacy Team Builder"
     ])
     
     # ==================== TAB 1: OVERVIEW ====================
@@ -867,6 +887,16 @@ def main():
     with tab2:
         st.header("🔍 Pokémon Search & Details")
         
+        # Quick search bar (NEW v5.0.0)
+        search_filtered_df = quick_search_bar(filtered_df)
+        
+        # Advanced filters (NEW v5.0.0)
+        with st.expander("🔧 Advanced Filters & Presets", expanded=False):
+            search_filtered_df = create_advanced_filters(search_filtered_df)
+            display_filter_summary(len(filtered_df), len(search_filtered_df))
+        
+        st.markdown("---")
+        
         # Search options
         search_col1, search_col2 = st.columns([3, 1])
         
@@ -882,8 +912,8 @@ def main():
                 ["Pokédex #", "Name", "Total Stats", "HP", "Attack", "Defense"]
             )
         
-        # Display filtered Pokemon
-        display_df = filtered_df.copy()
+        # Display filtered Pokemon (use advanced filtered data)
+        display_df = search_filtered_df.copy()
         
         if search_query:
             display_df = display_df[
@@ -1596,6 +1626,18 @@ def main():
                 st.plotly_chart(fig, use_container_width=True, key="team_avg_stats")
         else:
             st.info("👆 Select Pokémon above to build your team!")
+    
+    # ==================== TAB 10: TYPE CALCULATOR (NEW v5.0.0) ====================
+    with tab10:
+        st.header("⚡ Type Effectiveness Calculator")
+        st.markdown("Calculate damage multipliers and analyze type matchups")
+        display_type_calculator()
+    
+    # ==================== TAB 11: TEAM BUILDER (NEW v5.0.0) ====================
+    with tab11:
+        st.header("👥 Advanced Team Builder")
+        st.markdown("Build and analyze 6-Pokémon teams with coverage analysis")
+        display_team_builder(filtered_df)
 
 # ==================== RUN APP ====================
 

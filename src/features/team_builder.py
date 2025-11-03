@@ -7,7 +7,7 @@ import streamlit as st
 import pandas as pd
 import plotly.graph_objects as go
 from typing import List, Dict
-from .type_calculator import get_pokemon_weaknesses, get_offensive_coverage
+from type_calculator import get_pokemon_weaknesses, get_offensive_coverage
 
 
 class PokemonTeam:
@@ -165,10 +165,17 @@ def display_team_builder(df: pd.DataFrame):
     
     # Select Pokemon to add
     if not filtered_df.empty:
+        def format_pokemon_display(x):
+            """Format Pokemon display with number, name, and types"""
+            type_display = filtered_df.loc[x, 'type_1']
+            if pd.notna(filtered_df.loc[x, 'type_2']):
+                type_display += '/' + filtered_df.loc[x, 'type_2']
+            return f"#{filtered_df.loc[x, 'pokedex_number']:03d} - {filtered_df.loc[x, 'name']} ({type_display})"
+        
         selected_pokemon = st.selectbox(
             "Select Pokemon",
             options=filtered_df.index,
-            format_func=lambda x: f"#{filtered_df.loc[x, 'pokedex_number']:03d} - {filtered_df.loc[x, 'name']} ({filtered_df.loc[x, 'type_1']}{f'/{filtered_df.loc[x, \"type_2\"]}' if pd.notna(filtered_df.loc[x, 'type_2']) else ''})",
+            format_func=format_pokemon_display,
             label_visibility="collapsed"
         )
         
