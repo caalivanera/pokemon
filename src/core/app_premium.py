@@ -527,17 +527,17 @@ with tab1:
     cols_per_row = 5
     rows = [df_gallery.iloc[i:i+cols_per_row] for i in range(0, len(df_gallery), cols_per_row)]
     
-    for row_idx, row in enumerate(rows):
+    for row in rows:
         cols = st.columns(cols_per_row)
-        for col_idx, (pokemon_idx, pokemon) in enumerate(row.iterrows()):
-            with cols[col_idx]:
+        for idx, (_, pokemon) in enumerate(row.iterrows()):
+            with cols[idx]:
                 sprite_url = pokemon.get('sprite_url_hq', get_pokemon_sprite_url(
                     int(pokemon['pokedex_number']),
                     str(pokemon['name']),
                     high_quality=True
                 ))
                 st.markdown(create_pokemon_card_html(pokemon, sprite_url), unsafe_allow_html=True)
-                if st.button(f"View Details", key=f"btn_gallery_{row_idx}_{col_idx}_{pokemon_idx}", use_container_width=True):
+                if st.button(f"View Details", key=f"btn_{pokemon['pokedex_number']}", use_container_width=True):
                     st.session_state['selected_pokemon'] = pokemon['name']
                     st.rerun()
 
