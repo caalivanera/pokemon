@@ -1,8 +1,8 @@
 # ⚡ Enhanced Interactive Pokédex Dashboard
 
-This is a comprehensive, data-rich interactive web application for exploring the original 151 Pokémon with enhanced information from multiple authoritative sources. The dashboard combines data from comprehensive CSV datasets including competitive analysis, detailed descriptions, and a Pokemon glossary.
+A premium, Netflix-style interactive web application featuring all 1,076 Pokémon from Generations 1-9 with animated sprites, comprehensive stats, and advanced filtering. This dashboard combines data from multiple authoritative sources with a modern dark theme featuring green accents.
 
-The application loads enhanced Pokemon data from multiple local CSV sources and provides deep analytical capabilities for Pokemon research and exploration.
+The application provides a professional, responsive interface with animated Pokemon sprites, TBA placeholders for missing visuals, and deep analytical capabilities for Pokemon research and exploration.
 
 ## 📖 What is a Pokédex?
 
@@ -24,31 +24,42 @@ See **[PROJECT_STRUCTURE.md](PROJECT_STRUCTURE.md)** for the complete directory 
 - Scripts: `scripts/`
 - Data: `data/` and `pokemondbgit/`
 
-## ✨ Enhanced Features
+## ✨ Premium Features
+
+### 🎨 **Modern Dark Theme with Green Accents**
+* **Professional Design:** Netflix-inspired dark theme (#141414) with vibrant green accents (#10B981)
+* **Smooth Animations:** 0.15s-0.3s transitions for snappy, responsive interactions
+* **Animated Sprites:** Floating Pokemon sprites with bounce effects on hover
+* **TBA Placeholders:** Stylish "TBA" visual indicators for missing sprites
+* **Responsive Layout:** Optimized for desktop and mobile viewing
+
+### 🏠 **5-Tab Navigation System**
+* **Gallery Tab:** Grid view displaying all 1,076 Pokemon with animated sprites
+* **Search & Filter Tab:** Advanced multi-select filters for generation, type, and BST
+* **Statistics Tab:** Analytics dashboard with charts, rankings, and insights
+* **Glossary Tab:** 100+ Pokemon terms with searchable definitions
+* **Settings Tab:** Display options, data export, and about information
 
 ### 🔍 **Advanced Filtering System**
-* **Multi-Type Filtering:** Filter Pokémon by one or more types with logical OR operations
-* **Comprehensive Stat Filtering:** Individual sliders for all six base stats plus BST (Base Stat Total)
-* **Physical Attribute Filters:** Filter by height and weight ranges
-* **Real-time Updates:** All filters update the dataset and visualizations in real-time
+* **Generation Filters:** Filter by 9 generations (Kanto through Paldea)
+* **Type Filters:** 18 Pokemon types with color-coded badges
+* **BST Range Slider:** Filter by Base Stat Total (0-1000)
+* **Text Search:** Quick search across all Pokemon names
+* **Real-time Updates:** Instant filter application with session state
 
-### 📊 **Enhanced Pokemon Details**
-* **Multi-Source Information:** Combines data from 4+ different Pokemon datasets
-* **Comprehensive Stats Analysis:** Base stats with percentile rankings among all Pokemon
-* **Detailed Abilities:** Full ability descriptions and effects
-* **Breeding Information:** Egg groups, gender ratios, and breeding mechanics
-* **Multiple Description Sources:** Game descriptions, competitive analysis, and detailed lore
+### � **Comprehensive Pokemon Details**
+* **Complete Stats:** All 6 base stats (HP, Attack, Defense, Sp. Attack, Sp. Defense, Speed)
+* **High-Quality Sprites:** 475x475px official artwork from PokeAPI
+* **Type Effectiveness:** Visual type badges with proper color coding
+* **Detailed Information:** Abilities, breeding info, descriptions, and percentiles
+* **Multiple Data Sources:** Integration of 4+ Pokemon datasets
 
-### 📚 **Interactive Pokemon Glossary**
-* **Searchable Terms:** 100+ Pokemon terms with detailed definitions
-* **Contextual Help:** Integrated glossary accessible from the sidebar
-* **Educational Value:** Perfect for learning Pokemon mechanics and terminology
-
-### 📈 **Advanced Analytics**
-* **Statistical Insights:** Dataset overview with key metrics
-* **Percentile Rankings:** See how each Pokemon compares statistically
-* **Export Functionality:** Download filtered datasets as CSV files
-* **Enhanced Visualizations:** Professional charts and data displays
+### 🎬 **Animation Features**
+* **Floating Sprites:** Continuous 3s float animation on all Pokemon sprites
+* **Hover Bounce:** Dynamic bounce effect when hovering over cards
+* **Smooth Transitions:** Optimized timing (0.15s-0.3s) for seamless UX
+* **Card Effects:** Scale, shadow, and border animations on interaction
+* **Sticky Header:** Animated slideDown header with backdrop blur
 
 ## �️ **Data Sources**
 

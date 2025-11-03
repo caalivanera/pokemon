@@ -94,11 +94,12 @@ def inject_premium_css():
     """Inject Netflix/Nintendo-quality dark theme CSS"""
     st.markdown("""
     <style>
-        /* Netflix Dark Theme */
+        /* Dark Theme with Green Accent */
         :root {
             --netflix-black: #141414;
             --netflix-dark: #1F1F1F;
-            --netflix-red: #E50914;
+            --netflix-red: #10B981;
+            --pokemon-green: #10B981;
             --netflix-white: #FFFFFF;
             --text-primary: #E5E5E5;
             --text-secondary: #B3B3B3;
@@ -139,6 +140,28 @@ def inject_premium_css():
             }
         }
         
+        /* Floating animation for sprites */
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+        
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0) scale(1);
+            }
+            25% {
+                transform: translateY(-10px) scale(1.02);
+            }
+            75% {
+                transform: translateY(-5px) scale(0.98);
+            }
+        }
+        
         /* Pokemon card styling - Netflix style */
         .pokemon-card {
             background: var(--netflix-dark);
@@ -153,8 +176,8 @@ def inject_premium_css():
         
         .pokemon-card:hover {
             transform: scale(1.05) translateY(-5px);
-            border-color: var(--netflix-red);
-            box-shadow: 0 10px 30px rgba(229, 9, 20, 0.3);
+            border-color: var(--pokemon-green);
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
             z-index: 10;
         }
         
@@ -165,7 +188,7 @@ def inject_premium_css():
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(229, 9, 20, 0.1), transparent);
+            background: linear-gradient(90deg, transparent, rgba(16, 185, 129, 0.1), transparent);
             transition: left 0.4s;
         }
         
@@ -180,10 +203,29 @@ def inject_premium_css():
             object-fit: contain;
             filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.5));
             transition: transform 0.2s ease;
+            animation: float 3s ease-in-out infinite;
         }
         
         .pokemon-card:hover .pokemon-sprite {
+            animation: bounce 0.6s ease-in-out;
             transform: scale(1.1) rotateY(15deg);
+        }
+        
+        /* TBA placeholder styling */
+        .tba-placeholder {
+            width: 100%;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #1F1F1F 0%, #2F2F2F 100%);
+            border-radius: 12px;
+            border: 2px dashed var(--pokemon-green);
+            color: var(--pokemon-green);
+            font-size: 48px;
+            font-weight: bold;
+            letter-spacing: 8px;
+            text-shadow: 0 0 20px rgba(16, 185, 129, 0.5);
         }
         
         /* Type badges */
@@ -241,9 +283,9 @@ def inject_premium_css():
         }
         
         .stButton>button:hover {
-            background: #F40612;
+            background: #059669;
             transform: scale(1.05);
-            box-shadow: 0 8px 16px rgba(229, 9, 20, 0.4);
+            box-shadow: 0 8px 16px rgba(16, 185, 129, 0.4);
         }
         
         /* Select boxes and inputs */
@@ -318,9 +360,9 @@ def inject_premium_css():
         }
         
         .search-container input:focus {
-            border-color: var(--netflix-red);
+            border-color: var(--pokemon-green);
             outline: none;
-            box-shadow: 0 0 20px rgba(229, 9, 20, 0.3);
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
         }
         
         /* Scrollbar */
@@ -333,12 +375,12 @@ def inject_premium_css():
         }
         
         ::-webkit-scrollbar-thumb {
-            background: var(--netflix-red);
+            background: var(--pokemon-green);
             border-radius: 6px;
         }
         
         ::-webkit-scrollbar-thumb:hover {
-            background: #F40612;
+            background: #059669;
         }
         
         /* Responsive */
@@ -366,14 +408,23 @@ def create_type_badge(type_name: str) -> str:
 
 
 def create_pokemon_card_html(pokemon_data: pd.Series, sprite_url: str) -> str:
-    """Create Netflix-style Pokemon card HTML"""
+    """Create Netflix-style Pokemon card HTML with TBA placeholder for missing sprites"""
     type_badges = create_type_badge(pokemon_data['primary_type'])
     if pd.notna(pokemon_data.get('secondary_type')) and str(pokemon_data.get('secondary_type')) != 'nan':
         type_badges += ' ' + create_type_badge(pokemon_data['secondary_type'])
     
+    # Check if sprite URL is valid or use TBA placeholder
+    sprite_html = f"""
+        <img src="{sprite_url}" 
+             class="pokemon-sprite" 
+             alt="{pokemon_data['name']}"
+             onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="tba-placeholder" style="display: none;">TBA</div>
+    """
+    
     return f"""
     <div class="pokemon-card">
-        <img src="{sprite_url}" class="pokemon-sprite" alt="{pokemon_data['name']}">
+        {sprite_html}
         <h3 style="text-align: center; margin: 10px 0; color: var(--text-primary);">
             #{int(pokemon_data['pokedex_number'])} {pokemon_data['name']}
         </h3>
