@@ -347,3 +347,1304 @@
 2025-11-03 21:11:52,526 - INFO - [416/1025] Downloading: Cradily (346)
 2025-11-03 21:11:53,713 - INFO - [417/1025] Downloading: Anorith (347)
 2025-11-03 21:11:54,938 - INFO - [418/1025] Downloading: Armaldo (348)
+2025-11-03 21:11:56,155 - INFO - [419/1025] Downloading: Feebas (349)
+2025-11-03 21:11:57,850 - INFO - [420/1025] Downloading: Milotic (350)
+2025-11-03 21:11:59,163 - INFO - [421/1025] Downloading: Castform Snowy Form (351)
+2025-11-03 21:12:00,422 - INFO - [422/1025] Downloading: Kecleon (352)
+2025-11-03 21:12:02,277 - INFO - [423/1025] Downloading: Shuppet (353)
+2025-11-03 21:12:03,473 - INFO - [424/1025] Downloading: Mega Banette (354)
+2025-11-03 21:12:04,727 - INFO - [426/1025] Downloading: Duskull (355)
+2025-11-03 21:12:06,073 - INFO - [427/1025] Downloading: Dusclops (356)
+2025-11-03 21:12:07,684 - INFO - [428/1025] Downloading: Tropius (357)
+2025-11-03 21:12:08,944 - INFO - [429/1025] Downloading: Chimecho (358)
+2025-11-03 21:12:10,161 - INFO - [430/1025] Downloading: Mega Absol (359)
+2025-11-03 21:12:11,914 - INFO - [432/1025] Downloading: Wynaut (360)
+2025-11-03 21:12:13,160 - INFO - [433/1025] Downloading: Snorunt (361)
+2025-11-03 21:12:14,954 - INFO - [434/1025] Downloading: Mega Glalie (362)
+2025-11-03 21:12:16,510 - INFO - [436/1025] Downloading: Spheal (363)
+2025-11-03 21:12:17,714 - INFO - [437/1025] Downloading: Sealeo (364)
+2025-11-03 21:12:19,458 - INFO - [438/1025] Downloading: Walrein (365)
+2025-11-03 21:12:20,683 - INFO - [439/1025] Downloading: Clamperl (366)
+2025-11-03 21:12:22,533 - INFO - [440/1025] Downloading: Huntail (367)
+2025-11-03 21:12:24,023 - INFO - [441/1025] Downloading: Gorebyss (368)
+2025-11-03 21:12:25,408 - INFO - [442/1025] Downloading: Relicanth (369)
+2025-11-03 21:12:27,014 - INFO - [443/1025] Downloading: Luvdisc (370)
+2025-11-03 21:12:28,247 - INFO - [444/1025] Downloading: Bagon (371)
+2025-11-03 21:12:29,546 - INFO - [445/1025] Downloading: Shelgon (372)
+2025-11-03 21:12:30,848 - INFO - [446/1025] Downloading: Mega Salamence (373)
+2025-11-03 21:12:32,129 - INFO - [448/1025] Downloading: Beldum (374)
+2025-11-03 21:12:33,396 - INFO - [449/1025] Downloading: Metang (375)
+2025-11-03 21:12:35,281 - INFO - [450/1025] Downloading: Mega Metagross (376)
+2025-11-03 21:12:36,580 - INFO - [452/1025] Downloading: Regirock (377)
+2025-11-03 21:12:37,823 - INFO - [453/1025] Downloading: Regice (378)
+2025-11-03 21:12:39,077 - INFO - [454/1025] Downloading: Registeel (379)
+2025-11-03 21:12:40,373 - INFO - [455/1025] Downloading: Mega Latias (380)
+2025-11-03 21:12:41,635 - INFO - [457/1025] Downloading: Mega Latios (381)
+2025-11-03 21:12:42,789 - INFO - [459/1025] Downloading: Primal Kyogre (382)
+2025-11-03 21:12:44,010 - INFO - [460/1025] Downloading: Primal Groudon (383)
+2025-11-03 21:12:45,573 - INFO - [461/1025] Downloading: Mega Rayquaza (384)
+2025-11-03 21:12:47,416 - INFO - [463/1025] Downloading: Jirachi (385)
+2025-11-03 21:12:49,049 - INFO - [464/1025] Downloading: Deoxys Speed Forme (386)
+2025-11-03 21:12:50,587 - INFO - [465/1025] Downloading: Turtwig (387)
+2025-11-03 21:12:52,159 - INFO - [466/1025] Downloading: Grotle (388)
+2025-11-03 21:12:53,755 - INFO - [467/1025] Downloading: Torterra (389)
+2025-11-03 21:12:54,990 - INFO - [468/1025] Downloading: Chimchar (390)
+2025-11-03 21:12:56,215 - INFO - [469/1025] Downloading: Monferno (391)
+2025-11-03 21:12:57,444 - INFO - [470/1025] Downloading: Infernape (392)
+2025-11-03 21:12:58,691 - INFO - [471/1025] Downloading: Piplup (393)
+2025-11-03 21:13:00,144 - INFO - [472/1025] Downloading: Prinplup (394)
+2025-11-03 21:13:01,398 - INFO - [473/1025] Downloading: Empoleon (395)
+2025-11-03 21:13:02,733 - INFO - [474/1025] Downloading: Starly (396)
+2025-11-03 21:13:04,300 - INFO - [475/1025] Downloading: Staravia (397)
+2025-11-03 21:13:05,550 - INFO - [476/1025] Downloading: Staraptor (398)
+2025-11-03 21:13:06,763 - INFO - [477/1025] Downloading: Bidoof (399)
+2025-11-03 21:13:07,967 - INFO - [478/1025] Downloading: Bibarel (400)
+2025-11-03 21:13:09,203 - INFO - [479/1025] Downloading: Kricketot (401)
+2025-11-03 21:13:10,452 - INFO - [480/1025] Downloading: Kricketune (402)
+2025-11-03 21:13:11,704 - INFO - [481/1025] Downloading: Shinx (403)
+2025-11-03 21:13:12,961 - INFO - [482/1025] Downloading: Luxio (404)
+2025-11-03 21:13:14,206 - INFO - [483/1025] Downloading: Luxray (405)
+2025-11-03 21:13:15,440 - INFO - [484/1025] Downloading: Budew (406)
+2025-11-03 21:13:16,689 - INFO - [485/1025] Downloading: Roserade (407)
+2025-11-03 21:13:17,991 - INFO - [486/1025] Downloading: Cranidos (408)
+2025-11-03 21:13:19,280 - INFO - [487/1025] Downloading: Rampardos (409)
+2025-11-03 21:13:20,523 - INFO - [488/1025] Downloading: Shieldon (410)
+2025-11-03 21:13:21,818 - INFO - [489/1025] Downloading: Bastiodon (411)
+2025-11-03 21:13:23,675 - INFO - [490/1025] Downloading: Burmy (412)
+2025-11-03 21:13:24,954 - INFO - [491/1025] Downloading: Wormadam Trash Cloak (413)
+2025-11-03 21:13:26,138 - INFO - [492/1025] Downloading: Mothim (414)
+2025-11-03 21:13:27,353 - INFO - [493/1025] Downloading: Combee (415)
+2025-11-03 21:13:28,654 - INFO - [494/1025] Downloading: Vespiquen (416)
+2025-11-03 21:13:29,898 - INFO - [495/1025] Downloading: Pachirisu (417)
+2025-11-03 21:13:31,175 - INFO - [496/1025] Downloading: Buizel (418)
+2025-11-03 21:13:32,392 - INFO - [497/1025] Downloading: Floatzel (419)
+2025-11-03 21:13:33,987 - INFO - [498/1025] Downloading: Cherubi (420)
+2025-11-03 21:13:35,737 - INFO - [499/1025] Downloading: Cherrim (421)
+2025-11-03 21:13:37,144 - INFO - [500/1025] Downloading: Shellos (422)
+2025-11-03 21:13:38,369 - INFO - [501/1025] Downloading: Gastrodon (423)
+2025-11-03 21:13:39,562 - INFO - [502/1025] Downloading: Ambipom (424)
+2025-11-03 21:13:41,357 - INFO - [503/1025] Downloading: Drifloon (425)
+2025-11-03 21:13:42,532 - INFO - [504/1025] Downloading: Drifblim (426)
+2025-11-03 21:13:44,099 - INFO - [505/1025] Downloading: Buneary (427)
+2025-11-03 21:13:45,310 - INFO - [506/1025] Downloading: Mega Lopunny (428)
+2025-11-03 21:13:46,641 - INFO - [508/1025] Downloading: Mismagius (429)
+2025-11-03 21:13:47,885 - INFO - [509/1025] Downloading: Honchkrow (430)
+2025-11-03 21:13:49,110 - INFO - [510/1025] Downloading: Glameow (431)
+2025-11-03 21:13:50,313 - INFO - [511/1025] Downloading: Purugly (432)
+2025-11-03 21:13:51,567 - INFO - [512/1025] Downloading: Chingling (433)
+2025-11-03 21:13:52,776 - INFO - [513/1025] Downloading: Stunky (434)
+2025-11-03 21:13:54,432 - INFO - [514/1025] Downloading: Skuntank (435)
+2025-11-03 21:13:55,679 - INFO - [515/1025] Downloading: Bronzor (436)
+2025-11-03 21:13:56,916 - INFO - [516/1025] Downloading: Bronzong (437)
+2025-11-03 21:13:58,117 - INFO - [517/1025] Downloading: Bonsly (438)
+2025-11-03 21:13:59,406 - INFO - [518/1025] Downloading: Mime Jr. (439)
+2025-11-03 21:14:00,657 - INFO - [519/1025] Downloading: Happiny (440)
+2025-11-03 21:14:01,906 - INFO - [520/1025] Downloading: Chatot (441)
+2025-11-03 21:14:03,329 - INFO - [521/1025] Downloading: Spiritomb (442)
+2025-11-03 21:14:04,885 - INFO - [522/1025] Downloading: Gible (443)
+2025-11-03 21:14:06,114 - INFO - [523/1025] Downloading: Gabite (444)
+2025-11-03 21:14:07,360 - INFO - [524/1025] Downloading: Mega Garchomp (445)
+2025-11-03 21:14:08,639 - INFO - [526/1025] Downloading: Munchlax (446)
+2025-11-03 21:14:09,876 - INFO - [527/1025] Downloading: Riolu (447)
+2025-11-03 21:14:11,518 - INFO - [528/1025] Downloading: Mega Lucario (448)
+2025-11-03 21:14:12,752 - INFO - [530/1025] Downloading: Hippopotas (449)
+2025-11-03 21:14:13,960 - INFO - [531/1025] Downloading: Hippowdon (450)
+2025-11-03 21:14:15,193 - INFO - [532/1025] Downloading: Skorupi (451)
+2025-11-03 21:14:16,321 - INFO - [533/1025] Downloading: Drapion (452)
+2025-11-03 21:14:17,582 - INFO - [534/1025] Downloading: Croagunk (453)
+2025-11-03 21:14:19,028 - INFO - [535/1025] Downloading: Toxicroak (454)
+2025-11-03 21:14:20,778 - INFO - [536/1025] Downloading: Carnivine (455)
+2025-11-03 21:14:21,976 - INFO - [537/1025] Downloading: Finneon (456)
+2025-11-03 21:14:23,228 - INFO - [538/1025] Downloading: Lumineon (457)
+2025-11-03 21:14:24,525 - INFO - [539/1025] Downloading: Mantyke (458)
+2025-11-03 21:14:25,768 - INFO - [540/1025] Downloading: Snover (459)
+2025-11-03 21:14:26,967 - INFO - [541/1025] Downloading: Mega Abomasnow (460)
+2025-11-03 21:14:28,252 - INFO - [543/1025] Downloading: Weavile (461)
+2025-11-03 21:14:29,594 - INFO - [544/1025] Downloading: Magnezone (462)
+2025-11-03 21:14:30,827 - INFO - [545/1025] Downloading: Lickilicky (463)
+2025-11-03 21:14:32,393 - INFO - [546/1025] Downloading: Rhyperior (464)
+2025-11-03 21:14:33,707 - INFO - [547/1025] Downloading: Tangrowth (465)
+2025-11-03 21:14:35,019 - INFO - [548/1025] Downloading: Electivire (466)
+2025-11-03 21:14:36,611 - INFO - [549/1025] Downloading: Magmortar (467)
+2025-11-03 21:14:37,860 - INFO - [550/1025] Downloading: Togekiss (468)
+2025-11-03 21:14:39,097 - INFO - [551/1025] Downloading: Yanmega (469)
+2025-11-03 21:14:40,336 - INFO - [552/1025] Downloading: Leafeon (470)
+2025-11-03 21:14:41,620 - INFO - [553/1025] Downloading: Glaceon (471)
+2025-11-03 21:14:42,969 - INFO - [554/1025] Downloading: Gliscor (472)
+2025-11-03 21:14:44,339 - INFO - [555/1025] Downloading: Mamoswine (473)
+2025-11-03 21:14:45,573 - INFO - [556/1025] Downloading: Porygon-Z (474)
+2025-11-03 21:14:46,856 - INFO - [557/1025] Downloading: Mega Gallade (475)
+2025-11-03 21:14:48,423 - INFO - [559/1025] Downloading: Probopass (476)
+2025-11-03 21:14:49,663 - INFO - [560/1025] Downloading: Dusknoir (477)
+2025-11-03 21:14:50,902 - INFO - [561/1025] Downloading: Froslass (478)
+2025-11-03 21:14:52,509 - INFO - [562/1025] Downloading: Mow Rotom (479)
+2025-11-03 21:14:53,695 - INFO - [563/1025] Downloading: Uxie (480)
+2025-11-03 21:14:55,518 - INFO - [564/1025] Downloading: Mesprit (481)
+2025-11-03 21:14:56,792 - INFO - [565/1025] Downloading: Azelf (482)
+2025-11-03 21:14:58,047 - INFO - [566/1025] Downloading: Dialga (483)
+2025-11-03 21:14:59,380 - INFO - [567/1025] Downloading: Palkia (484)
+2025-11-03 21:15:00,943 - INFO - [568/1025] Downloading: Heatran (485)
+2025-11-03 21:15:02,700 - INFO - [569/1025] Downloading: Regigigas (486)
+2025-11-03 21:15:03,963 - INFO - [570/1025] Downloading: Giratina Origin Forme (487)
+2025-11-03 21:15:05,617 - INFO - [571/1025] Downloading: Cresselia (488)
+2025-11-03 21:15:06,903 - INFO - [572/1025] Downloading: Phione (489)
+2025-11-03 21:15:08,347 - INFO - [573/1025] Downloading: Manaphy (490)
+2025-11-03 21:15:09,548 - INFO - [574/1025] Downloading: Darkrai (491)
+2025-11-03 21:15:10,769 - INFO - [575/1025] Downloading: Shaymin Sky Forme (492)
+2025-11-03 21:15:12,078 - INFO - [576/1025] Downloading: Arceus (493)
+2025-11-03 21:15:13,311 - INFO - [577/1025] Downloading: Victini (494)
+2025-11-03 21:15:14,541 - INFO - [578/1025] Downloading: Snivy (495)
+2025-11-03 21:15:15,755 - INFO - [579/1025] Downloading: Servine (496)
+2025-11-03 21:15:17,072 - INFO - [580/1025] Downloading: Serperior (497)
+2025-11-03 21:15:18,634 - INFO - [581/1025] Downloading: Tepig (498)
+2025-11-03 21:15:19,916 - INFO - [582/1025] Downloading: Pignite (499)
+2025-11-03 21:15:21,146 - INFO - [583/1025] Downloading: Emboar (500)
+2025-11-03 21:15:22,405 - INFO - [584/1025] Downloading: Oshawott (501)
+2025-11-03 21:15:24,031 - INFO - [585/1025] Downloading: Dewott (502)
+2025-11-03 21:15:25,334 - INFO - [586/1025] Downloading: Hisuian Samurott (503)
+2025-11-03 21:15:26,570 - INFO - [587/1025] Downloading: Patrat (504)
+2025-11-03 21:15:27,879 - INFO - [588/1025] Downloading: Watchog (505)
+2025-11-03 21:15:29,376 - INFO - [589/1025] Downloading: Lillipup (506)
+2025-11-03 21:15:30,603 - INFO - [590/1025] Downloading: Herdier (507)
+2025-11-03 21:15:32,388 - INFO - [591/1025] Downloading: Stoutland (508)
+2025-11-03 21:15:33,850 - INFO - [592/1025] Downloading: Purrloin (509)
+2025-11-03 21:15:35,258 - INFO - [593/1025] Downloading: Liepard (510)
+2025-11-03 21:15:36,512 - INFO - [594/1025] Downloading: Pansage (511)
+2025-11-03 21:15:37,866 - INFO - [595/1025] Downloading: Simisage (512)
+2025-11-03 21:15:39,630 - INFO - [596/1025] Downloading: Pansear (513)
+2025-11-03 21:15:41,649 - INFO - [597/1025] Downloading: Simisear (514)
+2025-11-03 21:15:43,502 - INFO - [598/1025] Downloading: Panpour (515)
+2025-11-03 21:15:44,734 - INFO - [599/1025] Downloading: Simipour (516)
+2025-11-03 21:15:45,939 - INFO - [600/1025] Downloading: Munna (517)
+2025-11-03 21:15:47,196 - INFO - [601/1025] Downloading: Musharna (518)
+2025-11-03 21:15:48,966 - INFO - [602/1025] Downloading: Pidove (519)
+2025-11-03 21:15:51,065 - INFO - [603/1025] Downloading: Tranquill (520)
+2025-11-03 21:15:52,248 - INFO - [604/1025] Downloading: Unfezant (521)
+2025-11-03 21:15:53,469 - INFO - [605/1025] Downloading: Blitzle (522)
+2025-11-03 21:15:55,123 - INFO - [606/1025] Downloading: Zebstrika (523)
+2025-11-03 21:15:56,378 - INFO - [607/1025] Downloading: Roggenrola (524)
+2025-11-03 21:15:57,581 - INFO - [608/1025] Downloading: Boldore (525)
+2025-11-03 21:15:59,507 - INFO - [609/1025] Downloading: Gigalith (526)
+2025-11-03 21:16:00,774 - INFO - [610/1025] Downloading: Woobat (527)
+2025-11-03 21:16:02,214 - INFO - [611/1025] Downloading: Swoobat (528)
+2025-11-03 21:16:03,514 - INFO - [612/1025] Downloading: Drilbur (529)
+2025-11-03 21:16:05,377 - INFO - [613/1025] Downloading: Excadrill (530)
+2025-11-03 21:16:06,348 - INFO - [614/1025] Downloading: Mega Audino (531)
+2025-11-03 21:16:07,589 - INFO - [616/1025] Downloading: Timburr (532)
+2025-11-03 21:16:09,083 - INFO - [617/1025] Downloading: Gurdurr (533)
+2025-11-03 21:16:10,329 - INFO - [618/1025] Downloading: Conkeldurr (534)
+2025-11-03 21:16:11,563 - INFO - [619/1025] Downloading: Tympole (535)
+2025-11-03 21:16:12,761 - INFO - [620/1025] Downloading: Palpitoad (536)
+2025-11-03 21:16:14,044 - INFO - [621/1025] Downloading: Seismitoad (537)
+2025-11-03 21:16:15,710 - INFO - [622/1025] Downloading: Throh (538)
+2025-11-03 21:16:16,978 - INFO - [623/1025] Downloading: Sawk (539)
+2025-11-03 21:16:18,860 - INFO - [624/1025] Downloading: Sewaddle (540)
+2025-11-03 21:16:20,123 - INFO - [625/1025] Downloading: Swadloon (541)
+2025-11-03 21:16:21,368 - INFO - [626/1025] Downloading: Leavanny (542)
+2025-11-03 21:16:22,646 - INFO - [627/1025] Downloading: Venipede (543)
+2025-11-03 21:16:23,881 - INFO - [628/1025] Downloading: Whirlipede (544)
+2025-11-03 21:16:25,111 - INFO - [629/1025] Downloading: Scolipede (545)
+2025-11-03 21:16:26,343 - INFO - [630/1025] Downloading: Cottonee (546)
+2025-11-03 21:16:27,536 - INFO - [631/1025] Downloading: Whimsicott (547)
+2025-11-03 21:16:28,781 - INFO - [632/1025] Downloading: Petilil (548)
+2025-11-03 21:16:30,265 - INFO - [633/1025] Downloading: Hisuian Lilligant (549)
+2025-11-03 21:16:31,532 - INFO - [634/1025] Downloading: Hisuian Basculin (550)
+2025-11-03 21:16:32,944 - INFO - [635/1025] Downloading: Sandile (551)
+2025-11-03 21:16:34,129 - INFO - [636/1025] Downloading: Krokorok (552)
+2025-11-03 21:16:35,323 - INFO - [637/1025] Downloading: Krookodile (553)
+2025-11-03 21:16:36,608 - INFO - [638/1025] Downloading: Hisuian Zorua (554)
+2025-11-03 21:16:37,861 - INFO - [639/1025] Downloading: Hisuian Zoroark (555)
+2025-11-03 21:16:39,125 - INFO - [640/1025] Downloading: Maractus (556)
+2025-11-03 21:16:40,332 - INFO - [641/1025] Downloading: Dwebble (557)
+2025-11-03 21:16:41,561 - INFO - [642/1025] Downloading: Crustle (558)
+2025-11-03 21:16:43,518 - INFO - [643/1025] Downloading: Scraggy (559)
+2025-11-03 21:16:44,758 - INFO - [644/1025] Downloading: Scrafty (560)
+2025-11-03 21:16:46,067 - INFO - [645/1025] Downloading: Sigilyph (561)
+2025-11-03 21:16:47,289 - INFO - [646/1025] Downloading: Galarian Yamask (562)
+2025-11-03 21:16:48,971 - INFO - [647/1025] Downloading: Cofagrigus (563)
+2025-11-03 21:16:50,163 - INFO - [648/1025] Downloading: Tirtouga (564)
+2025-11-03 21:16:51,907 - INFO - [649/1025] Downloading: Carracosta (565)
+2025-11-03 21:16:53,165 - INFO - [650/1025] Downloading: Archen (566)
+2025-11-03 21:16:55,198 - INFO - [651/1025] Downloading: Archeops (567)
+2025-11-03 21:16:56,492 - INFO - [652/1025] Downloading: Trubbish (568)
+2025-11-03 21:16:57,749 - INFO - [653/1025] Downloading: Garbodor (569)
+2025-11-03 21:16:58,987 - INFO - [655/1025] Downloading: Hisuian Braviary (570)
+2025-11-03 21:17:00,169 - INFO - [656/1025] Downloading: Hisuian Sliggoo (571)
+2025-11-03 21:17:01,963 - INFO - [657/1025] Downloading: Minccino (572)
+2025-11-03 21:17:03,350 - INFO - [658/1025] Downloading: Cinccino (573)
+2025-11-03 21:17:04,578 - INFO - [659/1025] Downloading: Gothita (574)
+2025-11-03 21:17:06,514 - INFO - [660/1025] Downloading: Gothorita (575)
+2025-11-03 21:17:07,751 - INFO - [661/1025] Downloading: Gothitelle (576)
+2025-11-03 21:17:08,983 - INFO - [662/1025] Downloading: Solosis (577)
+2025-11-03 21:17:10,270 - INFO - [663/1025] Downloading: Duosion (578)
+2025-11-03 21:17:11,484 - INFO - [664/1025] Downloading: Reuniclus (579)
+2025-11-03 21:17:13,041 - INFO - [665/1025] Downloading: Ducklett (580)
+2025-11-03 21:17:14,950 - INFO - [666/1025] Downloading: Swanna (581)
+2025-11-03 21:17:16,550 - INFO - [667/1025] Downloading: Vanillite (582)
+2025-11-03 21:17:17,740 - INFO - [668/1025] Downloading: Vanillish (583)
+2025-11-03 21:17:19,054 - INFO - [669/1025] Downloading: Vanilluxe (584)
+2025-11-03 21:17:20,823 - INFO - [670/1025] Downloading: Deerling (585)
+2025-11-03 21:17:22,062 - INFO - [671/1025] Downloading: Sawsbuck (586)
+2025-11-03 21:17:23,359 - INFO - [672/1025] Downloading: Emolga (587)
+2025-11-03 21:17:24,601 - INFO - [673/1025] Downloading: Karrablast (588)
+2025-11-03 21:17:26,116 - INFO - [674/1025] Downloading: Escavalier (589)
+2025-11-03 21:17:27,865 - INFO - [675/1025] Downloading: Foongus (590)
+2025-11-03 21:17:29,140 - INFO - [676/1025] Downloading: Amoonguss (591)
+2025-11-03 21:17:31,003 - INFO - [677/1025] Downloading: Frillish (592)
+2025-11-03 21:17:32,713 - INFO - [678/1025] Downloading: Jellicent (593)
+2025-11-03 21:17:34,305 - INFO - [679/1025] Downloading: Alomomola (594)
+2025-11-03 21:17:36,268 - INFO - [680/1025] Downloading: Joltik (595)
+2025-11-03 21:17:37,565 - INFO - [681/1025] Downloading: Galvantula (596)
+2025-11-03 21:17:39,341 - INFO - [682/1025] Downloading: Ferroseed (597)
+2025-11-03 21:17:41,357 - INFO - [683/1025] Downloading: Ferrothorn (598)
+2025-11-03 21:17:42,603 - INFO - [684/1025] Downloading: Klink (599)
+2025-11-03 21:17:43,844 - INFO - [685/1025] Downloading: Klang (600)
+2025-11-03 21:17:46,057 - INFO - [686/1025] Downloading: Klinklang (601)
+2025-11-03 21:17:47,351 - INFO - [687/1025] Downloading: Tynamo (602)
+2025-11-03 21:17:48,817 - INFO - [688/1025] Downloading: Eelektrik (603)
+2025-11-03 21:17:50,083 - INFO - [689/1025] Downloading: Eelektross (604)
+2025-11-03 21:17:51,628 - INFO - [690/1025] Downloading: Elgyem (605)
+2025-11-03 21:17:53,200 - INFO - [691/1025] Downloading: Beheeyem (606)
+2025-11-03 21:17:54,374 - INFO - [692/1025] Downloading: Litwick (607)
+2025-11-03 21:17:55,632 - INFO - [693/1025] Downloading: Lampent (608)
+2025-11-03 21:17:57,322 - INFO - [694/1025] Downloading: Chandelure (609)
+2025-11-03 21:17:58,574 - INFO - [695/1025] Downloading: Axew (610)
+2025-11-03 21:17:59,797 - INFO - [696/1025] Downloading: Fraxure (611)
+2025-11-03 21:18:01,493 - INFO - [697/1025] Downloading: Haxorus (612)
+2025-11-03 21:18:02,878 - INFO - [698/1025] Downloading: Cubchoo (613)
+2025-11-03 21:18:04,565 - INFO - [699/1025] Downloading: Beartic (614)
+2025-11-03 21:18:05,860 - INFO - [700/1025] Downloading: Cryogonal (615)
+2025-11-03 21:18:07,054 - INFO - [701/1025] Downloading: Shelmet (616)
+2025-11-03 21:18:08,269 - INFO - [702/1025] Downloading: Accelgor (617)
+2025-11-03 21:18:09,540 - INFO - [703/1025] Downloading: Galarian Stunfisk (618)
+2025-11-03 21:18:10,971 - INFO - [704/1025] Downloading: Mienfoo (619)
+2025-11-03 21:18:12,248 - INFO - [705/1025] Downloading: Mienshao (620)
+2025-11-03 21:18:13,490 - INFO - [706/1025] Downloading: Druddigon (621)
+2025-11-03 21:18:14,685 - INFO - [707/1025] Downloading: Golett (622)
+2025-11-03 21:18:16,286 - INFO - [708/1025] Downloading: Golurk (623)
+2025-11-03 21:18:18,069 - INFO - [709/1025] Downloading: Pawniard (624)
+2025-11-03 21:18:19,287 - INFO - [710/1025] Downloading: Bisharp (625)
+2025-11-03 21:18:20,580 - INFO - [711/1025] Downloading: Bouffalant (626)
+2025-11-03 21:18:21,774 - INFO - [712/1025] Downloading: Rufflet (627)
+2025-11-03 21:18:22,999 - INFO - [713/1025] Downloading: Braviary (628)
+2025-11-03 21:18:24,217 - INFO - [714/1025] Downloading: Vullaby (629)
+2025-11-03 21:18:25,719 - INFO - [715/1025] Downloading: Mandibuzz (630)
+2025-11-03 21:18:27,234 - INFO - [716/1025] Downloading: Heatmor (631)
+2025-11-03 21:18:28,484 - INFO - [717/1025] Downloading: Durant (632)
+2025-11-03 21:18:30,019 - INFO - [718/1025] Downloading: Deino (633)
+2025-11-03 21:18:31,439 - INFO - [719/1025] Downloading: Zweilous (634)
+2025-11-03 21:18:32,657 - INFO - [720/1025] Downloading: Hydreigon (635)
+2025-11-03 21:18:33,666 - INFO - [721/1025] Downloading: Larvesta (636)
+2025-11-03 21:18:35,110 - INFO - [722/1025] Downloading: Volcarona (637)
+2025-11-03 21:18:36,091 - INFO - [723/1025] Downloading: Cobalion (638)
+2025-11-03 21:18:37,343 - INFO - [724/1025] Downloading: Terrakion (639)
+2025-11-03 21:18:38,607 - INFO - [725/1025] Downloading: Virizion (640)
+2025-11-03 21:18:39,862 - INFO - [726/1025] Downloading: Tornadus Therian Forme (641)
+2025-11-03 21:18:41,292 - INFO - [727/1025] Downloading: Thundurus Therian Forme (642)
+2025-11-03 21:18:42,567 - INFO - [728/1025] Downloading: Reshiram (643)
+2025-11-03 21:18:43,574 - INFO - [729/1025] Downloading: Zekrom (644)
+2025-11-03 21:18:44,569 - INFO - [730/1025] Downloading: Landorus Therian Forme (645)
+2025-11-03 21:18:45,791 - INFO - [731/1025] Downloading: White Kyurem (646)
+2025-11-03 21:18:47,268 - INFO - [732/1025] Downloading: Keldeo Resolute Forme (647)
+2025-11-03 21:18:48,553 - INFO - [733/1025] Downloading: Meloetta Pirouette Forme (648)
+2025-11-03 21:18:50,003 - INFO - [734/1025] Downloading: Genesect (649)
+2025-11-03 21:18:51,277 - INFO - [735/1025] Downloading: Chespin (650)
+2025-11-03 21:18:52,491 - INFO - [736/1025] Downloading: Quilladin (651)
+2025-11-03 21:18:53,783 - INFO - [737/1025] Downloading: Mega Chesnaught (652)
+2025-11-03 21:18:55,417 - INFO - [738/1025] Downloading: Fennekin (653)
+2025-11-03 21:18:56,620 - INFO - [739/1025] Downloading: Braixen (654)
+2025-11-03 21:18:58,006 - INFO - [740/1025] Downloading: Mega Delphox (655)
+2025-11-03 21:18:59,648 - INFO - [741/1025] Downloading: Froakie (656)
+2025-11-03 21:19:00,913 - INFO - [742/1025] Downloading: Frogadier (657)
+2025-11-03 21:19:02,223 - INFO - [743/1025] Downloading: Mega Greninja (658)
+2025-11-03 21:19:03,650 - INFO - [744/1025] Downloading: Bunnelby (659)
+2025-11-03 21:19:05,188 - INFO - [745/1025] Downloading: Diggersby (660)
+2025-11-03 21:19:06,494 - INFO - [746/1025] Downloading: Fletchling (661)
+2025-11-03 21:19:07,759 - INFO - [747/1025] Downloading: Fletchinder (662)
+2025-11-03 21:19:09,235 - INFO - [748/1025] Downloading: Mega Talonflame (663)
+2025-11-03 21:19:10,719 - INFO - [749/1025] Downloading: Scatterbug (664)
+2025-11-03 21:19:11,929 - INFO - [750/1025] Downloading: Spewpa (665)
+2025-11-03 21:19:13,246 - INFO - [751/1025] Downloading: Vivillon (666)
+2025-11-03 21:19:14,477 - INFO - [752/1025] Downloading: Litleo (667)
+2025-11-03 21:19:16,260 - INFO - [753/1025] Downloading: Pyroar (668)
+2025-11-03 21:19:18,329 - INFO - [754/1025] Downloading: Flabébé (669)
+2025-11-03 21:19:19,606 - INFO - [755/1025] Downloading: Floette (670)
+2025-11-03 21:19:20,876 - INFO - [756/1025] Downloading: Florges (671)
+2025-11-03 21:19:22,089 - INFO - [757/1025] Downloading: Skiddo (672)
+2025-11-03 21:19:23,650 - INFO - [758/1025] Downloading: Gogoat (673)
+2025-11-03 21:19:25,464 - INFO - [759/1025] Downloading: Pancham (674)
+2025-11-03 21:19:26,684 - INFO - [760/1025] Downloading: Pangoro (675)
+2025-11-03 21:19:27,884 - INFO - [761/1025] Downloading: Furfrou (676)
+2025-11-03 21:19:29,468 - INFO - [762/1025] Downloading: Espurr (677)
+2025-11-03 21:19:31,448 - INFO - [763/1025] Downloading: Meowstic Female (678)
+2025-11-03 21:19:32,677 - INFO - [764/1025] Downloading: Honedge (679)
+2025-11-03 21:19:34,265 - INFO - [765/1025] Downloading: Doublade (680)
+2025-11-03 21:19:35,506 - INFO - [766/1025] Downloading: Aegislash Shield Forme (681)
+2025-11-03 21:19:36,744 - INFO - [767/1025] Downloading: Spritzee (682)
+2025-11-03 21:19:38,002 - INFO - [768/1025] Downloading: Aromatisse (683)
+2025-11-03 21:19:39,278 - INFO - [769/1025] Downloading: Swirlix (684)
+2025-11-03 21:19:41,114 - INFO - [770/1025] Downloading: Slurpuff (685)
+2025-11-03 21:19:42,357 - INFO - [771/1025] Downloading: Inkay (686)
+2025-11-03 21:19:44,186 - INFO - [772/1025] Downloading: Mega Malamar (687)
+2025-11-03 21:19:46,363 - INFO - [773/1025] Downloading: Binacle (688)
+2025-11-03 21:19:47,621 - INFO - [774/1025] Downloading: Barbaracle (689)
+2025-11-03 21:19:48,975 - INFO - [775/1025] Downloading: Skrelp (690)
+2025-11-03 21:19:50,251 - INFO - [776/1025] Downloading: Dragalge (691)
+2025-11-03 21:19:51,521 - INFO - [777/1025] Downloading: Clauncher (692)
+2025-11-03 21:19:53,036 - INFO - [778/1025] Downloading: Clawitzer (693)
+2025-11-03 21:19:54,510 - INFO - [779/1025] Downloading: Helioptile (694)
+2025-11-03 21:19:55,742 - INFO - [780/1025] Downloading: Heliolisk (695)
+2025-11-03 21:19:57,348 - INFO - [781/1025] Downloading: Tyrunt (696)
+2025-11-03 21:19:58,639 - INFO - [782/1025] Downloading: Mega Tyrantrum (697)
+2025-11-03 21:20:00,023 - INFO - [783/1025] Downloading: Amaura (698)
+2025-11-03 21:20:01,300 - INFO - [784/1025] Downloading: Mega Aurorus (699)
+2025-11-03 21:20:02,825 - INFO - [785/1025] Downloading: Mega Sylveon (700)
+2025-11-03 21:20:04,160 - INFO - [786/1025] Downloading: Hawlucha (701)
+2025-11-03 21:20:05,454 - INFO - [787/1025] Downloading: Dedenne (702)
+2025-11-03 21:20:06,741 - INFO - [788/1025] Downloading: Carbink (703)
+2025-11-03 21:20:08,232 - INFO - [789/1025] Downloading: Goomy (704)
+2025-11-03 21:20:09,522 - INFO - [790/1025] Downloading: Sliggoo (705)
+2025-11-03 21:20:10,758 - INFO - [791/1025] Downloading: Mega Goodra (706)
+2025-11-03 21:20:12,023 - INFO - [792/1025] Downloading: Klefki (707)
+2025-11-03 21:20:13,256 - INFO - [793/1025] Downloading: Phantump (708)
+2025-11-03 21:20:14,605 - INFO - [794/1025] Downloading: Trevenant (709)
+2025-11-03 21:20:16,812 - INFO - [795/1025] Downloading: Pumpkaboo (710)
+2025-11-03 21:20:18,016 - INFO - [796/1025] Downloading: Gourgeist (711)
+2025-11-03 21:20:19,294 - INFO - [797/1025] Downloading: Bergmite (712)
+2025-11-03 21:20:20,527 - INFO - [798/1025] Downloading: Avalugg (713)
+2025-11-03 21:20:22,747 - INFO - [799/1025] Downloading: Noibat (714)
+2025-11-03 21:20:23,977 - INFO - [800/1025] Downloading: Noivern (715)
+2025-11-03 21:20:25,409 - INFO - [801/1025] Downloading: Xerneas (716)
+2025-11-03 21:20:26,639 - INFO - [802/1025] Downloading: Yveltal (717)
+2025-11-03 21:20:27,577 - INFO - [803/1025] Downloading: Zygarde (718)
+2025-11-03 21:20:28,852 - INFO - [804/1025] Downloading: Diancie (719)
+2025-11-03 21:20:30,060 - INFO - [806/1025] Downloading: Hoopa (720)
+2025-11-03 21:20:31,331 - INFO - [807/1025] Downloading: Volcanion (721)
+2025-11-03 21:20:33,677 - INFO - [808/1025] Downloading: Rowlet (722)
+2025-11-03 21:20:34,929 - INFO - [809/1025] Downloading: Dartrix (723)
+2025-11-03 21:20:37,164 - INFO - [810/1025] Downloading: Decidueye (724)
+2025-11-03 21:20:38,453 - INFO - [811/1025] Downloading: Litten (725)
+2025-11-03 21:20:39,819 - INFO - [812/1025] Downloading: Torracat (726)
+2025-11-03 21:20:41,029 - INFO - [813/1025] Downloading: Incineroar (727)
+2025-11-03 21:20:42,009 - INFO - [814/1025] Downloading: Popplio (728)
+2025-11-03 21:20:43,225 - INFO - [815/1025] Downloading: Brionne (729)
+2025-11-03 21:20:44,573 - INFO - [816/1025] Downloading: Primarina (730)
+2025-11-03 21:20:45,801 - INFO - [817/1025] Downloading: Pikipek (731)
+2025-11-03 21:20:47,021 - INFO - [818/1025] Downloading: Trumbeak (732)
+2025-11-03 21:20:48,292 - INFO - [819/1025] Downloading: Toucannon (733)
+2025-11-03 21:20:49,633 - INFO - [820/1025] Downloading: Yungoos (734)
+2025-11-03 21:20:50,895 - INFO - [821/1025] Downloading: Gumshoos (735)
+2025-11-03 21:20:52,090 - INFO - [822/1025] Downloading: Grubbin (736)
+2025-11-03 21:20:53,291 - INFO - [823/1025] Downloading: Charjabug (737)
+2025-11-03 21:20:55,015 - INFO - [824/1025] Downloading: Vikavolt (738)
+2025-11-03 21:20:56,249 - INFO - [825/1025] Downloading: Crabrawler (739)
+2025-11-03 21:20:58,008 - INFO - [826/1025] Downloading: Crabominable (740)
+2025-11-03 21:20:59,266 - INFO - [827/1025] Downloading: Oricorio (741)
+2025-11-03 21:21:00,488 - INFO - [828/1025] Downloading: Cutiefly (742)
+2025-11-03 21:21:01,873 - INFO - [829/1025] Downloading: Ribombee (743)
+2025-11-03 21:21:03,229 - INFO - [830/1025] Downloading: Rockruff (744)
+2025-11-03 21:21:04,974 - INFO - [831/1025] Downloading: Lycanroc (745)
+2025-11-03 21:21:06,433 - INFO - [832/1025] Downloading: Wishiwashi (746)
+2025-11-03 21:21:08,315 - INFO - [833/1025] Downloading: Mareanie (747)
+2025-11-03 21:21:09,770 - INFO - [834/1025] Downloading: Toxapex (748)
+2025-11-03 21:21:11,058 - INFO - [835/1025] Downloading: Mudbray (749)
+2025-11-03 21:21:12,287 - INFO - [836/1025] Downloading: Mudsdale (750)
+2025-11-03 21:21:13,525 - INFO - [837/1025] Downloading: Dewpider (751)
+2025-11-03 21:21:14,795 - INFO - [838/1025] Downloading: Araquanid (752)
+2025-11-03 21:21:15,979 - INFO - [839/1025] Downloading: Fomantis (753)
+2025-11-03 21:21:17,273 - INFO - [840/1025] Downloading: Lurantis (754)
+2025-11-03 21:21:19,023 - INFO - [841/1025] Downloading: Morelull (755)
+2025-11-03 21:21:20,947 - INFO - [842/1025] Downloading: Shiinotic (756)
+2025-11-03 21:21:22,141 - INFO - [843/1025] Downloading: Salandit (757)
+2025-11-03 21:21:23,844 - INFO - [844/1025] Downloading: Salazzle (758)
+2025-11-03 21:21:25,047 - INFO - [845/1025] Downloading: Stufful (759)
+2025-11-03 21:21:26,332 - INFO - [846/1025] Downloading: Bewear (760)
+2025-11-03 21:21:27,915 - INFO - [847/1025] Downloading: Bounsweet (761)
+2025-11-03 21:21:29,268 - INFO - [848/1025] Downloading: Steenee (762)
+2025-11-03 21:21:30,549 - INFO - [849/1025] Downloading: Tsareena (763)
+2025-11-03 21:21:31,843 - INFO - [850/1025] Downloading: Comfey (764)
+2025-11-03 21:21:33,175 - INFO - [851/1025] Downloading: Oranguru (765)
+2025-11-03 21:21:34,472 - INFO - [852/1025] Downloading: Passimian (766)
+2025-11-03 21:21:35,743 - INFO - [853/1025] Downloading: Wimpod (767)
+2025-11-03 21:21:36,976 - INFO - [854/1025] Downloading: Golisopod (768)
+2025-11-03 21:21:38,520 - INFO - [855/1025] Downloading: Sandygast (769)
+2025-11-03 21:21:39,797 - INFO - [856/1025] Downloading: Palossand (770)
+2025-11-03 21:21:40,999 - INFO - [857/1025] Downloading: Pyukumuku (771)
+2025-11-03 21:21:42,261 - INFO - [858/1025] Downloading: Type: Null (772)
+2025-11-03 21:21:43,446 - INFO - [859/1025] Downloading: Silvally (773)
+2025-11-03 21:21:44,712 - INFO - [860/1025] Downloading: Minior (774)
+2025-11-03 21:21:46,020 - INFO - [861/1025] Downloading: Komala (775)
+2025-11-03 21:21:48,014 - INFO - [862/1025] Downloading: Turtonator (776)
+2025-11-03 21:21:49,320 - INFO - [863/1025] Downloading: Togedemaru (777)
+2025-11-03 21:21:50,657 - INFO - [864/1025] Downloading: Mimikyu (778)
+2025-11-03 21:21:52,416 - INFO - [865/1025] Downloading: Bruxish (779)
+2025-11-03 21:21:53,871 - INFO - [866/1025] Downloading: Drampa (780)
+2025-11-03 21:21:55,596 - INFO - [867/1025] Downloading: Dhelmise (781)
+2025-11-03 21:21:57,513 - INFO - [868/1025] Downloading: Jangmo-o (782)
+2025-11-03 21:21:58,743 - INFO - [869/1025] Downloading: Hakamo-o (783)
+2025-11-03 21:22:00,475 - INFO - [870/1025] Downloading: Kommo-o (784)
+2025-11-03 21:22:02,668 - INFO - [871/1025] Downloading: Tapu Koko (785)
+2025-11-03 21:22:03,946 - INFO - [872/1025] Downloading: Tapu Lele (786)
+2025-11-03 21:22:05,617 - INFO - [873/1025] Downloading: Tapu Bulu (787)
+2025-11-03 21:22:07,257 - INFO - [874/1025] Downloading: Tapu Fini (788)
+2025-11-03 21:22:08,543 - INFO - [875/1025] Downloading: Cosmog (789)
+2025-11-03 21:22:09,880 - INFO - [876/1025] Downloading: Cosmoem (790)
+2025-11-03 21:22:11,086 - INFO - [877/1025] Downloading: Solgaleo (791)
+2025-11-03 21:22:12,343 - INFO - [878/1025] Downloading: Lunala (792)
+2025-11-03 21:22:14,198 - INFO - [879/1025] Downloading: Nihilego (793)
+2025-11-03 21:22:15,898 - INFO - [880/1025] Downloading: Buzzwole (794)
+2025-11-03 21:22:17,180 - INFO - [881/1025] Downloading: Pheromosa (795)
+2025-11-03 21:22:18,561 - INFO - [882/1025] Downloading: Xurkitree (796)
+2025-11-03 21:22:19,861 - INFO - [883/1025] Downloading: Celesteela (797)
+2025-11-03 21:22:21,052 - INFO - [884/1025] Downloading: Kartana (798)
+2025-11-03 21:22:22,340 - INFO - [885/1025] Downloading: Guzzlord (799)
+2025-11-03 21:22:24,298 - INFO - [886/1025] Downloading: Necrozma (800)
+2025-11-03 21:22:25,557 - INFO - [887/1025] Downloading: Magearna (801)
+2025-11-03 21:22:27,451 - INFO - [888/1025] Downloading: Marshadow (802)
+2025-11-03 21:22:28,700 - INFO - [889/1025] Downloading: Poipole (803)
+2025-11-03 21:22:30,842 - INFO - [890/1025] Downloading: Naganadel (804)
+2025-11-03 21:22:32,880 - INFO - [891/1025] Downloading: Stakataka (805)
+2025-11-03 21:22:35,045 - INFO - [892/1025] Downloading: Blacephalon (806)
+2025-11-03 21:22:36,387 - INFO - [893/1025] Downloading: Zeraora (807)
+2025-11-03 21:22:37,640 - INFO - [894/1025] Downloading: Meltan (808)
+2025-11-03 21:22:38,870 - INFO - [895/1025] Downloading: Melmetal (809)
+2025-11-03 21:22:40,824 - INFO - [897/1025] Downloading: Grookey (810)
+2025-11-03 21:22:42,115 - INFO - [898/1025] Downloading: Thwackey (811)
+2025-11-03 21:22:43,358 - INFO - [899/1025] Downloading: Rillaboom (812)
+2025-11-03 21:22:45,761 - INFO - [901/1025] Downloading: Scorbunny (813)
+2025-11-03 21:22:47,024 - INFO - [902/1025] Downloading: Raboot (814)
+2025-11-03 21:22:48,252 - INFO - [903/1025] Downloading: Cinderace (815)
+2025-11-03 21:22:50,103 - INFO - [905/1025] Downloading: Sobble (816)
+2025-11-03 21:22:51,367 - INFO - [906/1025] Downloading: Drizzile (817)
+2025-11-03 21:22:52,704 - INFO - [907/1025] Downloading: Inteleon (818)
+2025-11-03 21:22:54,425 - INFO - [909/1025] Downloading: Skwovet (819)
+2025-11-03 21:22:55,679 - INFO - [910/1025] Downloading: Greedent (820)
+2025-11-03 21:22:56,913 - INFO - [911/1025] Downloading: Rookidee (821)
+2025-11-03 21:22:58,150 - INFO - [912/1025] Downloading: Corvisquire (822)
+2025-11-03 21:22:59,407 - INFO - [913/1025] Downloading: Corviknight (823)
+2025-11-03 21:23:00,592 - INFO - [915/1025] Downloading: Blipbug (824)
+2025-11-03 21:23:01,861 - INFO - [916/1025] Downloading: Dottler (825)
+2025-11-03 21:23:03,686 - INFO - [917/1025] Downloading: Orbeetle (826)
+2025-11-03 21:23:05,050 - INFO - [919/1025] Downloading: Nickit (827)
+2025-11-03 21:23:06,869 - INFO - [920/1025] Downloading: Thievul (828)
+2025-11-03 21:23:08,083 - INFO - [921/1025] Downloading: Gossifleur (829)
+2025-11-03 21:23:10,162 - INFO - [922/1025] Downloading: Eldegoss (830)
+2025-11-03 21:23:11,422 - INFO - [923/1025] Downloading: Wooloo (831)
+2025-11-03 21:23:12,680 - INFO - [924/1025] Downloading: Dubwool (832)
+2025-11-03 21:23:14,067 - INFO - [925/1025] Downloading: Chewtle (833)
+2025-11-03 21:23:15,750 - INFO - [926/1025] Downloading: Drednaw (834)
+2025-11-03 21:23:17,422 - INFO - [928/1025] Downloading: Yamper (835)
+2025-11-03 21:23:18,629 - INFO - [929/1025] Downloading: Boltund (836)
+2025-11-03 21:23:19,862 - INFO - [930/1025] Downloading: Rolycoly (837)
+2025-11-03 21:23:21,191 - INFO - [931/1025] Downloading: Carkol (838)
+2025-11-03 21:23:22,455 - INFO - [932/1025] Downloading: Coalossal (839)
+2025-11-03 21:23:24,125 - INFO - [934/1025] Downloading: Applin (840)
+2025-11-03 21:23:25,302 - INFO - [935/1025] Downloading: Flapple (841)
+2025-11-03 21:23:26,500 - INFO - [937/1025] Downloading: Appletun (842)
+2025-11-03 21:23:27,690 - INFO - [939/1025] Downloading: Silicobra (843)
+2025-11-03 21:23:29,543 - INFO - [940/1025] Downloading: Sandaconda (844)
+2025-11-03 21:23:30,846 - INFO - [942/1025] Downloading: Cramorant (845)
+2025-11-03 21:23:32,579 - INFO - [943/1025] Downloading: Arrokuda (846)
+2025-11-03 21:23:33,820 - INFO - [944/1025] Downloading: Barraskewda (847)
+2025-11-03 21:23:35,009 - INFO - [945/1025] Downloading: Toxel (848)
+2025-11-03 21:23:36,415 - INFO - [946/1025] Downloading: Toxtricity (849)
+2025-11-03 21:23:37,844 - INFO - [948/1025] Downloading: Sizzlipede (850)
+2025-11-03 21:23:39,072 - INFO - [949/1025] Downloading: Centiskorch (851)
+2025-11-03 21:23:40,510 - INFO - [951/1025] Downloading: Clobbopus (852)
+2025-11-03 21:23:41,835 - INFO - [952/1025] Downloading: Grapploct (853)
+2025-11-03 21:23:43,091 - INFO - [953/1025] Downloading: Sinistea (854)
+2025-11-03 21:23:44,333 - INFO - [954/1025] Downloading: Polteageist (855)
+2025-11-03 21:23:45,553 - INFO - [955/1025] Downloading: Hatenna (856)
+2025-11-03 21:23:46,960 - INFO - [956/1025] Downloading: Hattrem (857)
+2025-11-03 21:23:48,152 - INFO - [957/1025] Downloading: Hatterene (858)
+2025-11-03 21:23:49,398 - INFO - [959/1025] Downloading: Impidimp (859)
+2025-11-03 21:23:50,788 - INFO - [960/1025] Downloading: Morgrem (860)
+2025-11-03 21:23:52,227 - INFO - [961/1025] Downloading: Grimmsnarl (861)
+2025-11-03 21:23:53,799 - INFO - [963/1025] Downloading: Obstagoon (862)
+2025-11-03 21:23:55,078 - INFO - [964/1025] Downloading: Perrserker (863)
+2025-11-03 21:23:56,287 - INFO - [965/1025] Downloading: Cursola (864)
+2025-11-03 21:23:57,719 - INFO - [966/1025] Downloading: Sirfetch’d (865)
+2025-11-03 21:23:58,924 - INFO - [967/1025] Downloading: Mr. Rime (866)
+2025-11-03 21:24:00,410 - INFO - [968/1025] Downloading: Runerigus (867)
+2025-11-03 21:24:01,799 - INFO - [969/1025] Downloading: Milcery (868)
+2025-11-03 21:24:03,135 - INFO - [970/1025] Downloading: Alcremie (869)
+2025-11-03 21:24:04,342 - INFO - [972/1025] Downloading: Falinks (870)
+2025-11-03 21:24:05,536 - INFO - [973/1025] Downloading: Pincurchin (871)
+2025-11-03 21:24:06,763 - INFO - [974/1025] Downloading: Snom (872)
+2025-11-03 21:24:07,976 - INFO - [975/1025] Downloading: Frosmoth (873)
+2025-11-03 21:24:09,222 - INFO - [976/1025] Downloading: Stonjourner (874)
+2025-11-03 21:24:10,551 - INFO - [977/1025] Downloading: Eiscue (875)
+2025-11-03 21:24:11,891 - INFO - [978/1025] Downloading: Indeedee (876)
+2025-11-03 21:24:13,202 - INFO - [979/1025] Downloading: Morpeko (877)
+2025-11-03 21:24:14,471 - INFO - [980/1025] Downloading: Cufant (878)
+2025-11-03 21:24:15,798 - INFO - [981/1025] Downloading: Copperajah (879)
+2025-11-03 21:24:17,102 - INFO - [983/1025] Downloading: Dracozolt (880)
+2025-11-03 21:24:18,461 - INFO - [984/1025] Downloading: Arctozolt (881)
+2025-11-03 21:24:19,867 - INFO - [985/1025] Downloading: Dracovish (882)
+2025-11-03 21:24:21,118 - INFO - [986/1025] Downloading: Arctovish (883)
+2025-11-03 21:24:22,331 - INFO - [987/1025] Downloading: Duraludon (884)
+2025-11-03 21:24:23,533 - INFO - [989/1025] Downloading: Dreepy (885)
+2025-11-03 21:24:24,778 - INFO - [990/1025] Downloading: Drakloak (886)
+2025-11-03 21:24:26,163 - INFO - [991/1025] Downloading: Dragapult (887)
+2025-11-03 21:24:27,550 - INFO - [992/1025] Downloading: Zacian (888)
+2025-11-03 21:24:28,807 - INFO - [993/1025] Downloading: Zamazenta (889)
+2025-11-03 21:24:30,087 - INFO - [994/1025] Downloading: Eternatus (890)
+2025-11-03 21:24:31,323 - INFO - [995/1025] Downloading: Kubfu (891)
+2025-11-03 21:24:32,531 - INFO - [996/1025] Downloading: Urshifu (892)
+2025-11-03 21:24:33,773 - INFO - [998/1025] Downloading: Zarude (893)
+2025-11-03 21:24:35,051 - INFO - [999/1025] Downloading: Regieleki (894)
+2025-11-03 21:24:36,325 - INFO - [1000/1025] Downloading: Regidrago (895)
+2025-11-03 21:24:37,504 - INFO - [1001/1025] Downloading: Glastrier (896)
+2025-11-03 21:24:38,766 - INFO - [1002/1025] Downloading: Spectrier (897)
+2025-11-03 21:24:39,991 - INFO - [1003/1025] Downloading: Calyrex (898)
+2025-11-03 21:24:41,274 - INFO - [1004/1025] Downloading: Wyrdeer (899)
+2025-11-03 21:24:42,518 - INFO - [1005/1025] Downloading: Kleavor (900)
+2025-11-03 21:24:43,866 - INFO - [1006/1025] Downloading: Ursaluna (901)
+2025-11-03 21:24:45,190 - INFO - [1007/1025] Downloading: Basculegion (902)
+2025-11-03 21:24:46,498 - INFO - [1008/1025] Downloading: Sneasler (903)
+2025-11-03 21:24:47,853 - INFO - [1009/1025] Downloading: Overqwil (904)
+2025-11-03 21:24:49,173 - INFO - [1010/1025] Downloading: Enamorus (905)
+2025-11-03 21:24:50,404 - INFO - [1011/1025] Downloading: Sprigatito (906)
+2025-11-03 21:24:51,597 - INFO - [1012/1025] Downloading: Floragato (907)
+2025-11-03 21:24:52,902 - INFO - [1013/1025] Downloading: Meowscarada (908)
+2025-11-03 21:24:54,084 - INFO - [1014/1025] Downloading: Fuecoco (909)
+2025-11-03 21:24:55,279 - INFO - [1015/1025] Downloading: Crocalor (910)
+2025-11-03 21:24:56,621 - INFO - [1016/1025] Downloading: Skeledirge (911)
+2025-11-03 21:24:57,878 - INFO - [1017/1025] Downloading: Quaxly (912)
+2025-11-03 21:24:59,123 - INFO - [1018/1025] Downloading: Quaxwell (913)
+2025-11-03 21:25:00,396 - INFO - [1019/1025] Downloading: Quaquaval (914)
+2025-11-03 21:25:01,641 - INFO - [1020/1025] Downloading: Lechonk (915)
+2025-11-03 21:25:02,999 - INFO - [1021/1025] Downloading: Oinkologne (916)
+2025-11-03 21:25:04,236 - INFO - [1022/1025] Downloading: Tarountula (917)
+2025-11-03 21:25:05,441 - INFO - [1023/1025] Downloading: Spidops (918)
+2025-11-03 21:25:06,676 - INFO - [1024/1025] Downloading: Nymble (919)
+2025-11-03 21:25:08,076 - INFO - [1025/1025] Downloading: Lokix (920)
+2025-11-03 21:25:09,423 - INFO - [1026/1025] Downloading: Pawmi (921)
+2025-11-03 21:25:10,887 - INFO - [1027/1025] Downloading: Pawmo (922)
+2025-11-03 21:25:12,153 - INFO - [1028/1025] Downloading: Pawmot (923)
+2025-11-03 21:25:13,561 - INFO - [1029/1025] Downloading: Tandemaus (924)
+2025-11-03 21:25:14,791 - INFO - [1030/1025] Downloading: Maushold (925)
+2025-11-03 21:25:16,003 - INFO - [1031/1025] Downloading: Fidough (926)
+2025-11-03 21:25:17,217 - INFO - [1032/1025] Downloading: Dachsbun (927)
+2025-11-03 21:25:18,563 - INFO - [1033/1025] Downloading: Smoliv (928)
+2025-11-03 21:25:19,902 - INFO - [1034/1025] Downloading: Dolliv (929)
+2025-11-03 21:25:21,351 - INFO - [1035/1025] Downloading: Arboliva (930)
+2025-11-03 21:25:22,785 - INFO - [1036/1025] Downloading: Squawkabilly (931)
+2025-11-03 21:25:24,070 - INFO - [1037/1025] Downloading: Nacli (932)
+2025-11-03 21:25:25,286 - INFO - [1038/1025] Downloading: Naclstack (933)
+2025-11-03 21:25:26,732 - INFO - [1039/1025] Downloading: Garganacl (934)
+2025-11-03 21:25:28,178 - INFO - [1040/1025] Downloading: Charcadet (935)
+2025-11-03 21:25:29,430 - INFO - [1041/1025] Downloading: Armarouge (936)
+2025-11-03 21:25:30,663 - INFO - [1042/1025] Downloading: Ceruledge (937)
+2025-11-03 21:25:31,928 - INFO - [1043/1025] Downloading: Tadbulb (938)
+2025-11-03 21:25:33,223 - INFO - [1044/1025] Downloading: Bellibolt (939)
+2025-11-03 21:25:34,782 - INFO - [1045/1025] Downloading: Wattrel (940)
+2025-11-03 21:25:36,023 - INFO - [1046/1025] Downloading: Kilowattrel (941)
+2025-11-03 21:25:37,271 - INFO - [1047/1025] Downloading: Maschiff (942)
+2025-11-03 21:25:38,597 - INFO - [1048/1025] Downloading: Mabosstiff (943)
+2025-11-03 21:25:39,880 - INFO - [1049/1025] Downloading: Shroodle (944)
+2025-11-03 21:25:41,060 - INFO - [1050/1025] Downloading: Grafaiai (945)
+2025-11-03 21:25:42,540 - INFO - [1051/1025] Downloading: Bramblin (946)
+2025-11-03 21:25:44,267 - INFO - [1052/1025] Downloading: Brambleghast (947)
+2025-11-03 21:25:45,881 - INFO - [1053/1025] Downloading: Toedscool (948)
+2025-11-03 21:25:47,221 - INFO - [1054/1025] Downloading: Toedscruel (949)
+2025-11-03 21:25:48,470 - INFO - [1055/1025] Downloading: Klawf (950)
+2025-11-03 21:25:49,864 - INFO - [1056/1025] Downloading: Capsakid (951)
+2025-11-03 21:25:51,101 - INFO - [1057/1025] Downloading: Scovillain (952)
+2025-11-03 21:25:52,545 - INFO - [1058/1025] Downloading: Rellor (953)
+2025-11-03 21:25:53,766 - INFO - [1059/1025] Downloading: Rabsca (954)
+2025-11-03 21:25:55,113 - INFO - [1060/1025] Downloading: Flittle (955)
+2025-11-03 21:25:56,476 - INFO - [1061/1025] Downloading: Espathra (956)
+2025-11-03 21:25:57,734 - INFO - [1062/1025] Downloading: Tinkatink (957)
+2025-11-03 21:25:59,090 - INFO - [1063/1025] Downloading: Tinkatuff (958)
+2025-11-03 21:26:00,790 - INFO - [1064/1025] Downloading: Tinkaton (959)
+2025-11-03 21:26:02,082 - INFO - [1065/1025] Downloading: Wiglett (960)
+2025-11-03 21:26:03,431 - INFO - [1066/1025] Downloading: Wugtrio (961)
+2025-11-03 21:26:04,853 - INFO - [1067/1025] Downloading: Bombirdier (962)
+2025-11-03 21:26:06,073 - INFO - [1068/1025] Downloading: Finizen (963)
+2025-11-03 21:26:07,264 - INFO - [1069/1025] Downloading: Palafin (964)
+2025-11-03 21:26:08,789 - INFO - [1070/1025] Downloading: Varoom (965)
+2025-11-03 21:26:10,070 - INFO - [1071/1025] Downloading: Revavroom (966)
+2025-11-03 21:26:11,272 - INFO - [1072/1025] Downloading: Cyclizar (967)
+2025-11-03 21:26:12,654 - INFO - [1073/1025] Downloading: Orthworm (968)
+2025-11-03 21:26:14,111 - INFO - [1074/1025] Downloading: Glimmet (969)
+2025-11-03 21:26:15,320 - INFO - [1075/1025] Downloading: Glimmora (970)
+2025-11-03 21:26:16,550 - INFO - [1076/1025] Downloading: Greavard (971)
+2025-11-03 21:26:18,068 - INFO - [1077/1025] Downloading: Houndstone (972)
+2025-11-03 21:26:19,531 - INFO - [1078/1025] Downloading: Flamigo (973)
+2025-11-03 21:26:20,766 - INFO - [1079/1025] Downloading: Cetoddle (974)
+2025-11-03 21:26:21,966 - INFO - [1080/1025] Downloading: Cetitan (975)
+2025-11-03 21:26:23,267 - INFO - [1081/1025] Downloading: Veluza (976)
+2025-11-03 21:26:24,569 - INFO - [1082/1025] Downloading: Dondozo (977)
+2025-11-03 21:26:26,013 - INFO - [1083/1025] Downloading: Tatsugiri (978)
+2025-11-03 21:26:27,319 - INFO - [1084/1025] Downloading: Annihilape (979)
+2025-11-03 21:26:28,667 - INFO - [1085/1025] Downloading: Clodsire (980)
+2025-11-03 21:26:30,011 - INFO - [1086/1025] Downloading: Farigiraf (981)
+2025-11-03 21:26:31,249 - INFO - [1087/1025] Downloading: Dudunsparce (982)
+2025-11-03 21:26:32,482 - INFO - [1088/1025] Downloading: Kingambit (983)
+2025-11-03 21:26:33,838 - INFO - [1089/1025] Downloading: Great Tusk (984)
+2025-11-03 21:26:35,071 - INFO - [1090/1025] Downloading: Scream Tail (985)
+2025-11-03 21:26:36,300 - INFO - [1091/1025] Downloading: Brute Bonnet (986)
+2025-11-03 21:26:37,718 - INFO - [1092/1025] Downloading: Flutter Mane (987)
+2025-11-03 21:26:39,127 - INFO - [1093/1025] Downloading: Slither Wing (988)
+2025-11-03 21:26:40,499 - INFO - [1094/1025] Downloading: Sandy Shocks (989)
+2025-11-03 21:26:41,944 - INFO - [1095/1025] Downloading: Iron Treads (990)
+2025-11-03 21:26:43,185 - INFO - [1096/1025] Downloading: Iron Bundle (991)
+2025-11-03 21:26:44,435 - INFO - [1097/1025] Downloading: Iron Hands (992)
+2025-11-03 21:26:45,872 - INFO - [1098/1025] Downloading: Iron Jugulis (993)
+2025-11-03 21:26:47,160 - INFO - [1099/1025] Downloading: Iron Moth (994)
+2025-11-03 21:26:48,388 - INFO - [1100/1025] Downloading: Iron Thorns (995)
+2025-11-03 21:26:50,006 - INFO - [1101/1025] Downloading: Frigibax (996)
+2025-11-03 21:26:51,309 - INFO - [1102/1025] Downloading: Arctibax (997)
+2025-11-03 21:26:52,629 - INFO - [1103/1025] Downloading: Baxcalibur (998)
+2025-11-03 21:26:54,056 - INFO - [1104/1025] Downloading: Gimmighoul (999)
+2025-11-03 21:26:55,482 - INFO - [1105/1025] Downloading: Gholdengo (1000)
+2025-11-03 21:26:56,744 - INFO - [1106/1025] Downloading: Wo-Chien (1001)
+2025-11-03 21:26:58,006 - INFO - [1107/1025] Downloading: Chien-Pao (1002)
+2025-11-03 21:26:59,363 - INFO - [1108/1025] Downloading: Ting-Lu (1003)
+2025-11-03 21:27:00,556 - INFO - [1109/1025] Downloading: Chi-Yu (1004)
+2025-11-03 21:27:01,788 - INFO - [1110/1025] Downloading: Roaring Moon (1005)
+2025-11-03 21:27:03,270 - INFO - [1111/1025] Downloading: Iron Valiant (1006)
+2025-11-03 21:27:04,621 - INFO - [1112/1025] Downloading: Koraidon (1007)
+2025-11-03 21:27:05,875 - INFO - [1113/1025] Downloading: Miraidon (1008)
+2025-11-03 21:27:07,060 - INFO - [1114/1025] Downloading: Walking Wake (1009)
+2025-11-03 21:27:08,431 - INFO - [1115/1025] Downloading: Iron Leaves (1010)
+2025-11-03 21:27:09,830 - INFO - [1116/1025] Downloading: Dipplin (1011)
+2025-11-03 21:27:11,105 - INFO - [1117/1025] Downloading: Poltchageist (1012)
+2025-11-03 21:27:12,450 - INFO - [1118/1025] Downloading: Sinistcha (1013)
+2025-11-03 21:27:13,649 - INFO - [1119/1025] Downloading: Okidogi (1014)
+2025-11-03 21:27:14,873 - INFO - [1120/1025] Downloading: Munkidori (1015)
+2025-11-03 21:27:16,075 - INFO - [1121/1025] Downloading: Fezandipiti (1016)
+2025-11-03 21:27:17,558 - INFO - [1122/1025] Downloading: Ogerpon (1017)
+2025-11-03 21:27:19,017 - INFO - [1123/1025] Downloading: Archaludon (1018)
+2025-11-03 21:27:20,275 - INFO - [1124/1025] Downloading: Hydrapple (1019)
+2025-11-03 21:27:21,512 - INFO - [1125/1025] Downloading: Gouging Fire (1020)
+2025-11-03 21:27:22,737 - INFO - [1126/1025] Downloading: Raging Bolt (1021)
+2025-11-03 21:27:24,034 - INFO - [1127/1025] Downloading: Iron Boulder (1022)
+2025-11-03 21:27:25,571 - INFO - [1128/1025] Downloading: Iron Crown (1023)
+2025-11-03 21:27:26,935 - INFO - [1129/1025] Downloading: Terapagos (1024)
+2025-11-03 21:27:28,452 - INFO - [1130/1025] Downloading: Pecharunt (1025)
+2025-11-03 21:27:29,860 - INFO - 
+============================================================
+2025-11-03 21:27:29,861 - INFO - ============================================================
+2025-11-03 21:27:29,863 - INFO - [4/105] Downloading: Mega Venusaur
+2025-11-03 21:27:29,865 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:29,882 - INFO - [5/105] Downloading: Gigantamax Venusaur
+2025-11-03 21:27:29,884 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:29,887 - INFO - [9/105] Downloading: Mega Charizard X
+2025-11-03 21:27:29,889 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:29,905 - INFO - [10/105] Downloading: Mega Charizard Y
+2025-11-03 21:27:29,907 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:29,910 - INFO - [11/105] Downloading: Gigantamax Charizard
+2025-11-03 21:27:29,911 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:29,916 - INFO - [15/105] Downloading: Mega Blastoise
+2025-11-03 21:27:29,918 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:29,933 - INFO - [16/105] Downloading: Gigantamax Blastoise
+2025-11-03 21:27:29,934 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:29,938 - INFO - [20/105] Downloading: Gigantamax Butterfree
+2025-11-03 21:27:29,940 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:29,958 - INFO - [24/105] Downloading: Mega Beedrill
+2025-11-03 21:27:29,960 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:29,975 - INFO - [28/105] Downloading: Mega Pidgeot
+2025-11-03 21:27:29,977 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:29,996 - INFO - [30/105] Downloading: Alolan Rattata
+2025-11-03 21:27:29,998 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:30,012 - INFO - [32/105] Downloading: Alolan Raticate
+2025-11-03 21:27:30,014 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:30,028 - INFO - [38/105] Downloading: Gigantamax Pikachu
+2025-11-03 21:27:30,031 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:30,045 - INFO - [40/105] Downloading: Alolan Raichu
+2025-11-03 21:27:30,046 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:30,060 - INFO - [42/105] Downloading: Alolan Sandshrew
+2025-11-03 21:27:30,062 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:30,080 - INFO - [44/105] Downloading: Alolan Sandslash
+2025-11-03 21:27:30,081 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:30,096 - INFO - [54/105] Downloading: Alolan Vulpix
+2025-11-03 21:27:30,097 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:30,110 - INFO - [56/105] Downloading: Alolan Ninetales
+2025-11-03 21:27:30,111 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:30,126 - INFO - [69/105] Downloading: Alolan Diglett
+2025-11-03 21:27:30,128 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:30,140 - INFO - [71/105] Downloading: Alolan Dugtrio
+2025-11-03 21:27:30,142 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:30,155 - INFO - [73/105] Downloading: Galarian Meowth
+2025-11-03 21:27:30,158 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:30,172 - INFO - [74/105] Downloading: Gigantamax Meowth
+2025-11-03 21:27:30,173 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:30,177 - INFO - [76/105] Downloading: Alolan Persian
+2025-11-03 21:27:30,179 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:30,194 - INFO - [89/105] Downloading: Mega Alakazam
+2025-11-03 21:27:30,196 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:30,209 - INFO - [93/105] Downloading: Gigantamax Machamp
+2025-11-03 21:27:30,211 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:30,226 - INFO - [100/105] Downloading: Alolan Geodude
+2025-11-03 21:27:30,228 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:30,245 - INFO - [102/105] Downloading: Alolan Graveler
+2025-11-03 21:27:30,247 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:30,261 - INFO - [104/105] Downloading: Alolan Golem
+2025-11-03 21:27:30,264 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:30,279 - INFO - [106/105] Downloading: Galarian Ponyta
+2025-11-03 21:27:30,281 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:30,295 - INFO - [108/105] Downloading: Galarian Rapidash
+2025-11-03 21:27:30,297 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:30,316 - INFO - [110/105] Downloading: Galarian Slowpoke
+2025-11-03 21:27:30,319 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:30,335 - INFO - [112/105] Downloading: Mega Slowbro
+2025-11-03 21:27:30,337 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:30,351 - INFO - [113/105] Downloading: Galarian Slowbro
+2025-11-03 21:27:30,353 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:30,357 - INFO - [117/105] Downloading: Galarian Farfetch'd
+2025-11-03 21:27:30,359 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:30,373 - INFO - [123/105] Downloading: Alolan Grimer
+2025-11-03 21:27:30,375 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:30,387 - INFO - [125/105] Downloading: Alolan Muk
+2025-11-03 21:27:30,389 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:30,404 - INFO - [131/105] Downloading: Mega Gengar
+2025-11-03 21:27:30,406 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:30,421 - INFO - [132/105] Downloading: Gigantamax Gengar
+2025-11-03 21:27:30,423 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:30,426 - INFO - [138/105] Downloading: Gigantamax Kingler
+2025-11-03 21:27:30,427 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:30,444 - INFO - [143/105] Downloading: Alolan Exeggutor
+2025-11-03 21:27:30,445 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:30,459 - INFO - [146/105] Downloading: Alolan Marowak
+2025-11-03 21:27:30,461 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:30,476 - INFO - [152/105] Downloading: Galarian Weezing
+2025-11-03 21:27:30,477 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:30,490 - INFO - [158/105] Downloading: Mega Kangaskhan
+2025-11-03 21:27:30,492 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:30,507 - INFO - [166/105] Downloading: Galarian Mr. Mime
+2025-11-03 21:27:30,509 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:30,528 - INFO - [172/105] Downloading: Mega Pinsir
+2025-11-03 21:27:30,529 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:30,546 - INFO - [176/105] Downloading: Mega Gyarados
+2025-11-03 21:27:30,548 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:30,563 - INFO - [178/105] Downloading: Gigantamax Lapras
+2025-11-03 21:27:30,565 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:30,580 - INFO - [181/105] Downloading: Gigantamax Eevee
+2025-11-03 21:27:30,582 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:30,596 - INFO - [191/105] Downloading: Mega Aerodactyl
+2025-11-03 21:27:30,598 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:30,611 - INFO - [193/105] Downloading: Gigantamax Snorlax
+2025-11-03 21:27:30,613 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:30,628 - INFO - [201/105] Downloading: Mega Mewtwo X
+2025-11-03 21:27:30,629 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:30,645 - INFO - [202/105] Downloading: Mega Mewtwo Y
+2025-11-03 21:27:30,647 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:30,650 - INFO - [234/105] Downloading: Mega Ampharos
+2025-11-03 21:27:30,651 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:30,665 - INFO - [262/105] Downloading: Mega Steelix
+2025-11-03 21:27:30,668 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:30,684 - INFO - [267/105] Downloading: Mega Scizor
+2025-11-03 21:27:30,685 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:30,700 - INFO - [270/105] Downloading: Mega Heracross
+2025-11-03 21:27:30,702 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:30,718 - INFO - [286/105] Downloading: Mega Houndoom
+2025-11-03 21:27:30,720 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:30,734 - INFO - [306/105] Downloading: Mega Tyranitar
+2025-11-03 21:27:30,736 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:30,751 - INFO - [313/105] Downloading: Mega Sceptile
+2025-11-03 21:27:30,753 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:30,767 - INFO - [317/105] Downloading: Mega Blaziken
+2025-11-03 21:27:30,770 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:30,783 - INFO - [321/105] Downloading: Mega Swampert
+2025-11-03 21:27:30,785 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:30,801 - INFO - [344/105] Downloading: Mega Gardevoir
+2025-11-03 21:27:30,803 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:30,821 - INFO - [365/105] Downloading: Mega Sableye
+2025-11-03 21:27:30,822 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:30,835 - INFO - [367/105] Downloading: Mega Mawile
+2025-11-03 21:27:30,836 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:30,853 - INFO - [371/105] Downloading: Mega Aggron
+2025-11-03 21:27:30,855 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:30,875 - INFO - [374/105] Downloading: Mega Medicham
+2025-11-03 21:27:30,877 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:30,896 - INFO - [377/105] Downloading: Mega Manectric
+2025-11-03 21:27:30,898 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:30,914 - INFO - [387/105] Downloading: Mega Sharpedo
+2025-11-03 21:27:30,916 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:30,933 - INFO - [392/105] Downloading: Mega Camerupt
+2025-11-03 21:27:30,935 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:30,951 - INFO - [404/105] Downloading: Mega Altaria
+2025-11-03 21:27:30,953 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:30,972 - INFO - [425/105] Downloading: Mega Banette
+2025-11-03 21:27:30,975 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:30,989 - INFO - [431/105] Downloading: Mega Absol
+2025-11-03 21:27:30,990 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:31,006 - INFO - [435/105] Downloading: Mega Glalie
+2025-11-03 21:27:31,009 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:31,027 - INFO - [447/105] Downloading: Mega Salamence
+2025-11-03 21:27:31,029 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:31,047 - INFO - [451/105] Downloading: Mega Metagross
+2025-11-03 21:27:31,049 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:31,068 - INFO - [456/105] Downloading: Mega Latias
+2025-11-03 21:27:31,070 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:31,085 - INFO - [458/105] Downloading: Mega Latios
+2025-11-03 21:27:31,086 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:31,102 - INFO - [462/105] Downloading: Mega Rayquaza
+2025-11-03 21:27:31,104 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:31,121 - INFO - [507/105] Downloading: Mega Lopunny
+2025-11-03 21:27:31,122 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:31,137 - INFO - [525/105] Downloading: Mega Garchomp
+2025-11-03 21:27:31,140 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:31,156 - INFO - [529/105] Downloading: Mega Lucario
+2025-11-03 21:27:31,158 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:31,174 - INFO - [542/105] Downloading: Mega Abomasnow
+2025-11-03 21:27:31,177 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:31,192 - INFO - [558/105] Downloading: Mega Gallade
+2025-11-03 21:27:31,194 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:31,209 - INFO - [615/105] Downloading: Mega Audino
+2025-11-03 21:27:31,211 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:31,226 - INFO - [654/105] Downloading: Gigantamax Garbodor
+2025-11-03 21:27:31,228 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:31,245 - INFO - [805/105] Downloading: Mega Diancie
+2025-11-03 21:27:31,247 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:31,263 - INFO - [896/105] Downloading: Gigantamax Melmetal
+2025-11-03 21:27:31,265 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:31,280 - INFO - [900/105] Downloading: Gigantamax Rillaboom
+2025-11-03 21:27:31,282 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:31,299 - INFO - [904/105] Downloading: Gigantamax Cinderace
+2025-11-03 21:27:31,302 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:31,317 - INFO - [908/105] Downloading: Gigantamax Inteleon
+2025-11-03 21:27:31,319 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:31,331 - INFO - [914/105] Downloading: Gigantamax Corviknight
+2025-11-03 21:27:31,333 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:31,346 - INFO - [918/105] Downloading: Gigantamax Orbeetle
+2025-11-03 21:27:31,348 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:31,361 - INFO - [927/105] Downloading: Gigantamax Drednaw
+2025-11-03 21:27:31,362 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:31,375 - INFO - [933/105] Downloading: Gigantamax Coalossal
+2025-11-03 21:27:31,377 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:31,390 - INFO - [936/105] Downloading: Gigantamax Flapple
+2025-11-03 21:27:31,392 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:31,406 - INFO - [938/105] Downloading: Gigantamax Appletun
+2025-11-03 21:27:31,408 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:31,422 - INFO - [941/105] Downloading: Gigantamax Sandaconda
+2025-11-03 21:27:31,424 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:31,436 - INFO - [947/105] Downloading: Gigantamax Toxtricity
+2025-11-03 21:27:31,438 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:31,454 - INFO - [950/105] Downloading: Gigantamax Centiskorch
+2025-11-03 21:27:31,456 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:31,476 - INFO - [958/105] Downloading: Gigantamax Hatterene
+2025-11-03 21:27:31,478 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:31,495 - INFO - [962/105] Downloading: Gigantamax Grimmsnarl
+2025-11-03 21:27:31,497 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:31,513 - INFO - [971/105] Downloading: Gigantamax Alcremie
+2025-11-03 21:27:31,515 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:31,532 - INFO - [982/105] Downloading: Gigantamax Copperajah
+2025-11-03 21:27:31,534 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:31,552 - INFO - [988/105] Downloading: Gigantamax Duraludon
+2025-11-03 21:27:31,554 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:27:31,572 - INFO - [997/105] Downloading: Gigantamax Urshifu
+2025-11-03 21:27:31,574 - WARNING -     Using base sprite as placeholder
+2025-11-03 21:32:57,459 - INFO - 
+============================================================
+2025-11-03 21:32:57,461 - INFO - ============================================================
+2025-11-03 21:32:57,463 - INFO - [1/1130] Downloading shiny: Bulbasaur
+2025-11-03 21:32:58,430 - INFO - [2/1130] Downloading shiny: Ivysaur
+2025-11-03 21:32:59,831 - INFO - [3/1130] Downloading shiny: Mega Venusaur
+2025-11-03 21:33:01,257 - INFO - [4/1130] Downloading shiny: Mega Venusaur
+2025-11-03 21:33:02,280 - INFO - [5/1130] Downloading shiny: Gigantamax Venusaur
+2025-11-03 21:33:03,336 - INFO - [6/1130] Downloading shiny: Charmander
+2025-11-03 21:33:04,571 - INFO - [7/1130] Downloading shiny: Charmeleon
+2025-11-03 21:33:05,815 - INFO - [8/1130] Downloading shiny: Mega Charizard Y
+2025-11-03 21:33:07,039 - INFO - [9/1130] Downloading shiny: Mega Charizard X
+2025-11-03 21:33:07,997 - INFO - [10/1130] Downloading shiny: Mega Charizard Y
+2025-11-03 21:33:08,894 - INFO - [11/1130] Downloading shiny: Gigantamax Charizard
+2025-11-03 21:33:09,862 - INFO - [12/1130] Downloading shiny: Squirtle
+2025-11-03 21:33:11,150 - INFO - [13/1130] Downloading shiny: Wartortle
+2025-11-03 21:33:12,381 - INFO - [14/1130] Downloading shiny: Mega Blastoise
+2025-11-03 21:33:13,714 - INFO - [15/1130] Downloading shiny: Mega Blastoise
+2025-11-03 21:33:14,660 - INFO - [16/1130] Downloading shiny: Gigantamax Blastoise
+2025-11-03 21:33:15,785 - INFO - [17/1130] Downloading shiny: Caterpie
+2025-11-03 21:33:17,070 - INFO - [18/1130] Downloading shiny: Metapod
+2025-11-03 21:33:18,416 - INFO - [19/1130] Downloading shiny: Butterfree
+2025-11-03 21:33:19,673 - INFO - [20/1130] Downloading shiny: Gigantamax Butterfree
+2025-11-03 21:33:20,644 - INFO - [21/1130] Downloading shiny: Weedle
+2025-11-03 21:33:21,864 - INFO - [22/1130] Downloading shiny: Kakuna
+2025-11-03 21:33:23,095 - INFO - [23/1130] Downloading shiny: Mega Beedrill
+2025-11-03 21:33:24,353 - INFO - [24/1130] Downloading shiny: Mega Beedrill
+2025-11-03 21:33:25,358 - INFO - [25/1130] Downloading shiny: Pidgey
+2025-11-03 21:33:26,733 - INFO - [26/1130] Downloading shiny: Pidgeotto
+2025-11-03 21:33:27,941 - INFO - [27/1130] Downloading shiny: Mega Pidgeot
+2025-11-03 21:33:29,252 - INFO - [28/1130] Downloading shiny: Mega Pidgeot
+2025-11-03 21:33:30,184 - INFO - [29/1130] Downloading shiny: Alolan Rattata
+2025-11-03 21:33:31,471 - INFO - [30/1130] Downloading shiny: Alolan Rattata
+2025-11-03 21:33:32,437 - INFO - [31/1130] Downloading shiny: Alolan Raticate
+2025-11-03 21:33:33,829 - INFO - [32/1130] Downloading shiny: Alolan Raticate
+2025-11-03 21:33:34,782 - INFO - [33/1130] Downloading shiny: Spearow
+2025-11-03 21:33:36,092 - INFO - [34/1130] Downloading shiny: Fearow
+2025-11-03 21:33:37,318 - INFO - [35/1130] Downloading shiny: Ekans
+2025-11-03 21:33:38,661 - INFO - [36/1130] Downloading shiny: Arbok
+2025-11-03 21:33:40,045 - INFO - [37/1130] Downloading shiny: Partner Pikachu
+2025-11-03 21:33:41,424 - INFO - [38/1130] Downloading shiny: Gigantamax Pikachu
+2025-11-03 21:33:42,347 - INFO - [39/1130] Downloading shiny: Alolan Raichu
+2025-11-03 21:33:43,625 - INFO - [40/1130] Downloading shiny: Alolan Raichu
+2025-11-03 21:33:44,529 - INFO - [41/1130] Downloading shiny: Alolan Sandshrew
+2025-11-03 21:33:45,861 - INFO - [42/1130] Downloading shiny: Alolan Sandshrew
+2025-11-03 21:33:46,802 - INFO - [43/1130] Downloading shiny: Alolan Sandslash
+2025-11-03 21:33:48,005 - INFO - [44/1130] Downloading shiny: Alolan Sandslash
+2025-11-03 21:33:50,285 - INFO - [46/1130] Downloading shiny: Nidorina
+2025-11-03 21:33:51,561 - INFO - [47/1130] Downloading shiny: Nidoqueen
+2025-11-03 21:33:54,095 - INFO - [49/1130] Downloading shiny: Nidorino
+2025-11-03 21:33:55,377 - INFO - [50/1130] Downloading shiny: Nidoking
+2025-11-03 21:33:56,665 - INFO - [51/1130] Downloading shiny: Clefairy
+2025-11-03 21:33:57,890 - INFO - [52/1130] Downloading shiny: Clefable
+2025-11-03 21:33:59,235 - INFO - [53/1130] Downloading shiny: Alolan Vulpix
+2025-11-03 21:34:00,519 - INFO - [54/1130] Downloading shiny: Alolan Vulpix
+2025-11-03 21:34:01,627 - INFO - [55/1130] Downloading shiny: Alolan Ninetales
+2025-11-03 21:34:03,560 - INFO - [56/1130] Downloading shiny: Alolan Ninetales
+2025-11-03 21:34:04,588 - INFO - [57/1130] Downloading shiny: Jigglypuff
+2025-11-03 21:34:05,827 - INFO - [58/1130] Downloading shiny: Wigglytuff
+2025-11-03 21:34:07,085 - INFO - [59/1130] Downloading shiny: Zubat
+2025-11-03 21:34:08,348 - INFO - [60/1130] Downloading shiny: Golbat
+2025-11-03 21:34:09,544 - INFO - [61/1130] Downloading shiny: Oddish
+2025-11-03 21:34:10,861 - INFO - [62/1130] Downloading shiny: Gloom
+2025-11-03 21:34:12,066 - INFO - [63/1130] Downloading shiny: Vileplume
+2025-11-03 21:34:13,550 - INFO - [64/1130] Downloading shiny: Paras
+2025-11-03 21:34:14,755 - INFO - [65/1130] Downloading shiny: Parasect
+2025-11-03 21:34:16,036 - INFO - [66/1130] Downloading shiny: Venonat
+2025-11-03 21:34:17,349 - INFO - [67/1130] Downloading shiny: Venomoth
+2025-11-03 21:34:18,927 - INFO - [68/1130] Downloading shiny: Alolan Diglett
+2025-11-03 21:34:20,280 - INFO - [69/1130] Downloading shiny: Alolan Diglett
+2025-11-03 21:34:21,208 - INFO - [70/1130] Downloading shiny: Alolan Dugtrio
+2025-11-03 21:34:22,396 - INFO - [71/1130] Downloading shiny: Alolan Dugtrio
+2025-11-03 21:34:23,476 - INFO - [72/1130] Downloading shiny: Galarian Meowth
+2025-11-03 21:34:24,753 - INFO - [73/1130] Downloading shiny: Galarian Meowth
+2025-11-03 21:34:25,697 - INFO - [74/1130] Downloading shiny: Gigantamax Meowth
+2025-11-03 21:34:26,645 - INFO - [75/1130] Downloading shiny: Alolan Persian
+2025-11-03 21:34:27,896 - INFO - [76/1130] Downloading shiny: Alolan Persian
+2025-11-03 21:34:28,919 - INFO - [77/1130] Downloading shiny: Psyduck
+2025-11-03 21:34:30,266 - INFO - [78/1130] Downloading shiny: Golduck
+2025-11-03 21:34:31,649 - INFO - [79/1130] Downloading shiny: Mankey
+2025-11-03 21:34:32,860 - INFO - [80/1130] Downloading shiny: Primeape
+2025-11-03 21:34:34,158 - INFO - [81/1130] Downloading shiny: Hisuian Growlithe
+2025-11-03 21:34:35,354 - INFO - [82/1130] Downloading shiny: Hisuian Arcanine
+2025-11-03 21:34:36,610 - INFO - [83/1130] Downloading shiny: Poliwag
+2025-11-03 21:34:37,825 - INFO - [84/1130] Downloading shiny: Poliwhirl
+2025-11-03 21:34:39,025 - INFO - [85/1130] Downloading shiny: Poliwrath
+2025-11-03 21:34:40,312 - INFO - [86/1130] Downloading shiny: Abra
+2025-11-03 21:34:41,537 - INFO - [87/1130] Downloading shiny: Kadabra
+2025-11-03 21:34:42,873 - INFO - [88/1130] Downloading shiny: Mega Alakazam
+2025-11-03 21:34:44,185 - INFO - [89/1130] Downloading shiny: Mega Alakazam
+2025-11-03 21:34:45,311 - INFO - [90/1130] Downloading shiny: Machop
+2025-11-03 21:34:46,653 - INFO - [91/1130] Downloading shiny: Machoke
+2025-11-03 21:34:47,958 - INFO - [92/1130] Downloading shiny: Machamp
+2025-11-03 21:34:49,158 - INFO - [93/1130] Downloading shiny: Gigantamax Machamp
+2025-11-03 21:34:50,083 - INFO - [94/1130] Downloading shiny: Bellsprout
+2025-11-03 21:34:51,300 - INFO - [95/1130] Downloading shiny: Weepinbell
+2025-11-03 21:34:52,516 - INFO - [96/1130] Downloading shiny: Victreebel
+2025-11-03 21:34:53,718 - INFO - [97/1130] Downloading shiny: Tentacool
+2025-11-03 21:34:54,899 - INFO - [98/1130] Downloading shiny: Tentacruel
+2025-11-03 21:34:56,110 - INFO - [99/1130] Downloading shiny: Alolan Geodude
+2025-11-03 21:34:57,326 - INFO - [100/1130] Downloading shiny: Alolan Geodude
+2025-11-03 21:34:58,280 - INFO - [101/1130] Downloading shiny: Alolan Graveler
+2025-11-03 21:34:59,675 - INFO - [102/1130] Downloading shiny: Alolan Graveler
+2025-11-03 21:35:00,604 - INFO - [103/1130] Downloading shiny: Alolan Golem
+2025-11-03 21:35:01,839 - INFO - [104/1130] Downloading shiny: Alolan Golem
+2025-11-03 21:35:02,778 - INFO - [105/1130] Downloading shiny: Galarian Ponyta
+2025-11-03 21:35:04,169 - INFO - [106/1130] Downloading shiny: Galarian Ponyta
+2025-11-03 21:35:05,080 - INFO - [107/1130] Downloading shiny: Galarian Rapidash
+2025-11-03 21:35:06,293 - INFO - [108/1130] Downloading shiny: Galarian Rapidash
+2025-11-03 21:35:07,412 - INFO - [109/1130] Downloading shiny: Galarian Slowpoke
+2025-11-03 21:35:08,661 - INFO - [110/1130] Downloading shiny: Galarian Slowpoke
+2025-11-03 21:35:09,639 - INFO - [111/1130] Downloading shiny: Galarian Slowbro
+2025-11-03 21:35:10,904 - INFO - [112/1130] Downloading shiny: Mega Slowbro
+2025-11-03 21:35:11,835 - INFO - [113/1130] Downloading shiny: Galarian Slowbro
+2025-11-03 21:35:12,754 - INFO - [114/1130] Downloading shiny: Magnemite
+2025-11-03 21:35:14,022 - INFO - [115/1130] Downloading shiny: Magneton
+2025-11-03 21:35:15,260 - INFO - [116/1130] Downloading shiny: Galarian Farfetch'd
+2025-11-03 21:35:16,465 - INFO - [117/1130] Downloading shiny: Galarian Farfetch'd
+2025-11-03 21:35:17,418 - INFO - [118/1130] Downloading shiny: Doduo
+2025-11-03 21:35:18,691 - INFO - [119/1130] Downloading shiny: Dodrio
+2025-11-03 21:35:19,910 - INFO - [120/1130] Downloading shiny: Seel
+2025-11-03 21:35:21,201 - INFO - [121/1130] Downloading shiny: Dewgong
+2025-11-03 21:35:22,693 - INFO - [122/1130] Downloading shiny: Alolan Grimer
+2025-11-03 21:35:24,008 - INFO - [123/1130] Downloading shiny: Alolan Grimer
+2025-11-03 21:35:24,927 - INFO - [124/1130] Downloading shiny: Alolan Muk
+2025-11-03 21:35:26,140 - INFO - [125/1130] Downloading shiny: Alolan Muk
+2025-11-03 21:35:27,060 - INFO - [126/1130] Downloading shiny: Shellder
+2025-11-03 21:35:28,311 - INFO - [127/1130] Downloading shiny: Cloyster
+2025-11-03 21:35:29,560 - INFO - [128/1130] Downloading shiny: Gastly
+2025-11-03 21:35:30,775 - INFO - [129/1130] Downloading shiny: Haunter
+2025-11-03 21:35:32,121 - INFO - [130/1130] Downloading shiny: Mega Gengar
+2025-11-03 21:35:33,381 - INFO - [131/1130] Downloading shiny: Mega Gengar
+2025-11-03 21:35:34,309 - INFO - [132/1130] Downloading shiny: Gigantamax Gengar
+2025-11-03 21:35:35,243 - INFO - [133/1130] Downloading shiny: Onix
+2025-11-03 21:35:36,449 - INFO - [134/1130] Downloading shiny: Drowzee
+2025-11-03 21:35:37,706 - INFO - [135/1130] Downloading shiny: Hypno
+2025-11-03 21:35:38,900 - INFO - [136/1130] Downloading shiny: Krabby
+2025-11-03 21:35:40,100 - INFO - [137/1130] Downloading shiny: Kingler
+2025-11-03 21:35:41,334 - INFO - [138/1130] Downloading shiny: Gigantamax Kingler
+2025-11-03 21:35:42,277 - INFO - [139/1130] Downloading shiny: Hisuian Voltorb
+2025-11-03 21:35:43,544 - INFO - [140/1130] Downloading shiny: Hisuian Electrode
+2025-11-03 21:35:45,080 - INFO - [141/1130] Downloading shiny: Exeggcute
+2025-11-03 21:35:46,369 - INFO - [142/1130] Downloading shiny: Alolan Exeggutor
+2025-11-03 21:35:47,580 - INFO - [143/1130] Downloading shiny: Alolan Exeggutor
+2025-11-03 21:35:48,580 - INFO - [144/1130] Downloading shiny: Cubone
+2025-11-03 21:35:49,824 - INFO - [145/1130] Downloading shiny: Alolan Marowak
+2025-11-03 21:35:51,041 - INFO - [146/1130] Downloading shiny: Alolan Marowak
+2025-11-03 21:35:51,971 - INFO - [147/1130] Downloading shiny: Hitmonlee
+2025-11-03 21:35:53,192 - INFO - [148/1130] Downloading shiny: Hitmonchan
+2025-11-03 21:35:54,398 - INFO - [149/1130] Downloading shiny: Lickitung
+2025-11-03 21:35:55,613 - INFO - [150/1130] Downloading shiny: Koffing
+2025-11-03 21:35:56,845 - INFO - [151/1130] Downloading shiny: Galarian Weezing
+2025-11-03 21:35:58,103 - INFO - [152/1130] Downloading shiny: Galarian Weezing
+2025-11-03 21:35:59,054 - INFO - [153/1130] Downloading shiny: Rhyhorn
+2025-11-03 21:36:00,271 - INFO - [154/1130] Downloading shiny: Rhydon
+2025-11-03 21:36:01,658 - INFO - [155/1130] Downloading shiny: Chansey
+2025-11-03 21:36:02,836 - INFO - [156/1130] Downloading shiny: Tangela
+2025-11-03 21:36:04,232 - INFO - [157/1130] Downloading shiny: Mega Kangaskhan
+2025-11-03 21:36:05,448 - INFO - [158/1130] Downloading shiny: Mega Kangaskhan
+2025-11-03 21:36:06,380 - INFO - [159/1130] Downloading shiny: Horsea
+2025-11-03 21:36:07,710 - INFO - [160/1130] Downloading shiny: Seadra
+2025-11-03 21:36:08,927 - INFO - [161/1130] Downloading shiny: Goldeen
+2025-11-03 21:36:10,184 - INFO - [162/1130] Downloading shiny: Seaking
+2025-11-03 21:36:11,528 - INFO - [163/1130] Downloading shiny: Staryu
+2025-11-03 21:36:12,792 - INFO - [164/1130] Downloading shiny: Starmie
+2025-11-03 21:36:14,060 - INFO - [165/1130] Downloading shiny: Galarian Mr. Mime
+2025-11-03 21:36:15,313 - INFO - [166/1130] Downloading shiny: Galarian Mr. Mime
+2025-11-03 21:36:16,250 - INFO - [167/1130] Downloading shiny: Scyther
+2025-11-03 21:36:17,458 - INFO - [168/1130] Downloading shiny: Jynx
+2025-11-03 21:36:18,705 - INFO - [169/1130] Downloading shiny: Electabuzz
+2025-11-03 21:36:19,948 - INFO - [170/1130] Downloading shiny: Magmar
+2025-11-03 21:36:21,118 - INFO - [171/1130] Downloading shiny: Mega Pinsir
+2025-11-03 21:36:22,385 - INFO - [172/1130] Downloading shiny: Mega Pinsir
+2025-11-03 21:36:23,334 - INFO - [173/1130] Downloading shiny: Paldean Tauros (Aqua)
+2025-11-03 21:36:24,646 - INFO - [174/1130] Downloading shiny: Magikarp
+2025-11-03 21:36:25,860 - INFO - [175/1130] Downloading shiny: Mega Gyarados
+2025-11-03 21:36:27,125 - INFO - [176/1130] Downloading shiny: Mega Gyarados
+2025-11-03 21:36:28,029 - INFO - [177/1130] Downloading shiny: Lapras
+2025-11-03 21:36:29,282 - INFO - [178/1130] Downloading shiny: Gigantamax Lapras
+2025-11-03 21:36:30,219 - INFO - [179/1130] Downloading shiny: Ditto
+2025-11-03 21:36:31,426 - INFO - [180/1130] Downloading shiny: Partner Eevee
+2025-11-03 21:36:32,650 - INFO - [181/1130] Downloading shiny: Gigantamax Eevee
+2025-11-03 21:36:33,552 - INFO - [182/1130] Downloading shiny: Vaporeon
+2025-11-03 21:36:35,391 - INFO - [183/1130] Downloading shiny: Jolteon
+2025-11-03 21:36:36,592 - INFO - [184/1130] Downloading shiny: Flareon
+2025-11-03 21:36:37,863 - INFO - [185/1130] Downloading shiny: Porygon
+2025-11-03 21:36:39,095 - INFO - [186/1130] Downloading shiny: Omanyte
+2025-11-03 21:36:40,376 - INFO - [187/1130] Downloading shiny: Omastar
+2025-11-03 21:36:41,892 - INFO - [188/1130] Downloading shiny: Kabuto
+2025-11-03 21:36:43,135 - INFO - [189/1130] Downloading shiny: Kabutops
+2025-11-03 21:36:44,376 - INFO - [190/1130] Downloading shiny: Mega Aerodactyl
+2025-11-03 21:36:45,582 - INFO - [191/1130] Downloading shiny: Mega Aerodactyl
+2025-11-03 21:36:46,498 - INFO - [192/1130] Downloading shiny: Snorlax
+2025-11-03 21:36:47,706 - INFO - [193/1130] Downloading shiny: Gigantamax Snorlax
+2025-11-03 21:36:48,636 - INFO - [194/1130] Downloading shiny: Galarian Articuno
+2025-11-03 21:36:49,870 - INFO - [195/1130] Downloading shiny: Galarian Zapdos
+2025-11-03 21:36:51,120 - INFO - [196/1130] Downloading shiny: Galarian Moltres
+2025-11-03 21:36:52,330 - INFO - [197/1130] Downloading shiny: Dratini
+2025-11-03 21:36:53,619 - INFO - [198/1130] Downloading shiny: Dragonair
+2025-11-03 21:36:54,842 - INFO - [199/1130] Downloading shiny: Dragonite
+2025-11-03 21:36:56,099 - INFO - [200/1130] Downloading shiny: Mega Mewtwo Y
+2025-11-03 21:36:57,416 - INFO - [201/1130] Downloading shiny: Mega Mewtwo X
+2025-11-03 21:36:58,335 - INFO - [202/1130] Downloading shiny: Mega Mewtwo Y
+2025-11-03 21:36:59,326 - INFO - [203/1130] Downloading shiny: Mew
+2025-11-03 21:37:00,555 - INFO - [204/1130] Downloading shiny: Chikorita
+2025-11-03 21:37:01,802 - INFO - [205/1130] Downloading shiny: Bayleef
+2025-11-03 21:37:03,074 - INFO - [206/1130] Downloading shiny: Meganium
+2025-11-03 21:37:04,677 - INFO - [207/1130] Downloading shiny: Cyndaquil
+2025-11-03 21:37:05,908 - INFO - [208/1130] Downloading shiny: Quilava
+2025-11-03 21:37:07,107 - INFO - [209/1130] Downloading shiny: Hisuian Typhlosion
+2025-11-03 21:37:08,379 - INFO - [210/1130] Downloading shiny: Totodile
+2025-11-03 21:37:09,580 - INFO - [211/1130] Downloading shiny: Croconaw
+2025-11-03 21:37:10,820 - INFO - [212/1130] Downloading shiny: Feraligatr
+2025-11-03 21:37:12,080 - INFO - [213/1130] Downloading shiny: Sentret
+2025-11-03 21:37:13,299 - INFO - [214/1130] Downloading shiny: Furret
+2025-11-03 21:37:14,519 - INFO - [215/1130] Downloading shiny: Hoothoot
+2025-11-03 21:37:15,722 - INFO - [216/1130] Downloading shiny: Noctowl
+2025-11-03 21:37:16,945 - INFO - [217/1130] Downloading shiny: Ledyba
+2025-11-03 21:37:18,898 - INFO - [218/1130] Downloading shiny: Ledian
+2025-11-03 21:37:20,261 - INFO - [219/1130] Downloading shiny: Spinarak
+2025-11-03 21:37:21,519 - INFO - [220/1130] Downloading shiny: Ariados
+2025-11-03 21:37:22,817 - INFO - [221/1130] Downloading shiny: Crobat
+2025-11-03 21:37:24,068 - INFO - [222/1130] Downloading shiny: Chinchou
+2025-11-03 21:37:25,335 - INFO - [223/1130] Downloading shiny: Lanturn
+2025-11-03 21:37:26,629 - INFO - [224/1130] Downloading shiny: Pichu
+2025-11-03 21:37:27,937 - INFO - [225/1130] Downloading shiny: Cleffa
+2025-11-03 21:37:29,218 - INFO - [226/1130] Downloading shiny: Igglybuff
+2025-11-03 21:37:30,574 - INFO - [227/1130] Downloading shiny: Togepi
+2025-11-03 21:37:31,841 - INFO - [228/1130] Downloading shiny: Togetic
+2025-11-03 21:37:33,165 - INFO - [229/1130] Downloading shiny: Natu
+2025-11-03 21:37:34,486 - INFO - [230/1130] Downloading shiny: Xatu
+2025-11-03 21:37:35,785 - INFO - [231/1130] Downloading shiny: Mareep
+2025-11-03 21:37:37,066 - INFO - [232/1130] Downloading shiny: Flaaffy
+2025-11-03 21:37:38,307 - INFO - [233/1130] Downloading shiny: Mega Ampharos
+2025-11-03 21:37:39,690 - INFO - [234/1130] Downloading shiny: Mega Ampharos
+2025-11-03 21:37:40,667 - INFO - [235/1130] Downloading shiny: Bellossom
+2025-11-03 21:37:41,933 - INFO - [236/1130] Downloading shiny: Marill
+2025-11-03 21:37:43,259 - INFO - [237/1130] Downloading shiny: Azumarill
+2025-11-03 21:37:44,580 - INFO - [238/1130] Downloading shiny: Sudowoodo
+2025-11-03 21:37:45,881 - INFO - [239/1130] Downloading shiny: Politoed
+2025-11-03 21:37:47,213 - INFO - [240/1130] Downloading shiny: Hoppip
+2025-11-03 21:37:48,464 - INFO - [241/1130] Downloading shiny: Skiploom
+2025-11-03 21:37:49,828 - INFO - [242/1130] Downloading shiny: Jumpluff
+2025-11-03 21:37:51,157 - INFO - [243/1130] Downloading shiny: Aipom
+2025-11-03 21:37:52,687 - INFO - [244/1130] Downloading shiny: Sunkern
+2025-11-03 21:37:54,028 - INFO - [245/1130] Downloading shiny: Sunflora
+2025-11-03 21:37:55,353 - INFO - [246/1130] Downloading shiny: Yanma
+2025-11-03 21:37:56,880 - INFO - [247/1130] Downloading shiny: Paldean Wooper
+2025-11-03 21:37:58,211 - INFO - [248/1130] Downloading shiny: Quagsire
+2025-11-03 21:37:59,508 - INFO - [249/1130] Downloading shiny: Espeon
+2025-11-03 21:38:00,819 - INFO - [250/1130] Downloading shiny: Umbreon
+2025-11-03 21:38:02,085 - INFO - [251/1130] Downloading shiny: Murkrow
+2025-11-03 21:38:03,469 - INFO - [252/1130] Downloading shiny: Galarian Slowking
+2025-11-03 21:38:04,761 - INFO - [253/1130] Downloading shiny: Misdreavus
+2025-11-03 21:38:06,124 - INFO - [254/1130] Downloading shiny: Unown
+2025-11-03 21:38:07,386 - INFO - [255/1130] Downloading shiny: Wobbuffet
+2025-11-03 21:38:08,659 - INFO - [256/1130] Downloading shiny: Girafarig
+2025-11-03 21:38:10,502 - INFO - [257/1130] Downloading shiny: Pineco
+2025-11-03 21:38:11,789 - INFO - [258/1130] Downloading shiny: Forretress
+2025-11-03 21:38:13,663 - INFO - [259/1130] Downloading shiny: Dunsparce
+2025-11-03 21:38:15,335 - INFO - [260/1130] Downloading shiny: Gligar
+2025-11-03 21:38:17,050 - INFO - [261/1130] Downloading shiny: Mega Steelix
+2025-11-03 21:38:18,711 - INFO - [262/1130] Downloading shiny: Mega Steelix
+2025-11-03 21:38:19,770 - INFO - [263/1130] Downloading shiny: Snubbull
+2025-11-03 21:38:21,111 - INFO - [264/1130] Downloading shiny: Granbull
+2025-11-03 21:38:22,445 - INFO - [265/1130] Downloading shiny: Hisuian Qwilfish
+2025-11-03 21:38:23,913 - INFO - [266/1130] Downloading shiny: Mega Scizor
+2025-11-03 21:38:25,264 - INFO - [267/1130] Downloading shiny: Mega Scizor
+2025-11-03 21:38:26,297 - INFO - [268/1130] Downloading shiny: Shuckle
+2025-11-03 21:38:27,978 - INFO - [269/1130] Downloading shiny: Mega Heracross
+2025-11-03 21:38:29,311 - INFO - [270/1130] Downloading shiny: Mega Heracross
+2025-11-03 21:38:30,336 - INFO - [271/1130] Downloading shiny: Hisuian Sneasel
+2025-11-03 21:38:31,692 - INFO - [272/1130] Downloading shiny: Teddiursa
+2025-11-03 21:38:33,009 - INFO - [273/1130] Downloading shiny: Ursaring
+2025-11-03 21:38:34,393 - INFO - [274/1130] Downloading shiny: Slugma
+2025-11-03 21:38:35,669 - INFO - [275/1130] Downloading shiny: Magcargo
+2025-11-03 21:38:37,052 - INFO - [276/1130] Downloading shiny: Swinub
+2025-11-03 21:38:38,601 - INFO - [277/1130] Downloading shiny: Piloswine
+2025-11-03 21:38:39,887 - INFO - [278/1130] Downloading shiny: Galarian Corsola
+2025-11-03 21:38:41,185 - INFO - [279/1130] Downloading shiny: Remoraid
+2025-11-03 21:38:42,626 - INFO - [280/1130] Downloading shiny: Octillery
+2025-11-03 21:38:44,518 - INFO - [281/1130] Downloading shiny: Delibird
+2025-11-03 21:38:45,828 - INFO - [282/1130] Downloading shiny: Mantine
+2025-11-03 21:38:47,121 - INFO - [283/1130] Downloading shiny: Skarmory
+2025-11-03 21:38:49,039 - INFO - [284/1130] Downloading shiny: Houndour
+2025-11-03 21:38:50,327 - INFO - [285/1130] Downloading shiny: Mega Houndoom
+2025-11-03 21:38:51,663 - INFO - [286/1130] Downloading shiny: Mega Houndoom
+2025-11-03 21:38:52,633 - INFO - [287/1130] Downloading shiny: Kingdra
+2025-11-03 21:38:54,000 - INFO - [288/1130] Downloading shiny: Phanpy
+2025-11-03 21:38:55,253 - INFO - [289/1130] Downloading shiny: Donphan
+2025-11-03 21:38:56,507 - INFO - [290/1130] Downloading shiny: Porygon2
+2025-11-03 21:38:57,811 - INFO - [291/1130] Downloading shiny: Stantler
+2025-11-03 21:38:59,104 - INFO - [292/1130] Downloading shiny: Smeargle
+2025-11-03 21:39:00,430 - INFO - [293/1130] Downloading shiny: Tyrogue
+2025-11-03 21:39:02,811 - INFO - [294/1130] Downloading shiny: Hitmontop
+2025-11-03 21:39:04,138 - INFO - [295/1130] Downloading shiny: Smoochum
+2025-11-03 21:39:05,406 - INFO - [296/1130] Downloading shiny: Elekid
+2025-11-03 21:39:06,819 - INFO - [297/1130] Downloading shiny: Magby
+2025-11-03 21:39:08,100 - INFO - [298/1130] Downloading shiny: Miltank
+2025-11-03 21:39:09,433 - INFO - [299/1130] Downloading shiny: Blissey
+2025-11-03 21:39:10,776 - INFO - [300/1130] Downloading shiny: Raikou
+2025-11-03 21:39:12,084 - INFO - [301/1130] Downloading shiny: Entei
+2025-11-03 21:39:13,327 - INFO - [302/1130] Downloading shiny: Suicune
+2025-11-03 21:39:14,584 - INFO - [303/1130] Downloading shiny: Larvitar
+2025-11-03 21:39:15,908 - INFO - [304/1130] Downloading shiny: Pupitar
+2025-11-03 21:39:17,191 - INFO - [305/1130] Downloading shiny: Mega Tyranitar
+2025-11-03 21:39:18,477 - INFO - [306/1130] Downloading shiny: Mega Tyranitar
+2025-11-03 21:39:19,623 - INFO - [307/1130] Downloading shiny: Lugia
+2025-11-03 21:39:20,898 - INFO - [308/1130] Downloading shiny: Ho-oh
+2025-11-03 21:39:22,872 - INFO - [309/1130] Downloading shiny: Celebi
+2025-11-03 21:39:25,003 - INFO - [310/1130] Downloading shiny: Treecko
+2025-11-03 21:39:26,412 - INFO - [311/1130] Downloading shiny: Grovyle
+2025-11-03 21:39:28,214 - INFO - [312/1130] Downloading shiny: Mega Sceptile
+2025-11-03 21:39:29,663 - INFO - [313/1130] Downloading shiny: Mega Sceptile
+2025-11-03 21:39:30,669 - INFO - [314/1130] Downloading shiny: Torchic
+2025-11-03 21:39:31,950 - INFO - [315/1130] Downloading shiny: Combusken
+2025-11-03 21:39:33,248 - INFO - [316/1130] Downloading shiny: Mega Blaziken
+2025-11-03 21:39:34,548 - INFO - [317/1130] Downloading shiny: Mega Blaziken
+2025-11-03 21:39:35,637 - INFO - [318/1130] Downloading shiny: Mudkip
+2025-11-03 21:39:37,081 - INFO - [319/1130] Downloading shiny: Marshtomp
+2025-11-03 21:39:39,311 - INFO - [320/1130] Downloading shiny: Mega Swampert
+2025-11-03 21:39:42,352 - INFO - [321/1130] Downloading shiny: Mega Swampert
+2025-11-03 21:39:43,407 - INFO - [322/1130] Downloading shiny: Poochyena
+2025-11-03 21:39:44,659 - INFO - [323/1130] Downloading shiny: Mightyena
+2025-11-03 21:39:45,973 - INFO - [324/1130] Downloading shiny: Galarian Zigzagoon
+2025-11-03 21:39:47,246 - INFO - [325/1130] Downloading shiny: Galarian Linoone
+2025-11-03 21:39:48,707 - INFO - [326/1130] Downloading shiny: Wurmple
+2025-11-03 21:39:50,048 - INFO - [327/1130] Downloading shiny: Silcoon
+2025-11-03 21:39:51,961 - INFO - [328/1130] Downloading shiny: Beautifly
+2025-11-03 21:39:53,331 - INFO - [329/1130] Downloading shiny: Cascoon
+2025-11-03 21:39:54,633 - INFO - [330/1130] Downloading shiny: Dustox
+2025-11-03 21:39:56,725 - INFO - [331/1130] Downloading shiny: Lotad
+2025-11-03 21:39:58,002 - INFO - [332/1130] Downloading shiny: Lombre
+2025-11-03 21:39:59,274 - INFO - [333/1130] Downloading shiny: Ludicolo
+2025-11-03 21:40:01,651 - INFO - [334/1130] Downloading shiny: Seedot
+2025-11-03 21:40:04,035 - INFO - [335/1130] Downloading shiny: Nuzleaf
+2025-11-03 21:40:05,832 - INFO - [336/1130] Downloading shiny: Shiftry
+2025-11-03 21:40:07,124 - INFO - [337/1130] Downloading shiny: Taillow
+2025-11-03 21:40:08,440 - INFO - [338/1130] Downloading shiny: Swellow
+2025-11-03 21:40:09,646 - INFO - [339/1130] Downloading shiny: Wingull
+2025-11-03 21:40:10,873 - INFO - [340/1130] Downloading shiny: Pelipper
+2025-11-03 21:40:12,118 - INFO - [341/1130] Downloading shiny: Ralts
+2025-11-03 21:40:13,899 - INFO - [342/1130] Downloading shiny: Kirlia
+2025-11-03 21:40:15,171 - INFO - [343/1130] Downloading shiny: Mega Gardevoir
+2025-11-03 21:40:17,373 - INFO - [344/1130] Downloading shiny: Mega Gardevoir
+2025-11-03 21:40:18,349 - INFO - [345/1130] Downloading shiny: Surskit
+2025-11-03 21:40:19,765 - INFO - [346/1130] Downloading shiny: Masquerain
+2025-11-03 21:40:21,180 - INFO - [347/1130] Downloading shiny: Shroomish
+2025-11-03 21:40:22,537 - INFO - [348/1130] Downloading shiny: Breloom
+2025-11-03 21:40:24,686 - INFO - [349/1130] Downloading shiny: Slakoth
+2025-11-03 21:40:25,991 - INFO - [350/1130] Downloading shiny: Vigoroth
+2025-11-03 21:40:27,219 - INFO - [351/1130] Downloading shiny: Slaking
+2025-11-03 21:40:28,644 - INFO - [352/1130] Downloading shiny: Nincada
+2025-11-03 21:40:29,968 - INFO - [353/1130] Downloading shiny: Ninjask
+2025-11-03 21:40:31,520 - INFO - [354/1130] Downloading shiny: Shedinja
+2025-11-03 21:40:33,440 - INFO - [355/1130] Downloading shiny: Whismur
+2025-11-03 21:40:34,801 - INFO - [356/1130] Downloading shiny: Loudred
+2025-11-03 21:40:36,096 - INFO - [357/1130] Downloading shiny: Exploud
+2025-11-03 21:40:37,463 - INFO - [358/1130] Downloading shiny: Makuhita
+2025-11-03 21:40:39,379 - INFO - [359/1130] Downloading shiny: Hariyama
+2025-11-03 21:40:40,813 - INFO - [360/1130] Downloading shiny: Azurill
+2025-11-03 21:40:42,090 - INFO - [361/1130] Downloading shiny: Nosepass
+2025-11-03 21:40:43,363 - INFO - [362/1130] Downloading shiny: Skitty
+2025-11-03 21:40:44,600 - INFO - [363/1130] Downloading shiny: Delcatty
+2025-11-03 21:40:45,900 - INFO - [364/1130] Downloading shiny: Mega Sableye
+2025-11-03 21:40:47,821 - INFO - [365/1130] Downloading shiny: Mega Sableye
+2025-11-03 21:40:48,817 - INFO - [366/1130] Downloading shiny: Mega Mawile
+2025-11-03 21:40:50,140 - INFO - [367/1130] Downloading shiny: Mega Mawile
+2025-11-03 21:40:51,144 - INFO - [368/1130] Downloading shiny: Aron
+2025-11-03 21:40:52,466 - INFO - [369/1130] Downloading shiny: Lairon
+2025-11-03 21:40:53,812 - INFO - [370/1130] Downloading shiny: Mega Aggron
+2025-11-03 21:40:55,136 - INFO - [371/1130] Downloading shiny: Mega Aggron
+2025-11-03 21:40:56,278 - INFO - [372/1130] Downloading shiny: Meditite
+2025-11-03 21:40:58,316 - INFO - [373/1130] Downloading shiny: Mega Medicham
+2025-11-03 21:41:00,176 - INFO - [374/1130] Downloading shiny: Mega Medicham
+2025-11-03 21:41:01,239 - INFO - [375/1130] Downloading shiny: Electrike
+2025-11-03 21:41:02,537 - INFO - [376/1130] Downloading shiny: Mega Manectric
+2025-11-03 21:41:03,822 - INFO - [377/1130] Downloading shiny: Mega Manectric
+2025-11-03 21:41:04,780 - INFO - [378/1130] Downloading shiny: Plusle
+2025-11-03 21:41:06,551 - INFO - [379/1130] Downloading shiny: Minun
+2025-11-03 21:41:07,832 - INFO - [380/1130] Downloading shiny: Volbeat
+2025-11-03 21:41:09,094 - INFO - [381/1130] Downloading shiny: Illumise
+2025-11-03 21:41:10,431 - INFO - [382/1130] Downloading shiny: Roselia
+2025-11-03 21:41:12,442 - INFO - [383/1130] Downloading shiny: Gulpin
+2025-11-03 21:41:13,935 - INFO - [384/1130] Downloading shiny: Swalot
+2025-11-03 21:41:15,281 - INFO - [385/1130] Downloading shiny: Carvanha
+2025-11-03 21:41:17,063 - INFO - [386/1130] Downloading shiny: Mega Sharpedo
+2025-11-03 21:41:18,307 - INFO - [387/1130] Downloading shiny: Mega Sharpedo
+2025-11-03 21:41:19,299 - INFO - [388/1130] Downloading shiny: Wailmer
+2025-11-03 21:41:20,640 - INFO - [389/1130] Downloading shiny: Wailord
+2025-11-03 21:41:21,966 - INFO - [390/1130] Downloading shiny: Numel
+2025-11-03 21:41:23,234 - INFO - [391/1130] Downloading shiny: Mega Camerupt
+2025-11-03 21:41:25,189 - INFO - [392/1130] Downloading shiny: Mega Camerupt
+2025-11-03 21:41:26,187 - INFO - [393/1130] Downloading shiny: Torkoal
+2025-11-03 21:41:27,462 - INFO - [394/1130] Downloading shiny: Spoink
+2025-11-03 21:41:29,310 - INFO - [395/1130] Downloading shiny: Grumpig
+2025-11-03 21:41:31,275 - INFO - [396/1130] Downloading shiny: Spinda
+2025-11-03 21:41:32,928 - INFO - [397/1130] Downloading shiny: Trapinch
+2025-11-03 21:41:34,263 - INFO - [398/1130] Downloading shiny: Vibrava
+2025-11-03 21:41:35,615 - INFO - [399/1130] Downloading shiny: Flygon
+2025-11-03 21:41:36,964 - INFO - [400/1130] Downloading shiny: Cacnea
+2025-11-03 21:41:38,280 - INFO - [401/1130] Downloading shiny: Cacturne
+2025-11-03 21:41:39,703 - INFO - [402/1130] Downloading shiny: Swablu
+2025-11-03 21:41:41,144 - INFO - [403/1130] Downloading shiny: Mega Altaria
+2025-11-03 21:41:42,995 - INFO - [404/1130] Downloading shiny: Mega Altaria
+2025-11-03 21:41:43,967 - INFO - [405/1130] Downloading shiny: Zangoose
+2025-11-03 21:41:45,223 - INFO - [406/1130] Downloading shiny: Seviper
+2025-11-03 21:41:46,514 - INFO - [407/1130] Downloading shiny: Lunatone
+2025-11-03 21:41:47,890 - INFO - [408/1130] Downloading shiny: Solrock
+2025-11-03 21:41:49,169 - INFO - [409/1130] Downloading shiny: Barboach
+2025-11-03 21:41:50,751 - INFO - [410/1130] Downloading shiny: Whiscash
