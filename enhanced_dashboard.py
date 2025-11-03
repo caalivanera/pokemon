@@ -68,17 +68,17 @@ st.markdown("""
     }
     
     .pokemon-card {
-        border: 2px solid #e5e7eb;
+        border: 2px solid #374151;
         border-radius: 16px;
         padding: 1.5rem;
-        background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);
-        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        background: linear-gradient(135deg, #1F2937 0%, #111827 100%);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
         transition: all 0.3s ease;
     }
     
     .pokemon-card:hover {
         transform: translateY(-8px);
-        box-shadow: 0 12px 24px rgba(34, 197, 94, 0.2);
+        box-shadow: 0 12px 24px rgba(34, 197, 94, 0.3);
         border-color: #22c55e;
     }
     
@@ -99,7 +99,7 @@ st.markdown("""
     
     .stTabs [data-baseweb="tab-list"] {
         gap: 8px;
-        background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+        background: linear-gradient(135deg, #1F2937 0%, #111827 100%);
         padding: 12px;
         border-radius: 16px;
     }
@@ -143,10 +143,10 @@ st.markdown("""
     }
     
     .game-container {
-        background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);
+        background: linear-gradient(135deg, #1F2937 0%, #111827 100%);
         border-radius: 16px;
         padding: 2rem;
-        box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        box-shadow: 0 8px 24px rgba(0,0,0,0.3);
         border: 2px solid #22c55e;
     }
 </style>
