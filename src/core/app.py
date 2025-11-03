@@ -2072,7 +2072,6 @@ def main():
         try:
             # Import analytics module
             import sys
-            from pathlib import Path
             analytics_path = Path(__file__).parent.parent / "analytics"
             if str(analytics_path) not in sys.path:
                 sys.path.insert(0, str(analytics_path))
