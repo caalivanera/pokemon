@@ -24,6 +24,7 @@ from dark_mode import dark_mode_toggle, apply_dark_mode, get_theme_colors
 from type_calculator import display_type_calculator
 from team_builder import display_team_builder
 from advanced_search import create_advanced_filters, quick_search_bar, display_filter_summary
+from variant_stats import display_variant_statistics
 
 # ==================== CONFIGURATION ====================
 
@@ -598,8 +599,8 @@ def main():
         
         st.markdown(f"**{len(filtered_df)}** Pokémon match filters")
     
-    # Main Tabs (v5.0.0 - Added Type Calculator & Enhanced Team Builder)
-    tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9, tab10, tab11 = st.tabs([
+    # Main Tabs (v5.0.0 - Added Type Calculator, Team Builder & Variant Stats)
+    tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9, tab10, tab11, tab12 = st.tabs([
         "📊 Overview",
         "🔍 Pokémon Search",
         "⚔️ Competitive Analysis",
@@ -610,6 +611,7 @@ def main():
         "🎨 Sprite Gallery",
         "⚡ Type Calculator",
         "👥 Team Builder",
+        "📊 Variant Statistics",
         "🏆 Legacy Team Builder"
     ])
     
@@ -1540,8 +1542,26 @@ def main():
                                     unsafe_allow_html=True
                                 )
     
-    # ==================== TAB 9: TEAM BUILDER ====================
+    # ==================== TAB 9: TYPE CALCULATOR (NEW v5.0.0) ====================
     with tab9:
+        st.header("⚡ Type Effectiveness Calculator")
+        st.markdown("Calculate damage multipliers and analyze type matchups")
+        display_type_calculator()
+    
+    # ==================== TAB 10: TEAM BUILDER (NEW v5.0.0) ====================
+    with tab10:
+        st.header("👥 Advanced Team Builder")
+        st.markdown("Build and analyze 6-Pokémon teams with coverage analysis")
+        display_team_builder(filtered_df)
+    
+    # ==================== TAB 11: VARIANT STATISTICS (NEW v5.0.0) ====================
+    with tab11:
+        st.header("📊 Variant Statistics Dashboard")
+        st.markdown("Comprehensive analysis of Pokemon variants and special forms")
+        display_variant_statistics(filtered_df)
+    
+    # ==================== TAB 12: LEGACY TEAM BUILDER ====================
+    with tab12:
         st.header("🏆 Team Builder")
         st.subheader("Build your competitive team")
         
@@ -1626,18 +1646,6 @@ def main():
                 st.plotly_chart(fig, use_container_width=True, key="team_avg_stats")
         else:
             st.info("👆 Select Pokémon above to build your team!")
-    
-    # ==================== TAB 10: TYPE CALCULATOR (NEW v5.0.0) ====================
-    with tab10:
-        st.header("⚡ Type Effectiveness Calculator")
-        st.markdown("Calculate damage multipliers and analyze type matchups")
-        display_type_calculator()
-    
-    # ==================== TAB 11: TEAM BUILDER (NEW v5.0.0) ====================
-    with tab11:
-        st.header("👥 Advanced Team Builder")
-        st.markdown("Build and analyze 6-Pokémon teams with coverage analysis")
-        display_team_builder(filtered_df)
 
 # ==================== RUN APP ====================
 
