@@ -44,6 +44,112 @@ GENERATION_RANGES = {
     "Generation IX (Paldea)": (906, 1025)
 }
 
+# Game/Pokemon mappings by generation
+POKEMON_GAMES = {
+    "Red/Blue/Yellow (Gen I)": {
+        "range": (1, 151),
+        "release_year": "1996-1998",
+        "region": "Kanto",
+        "icon": "🔴🔵🟡"
+    },
+    "Gold/Silver/Crystal (Gen II)": {
+        "range": (1, 251),
+        "release_year": "1999-2001",
+        "region": "Johto",
+        "icon": "🟡⚪💎"
+    },
+    "Ruby/Sapphire/Emerald (Gen III)": {
+        "range": (1, 386),
+        "release_year": "2002-2005",
+        "region": "Hoenn",
+        "icon": "🔴🔵🟢"
+    },
+    "FireRed/LeafGreen (Gen III Remakes)": {
+        "range": (1, 386),
+        "release_year": "2004",
+        "region": "Kanto",
+        "icon": "🔥🍃"
+    },
+    "Diamond/Pearl/Platinum (Gen IV)": {
+        "range": (1, 493),
+        "release_year": "2006-2009",
+        "region": "Sinnoh",
+        "icon": "💎⚪⚫"
+    },
+    "HeartGold/SoulSilver (Gen IV Remakes)": {
+        "range": (1, 493),
+        "release_year": "2009-2010",
+        "region": "Johto",
+        "icon": "💛🩶"
+    },
+    "Black/White (Gen V)": {
+        "range": (1, 649),
+        "release_year": "2010-2011",
+        "region": "Unova",
+        "icon": "⚫⚪"
+    },
+    "Black 2/White 2 (Gen V)": {
+        "range": (1, 649),
+        "release_year": "2012",
+        "region": "Unova",
+        "icon": "⚫⚪"
+    },
+    "X/Y (Gen VI)": {
+        "range": (1, 721),
+        "release_year": "2013",
+        "region": "Kalos",
+        "icon": "❌🇾"
+    },
+    "Omega Ruby/Alpha Sapphire (Gen VI Remakes)": {
+        "range": (1, 721),
+        "release_year": "2014",
+        "region": "Hoenn",
+        "icon": "🔴🔵"
+    },
+    "Sun/Moon (Gen VII)": {
+        "range": (1, 809),
+        "release_year": "2016",
+        "region": "Alola",
+        "icon": "☀️🌙"
+    },
+    "Ultra Sun/Ultra Moon (Gen VII)": {
+        "range": (1, 809),
+        "release_year": "2017",
+        "region": "Alola",
+        "icon": "🌟☀️🌙"
+    },
+    "Let's Go Pikachu/Eevee (Gen VII)": {
+        "range": (1, 151),
+        "release_year": "2018",
+        "region": "Kanto",
+        "icon": "⚡🦊"
+    },
+    "Sword/Shield (Gen VIII)": {
+        "range": (1, 905),
+        "release_year": "2019",
+        "region": "Galar",
+        "icon": "⚔️🛡️"
+    },
+    "Brilliant Diamond/Shining Pearl (Gen VIII Remakes)": {
+        "range": (1, 493),
+        "release_year": "2021",
+        "region": "Sinnoh",
+        "icon": "💎✨"
+    },
+    "Legends: Arceus (Gen VIII)": {
+        "range": (1, 905),
+        "release_year": "2022",
+        "region": "Hisui",
+        "icon": "🏔️"
+    },
+    "Scarlet/Violet (Gen IX)": {
+        "range": (1, 1025),
+        "release_year": "2022",
+        "region": "Paldea",
+        "icon": "🔴🟣"
+    }
+}
+
 # Type colors for badges
 TYPE_COLORS = {
     'normal': '#A8A878', 'fire': '#F08030', 'water': '#6890F0',
@@ -165,19 +271,20 @@ def inject_custom_css():
         /* Pokemon card styling */
         .pokemon-card {
             background: var(--bg-dark);
-            border-radius: 12px;
-            padding: 15px;
+            border-radius: 16px;
+            padding: 20px;
             transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
             cursor: pointer;
             border: 2px solid transparent;
             position: relative;
             overflow: hidden;
+            min-height: 360px;
         }
         
         .pokemon-card:hover {
-            transform: scale(1.05) translateY(-5px);
+            transform: scale(1.08) translateY(-8px);
             border-color: var(--pokemon-green);
-            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
+            box-shadow: 0 15px 40px rgba(16, 185, 129, 0.4);
             z-index: 10;
         }
         
@@ -199,22 +306,22 @@ def inject_custom_css():
         /* Sprite animations */
         .pokemon-sprite {
             width: 100%;
-            height: 200px;
+            height: 250px;
             object-fit: contain;
-            filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.5));
+            filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.6));
             transition: transform 0.2s ease;
             animation: float 3s ease-in-out infinite;
         }
         
         .pokemon-card:hover .pokemon-sprite {
             animation: bounce 0.6s ease-in-out;
-            transform: scale(1.1) rotateY(15deg);
+            transform: scale(1.15) rotateY(20deg);
         }
         
         /* TBA placeholder styling */
         .tba-placeholder {
             width: 100%;
-            height: 200px;
+            height: 250px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -222,23 +329,28 @@ def inject_custom_css():
             border-radius: 12px;
             border: 2px dashed var(--pokemon-green);
             color: var(--pokemon-green);
-            font-size: 48px;
+            font-size: 56px;
             font-weight: bold;
-            letter-spacing: 8px;
-            text-shadow: 0 0 20px rgba(16, 185, 129, 0.5);
+            letter-spacing: 10px;
+            text-shadow: 0 0 25px rgba(16, 185, 129, 0.6);
         }
         
         /* Type badges */
         .type-badge {
             display: inline-block;
-            padding: 4px 12px;
-            border-radius: 16px;
-            font-size: 12px;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 13px;
             font-weight: bold;
             text-transform: uppercase;
-            margin: 2px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-            letter-spacing: 0.5px;
+            margin: 3px;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+            letter-spacing: 0.8px;
+            transition: transform 0.2s;
+        }
+        
+        .type-badge:hover {
+            transform: scale(1.1);
         }
         
         /* Tabs styling */
@@ -415,20 +527,20 @@ def create_pokemon_card_html(pokemon_data: pd.Series, sprite_url: str) -> str:
     
     return f"""
     <div class="pokemon-card">
-        <div style="position: relative; width: 100%; height: 200px;">
+        <div style="position: relative; width: 100%; height: 250px; margin-bottom: 15px;">
             <img src="{sprite_url}" 
                  class="pokemon-sprite" 
                  alt="{pokemon_data['name']}"
-                 style="width: 100%; height: 200px; object-fit: contain; filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.5)); animation: float 3s ease-in-out infinite;"
-                 onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\\'tba-placeholder\\'>TBA</div>';">
+                 style="width: 100%; height: 250px; object-fit: contain; filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.6)); animation: float 3s ease-in-out infinite;"
+                 onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\\'tba-placeholder\\' style=\\'height: 250px; font-size: 56px;\\'>TBA</div>';">
         </div>
-        <h3 style="text-align: center; margin: 10px 0; color: #E5E5E5;">
+        <h3 style="text-align: center; margin: 15px 0 10px 0; color: #E5E5E5; font-size: 20px; font-weight: 700;">
             #{int(pokemon_data['pokedex_number'])} {pokemon_data['name']}
         </h3>
-        <div style="text-align: center;">
+        <div style="text-align: center; margin: 12px 0;">
             {type_badges}
         </div>
-        <div style="margin-top: 10px; text-align: center; color: #B3B3B3; font-size: 14px;">
+        <div style="margin-top: 15px; text-align: center; color: #10B981; font-size: 16px; font-weight: 600;">
             BST: {int(pokemon_data['total_points'])}
         </div>
     </div>
@@ -518,9 +630,10 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # --- Main Tabbed Interface ---
-tab1, tab2, tab3, tab4, tab5 = st.tabs([
+tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
     "🏠 Gallery", 
     "🔍 Search & Filter", 
+    "🎮 By Game",
     "📊 Statistics", 
     "📚 Glossary",
     "⚙️ Settings"
@@ -571,8 +684,8 @@ with tab1:
     
     st.markdown(f"<h3 style='color: var(--text-primary);'>Showing {len(df_gallery)} Pokemon</h3>", unsafe_allow_html=True)
     
-    # Display Pokemon grid
-    cols_per_row = 5
+    # Display Pokemon grid (4 columns for better space utilization)
+    cols_per_row = 4
     rows = [df_gallery.iloc[i:i+cols_per_row] for i in range(0, len(df_gallery), cols_per_row)]
     
     for row_idx, row in enumerate(rows):
@@ -660,8 +773,9 @@ with tab2:
         if selected_pokemon_name:
             pokemon_data = df_filtered[df_filtered['name'] == selected_pokemon_name].iloc[0]
             
-            # Pokemon detail view
-            detail_col1, detail_col2, detail_col3 = st.columns([1, 2, 1])
+            # Pokemon detail view - Enhanced layout
+            st.markdown("<br>", unsafe_allow_html=True)
+            detail_col1, detail_col2 = st.columns([1, 2], gap="large")
             
             with detail_col1:
                 sprite_url = pokemon_data.get('sprite_url_hq', get_pokemon_sprite_url(
@@ -669,57 +783,259 @@ with tab2:
                     str(pokemon_data['name']),
                     high_quality=True
                 ))
-                st.image(sprite_url, use_column_width=True)
+                
+                # Enhanced sprite display
+                st.markdown(f"""
+                <div style="background: linear-gradient(135deg, #1F1F1F 0%, #2F2F2F 100%); 
+                            border-radius: 20px; padding: 30px; text-align: center; 
+                            border: 3px solid #10B981; box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);">
+                    <img src="{sprite_url}" 
+                         style="width: 100%; max-width: 400px; height: auto; 
+                                filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.7)); 
+                                animation: float 3s ease-in-out infinite;"
+                         alt="{pokemon_data['name']}">
+                </div>
+                """, unsafe_allow_html=True)
+                
+                st.markdown("<br>", unsafe_allow_html=True)
                 
                 type_badges = create_type_badge(pokemon_data['primary_type'])
                 if pd.notna(pokemon_data.get('secondary_type')):
                     type_badges += ' ' + create_type_badge(pokemon_data['secondary_type'])
-                st.markdown(type_badges, unsafe_allow_html=True)
+                st.markdown(f"<div style='text-align: center; margin: 20px 0;'>{type_badges}</div>", unsafe_allow_html=True)
+                
+                # Key metrics
+                st.markdown(f"""
+                <div style="background: #1F1F1F; border-radius: 15px; padding: 20px; margin: 15px 0; border: 2px solid #10B981;">
+                    <div style="text-align: center; color: #10B981; font-size: 18px; font-weight: 700; margin-bottom: 10px;">TOTAL BST</div>
+                    <div style="text-align: center; color: #E5E5E5; font-size: 36px; font-weight: 900;">{int(pokemon_data['total_points'])}</div>
+                </div>
+                <div style="background: #1F1F1F; border-radius: 15px; padding: 15px; margin: 10px 0;">
+                    <div style="color: #B3B3B3; font-size: 14px;">Catch Rate: <span style="color: #10B981; font-weight: 600;">{float(pokemon_data['catch_rate']):.0f}%</span></div>
+                    <div style="color: #B3B3B3; font-size: 14px; margin-top: 8px;">Base EXP: <span style="color: #10B981; font-weight: 600;">{float(pokemon_data['base_experience']):.0f}</span></div>
+                </div>
+                """, unsafe_allow_html=True)
             
             with detail_col2:
-                st.markdown(f"## #{int(pokemon_data['pokedex_number'])} {pokemon_data['name']}")
-                st.markdown(f"**Species:** {pokemon_data['species']}")
-                st.markdown(f"**Generation:** {pokemon_data['generation']}")
-                st.markdown(f"**Height:** {pokemon_data['height_m']} m | **Weight:** {pokemon_data['weight_kg']} kg")
+                st.markdown(f"""
+                <h1 style='color: #E5E5E5; font-size: 42px; font-weight: 900; margin-bottom: 15px;'>
+                    #{int(pokemon_data['pokedex_number'])} {pokemon_data['name']}
+                </h1>
+                """, unsafe_allow_html=True)
+                
+                # Info cards
+                st.markdown(f"""
+                <div style="background: #1F1F1F; border-radius: 15px; padding: 25px; margin: 20px 0; border-left: 5px solid #10B981;">
+                    <div style="color: #E5E5E5; font-size: 18px; margin-bottom: 12px;"><strong>Species:</strong> {pokemon_data['species']}</div>
+                    <div style="color: #E5E5E5; font-size: 18px; margin-bottom: 12px;"><strong>Generation:</strong> {pokemon_data['generation']}</div>
+                    <div style="color: #E5E5E5; font-size: 18px;"><strong>Dimensions:</strong> {pokemon_data['height_m']} m × {pokemon_data['weight_kg']} kg</div>
+                </div>
+                """, unsafe_allow_html=True)
                 
                 # Abilities
-                st.markdown("**Abilities:**")
+                st.markdown("<h3 style='color: #10B981; font-size: 24px; margin: 25px 0 15px 0;'>⚡ Abilities</h3>", unsafe_allow_html=True)
+                abilities_html = "<div style='background: #1F1F1F; border-radius: 15px; padding: 20px;'>"
                 for i in range(1, 4):
                     ability_col = f'ability_{i}' if i < 3 else 'ability_hidden'
                     if ability_col in pokemon_data.index:
                         ability = pokemon_data.get(ability_col)
                         if pd.notna(ability) and str(ability) != 'nan':
-                            hidden_label = " (Hidden)" if ability_col == 'ability_hidden' else ""
-                            st.markdown(f"• {ability}{hidden_label}")
-            
-            with detail_col3:
-                st.metric("Total BST", int(pokemon_data['total_points']))
-                st.metric("Catch Rate", f"{float(pokemon_data['catch_rate']):.0f}%")
-                st.metric("Base EXP", f"{float(pokemon_data['base_experience']):.0f}")
-            
-            # Base stats
-            st.markdown("### 📊 Base Stats")
-            stats_data = {
-                'HP': pokemon_data['hp'],
-                'Attack': pokemon_data['attack'],
-                'Defense': pokemon_data['defense'],
-                'Sp. Atk': pokemon_data['sp_attack'],
-                'Sp. Def': pokemon_data['sp_defense'],
-                'Speed': pokemon_data['speed']
-            }
-            
-            stats_col1, stats_col2 = st.columns(2)
-            
-            with stats_col1:
-                for stat_name, stat_value in list(stats_data.items())[:3]:
-                    st.metric(stat_name, int(stat_value))
-            
-            with stats_col2:
-                for stat_name, stat_value in list(stats_data.items())[3:]:
-                    st.metric(stat_name, int(stat_value))
+                            hidden_label = " 🌟 (Hidden)" if ability_col == 'ability_hidden' else ""
+                            abilities_html += f"<div style='color: #E5E5E5; font-size: 17px; margin: 10px 0; padding: 10px; background: #2F2F2F; border-radius: 8px;'>• <strong>{ability}</strong>{hidden_label}</div>"
+                abilities_html += "</div>"
+                st.markdown(abilities_html, unsafe_allow_html=True)
+                
+                # Base stats with progress bars
+                st.markdown("<h3 style='color: #10B981; font-size: 24px; margin: 30px 0 20px 0;'>📊 Base Stats</h3>", unsafe_allow_html=True)
+                stats_data = {
+                    'HP': pokemon_data['hp'],
+                    'Attack': pokemon_data['attack'],
+                    'Defense': pokemon_data['defense'],
+                    'Sp. Atk': pokemon_data['sp_attack'],
+                    'Sp. Def': pokemon_data['sp_defense'],
+                    'Speed': pokemon_data['speed']
+                }
+                
+                # Display stats with visual bars
+                for stat_name, stat_value in stats_data.items():
+                    stat_val = int(stat_value)
+                    percentage = min(100, (stat_val / 255) * 100)
+                    st.markdown(f"""
+                    <div style="margin: 15px 0;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                            <span style="color: #E5E5E5; font-weight: 600; font-size: 16px;">{stat_name}</span>
+                            <span style="color: #10B981; font-weight: 700; font-size: 16px;">{stat_val}</span>
+                        </div>
+                        <div style="background: #2F2F2F; height: 25px; border-radius: 12px; overflow: hidden;">
+                            <div style="background: linear-gradient(90deg, #10B981, #059669); 
+                                        width: {percentage}%; height: 100%; 
+                                        transition: width 0.5s ease;
+                                        border-radius: 12px;"></div>
+                        </div>
+                    </div>
+                    """, unsafe_allow_html=True)
+    else:
+        st.warning("No Pokemon match your search criteria.")
 
-# ===== TAB 3: STATISTICS =====
+# ===== TAB 3: BY GAME =====
 with tab3:
+    st.markdown("<br>", unsafe_allow_html=True)
+    st.markdown("## 🎮 Pokemon by Game Version")
+    st.markdown("Explore which Pokemon are available in each mainline game!")
+    
+    # Game selector
+    selected_game = st.selectbox(
+        "Select a Pokemon Game",
+        list(POKEMON_GAMES.keys()),
+        key="game_selector"
+    )
+    
+    if selected_game:
+        game_info = POKEMON_GAMES[selected_game]
+        
+        # Display game info card
+        st.markdown(f"""
+        <div style="background: linear-gradient(135deg, #1F1F1F 0%, #2F2F2F 100%); 
+                    border-radius: 20px; padding: 30px; margin: 20px 0; 
+                    border: 3px solid #10B981; 
+                    box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);">
+            <h2 style="color: #10B981; margin: 0 0 15px 0; font-size: 32px;">
+                {game_info['icon']} {selected_game}
+            </h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; margin-top: 20px;">
+                <div>
+                    <div style="color: #B3B3B3; font-size: 14px;">Region</div>
+                    <div style="color: #E5E5E5; font-size: 20px; font-weight: 700;">{game_info['region']}</div>
+                </div>
+                <div>
+                    <div style="color: #B3B3B3; font-size: 14px;">Release Year</div>
+                    <div style="color: #E5E5E5; font-size: 20px; font-weight: 700;">{game_info['release_year']}</div>
+                </div>
+                <div>
+                    <div style="color: #B3B3B3; font-size: 14px;">National Dex Range</div>
+                    <div style="color: #10B981; font-size: 20px; font-weight: 700;">#{game_info['range'][0]} - #{game_info['range'][1]}</div>
+                </div>
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        # Filter Pokemon for this game
+        min_dex, max_dex = game_info['range']
+        df_game = df[
+            (df['pokedex_number'] >= min_dex) & 
+            (df['pokedex_number'] <= max_dex)
+        ].copy()
+        
+        # Additional filters for game tab
+        st.markdown("### 🎯 Filter Pokemon")
+        game_filter_col1, game_filter_col2, game_filter_col3 = st.columns(3)
+        
+        with game_filter_col1:
+            game_type_filter = st.selectbox(
+                "Filter by Type",
+                ["All Types"] + sorted(pd.concat([df_game['primary_type'], 
+                                                  df_game['secondary_type']]).dropna().unique()),
+                key="game_type_filter"
+            )
+        
+        with game_filter_col2:
+            game_sort = st.selectbox(
+                "Sort by",
+                ["Pokedex Number", "Name (A-Z)", "Total BST (High-Low)", 
+                 "Total BST (Low-High)"],
+                key="game_sort"
+            )
+        
+        with game_filter_col3:
+            game_search = st.text_input(
+                "🔍 Search", 
+                placeholder="Pokemon name...",
+                key="game_search"
+            )
+        
+        # Apply filters
+        if game_type_filter != "All Types":
+            df_game = df_game[
+                (df_game['primary_type'] == game_type_filter) |
+                (df_game['secondary_type'] == game_type_filter)
+            ]
+        
+        if game_search:
+            df_game = df_game[
+                df_game['name'].str.contains(game_search, case=False, na=False)
+            ]
+        
+        # Apply sorting
+        if game_sort == "Name (A-Z)":
+            df_game = df_game.sort_values('name')
+        elif game_sort == "Total BST (High-Low)":
+            df_game = df_game.sort_values('total_points', ascending=False)
+        elif game_sort == "Total BST (Low-High)":
+            df_game = df_game.sort_values('total_points', ascending=True)
+        else:  # Pokedex Number
+            df_game = df_game.sort_values('pokedex_number')
+        
+        # Display count and stats
+        st.markdown(f"""
+        <div style="background: #1F1F1F; border-radius: 15px; padding: 20px; margin: 20px 0;">
+            <h3 style="color: #10B981; margin: 0 0 15px 0;">
+                📊 {len(df_game)} Pokemon Available
+            </h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px;">
+                <div>
+                    <div style="color: #B3B3B3; font-size: 13px;">Average BST</div>
+                    <div style="color: #E5E5E5; font-size: 18px; font-weight: 600;">{df_game['total_points'].mean():.0f}</div>
+                </div>
+                <div>
+                    <div style="color: #B3B3B3; font-size: 13px;">Highest BST</div>
+                    <div style="color: #E5E5E5; font-size: 18px; font-weight: 600;">{df_game['total_points'].max():.0f}</div>
+                </div>
+                <div>
+                    <div style="color: #B3B3B3; font-size: 13px;">Lowest BST</div>
+                    <div style="color: #E5E5E5; font-size: 18px; font-weight: 600;">{df_game['total_points'].min():.0f}</div>
+                </div>
+                <div>
+                    <div style="color: #B3B3B3; font-size: 13px;">Unique Types</div>
+                    <div style="color: #E5E5E5; font-size: 18px; font-weight: 600;">{df_game['primary_type'].nunique()}</div>
+                </div>
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        # Display Pokemon grid
+        if len(df_game) > 0:
+            cols_per_row = 4
+            rows = [df_game.iloc[i:i+cols_per_row] 
+                   for i in range(0, len(df_game), cols_per_row)]
+            
+            for row_idx, row in enumerate(rows):
+                cols = st.columns(cols_per_row)
+                for col_idx, (pokemon_idx, pokemon) in enumerate(row.iterrows()):
+                    with cols[col_idx]:
+                        sprite_url = pokemon.get(
+                            'sprite_url_hq', 
+                            get_pokemon_sprite_url(
+                                int(pokemon['pokedex_number']),
+                                str(pokemon['name']),
+                                high_quality=True
+                            )
+                        )
+                        st.markdown(
+                            create_pokemon_card_html(pokemon, sprite_url), 
+                            unsafe_allow_html=True
+                        )
+                        if st.button(
+                            f"View Details", 
+                            key=f"btn_game_{selected_game}_{row_idx}_{col_idx}_{pokemon_idx}",
+                            use_container_width=True
+                        ):
+                            st.session_state['selected_pokemon'] = pokemon['name']
+                            st.rerun()
+        else:
+            st.warning("No Pokemon match your filters.")
+
+# ===== TAB 4: STATISTICS =====
+with tab4:
     st.markdown("<br>", unsafe_allow_html=True)
     st.markdown("## 📈 Pokemon Statistics & Analytics")
     
@@ -753,8 +1069,8 @@ with tab3:
     type_counts = df['primary_type'].value_counts()
     st.bar_chart(type_counts)
 
-# ===== TAB 4: GLOSSARY =====
-with tab4:
+# ===== TAB 5: GLOSSARY =====
+with tab5:
     st.markdown("<br>", unsafe_allow_html=True)
     st.markdown("## 📚 Pokemon Glossary")
     st.markdown("Comprehensive dictionary of Pokemon terms and concepts.")
@@ -784,8 +1100,8 @@ with tab4:
     else:
         st.warning("Glossary data not available.")
 
-# ===== TAB 5: SETTINGS =====
-with tab5:
+# ===== TAB 6: SETTINGS =====
+with tab6:
     st.markdown("<br>", unsafe_allow_html=True)
     st.markdown("## ⚙️ Application Settings")
     
