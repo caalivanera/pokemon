@@ -1,0 +1,219 @@
+{
+  "total_games": 32,
+  "generations": {
+    "1": {
+      "folder": "gen_1",
+      "game_count": 3,
+      "games": [
+        {
+          "name": "Red",
+          "filename": "pokemon_red.jpg",
+          "region": "Kanto"
+        },
+        {
+          "name": "Blue",
+          "filename": "pokemon_blue.jpg",
+          "region": "Kanto"
+        },
+        {
+          "name": "Yellow",
+          "filename": "pokemon_yellow.jpg",
+          "region": "Kanto"
+        }
+      ]
+    },
+    "2": {
+      "folder": "gen_2",
+      "game_count": 3,
+      "games": [
+        {
+          "name": "Gold",
+          "filename": "pokemon_gold.jpg",
+          "region": "Johto"
+        },
+        {
+          "name": "Silver",
+          "filename": "pokemon_silver.jpg",
+          "region": "Johto"
+        },
+        {
+          "name": "Crystal",
+          "filename": "pokemon_crystal.jpg",
+          "region": "Johto"
+        }
+      ]
+    },
+    "3": {
+      "folder": "gen_3",
+      "game_count": 5,
+      "games": [
+        {
+          "name": "Ruby",
+          "filename": "pokemon_ruby.jpg",
+          "region": "Hoenn"
+        },
+        {
+          "name": "Sapphire",
+          "filename": "pokemon_sapphire.jpg",
+          "region": "Hoenn"
+        },
+        {
+          "name": "Emerald",
+          "filename": "pokemon_emerald.jpg",
+          "region": "Hoenn"
+        },
+        {
+          "name": "FireRed",
+          "filename": "pokemon_firered.jpg",
+          "region": "Kanto"
+        },
+        {
+          "name": "LeafGreen",
+          "filename": "pokemon_leafgreen.jpg",
+          "region": "Kanto"
+        }
+      ]
+    },
+    "4": {
+      "folder": "gen_4",
+      "game_count": 5,
+      "games": [
+        {
+          "name": "Diamond",
+          "filename": "pokemon_diamond.jpg",
+          "region": "Sinnoh"
+        },
+        {
+          "name": "Pearl",
+          "filename": "pokemon_pearl.jpg",
+          "region": "Sinnoh"
+        },
+        {
+          "name": "Platinum",
+          "filename": "pokemon_platinum.jpg",
+          "region": "Sinnoh"
+        },
+        {
+          "name": "HeartGold",
+          "filename": "pokemon_heartgold.jpg",
+          "region": "Johto"
+        },
+        {
+          "name": "SoulSilver",
+          "filename": "pokemon_soulsilver.jpg",
+          "region": "Johto"
+        }
+      ]
+    },
+    "5": {
+      "folder": "gen_5",
+      "game_count": 4,
+      "games": [
+        {
+          "name": "Black",
+          "filename": "pokemon_black.jpg",
+          "region": "Unova"
+        },
+        {
+          "name": "White",
+          "filename": "pokemon_white.jpg",
+          "region": "Unova"
+        },
+        {
+          "name": "Black 2",
+          "filename": "pokemon_black2.jpg",
+          "region": "Unova"
+        },
+        {
+          "name": "White 2",
+          "filename": "pokemon_white2.jpg",
+          "region": "Unova"
+        }
+      ]
+    },
+    "6": {
+      "folder": "gen_6",
+      "game_count": 4,
+      "games": [
+        {
+          "name": "X",
+          "filename": "pokemon_x.jpg",
+          "region": "Kalos"
+        },
+        {
+          "name": "Y",
+          "filename": "pokemon_y.jpg",
+          "region": "Kalos"
+        },
+        {
+          "name": "Omega Ruby",
+          "filename": "pokemon_omega_ruby.jpg",
+          "region": "Hoenn"
+        },
+        {
+          "name": "Alpha Sapphire",
+          "filename": "pokemon_alpha_sapphire.jpg",
+          "region": "Hoenn"
+        }
+      ]
+    },
+    "7": {
+      "folder": "gen_7",
+      "game_count": 4,
+      "games": [
+        {
+          "name": "Sun",
+          "filename": "pokemon_sun.jpg",
+          "region": "Alola"
+        },
+        {
+          "name": "Moon",
+          "filename": "pokemon_moon.jpg",
+          "region": "Alola"
+        },
+        {
+          "name": "Ultra Sun",
+          "filename": "pokemon_ultra_sun.jpg",
+          "region": "Alola"
+        },
+        {
+          "name": "Ultra Moon",
+          "filename": "pokemon_ultra_moon.jpg",
+          "region": "Alola"
+        }
+      ]
+    },
+    "8": {
+      "folder": "gen_8",
+      "game_count": 2,
+      "games": [
+        {
+          "name": "Sword",
+          "filename": "pokemon_sword.jpg",
+          "region": "Galar"
+        },
+        {
+          "name": "Shield",
+          "filename": "pokemon_shield.jpg",
+          "region": "Galar"
+        }
+      ]
+    },
+    "9": {
+      "folder": "gen_9",
+      "game_count": 2,
+      "games": [
+        {
+          "name": "Scarlet",
+          "filename": "pokemon_scarlet.jpg",
+          "region": "Paldea"
+        },
+        {
+          "name": "Violet",
+          "filename": "pokemon_violet.jpg",
+          "region": "Paldea"
+        }
+      ]
+    }
+  }
+}

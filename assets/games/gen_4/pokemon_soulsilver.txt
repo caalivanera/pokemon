@@ -1,0 +1,9 @@
+Pokemon SoulSilver
+Region: Johto
+Generation: gen_4
+
+Placeholder for game box art.
+In production, download official box art from:
+- Bulbapedia
+- Official Pokemon websites
+- Video game cover databases
