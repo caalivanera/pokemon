@@ -1,4 +1,4 @@
-# ⚡ Pokemon National Dex Dashboard v5.4.0
+# ⚡ Pokemon National Dex Dashboard v5.4.1
 
 [![Python 3.13+](https://img.shields.io/badge/python-3.13+-blue.svg)](https://www.python.org/downloads/)
 [![Streamlit](https://img.shields.io/badge/streamlit-1.28+-red.svg)](https://streamlit.io/)
@@ -43,9 +43,16 @@
 
 ---
 
-## 🎉 What's New in v5.4.0
+## 🎉 What's New in v5.4.1
 
-### 🚀 **Phase 5: Advanced Analytics Complete**
+### 🆕 **Latest: Comparison & Analytics Tools**
+
+#### 🔍 **Sprite Comparison** | ⚔️ **Advanced Export** | 📊 **Performance Monitor**
+**New in v5.4.1**: Compare Pokemon side-by-side • Export in 5 formats • Track analytics
+
+---
+
+### 🚀 **Phase 5: Advanced Analytics (v5.4.0)**
 
 #### 📊 **Meta Analytics Dashboard**
 - Real-time competitive usage trends (516 records)
