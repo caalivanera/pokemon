@@ -41,6 +41,15 @@ def load_national_dex() -> pd.DataFrame:
     if NATIONAL_DEX_FILE.exists():
         st.success("✅ Loading National Pokedex (1045 Pokemon, 94 columns)...")
         df = pd.read_csv(NATIONAL_DEX_FILE)
+        
+        # Add column aliases for compatibility with app code
+        if 'type_1' in df.columns:
+            df['primary_type'] = df['type_1']
+        if 'type_2' in df.columns:
+            df['secondary_type'] = df['type_2']
+        if 'pokedex_number' in df.columns:
+            df['id'] = df['pokedex_number']
+        
         st.info(f"📊 Loaded {len(df)} Pokemon across {df['generation'].nunique()} generations")
         return df
     else:
@@ -205,16 +214,16 @@ with st.sidebar.expander("⚙️ Advanced Filters", expanded=True):
     
     special_attack_range = st.slider(
         "Special Attack Range:",
-        min_value=int(df['special_attack'].min()),
-        max_value=int(df['special_attack'].max()),
-        value=(int(df['special_attack'].min()), int(df['special_attack'].max()))
+        min_value=int(df['sp_attack'].min()),
+        max_value=int(df['sp_attack'].max()),
+        value=(int(df['sp_attack'].min()), int(df['sp_attack'].max()))
     )
     
     special_defense_range = st.slider(
         "Special Defense Range:",
-        min_value=int(df['special_defense'].min()),
-        max_value=int(df['special_defense'].max()),
-        value=(int(df['special_defense'].min()), int(df['special_defense'].max()))
+        min_value=int(df['sp_defense'].min()),
+        max_value=int(df['sp_defense'].max()),
+        value=(int(df['sp_defense'].min()), int(df['sp_defense'].max()))
     )
 
     speed_range = st.slider(
@@ -259,8 +268,8 @@ df_filtered = df_filtered[
     (df_filtered['hp'].between(hp_range[0], hp_range[1])) &
     (df_filtered['attack'].between(attack_range[0], attack_range[1])) &
     (df_filtered['defense'].between(defense_range[0], defense_range[1])) &
-    (df_filtered['special_attack'].between(special_attack_range[0], special_attack_range[1])) &
-    (df_filtered['special_defense'].between(special_defense_range[0], special_defense_range[1])) &
+    (df_filtered['sp_attack'].between(special_attack_range[0], special_attack_range[1])) &
+    (df_filtered['sp_defense'].between(special_defense_range[0], special_defense_range[1])) &
     (df_filtered['speed'].between(speed_range[0], speed_range[1])) &
     (df_filtered['height_m'].between(height_range[0], height_range[1])) &
     (df_filtered['weight_kg'].between(weight_range[0], weight_range[1]))
@@ -378,8 +387,8 @@ else:
                 'HP': pokemon_data['hp'],
                 'Attack': pokemon_data['attack'],
                 'Defense': pokemon_data['defense'],
-                'Sp. Attack': pokemon_data['special_attack'],
-                'Sp. Defense': pokemon_data['special_defense'],
+                'Sp. Attack': pokemon_data['sp_attack'],
+                'Sp. Defense': pokemon_data['sp_defense'],
                 'Speed': pokemon_data['speed']
             }
             stats_df = pd.DataFrame.from_dict(stats_data, orient='index', columns=['Base Stat'])
@@ -391,7 +400,7 @@ else:
             st.markdown("**Detailed Stats:**")
             for stat_name, stat_value in stats_data.items():
                 # Calculate percentile ranking among all Pokemon
-                all_stats = df[stat_name.lower().replace(' ', '_').replace('.', '')] if stat_name != 'Sp. Attack' and stat_name != 'Sp. Defense' else df['special_attack' if 'Attack' in stat_name else 'special_defense']
+                all_stats = df[stat_name.lower().replace(' ', '_').replace('.', '')] if stat_name != 'Sp. Attack' and stat_name != 'Sp. Defense' else df['sp_attack' if 'Attack' in stat_name else 'sp_defense']
                 percentile = (all_stats < stat_value).mean() * 100
                 
                 st.write(f"**{stat_name}:** {stat_value} ({percentile:.0f}th percentile)")
@@ -474,7 +483,7 @@ with col_export2:
 # Enhanced dataframe display with better column selection
 display_columns = [
     'id', 'name', 'species', 'primary_type', 'secondary_type',
-    'total_points', 'hp', 'attack', 'defense', 'special_attack', 'special_defense', 'speed',
+    'total_points', 'hp', 'attack', 'defense', 'sp_attack', 'sp_defense', 'speed',
     'height_m', 'weight_kg', 'catch_rate', 'base_experience'
 ]
 
@@ -498,8 +507,8 @@ if available_columns:
             "hp": st.column_config.NumberColumn("HP", width="small"),
             "attack": st.column_config.NumberColumn("ATK", width="small"),
             "defense": st.column_config.NumberColumn("DEF", width="small"),
-            "special_attack": st.column_config.NumberColumn("SP.ATK", width="small"),
-            "special_defense": st.column_config.NumberColumn("SP.DEF", width="small"),
+            "sp_attack": st.column_config.NumberColumn("SP.ATK", width="small"),
+            "sp_defense": st.column_config.NumberColumn("SP.DEF", width="small"),
             "speed": st.column_config.NumberColumn("SPD", width="small"),
             "height_m": st.column_config.NumberColumn("Height (m)", width="small"),
             "weight_kg": st.column_config.NumberColumn("Weight (kg)", width="small"),

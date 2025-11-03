@@ -8,7 +8,7 @@ The application loads enhanced Pokemon data from multiple local CSV sources and 
 
 A **Pokédex** is a digital electronic encyclopedia that acts as a guide for Pokémon trainers, recording data on Pokémon species they encounter. In the games, it tracks the player's progress in catching or observing Pokémon, with detailed entries unlocked as a trainer catches or obtains a species. It's an essential tool for any trainer, and in some versions of the games and the anime, it functions as a reference tool to learn about Pokémon types, sizes, and locations.
 
-This dashboard serves as your **digital Pokédex companion**, providing comprehensive data analysis and exploration tools for all 151 Generation 1 Pokémon.
+This dashboard serves as your **digital Pokédex companion**, providing comprehensive data analysis and exploration tools for the complete National Pokédex spanning Generations 1 through 9.
 
 ## 📁 Project Structure
 
