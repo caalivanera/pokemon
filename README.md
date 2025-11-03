@@ -76,19 +76,19 @@ The application intelligently combines these sources to provide:
 * **Progress Indicators:** [tqdm](https://github.com/tqdm/tqdm)
 * **Data Sources:** Multiple CSV datasets (see Data Sources section)
 
-## 🚀 How to Run Locally
+## � Installation
 
 ### **Prerequisites:**
 * Python 3.8+
 * `git` (for cloning)
 * Access to the Pokemon CSV data files (included in project)
 
-**Steps:**
+### **Installation Steps:**
 
 1.  **Clone the Repository:**
     ```bash
-    git clone https://github.com/caalivanera/pokedex-dashboard.git
-    cd pokedex-dashboard
+    git clone https://github.com/caalivanera/pokemon.git
+    cd pokemon/pokedex-dashboard
     ```
 
 2.  **Create and Activate a Virtual Environment (Recommended):**
@@ -107,11 +107,38 @@ The application intelligently combines these sources to provide:
     pip install -r requirements.txt
     ```
 
-4.  **Run the Streamlit App:**
+## 🚀 Usage
+
+### **Running Locally:**
+
+1. **Start the Streamlit App:**
     ```bash
-    streamlit run app.py
+    streamlit run src/core/app.py
     ```
-    Your browser will automatically open, and the app will begin fetching data.
+    Your browser will automatically open at `http://localhost:8501`
+
+2. **Explore the Dashboard:**
+    - Use the sidebar filters to select Pokemon by type, stats, or physical attributes
+    - Click on any Pokemon to see detailed information
+    - Export filtered data as CSV for further analysis
+    - Search the glossary for Pokemon terminology
+
+### **Running with Docker:**
+
+1. **Build and run using Docker Compose:**
+    ```bash
+    cd config/docker
+    docker-compose up -d
+    ```
+
+2. **Access the dashboard at:** `http://localhost:8501`
+
+### **Key Features to Try:**
+
+- **Multi-Type Filtering:** Select multiple types to see Pokemon matching any selected type
+- **Stat Filtering:** Use sliders to find Pokemon within specific stat ranges
+- **Glossary Search:** Look up Pokemon terms and mechanics
+- **Data Export:** Download filtered datasets for your own analysis
 
 ## ☁️ Deployment
 

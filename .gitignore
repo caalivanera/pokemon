@@ -9,6 +9,8 @@ __pycache__/
 
 # Data files (generated cache only)
 pokemon_enhanced_data.csv
+Pokemon_Generation.csv
+pokemon.csv
 
 # IDE / OS files
 .DS_Store
@@ -17,3 +19,5 @@ pokemon_enhanced_data.csv
 
 # Environment variables
 .env
+*.env
+!.env.example
