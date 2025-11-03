@@ -639,8 +639,8 @@ def main():
         
         st.markdown(f"**{len(filtered_df)}** Pokémon match filters")
     
-    # Main Tabs (v5.4.0 - Added Advanced Analytics)
-    tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9, tab10, tab11, tab12, tab13, tab14, tab15 = st.tabs([
+    # Main Tabs (v5.4.1 - Added Comparison & Export)
+    tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9, tab10, tab11, tab12, tab13, tab14, tab15, tab16, tab17 = st.tabs([
         "📊 Overview",
         "🔍 Pokémon Search",
         "⚔️ Competitive Analysis",
@@ -655,7 +655,9 @@ def main():
         "🏆 Legacy Team Builder",
         "📊 Meta Analytics",
         "⚔️ Damage Calculator",
-        "🤖 Team Recommender"
+        "🤖 Team Recommender",
+        "🔍 Sprite Comparison",
+        "📤 Advanced Export"
     ])
     
     # ==================== TAB 1: OVERVIEW ====================
@@ -2045,6 +2047,52 @@ def main():
         except Exception as e:
             st.error(f"Error loading Team Recommender: {e}")
             st.info("This feature requires competitive data and moveset database.")
+    
+    # ==================== TAB 16: SPRITE COMPARISON ====================
+    with tab16:
+        try:
+            import sys
+            sys.path.insert(0, str(Path(__file__).parent.parent / "features"))
+            from sprite_comparison import SpriteComparison
+            
+            comparison = SpriteComparison(data_dir="data")
+            comparison.render_comparison_tool()
+        except Exception as e:
+            st.error(f"Error loading Sprite Comparison: {e}")
+            st.info("This feature compares Pokemon sprites and stats side-by-side.")
+    
+    # ==================== TAB 17: ADVANCED EXPORT ====================
+    with tab17:
+        try:
+            import sys
+            sys.path.insert(0, str(Path(__file__).parent.parent / "features"))
+            from advanced_export import AdvancedExporter
+            
+            st.title("📤 Advanced Export System")
+            st.markdown("Export Pokemon data in multiple formats with customization options")
+            
+            exporter = AdvancedExporter()
+            
+            # Single dataset export
+            st.markdown("---")
+            st.markdown("### 📊 Export Current Dataset")
+            exporter.render_export_interface(df, "pokemon_data")
+            
+            # Batch export option
+            st.markdown("---")
+            if st.checkbox("🔧 Enable Batch Export", help="Export multiple datasets at once"):
+                # Prepare datasets for batch export
+                batch_data = {
+                    'pokemon_full': df,
+                    'pokemon_base': df[df['is_default'] == True] if 'is_default' in df.columns else df,
+                    'pokemon_stats': df[['name', 'hp', 'attack', 'defense', 'sp_attack', 'sp_defense', 'speed']],
+                }
+                
+                exporter.render_batch_export_interface(batch_data)
+                
+        except Exception as e:
+            st.error(f"Error loading Advanced Export: {e}")
+            st.info("This feature provides advanced export capabilities.")
 
 # ==================== RUN APP ====================
 
