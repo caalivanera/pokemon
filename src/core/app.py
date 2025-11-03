@@ -125,7 +125,7 @@ def inject_premium_css():
             backdrop-filter: blur(10px);
             padding: 20px 0;
             border-bottom: 2px solid var(--netflix-red);
-            animation: slideDown 0.5s ease-out;
+            animation: slideDown 0.3s ease-out;
         }
         
         @keyframes slideDown {
@@ -144,7 +144,7 @@ def inject_premium_css():
             background: var(--netflix-dark);
             border-radius: 12px;
             padding: 15px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
             cursor: pointer;
             border: 2px solid transparent;
             position: relative;
@@ -166,7 +166,7 @@ def inject_premium_css():
             width: 100%;
             height: 100%;
             background: linear-gradient(90deg, transparent, rgba(229, 9, 20, 0.1), transparent);
-            transition: left 0.5s;
+            transition: left 0.4s;
         }
         
         .pokemon-card:hover::before {
@@ -179,7 +179,7 @@ def inject_premium_css():
             height: 200px;
             object-fit: contain;
             filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.5));
-            transition: transform 0.3s ease;
+            transition: transform 0.2s ease;
         }
         
         .pokemon-card:hover .pokemon-sprite {
@@ -214,7 +214,7 @@ def inject_premium_css():
             color: var(--text-secondary);
             font-weight: 600;
             padding: 0 24px;
-            transition: all 0.3s;
+            transition: all 0.15s;
         }
         
         .stTabs [data-baseweb="tab"]:hover {
@@ -235,7 +235,7 @@ def inject_premium_css():
             border-radius: 4px;
             padding: 12px 24px;
             font-weight: bold;
-            transition: all 0.3s;
+            transition: all 0.2s;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
@@ -314,7 +314,7 @@ def inject_premium_css():
             border-radius: 8px;
             color: var(--text-primary);
             font-size: 16px;
-            transition: all 0.3s;
+            transition: all 0.2s;
         }
         
         .search-container input:focus {
