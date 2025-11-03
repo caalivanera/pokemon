@@ -388,19 +388,29 @@ def main():
         }
         
         .stat-card {
-            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            background: linear-gradient(135deg, #374151 0%, #1F2937 100%);
             padding: 1.8rem;
             border-radius: 16px;
             color: white;
             text-align: center;
-            box-shadow: 0 8px 16px rgba(16, 185, 129, 0.3);
+            box-shadow: 0 8px 16px rgba(31, 41, 55, 0.4);
             transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
         
         .stat-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 12px 24px rgba(16, 185, 129, 0.4);
+            box-shadow: 0 12px 24px rgba(31, 41, 55, 0.6);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Hide metric delta indicators */
+        .stat-card [data-testid="stMetricDelta"] {
+            display: none !important;
+        }
+        
+        .stat-card div[data-testid="metric-container"] > div:last-child {
+            display: none !important;
         }
         
         .pokemon-card {
