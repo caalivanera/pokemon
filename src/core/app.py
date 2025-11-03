@@ -35,135 +35,6 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Modern dynamic styling with enhanced design
-st.markdown("""
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
-    
-    * {
-        font-family: 'Poppins', sans-serif;
-    }
-    
-    .main-header {
-        font-size: 3.5rem;
-        font-weight: 800;
-        text-align: center;
-        background: linear-gradient(135deg, #22c55e 0%, #10b981 25%, #14b8a6 50%, #06b6d4 75%, #22c55e 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-size: 200% 200%;
-        animation: gradient 3s ease infinite;
-        margin-bottom: 1rem;
-        text-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    }
-    
-    @keyframes gradient {
-        0% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
-        100% { background-position: 0% 50%; }
-    }
-    
-    .stat-card {
-        background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-        padding: 1.8rem;
-        border-radius: 16px;
-        color: white;
-        text-align: center;
-        box-shadow: 0 8px 16px rgba(16, 185, 129, 0.3);
-        transition: all 0.3s ease;
-        border: 1px solid rgba(255, 255, 255, 0.2);
-    }
-    
-    .stat-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 12px 24px rgba(16, 185, 129, 0.4);
-    }
-    
-    .pokemon-card {
-        border: 2px solid #374151;
-        border-radius: 16px;
-        padding: 1.5rem;
-        background: linear-gradient(135deg, #1F2937 0%, #111827 100%);
-        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-        transition: all 0.3s ease;
-    }
-    
-    .pokemon-card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 12px 24px rgba(34, 197, 94, 0.3);
-        border-color: #22c55e;
-    }
-    
-    .type-badge {
-        display: inline-block;
-        padding: 0.4rem 1rem;
-        border-radius: 24px;
-        font-weight: 700;
-        margin: 0.3rem;
-        font-size: 0.9rem;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-        transition: transform 0.2s;
-    }
-    
-    .type-badge:hover {
-        transform: scale(1.1);
-    }
-    
-    .stTabs [data-baseweb="tab-list"] {
-        gap: 8px;
-        background: linear-gradient(135deg, #1F2937 0%, #111827 100%);
-        padding: 12px;
-        border-radius: 16px;
-    }
-    
-    .stTabs [data-baseweb="tab"] {
-        height: 56px;
-        padding: 0 24px;
-        font-weight: 700;
-        border-radius: 12px;
-        transition: all 0.3s ease;
-        border: 2px solid transparent;
-    }
-    
-    .stTabs [data-baseweb="tab"]:hover {
-        background-color: rgba(34, 197, 94, 0.1);
-        border-color: #22c55e;
-    }
-    
-    .stTabs [aria-selected="true"] {
-        background: linear-gradient(135deg, #22c55e 0%, #10b981 100%);
-        color: white !important;
-        box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
-    }
-    
-    .randomizer-button {
-        background: linear-gradient(135deg, #22c55e 0%, #10b981 100%);
-        color: white;
-        padding: 1rem 2rem;
-        border-radius: 12px;
-        border: none;
-        font-size: 1.1rem;
-        font-weight: 700;
-        box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
-        transition: all 0.3s ease;
-        cursor: pointer;
-    }
-    
-    .randomizer-button:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 8px 20px rgba(34, 197, 94, 0.4);
-    }
-    
-    .game-container {
-        background: linear-gradient(135deg, #1F2937 0%, #111827 100%);
-        border-radius: 16px;
-        padding: 2rem;
-        box-shadow: 0 8px 24px rgba(0,0,0,0.3);
-        border: 2px solid #22c55e;
-    }
-</style>
-""", unsafe_allow_html=True)
-
 # ==================== DATA LOADING ====================
 
 @st.cache_data(ttl=3600)  # Cache for 1 hour
@@ -483,6 +354,136 @@ def create_type_effectiveness_heatmap(pokemon):
 
 def main():
     """Main application logic"""
+    
+    # Apply custom CSS styling
+    custom_css = """
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+        
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .main-header {
+            font-size: 3.5rem;
+            font-weight: 800;
+            text-align: center;
+            background: linear-gradient(135deg, #22c55e 0%, #10b981 25%, #14b8a6 50%, #06b6d4 75%, #22c55e 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% 200%;
+            animation: gradient 3s ease infinite;
+            margin-bottom: 1rem;
+            text-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            padding: 1.8rem;
+            border-radius: 16px;
+            color: white;
+            text-align: center;
+            box-shadow: 0 8px 16px rgba(16, 185, 129, 0.3);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(16, 185, 129, 0.4);
+        }
+        
+        .pokemon-card {
+            border: 2px solid #374151;
+            border-radius: 16px;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, #1F2937 0%, #111827 100%);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .pokemon-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(34, 197, 94, 0.3);
+            border-color: #22c55e;
+        }
+        
+        .type-badge {
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            border-radius: 24px;
+            font-weight: 700;
+            margin: 0.3rem;
+            font-size: 0.9rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            transition: transform 0.2s;
+        }
+        
+        .type-badge:hover {
+            transform: scale(1.1);
+        }
+        
+        .stTabs [data-baseweb="tab-list"] {
+            gap: 8px;
+            background: linear-gradient(135deg, #1F2937 0%, #111827 100%);
+            padding: 12px;
+            border-radius: 16px;
+        }
+        
+        .stTabs [data-baseweb="tab"] {
+            height: 56px;
+            padding: 0 24px;
+            font-weight: 700;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .stTabs [data-baseweb="tab"]:hover {
+            background-color: rgba(34, 197, 94, 0.1);
+            border-color: #22c55e;
+        }
+        
+        .stTabs [aria-selected="true"] {
+            background: linear-gradient(135deg, #22c55e 0%, #10b981 100%);
+            color: white !important;
+            box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
+        }
+        
+        .randomizer-button {
+            background: linear-gradient(135deg, #22c55e 0%, #10b981 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            border: none;
+            font-size: 1.1rem;
+            font-weight: 700;
+            box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .randomizer-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(34, 197, 94, 0.4);
+        }
+        
+        .game-container {
+            background: linear-gradient(135deg, #1F2937 0%, #111827 100%);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+            border: 2px solid #22c55e;
+        }
+    </style>
+    """
+    st.markdown(custom_css, unsafe_allow_html=True)
     
     # Header
     st.markdown('<h1 class="main-header">⚡ National Pokédex Dashboard ⚡</h1>', unsafe_allow_html=True)
