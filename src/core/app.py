@@ -226,8 +226,9 @@ def get_pokemon_variants(df, base_pokemon_id):
     return variants.to_dict('records')
 
 
+@st.cache_data
 def get_type_color(type_name):
-    """Get color for Pokemon type"""
+    """Get color for Pokemon type - Cached for performance"""
     colors = {
         'Normal': '#A8A878', 'Fire': '#F08030', 'Water': '#6890F0',
         'Electric': '#F8D030', 'Grass': '#78C850', 'Ice': '#98D8D8',
@@ -1184,28 +1185,47 @@ def main():
         
         st.markdown("---")
         
-        # Search options
-        search_col1, search_col2 = st.columns([3, 1])
+        # Enhanced Dynamic Search Interface
+        st.markdown("### 🔍 Dynamic Pokemon Search")
+        st.caption("🎯 Type to see instant results with sprites and stats")
+        
+        search_col1, search_col2, search_col3 = st.columns([3, 2, 1])
         
         with search_col1:
             search_query = st.text_input(
-                "Search by name or Pokédex number",
-                placeholder="e.g., Pikachu, 25, Charizard"
+                "Search Pokemon",
+                placeholder="🔎 Start typing: Pikachu, Charizard, 25, Fire, Dragon...",
+                help="Search by name, number, type, or generation",
+                label_visibility="collapsed"
             )
         
         with search_col2:
             sort_by = st.selectbox(
                 "Sort by",
-                ["Pokédex #", "Name", "Total Stats", "HP", "Attack", "Defense"]
+                ["Pokédex #", "Name", "Total Stats", "HP", "Attack", "Defense"],
+                label_visibility="collapsed"
+            )
+        
+        with search_col3:
+            results_limit = st.selectbox(
+                "Results",
+                [10, 20, 50, 100],
+                index=1,
+                label_visibility="collapsed"
             )
         
         # Display filtered Pokemon (use advanced filtered data)
         display_df = search_filtered_df.copy()
         
+        # Enhanced search: Support name, number, type, and generation
         if search_query:
+            search_lower = search_query.lower().strip()
             display_df = display_df[
                 display_df['name'].str.contains(search_query, case=False, na=False) |
-                display_df['pokedex_number'].astype(str).str.contains(search_query, na=False)
+                display_df['pokedex_number'].astype(str).str.contains(search_query, na=False) |
+                display_df['type_1'].str.contains(search_query, case=False, na=False) |
+                display_df['type_2'].astype(str).str.contains(search_query, case=False, na=False) |
+                display_df['generation'].astype(str).str.contains(search_query, na=False)
             ]
         
         # Sort
@@ -1219,12 +1239,24 @@ def main():
         }
         display_df = display_df.sort_values(sort_mapping[sort_by])
         
-        st.markdown(f"**Showing {len(display_df)} Pokémon**")
+        # Dynamic results display with enhanced UI
+        if search_query and len(display_df) > 0:
+            st.success(f"✅ Found **{len(display_df)}** Pokemon matching '{search_query}'")
+        elif search_query and len(display_df) == 0:
+            st.warning(f"⚠️ No Pokemon found for '{search_query}'. Try a different search term.")
+        else:
+            st.info(f"📊 Showing **{len(display_df)}** Pokemon (filtered by advanced options)")
         
-        # Pagination
-        items_per_page = 20
-        total_pages = (len(display_df) - 1) // items_per_page + 1
-        page = st.number_input("Page", 1, total_pages, 1)
+        # Pagination with dynamic limits
+        items_per_page = results_limit
+        total_pages = max(1, (len(display_df) - 1) // items_per_page + 1)
+        page = st.number_input(
+            "Page",
+            min_value=1,
+            max_value=total_pages,
+            value=1,
+            help=f"Navigate through {total_pages} pages of results"
+        )
         
         start_idx = (page - 1) * items_per_page
         end_idx = start_idx + items_per_page
@@ -1240,7 +1272,16 @@ def main():
             # Get all variants of this Pokemon
             variants = get_pokemon_variants(df, base_id)
             
-            with st.expander(f"#{poke_num:04d} - {poke_name}", expanded=False):
+            # Create type text for expander title
+            type1 = pokemon["type_1"]
+            type_text = f"[{type1}"
+            
+            if pd.notna(pokemon.get('type_2')) and pokemon.get('type_2'):
+                type2 = pokemon["type_2"]
+                type_text += f"/{type2}"
+            type_text += "]"
+            
+            with st.expander(f"#{poke_num:04d} - {poke_name} {type_text}", expanded=False):
                 # Show variant tabs if multiple forms exist
                 if len(variants) > 1:
                     variant_tabs = st.tabs([
