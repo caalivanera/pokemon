@@ -1838,9 +1838,10 @@ def main():
                             if shiny_mode:
                                 badge += "✨"
                             
+                            # Always use static PNG sprites in gallery for consistency
                             sprite_data = load_sprite(
                                 pokemon_id,
-                                use_animated=use_animations,
+                                use_animated=False,  # Force static sprites in gallery
                                 variant_type=variant_type,
                                 shiny=shiny_mode
                             )
