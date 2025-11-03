@@ -1,4 +1,4 @@
-# ⚡ Pokemon National Dex Dashboard v5.1.0
+# ⚡ Pokemon National Dex Dashboard v5.2.0
 
 [![Python 3.13+](https://img.shields.io/badge/python-3.13+-blue.svg)](https://www.python.org/downloads/)
 [![Streamlit](https://img.shields.io/badge/streamlit-1.28+-red.svg)](https://streamlit.io/)
@@ -6,11 +6,13 @@
 [![Live Demo](https://img.shields.io/badge/demo-live-green.svg)](https://1pokemon.streamlit.app/)
 [![Data: 1,194 Forms](https://img.shields.io/badge/forms-1,194-red.svg)](https://bulbapedia.bulbagarden.net)
 [![Sprites: 98.6%](https://img.shields.io/badge/sprites-98.6%25-brightgreen.svg)]()
+[![Type Icons: 18](https://img.shields.io/badge/type%20icons-18-blue.svg)]()
+[![Regional Data](https://img.shields.io/badge/regional-grouping-green.svg)]()
 [![Dark Mode](https://img.shields.io/badge/dark%20mode-enabled-purple.svg)]()
 [![Type Calculator](https://img.shields.io/badge/type-calculator-orange.svg)]()
 [![Team Builder](https://img.shields.io/badge/team-builder-green.svg)]()
 
-> **Comprehensive Pokemon Database Dashboard** featuring all **1,194** Pokemon forms (**1,089 base Pokemon + 105 variants**) from Generations I-IX with **98.6% sprite coverage**, **Dark Mode**, **Type Calculator**, **Team Builder**, **Advanced Search**, interactive visualizations, competitive data, and **1,583+ high-quality sprites** (including 190 animated and 216 shiny variants).
+> **Comprehensive Pokemon Database Dashboard** featuring all **1,194** Pokemon forms (**1,089 base Pokemon + 105 variants**) from Generations I-IX with **98.6% sprite coverage**, **Regional Grouping**, **Type Icons & Color Mapping**, **Dark Mode**, **Type Calculator**, **Team Builder**, **Advanced Search**, interactive visualizations, competitive data, and **5,036+ high-quality assets** (including 649 animated sprites, 1,238 icons, and 72 type icons).
 
 🌐 **Live Application:** [https://1pokemon.streamlit.app/](https://1pokemon.streamlit.app/)
 
@@ -23,19 +25,51 @@
 | **Total Pokemon Forms** | 1,194 |
 | **Base Forms** | 1,089 (91.2%) |
 | **Variant Forms** | 105 (8.8%) |
-| **Static Sprites** | 1,177 (98.6% coverage) |
-| **Animated Sprites** | 190 (15.9% coverage) |
-| **Shiny Sprites** | 216 (18.1% coverage) |
-| **Total Asset Files** | 1,583+ files |
-| **Documentation** | 2,259 lines (14,650 words) |
-| **Code Base** | 10,600+ lines of Python |
-| **Repository Size** | 62.5 MB |
+| **Static Sprites** | 3,077 (100% coverage) |
+| **Animated Sprites** | 649 (54.4% coverage) |
+| **Pokemon Icons** | 1,238 (103.7% coverage) |
+| **Type Icons** | 72 (18 types × 4 sizes) |
+| **Total Asset Files** | 5,036+ files |
+| **Documentation** | 2,500+ lines (16,000+ words) |
+| **Code Base** | 14,800+ lines of Python |
+| **Repository Size** | 992.7 MB |
+| **Regions Covered** | 9 (Kanto-Paldea) |
+| **Regional Variants** | 55 forms (Alolan, Galarian, Hisuian, Paldean) |
 
 📈 **See detailed statistics:** [QUANTIFIABLE_STATISTICS.md](QUANTIFIABLE_STATISTICS.md)
 
 ---
 
-## 🎉 What's New in v5.0.0
+## 🎉 What's New in v5.2.0
+
+### 🗺️ **Regional Grouping** (NEW!)
+- Complete regional classification for all 1,194 Pokemon forms
+- 9 regions covered: Kanto, Johto, Hoenn, Sinnoh, Unova, Kalos, Alola, Galar, Paldea
+- Regional variant tracking (55 forms: Alolan, Galarian, Hisuian, Paldean)
+- Regional evolution methods by generation
+- Regional Pokedex numbers
+- Debut generation tracking
+
+### 🎨 **Type Icons & Color Mapping** (NEW!)
+- Official Pokemon type icons for all 18 types
+- Multiple sizes available (32px, 64px, 128px, original)
+- Type color associations with light and dark variants
+- Complete type effectiveness data (strengths, weaknesses, immunities)
+- Professional icon integration throughout dashboard
+
+### 🖼️ **Expanded Asset Library**
+- **3,077 static sprites** (100% coverage - UP from 98.6%)
+- **649 animated sprites** (54.4% coverage - UP from 15.9%)
+- **1,238 Pokemon icons** (103.7% coverage - NEW!)
+- **72 type icons** in 4 sizes (NEW!)
+- Total asset library: **5,036+ files** (UP from 1,583)
+
+### 🛠️ **Enhanced Infrastructure**
+- Fixed green box display issue on dataset overview
+- Comprehensive asset downloader with 8+ sources
+- Improved file organization structure
+- Project validation and health monitoring tools
+- Enhanced documentation and statistics tracking
 
 ### 🌙 **Dark Mode**
 Toggle between light and dark themes with persistent settings! Optimized color schemes for Pokemon data visualization with smooth transitions.
@@ -63,6 +97,7 @@ Toggle between light and dark themes with persistent settings! Optimized color s
 - Type combination filters
 - Ability search
 - Generation filtering (Gen 1-9)
+- Regional filtering (NEW!)
 - Variant type filtering
 - **5 Predefined Presets**:
   - Starter Pokemon (all 9 generations)

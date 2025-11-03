@@ -1,0 +1,164 @@
+{
+  "normal": {
+    "name": "Normal",
+    "color": "#A8A878",
+    "color_dark": "#6D6D4E",
+    "icon_path": "assets/types/normal.png",
+    "icon_32": "assets/types/normal_32.png",
+    "icon_64": "assets/types/normal_64.png",
+    "icon_128": "assets/types/normal_128.png"
+  },
+  "fire": {
+    "name": "Fire",
+    "color": "#F08030",
+    "color_dark": "#9C531F",
+    "icon_path": "assets/types/fire.png",
+    "icon_32": "assets/types/fire_32.png",
+    "icon_64": "assets/types/fire_64.png",
+    "icon_128": "assets/types/fire_128.png"
+  },
+  "water": {
+    "name": "Water",
+    "color": "#6890F0",
+    "color_dark": "#445E9C",
+    "icon_path": "assets/types/water.png",
+    "icon_32": "assets/types/water_32.png",
+    "icon_64": "assets/types/water_64.png",
+    "icon_128": "assets/types/water_128.png"
+  },
+  "electric": {
+    "name": "Electric",
+    "color": "#F8D030",
+    "color_dark": "#A1871F",
+    "icon_path": "assets/types/electric.png",
+    "icon_32": "assets/types/electric_32.png",
+    "icon_64": "assets/types/electric_64.png",
+    "icon_128": "assets/types/electric_128.png"
+  },
+  "grass": {
+    "name": "Grass",
+    "color": "#78C850",
+    "color_dark": "#4E8234",
+    "icon_path": "assets/types/grass.png",
+    "icon_32": "assets/types/grass_32.png",
+    "icon_64": "assets/types/grass_64.png",
+    "icon_128": "assets/types/grass_128.png"
+  },
+  "ice": {
+    "name": "Ice",
+    "color": "#98D8D8",
+    "color_dark": "#638D8D",
+    "icon_path": "assets/types/ice.png",
+    "icon_32": "assets/types/ice_32.png",
+    "icon_64": "assets/types/ice_64.png",
+    "icon_128": "assets/types/ice_128.png"
+  },
+  "fighting": {
+    "name": "Fighting",
+    "color": "#C03028",
+    "color_dark": "#7D1F1A",
+    "icon_path": "assets/types/fighting.png",
+    "icon_32": "assets/types/fighting_32.png",
+    "icon_64": "assets/types/fighting_64.png",
+    "icon_128": "assets/types/fighting_128.png"
+  },
+  "poison": {
+    "name": "Poison",
+    "color": "#A040A0",
+    "color_dark": "#682A68",
+    "icon_path": "assets/types/poison.png",
+    "icon_32": "assets/types/poison_32.png",
+    "icon_64": "assets/types/poison_64.png",
+    "icon_128": "assets/types/poison_128.png"
+  },
+  "ground": {
+    "name": "Ground",
+    "color": "#E0C068",
+    "color_dark": "#927D44",
+    "icon_path": "assets/types/ground.png",
+    "icon_32": "assets/types/ground_32.png",
+    "icon_64": "assets/types/ground_64.png",
+    "icon_128": "assets/types/ground_128.png"
+  },
+  "flying": {
+    "name": "Flying",
+    "color": "#A890F0",
+    "color_dark": "#6D5E9C",
+    "icon_path": "assets/types/flying.png",
+    "icon_32": "assets/types/flying_32.png",
+    "icon_64": "assets/types/flying_64.png",
+    "icon_128": "assets/types/flying_128.png"
+  },
+  "psychic": {
+    "name": "Psychic",
+    "color": "#F85888",
+    "color_dark": "#A13959",
+    "icon_path": "assets/types/psychic.png",
+    "icon_32": "assets/types/psychic_32.png",
+    "icon_64": "assets/types/psychic_64.png",
+    "icon_128": "assets/types/psychic_128.png"
+  },
+  "bug": {
+    "name": "Bug",
+    "color": "#A8B820",
+    "color_dark": "#6D7815",
+    "icon_path": "assets/types/bug.png",
+    "icon_32": "assets/types/bug_32.png",
+    "icon_64": "assets/types/bug_64.png",
+    "icon_128": "assets/types/bug_128.png"
+  },
+  "rock": {
+    "name": "Rock",
+    "color": "#B8A038",
+    "color_dark": "#786824",
+    "icon_path": "assets/types/rock.png",
+    "icon_32": "assets/types/rock_32.png",
+    "icon_64": "assets/types/rock_64.png",
+    "icon_128": "assets/types/rock_128.png"
+  },
+  "ghost": {
+    "name": "Ghost",
+    "color": "#705898",
+    "color_dark": "#493963",
+    "icon_path": "assets/types/ghost.png",
+    "icon_32": "assets/types/ghost_32.png",
+    "icon_64": "assets/types/ghost_64.png",
+    "icon_128": "assets/types/ghost_128.png"
+  },
+  "dragon": {
+    "name": "Dragon",
+    "color": "#7038F8",
+    "color_dark": "#4924A1",
+    "icon_path": "assets/types/dragon.png",
+    "icon_32": "assets/types/dragon_32.png",
+    "icon_64": "assets/types/dragon_64.png",
+    "icon_128": "assets/types/dragon_128.png"
+  },
+  "dark": {
+    "name": "Dark",
+    "color": "#705848",
+    "color_dark": "#49392F",
+    "icon_path": "assets/types/dark.png",
+    "icon_32": "assets/types/dark_32.png",
+    "icon_64": "assets/types/dark_64.png",
+    "icon_128": "assets/types/dark_128.png"
+  },
+  "steel": {
+    "name": "Steel",
+    "color": "#B8B8D0",
+    "color_dark": "#787887",
+    "icon_path": "assets/types/steel.png",
+    "icon_32": "assets/types/steel_32.png",
+    "icon_64": "assets/types/steel_64.png",
+    "icon_128": "assets/types/steel_128.png"
+  },
+  "fairy": {
+    "name": "Fairy",
+    "color": "#EE99AC",
+    "color_dark": "#9B6470",
+    "icon_path": "assets/types/fairy.png",
+    "icon_32": "assets/types/fairy_32.png",
+    "icon_64": "assets/types/fairy_64.png",
+    "icon_128": "assets/types/fairy_128.png"
+  }
+}
