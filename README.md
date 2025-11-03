@@ -5,12 +5,12 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Live Demo](https://img.shields.io/badge/demo-live-green.svg)](https://1pokemon.streamlit.app/)
 [![Data: 1,194 Forms](https://img.shields.io/badge/forms-1,194-red.svg)](https://bulbapedia.bulbagarden.net)
-[![Completion: 100%](https://img.shields.io/badge/completion-100%25-brightgreen.svg)]()
-[![Competitive Data](https://img.shields.io/badge/competitive-tiers%20%26%20stats-orange.svg)]()
-[![Movesets: 1,010](https://img.shields.io/badge/movesets-1,010-purple.svg)]()
-[![Dark Mode](https://img.shields.io/badge/dark%20mode-enabled-purple.svg)]()
-[![AI Features](https://img.shields.io/badge/AI-team%20recommender-blue.svg)]()
-[![Meta Analytics](https://img.shields.io/badge/meta-analytics-cyan.svg)]()
+[![Completion: 100%](https://img.shields.io/badge/completion-100%25-brightgreen.svg)](https://github.com/caalivanera/pokemon)
+[![Competitive Data](https://img.shields.io/badge/competitive-tiers%20%26%20stats-orange.svg)](https://github.com/caalivanera/pokemon)
+[![Movesets: 1,010](https://img.shields.io/badge/movesets-1,010-purple.svg)](https://github.com/caalivanera/pokemon)
+[![Dark Mode](https://img.shields.io/badge/dark%20mode-enabled-purple.svg)](https://github.com/caalivanera/pokemon)
+[![AI Features](https://img.shields.io/badge/AI-team%20recommender-blue.svg)](https://github.com/caalivanera/pokemon)
+[![Meta Analytics](https://img.shields.io/badge/meta-analytics-cyan.svg)](https://github.com/caalivanera/pokemon)
 
 > **100% Complete Pokemon Database Dashboard** with **Advanced Analytics**, **AI Team Recommender**, **Damage Calculator**, featuring all **1,194** Pokemon forms with **98.6% sprite coverage**, **Competitive Tier Data** (86 Pokemon), **Usage Statistics** (516 records), **Comprehensive Movesets** (1,010 Pokemon), and **5,036+ high-quality assets**.
 
@@ -48,6 +48,7 @@
 ### 🆕 **Latest: Comparison & Analytics Tools**
 
 #### 🔍 **Sprite Comparison** | ⚔️ **Advanced Export** | 📊 **Performance Monitor**
+
 **New in v5.4.1**: Compare Pokemon side-by-side • Export in 5 formats • Track analytics
 
 ---
@@ -55,6 +56,7 @@
 ### 🚀 **Phase 5: Advanced Analytics (v5.4.0)**
 
 #### 📊 **Meta Analytics Dashboard**
+
 - Real-time competitive usage trends (516 records)
 - Rising/falling Pokemon detection algorithm
 - Move popularity analysis (237 moves tracked)
@@ -63,6 +65,7 @@
 - Interactive Plotly charts with export capabilities
 
 #### ⚔️ **Damage Calculator**
+
 - Exact Gen 5+ damage formula implementation
 - Complete 18×18 type effectiveness matrix
 - STAB (Same Type Attack Bonus) calculation
@@ -73,6 +76,7 @@
 - Supports 1,010 Pokemon and 4,040 moves
 
 #### 🤖 **AI Team Recommender**
+
 - Intelligent team building algorithm
 - Type coverage optimization
 - Weakness/resistance analysis
@@ -82,7 +86,8 @@
 - Team scoring system (BST + type coverage + usage)
 - JSON/Text export functionality
 
-#### � **Image Optimization Tool**
+#### 🖼️ **Image Optimization Tool**
+
 - PNG to WebP conversion script
 - Parallel processing (multi-threaded)
 - Expected 50-70% file size reduction
@@ -91,6 +96,7 @@
 - Original file preservation option
 
 #### 📈 **Enhanced Integration**
+
 - 15-tab interface (was 12 tabs)
 - Tab 13: 📊 Meta Analytics
 - Tab 14: ⚔️ Damage Calculator
