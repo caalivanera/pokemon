@@ -116,14 +116,18 @@ def load_sprite(pokemon_id, sprite_type='official', use_animated=False, variant_
     
     # Try animated GIF first if requested
     if use_animated or sprite_type == 'animated':
-        animated_dir = Path("assets/animated")
+        animated_dir = Path("assets/sprites/animated")
         gif_path = animated_dir / f"{base_filename}.gif"
         if gif_path.exists():
             return (str(gif_path), True)
     
-    # Determine directory based on type
+    # Determine directory based on type and shiny
     if sprite_type == 'icon':
         sprite_dir = Path("assets/icons")
+    elif shiny:
+        sprite_dir = Path("assets/sprites/shiny")
+        # Remove _shiny suffix since it's already in the directory
+        base_filename = base_filename.replace("_shiny", "")
     else:  # official
         sprite_dir = Path("assets/sprites")
     
