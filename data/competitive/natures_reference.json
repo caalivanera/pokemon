@@ -1,0 +1,102 @@
+{
+  "Hardy": {
+    "increases": null,
+    "decreases": null
+  },
+  "Lonely": {
+    "increases": "attack",
+    "decreases": "defense"
+  },
+  "Brave": {
+    "increases": "attack",
+    "decreases": "speed"
+  },
+  "Adamant": {
+    "increases": "attack",
+    "decreases": "sp_attack"
+  },
+  "Naughty": {
+    "increases": "attack",
+    "decreases": "sp_defense"
+  },
+  "Bold": {
+    "increases": "defense",
+    "decreases": "attack"
+  },
+  "Docile": {
+    "increases": null,
+    "decreases": null
+  },
+  "Relaxed": {
+    "increases": "defense",
+    "decreases": "speed"
+  },
+  "Impish": {
+    "increases": "defense",
+    "decreases": "sp_attack"
+  },
+  "Lax": {
+    "increases": "defense",
+    "decreases": "sp_defense"
+  },
+  "Timid": {
+    "increases": "speed",
+    "decreases": "attack"
+  },
+  "Hasty": {
+    "increases": "speed",
+    "decreases": "defense"
+  },
+  "Serious": {
+    "increases": null,
+    "decreases": null
+  },
+  "Jolly": {
+    "increases": "speed",
+    "decreases": "sp_attack"
+  },
+  "Naive": {
+    "increases": "speed",
+    "decreases": "sp_defense"
+  },
+  "Modest": {
+    "increases": "sp_attack",
+    "decreases": "attack"
+  },
+  "Mild": {
+    "increases": "sp_attack",
+    "decreases": "defense"
+  },
+  "Quiet": {
+    "increases": "sp_attack",
+    "decreases": "speed"
+  },
+  "Bashful": {
+    "increases": null,
+    "decreases": null
+  },
+  "Rash": {
+    "increases": "sp_attack",
+    "decreases": "sp_defense"
+  },
+  "Calm": {
+    "increases": "sp_defense",
+    "decreases": "attack"
+  },
+  "Gentle": {
+    "increases": "sp_defense",
+    "decreases": "defense"
+  },
+  "Sassy": {
+    "increases": "sp_defense",
+    "decreases": "speed"
+  },
+  "Careful": {
+    "increases": "sp_defense",
+    "decreases": "sp_attack"
+  },
+  "Quirky": {
+    "increases": null,
+    "decreases": null
+  }
+}
