@@ -1,4 +1,4 @@
-# ⚡ Pokemon National Dex Dashboard v5.4.1
+# ⚡ Pokemon National Dex Dashboard v5.4.2
 
 [![Python 3.13+](https://img.shields.io/badge/python-3.13+-blue.svg)](https://www.python.org/downloads/)
 [![Streamlit](https://img.shields.io/badge/streamlit-1.28+-red.svg)](https://streamlit.io/)
@@ -11,6 +11,7 @@
 [![Dark Mode](https://img.shields.io/badge/dark%20mode-enabled-purple.svg)](https://github.com/caalivanera/pokemon)
 [![AI Features](https://img.shields.io/badge/AI-team%20recommender-blue.svg)](https://github.com/caalivanera/pokemon)
 [![Meta Analytics](https://img.shields.io/badge/meta-analytics-cyan.svg)](https://github.com/caalivanera/pokemon)
+[![Admin Utilities](https://img.shields.io/badge/admin-utilities-red.svg)](https://github.com/caalivanera/pokemon)
 
 > **100% Complete Pokemon Database Dashboard** with **Advanced Analytics**, **AI Team Recommender**, **Damage Calculator**, featuring all **1,194** Pokemon forms with **98.6% sprite coverage**, **Competitive Tier Data** (86 Pokemon), **Usage Statistics** (516 records), **Comprehensive Movesets** (1,010 Pokemon), and **5,036+ high-quality assets**.
 
@@ -35,17 +36,43 @@
 | **Moveset Database** | 1,010 Pokemon (4,040 moves) |
 | **Game Posters** | 32 games (9 generations) |
 | **Documentation** | 4,000+ lines |
-| **Code Base** | 17,400+ lines |
-| **Tasks Complete** | 16/16 (100%) + Phase 5 |
+| **Code Base** | 19,300+ lines |
+| **Tasks Complete** | 16/16 (100%) + Phase 5 + Utilities |
 | **Analytics Modules** | 3 (Meta, Damage, Team AI) |
+| **Utility Modules** | 4 (Errors, Validation, Backups, Performance) |
+| **Dashboard Tabs** | 18 comprehensive features |
 
 📈 **See detailed statistics:** [docs/reports/QUANTIFIABLE_STATISTICS.md](docs/reports/QUANTIFIABLE_STATISTICS.md)
 
 ---
 
-## 🎉 What's New in v5.4.1
+## 🎉 What's New in v5.4.2
 
-### 🆕 **Latest: Comparison & Analytics Tools**
+### 🆕 **Latest: Professional Utility System & Admin Dashboard**
+
+#### 🛠️ **Admin Utilities** | 📝 **Error Logging** | 💾 **Automated Backups** | 📊 **Performance Profiling**
+
+**Production-Ready Infrastructure:**
+- **Error Logging System**: JSON + text logs with severity levels and context
+- **Data Validator**: CSV/JSON integrity checks with comprehensive reports
+- **Backup Manager**: Automated ZIP backups with versioning and cleanup
+- **Performance Profiler**: Timing and memory tracking for optimization
+- **Admin Dashboard**: 18th tab with 5 utility management panels
+
+**New Capabilities:**
+- Real-time error tracking and reporting
+- Automated data validation on startup
+- One-click backup/restore functionality  
+- Performance monitoring and bottleneck detection
+- System metrics and health monitoring
+
+📖 **Full documentation:** [docs/guides/UTILITY_SYSTEM_GUIDE.md](docs/guides/UTILITY_SYSTEM_GUIDE.md)
+
+---
+
+## 🎉 Previous Release: v5.4.1
+
+### **Comparison & Analytics Tools**
 
 #### 🔍 **Sprite Comparison** | ⚔️ **Advanced Export** | 📊 **Performance Monitor**
 

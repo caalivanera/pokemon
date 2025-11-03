@@ -1,6 +1,6 @@
 """
 Enhanced Pokémon Dashboard - Comprehensive Statistics & Competitive Analysis
-Version 5.0.0 - Enhanced Features (Dark Mode, Type Calculator, Team Builder, Advanced Search)
+Version 5.4.2 - Utility System (Error Logging, Data Validation, Backups, Performance)
 Latest Update: November 2025
 """
 
@@ -19,12 +19,32 @@ import sys
 features_path = Path(__file__).parent.parent / "features"
 sys.path.insert(0, str(features_path))
 
+# Add utils directory to path
+utils_path = Path(__file__).parent.parent / "utils"
+sys.path.insert(0, str(utils_path))
+
 # Import feature modules
 from dark_mode import dark_mode_toggle, apply_dark_mode, get_theme_colors
 from type_calculator import display_type_calculator
 from team_builder import display_team_builder
 from advanced_search import create_advanced_filters, quick_search_bar, display_filter_summary
 from variant_stats import display_variant_statistics
+
+# Import utility modules
+try:
+    from error_logger import get_error_logger, log_error
+    from data_validator import DataValidator
+    from backup_manager import BackupManager
+    from performance_profiler import get_profiler, profile
+    UTILS_AVAILABLE = True
+except ImportError as e:
+    UTILS_AVAILABLE = False
+    print(f"Warning: Utility modules not available: {e}")
+
+# Initialize utilities if available
+if UTILS_AVAILABLE:
+    error_logger = get_error_logger()
+    profiler = get_profiler()
 
 # ==================== CONFIGURATION ====================
 
@@ -40,28 +60,47 @@ st.set_page_config(
 @st.cache_data(ttl=3600)  # Cache for 1 hour
 def load_main_dataset():
     """Load the enhanced National Dex CSV with variants - 1,130 entries (1,025 base + 105 variants)"""
-    # Try new variant CSV first
-    variant_csv_path = Path("data/national_dex_with_variants.csv")
-    if variant_csv_path.exists():
-        df = pd.read_csv(variant_csv_path)
-        # Add variant support columns if missing
-        if 'variant_type' not in df.columns:
+    try:
+        if UTILS_AVAILABLE:
+            profiler.start_timer('load_main_dataset')
+        
+        # Try new variant CSV first
+        variant_csv_path = Path("data/national_dex_with_variants.csv")
+        if variant_csv_path.exists():
+            df = pd.read_csv(variant_csv_path)
+            # Add variant support columns if missing
+            if 'variant_type' not in df.columns:
+                df['variant_type'] = 'base'
+            if 'base_pokemon_id' not in df.columns:
+                df['base_pokemon_id'] = df['pokedex_number']
+            
+            if UTILS_AVAILABLE:
+                profiler.end_timer('load_main_dataset', {'rows': len(df)})
+            return df
+        
+        # Fallback to original CSV
+        csv_path = Path("data/national_dex.csv")
+        if csv_path.exists():
+            df = pd.read_csv(csv_path)
+            # Add variant columns for compatibility
             df['variant_type'] = 'base'
-        if 'base_pokemon_id' not in df.columns:
             df['base_pokemon_id'] = df['pokedex_number']
-        return df
+            if len(df) < 1025:
+                st.warning(f"⚠️ Data may be outdated. Expected 1025 Pokemon, found {len(df)}")
+            
+            if UTILS_AVAILABLE:
+                profiler.end_timer('load_main_dataset', {'rows': len(df)})
+            return df
+        
+        if UTILS_AVAILABLE:
+            profiler.end_timer('load_main_dataset', {'status': 'failed'})
+        return None
     
-    # Fallback to original CSV
-    csv_path = Path("data/national_dex.csv")
-    if csv_path.exists():
-        df = pd.read_csv(csv_path)
-        # Add variant columns for compatibility
-        df['variant_type'] = 'base'
-        df['base_pokemon_id'] = df['pokedex_number']
-        if len(df) < 1025:
-            st.warning(f"⚠️ Data may be outdated. Expected 1025 Pokemon, found {len(df)}")
-        return df
-    return None
+    except Exception as e:
+        if UTILS_AVAILABLE:
+            log_error(e, context={'function': 'load_main_dataset'}, severity='CRITICAL')
+        st.error(f"Error loading dataset: {e}")
+        return None
 
 @st.cache_data
 def load_competitive_data():
@@ -526,8 +565,21 @@ def main():
     
     # Header
     st.markdown('<h1 class="main-header">⚡ National Pokédex Dashboard ⚡</h1>', unsafe_allow_html=True)
-    st.markdown("### Version 4.1.0 - Variant System: 1,130 Forms (Base + Mega + Regional + Gigantamax)")
-    st.caption("🔥 NEW: Variant Forms Support | Shiny Mode | 48 Mega Evolutions | Regional Forms | Animated Sprites")
+    st.markdown("### Version 5.4.2 - Enhanced System with Utilities & Admin Dashboard")
+    st.caption("🔥 NEW: Admin Utilities | Error Logging | Backups | Performance Monitoring | Data Validation")
+    
+    # Startup validation (non-blocking)
+    if UTILS_AVAILABLE:
+        validator = DataValidator()
+        with st.spinner("� Validating data files..."):
+            validation_results = validator.validate_all_data_files()
+            
+            # Show warnings for any issues (non-blocking)
+            for category, results in validation_results.items():
+                for result in results:
+                    if not result['valid']:
+                        st.warning(f"⚠️ Data validation warning in {result.get('file', 'unknown')}: "
+                                 f"{result.get('error', 'Unknown issue')}")
     
     # Load data
     df = load_main_dataset()
@@ -537,6 +589,12 @@ def main():
     if df is None:
         st.error("❌ Could not load Pokemon data. Please ensure data/national_dex.csv exists.")
         st.info("💡 Try refreshing the page or clearing the cache.")
+        if UTILS_AVAILABLE:
+            log_error(
+                ValueError("Failed to load main dataset"),
+                context={'function': 'main', 'data_file': 'national_dex.csv'},
+                severity='CRITICAL'
+            )
         return
     
     # Display actual data count
@@ -639,8 +697,8 @@ def main():
         
         st.markdown(f"**{len(filtered_df)}** Pokémon match filters")
     
-    # Main Tabs (v5.4.1 - Added Comparison & Export)
-    tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9, tab10, tab11, tab12, tab13, tab14, tab15, tab16, tab17 = st.tabs([
+    # Main Tabs (v5.4.2 - Added Admin Utilities)
+    tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9, tab10, tab11, tab12, tab13, tab14, tab15, tab16, tab17, tab18 = st.tabs([
         "📊 Overview",
         "🔍 Pokémon Search",
         "⚔️ Competitive Analysis",
@@ -657,7 +715,8 @@ def main():
         "⚔️ Damage Calculator",
         "🤖 Team Recommender",
         "🔍 Sprite Comparison",
-        "📤 Advanced Export"
+        "📤 Advanced Export",
+        "🛠️ Admin Utilities"
     ])
     
     # ==================== TAB 1: OVERVIEW ====================
@@ -2093,6 +2152,20 @@ def main():
         except Exception as e:
             st.error(f"Error loading Advanced Export: {e}")
             st.info("This feature provides advanced export capabilities.")
+    
+    # ==================== TAB 18: ADMIN UTILITIES ====================
+    with tab18:
+        try:
+            import sys
+            sys.path.insert(0, str(Path(__file__).parent.parent / "features"))
+            from admin_utilities import render_admin_dashboard
+            
+            render_admin_dashboard()
+        except Exception as e:
+            st.error(f"Error loading Admin Utilities: {e}")
+            st.info("This feature provides system management and monitoring tools.")
+            if UTILS_AVAILABLE:
+                log_error(e, context={'tab': 'admin_utilities'}, severity='ERROR')
 
 # ==================== RUN APP ====================
 
