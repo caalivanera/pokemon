@@ -1,6 +1,6 @@
 # ⚡ Enhanced Interactive Pokédex Dashboard
 
-A premium, Netflix-style interactive web application featuring all 1,076 Pokémon from Generations 1-9 with animated sprites, comprehensive stats, and advanced filtering. This dashboard combines data from multiple authoritative sources with a modern dark theme featuring green accents.
+A modern, interactive web application featuring all 1,076 Pokémon from Generations 1-9 with animated sprites, comprehensive stats, and advanced filtering. This dashboard combines data from multiple authoritative sources with a sleek dark theme featuring green accents.
 
 The application provides a professional, responsive interface with animated Pokemon sprites, TBA placeholders for missing visuals, and deep analytical capabilities for Pokemon research and exploration.
 
@@ -24,10 +24,10 @@ See **[PROJECT_STRUCTURE.md](PROJECT_STRUCTURE.md)** for the complete directory 
 - Scripts: `scripts/`
 - Data: `data/` and `pokemondbgit/`
 
-## ✨ Premium Features
+## ✨ Features
 
 ### 🎨 **Modern Dark Theme with Green Accents**
-* **Professional Design:** Netflix-inspired dark theme (#141414) with vibrant green accents (#10B981)
+* **Professional Design:** Sleek dark theme (#141414) with vibrant green accents (#10B981)
 * **Smooth Animations:** 0.15s-0.3s transitions for snappy, responsive interactions
 * **Animated Sprites:** Floating Pokemon sprites with bounce effects on hover
 * **TBA Placeholders:** Stylish "TBA" visual indicators for missing sprites

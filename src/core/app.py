@@ -19,7 +19,7 @@ from src.data_loaders.yaml_loader import PokemonDataLoader
 
 # --- Configuration ---
 st.set_page_config(
-    page_title="National Pokédex - Premium Edition",
+    page_title="National Pokédex Dashboard",
     page_icon="⚡",
     layout="wide",
     initial_sidebar_state="collapsed"
@@ -90,17 +90,17 @@ def get_pokemon_sprite_url(pokemon_id: int, name: str = "",
         return f"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{pokemon_id}.png"
 
 
-def inject_premium_css():
-    """Inject Netflix/Nintendo-quality dark theme CSS"""
+def inject_custom_css():
+    """Inject dark theme CSS with green accents"""
     st.markdown("""
     <style>
         /* Dark Theme with Green Accent */
         :root {
-            --netflix-black: #141414;
-            --netflix-dark: #1F1F1F;
-            --netflix-red: #10B981;
+            --bg-black: #141414;
+            --bg-dark: #1F1F1F;
+            --accent-green: #10B981;
             --pokemon-green: #10B981;
-            --netflix-white: #FFFFFF;
+            --bg-white: #FFFFFF;
             --text-primary: #E5E5E5;
             --text-secondary: #B3B3B3;
             --hover-bg: #2F2F2F;
@@ -108,7 +108,7 @@ def inject_premium_css():
         
         /* Main app dark background */
         .stApp {
-            background-color: var(--netflix-black);
+            background-color: var(--bg-black);
             color: var(--text-primary);
         }
         
@@ -125,7 +125,7 @@ def inject_premium_css():
             background: linear-gradient(180deg, #141414 0%, rgba(20,20,20,0.95) 100%);
             backdrop-filter: blur(10px);
             padding: 20px 0;
-            border-bottom: 2px solid var(--netflix-red);
+            border-bottom: 2px solid var(--accent-green);
             animation: slideDown 0.3s ease-out;
         }
         
@@ -162,9 +162,9 @@ def inject_premium_css():
             }
         }
         
-        /* Pokemon card styling - Netflix style */
+        /* Pokemon card styling */
         .pokemon-card {
-            background: var(--netflix-dark);
+            background: var(--bg-dark);
             border-radius: 12px;
             padding: 15px;
             transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
@@ -244,7 +244,7 @@ def inject_premium_css():
         /* Tabs styling */
         .stTabs [data-baseweb="tab-list"] {
             gap: 8px;
-            background-color: var(--netflix-dark);
+            background-color: var(--bg-dark);
             padding: 8px;
             border-radius: 8px;
         }
@@ -265,13 +265,13 @@ def inject_premium_css():
         }
         
         .stTabs [aria-selected="true"] {
-            background-color: var(--netflix-red) !important;
+            background-color: var(--accent-green) !important;
             color: white !important;
         }
         
         /* Buttons */
         .stButton>button {
-            background: var(--netflix-red);
+            background: var(--accent-green);
             color: white;
             border: none;
             border-radius: 4px;
@@ -294,14 +294,14 @@ def inject_premium_css():
         }
         
         .stSelectbox>div>div, .stMultiSelect>div>div {
-            background-color: var(--netflix-dark);
+            background-color: var(--bg-dark);
             border-color: #444;
             color: var(--text-primary);
         }
         
         /* Metrics */
         [data-testid="stMetricValue"] {
-            color: var(--netflix-red);
+            color: var(--accent-green);
             font-size: 28px;
             font-weight: bold;
         }
@@ -315,17 +315,17 @@ def inject_premium_css():
         
         /* Dataframes */
         .stDataFrame {
-            background-color: var(--netflix-dark);
+            background-color: var(--bg-dark);
         }
         
         /* Sliders */
         .stSlider>div>div>div {
-            background-color: var(--netflix-red);
+            background-color: var(--accent-green);
         }
         
         /* Loading animation */
         .stSpinner>div {
-            border-top-color: var(--netflix-red) !important;
+            border-top-color: var(--accent-green) !important;
         }
         
         /* Headings */
@@ -351,7 +351,7 @@ def inject_premium_css():
         .search-container input {
             width: 100%;
             padding: 15px 50px 15px 20px;
-            background: var(--netflix-dark);
+            background: var(--bg-dark);
             border: 2px solid #444;
             border-radius: 8px;
             color: var(--text-primary);
@@ -371,7 +371,7 @@ def inject_premium_css():
         }
         
         ::-webkit-scrollbar-track {
-            background: var(--netflix-black);
+            background: var(--bg-black);
         }
         
         ::-webkit-scrollbar-thumb {
@@ -408,30 +408,27 @@ def create_type_badge(type_name: str) -> str:
 
 
 def create_pokemon_card_html(pokemon_data: pd.Series, sprite_url: str) -> str:
-    """Create Netflix-style Pokemon card HTML with TBA placeholder for missing sprites"""
+    """Create Pokemon card HTML with TBA placeholder for missing sprites"""
     type_badges = create_type_badge(pokemon_data['primary_type'])
     if pd.notna(pokemon_data.get('secondary_type')) and str(pokemon_data.get('secondary_type')) != 'nan':
         type_badges += ' ' + create_type_badge(pokemon_data['secondary_type'])
     
-    # Check if sprite URL is valid or use TBA placeholder
-    sprite_html = f"""
-        <img src="{sprite_url}" 
-             class="pokemon-sprite" 
-             alt="{pokemon_data['name']}"
-             onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
-        <div class="tba-placeholder" style="display: none;">TBA</div>
-    """
-    
     return f"""
     <div class="pokemon-card">
-        {sprite_html}
-        <h3 style="text-align: center; margin: 10px 0; color: var(--text-primary);">
+        <div style="position: relative; width: 100%; height: 200px;">
+            <img src="{sprite_url}" 
+                 class="pokemon-sprite" 
+                 alt="{pokemon_data['name']}"
+                 style="width: 100%; height: 200px; object-fit: contain; filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.5)); animation: float 3s ease-in-out infinite;"
+                 onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\\'tba-placeholder\\'>TBA</div>';">
+        </div>
+        <h3 style="text-align: center; margin: 10px 0; color: #E5E5E5;">
             #{int(pokemon_data['pokedex_number'])} {pokemon_data['name']}
         </h3>
         <div style="text-align: center;">
             {type_badges}
         </div>
-        <div style="margin-top: 10px; text-align: center; color: var(--text-secondary); font-size: 14px;">
+        <div style="margin-top: 10px; text-align: center; color: #B3B3B3; font-size: 14px;">
             BST: {int(pokemon_data['total_points'])}
         </div>
     </div>
@@ -491,8 +488,8 @@ def load_yaml_data() -> dict:
         return {}
 
 
-# Inject premium CSS
-inject_premium_css()
+# Inject custom CSS
+inject_custom_css()
 
 # Load data
 with st.spinner("Loading Pokemon data..."):
@@ -509,12 +506,12 @@ st.markdown("""
 <div class="sticky-header">
     <div style="max-width: 1400px; margin: 0 auto; padding: 0 20px;">
         <h1 style="margin: 0; font-size: 42px; font-weight: 900; text-align: center;">
-            <span style="color: var(--netflix-red);">⚡</span> 
+            <span style="color: var(--accent-green);">⚡</span> 
             NATIONAL POKÉDEX
-            <span style="color: var(--netflix-red);">⚡</span>
+            <span style="color: var(--accent-green);">⚡</span>
         </h1>
         <p style="text-align: center; color: var(--text-secondary); margin: 8px 0 0 0; font-size: 16px;">
-            Explore all {len(df)} Pokemon • Premium Edition
+            Explore all {len(df)} Pokemon from Generation 1 to 9
         </p>
     </div>
 </div>
@@ -812,10 +809,10 @@ with tab5:
     
     st.markdown("### About")
     st.info("""
-    **National Pokédex - Premium Edition**
+    **National Pokédex Dashboard**
     
     Version: 2.0
-    - 🎨 Netflix-inspired dark theme
+    - 🎨 Modern dark theme with green accents
     - 📊 1,076 Pokemon with comprehensive data
     - 🖼️ High-quality official artwork
     - 🔍 Advanced search and filtering
@@ -827,11 +824,11 @@ with tab5:
 # Footer
 st.markdown("<br><br>", unsafe_allow_html=True)
 st.markdown("""
-<div style="text-align: center; padding: 40px 20px; border-top: 2px solid var(--netflix-dark);">
+<div style="text-align: center; padding: 40px 20px; border-top: 2px solid var(--bg-dark);">
     <p style="color: var(--text-secondary); margin: 0;">
-        © 2025 National Pokédex Premium Edition • 
+        © 2025 National Pokédex Dashboard • 
         Built with ❤️ by Charles Alivanera • 
-        Data from <a href="https://pokeapi.co" style="color: var(--netflix-red);">PokeAPI</a>
+        Data from <a href="https://pokeapi.co" style="color: var(--accent-green);">PokeAPI</a>
     </p>
 </div>
 """, unsafe_allow_html=True)
