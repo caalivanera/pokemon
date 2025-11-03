@@ -5,7 +5,7 @@ import sys
 from typing import Optional, Dict, Any
 
 def load_pokemon_glossary(
-    glossary_path: str = '../../data/pokemon_glossary.csv'
+    glossary_path: str = None
 ) -> Dict[str, str]:
     """
     Loads the Pokemon glossary from CSV file.
@@ -16,6 +16,14 @@ def load_pokemon_glossary(
     Returns:
         Dict[str, str]: Dictionary mapping terms to their definitions.
     """
+    # Get the directory of this script and construct absolute path
+    if glossary_path is None:
+        current_dir = os.path.dirname(os.path.abspath(__file__))
+        project_root = os.path.dirname(os.path.dirname(current_dir))
+        data_dir = os.path.join(project_root, 'data')
+        glossary_path = os.path.join(data_dir, 'pokemon_glossary.csv')
+    
+    print(f"Loading glossary from: {glossary_path}")
     glossary = {}
     try:
         if os.path.exists(glossary_path):
@@ -52,9 +60,9 @@ def load_pokemon_glossary(
     return glossary
 
 def load_enhanced_pokemon_data(
-    pokedex_path: str = '../pokedex.csv',
-    pokedex_other_path: str = '../pokedex_otherVer.csv', 
-    poke_corpus_path: str = '../poke_corpus.csv'
+    pokedex_path: str = None,
+    pokedex_other_path: str = None, 
+    poke_corpus_path: str = None
 ) -> pd.DataFrame:
     """
     Loads and combines Pokemon data from multiple CSV sources.
@@ -69,8 +77,27 @@ def load_enhanced_pokemon_data(
     """
     print("Loading enhanced Pokemon data from local CSV files...")
     
+    # Get the directory of this script and construct absolute paths
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    project_root = os.path.dirname(os.path.dirname(current_dir))
+    data_dir = os.path.join(project_root, 'data')
+    
+    # Set default paths if not provided
+    if pokedex_path is None:
+        pokedex_path = os.path.join(data_dir, 'pokedex.csv')
+    if pokedex_other_path is None:
+        pokedex_other_path = os.path.join(data_dir, 'pokedex_otherVer.csv')
+    if poke_corpus_path is None:
+        poke_corpus_path = os.path.join(data_dir, 'poke_corpus.csv')
+    
+    print(f"Data directory: {data_dir}")
+    print(f"Looking for pokedex at: {pokedex_path}")
+    
     # Load main pokedex data
     try:
+        if not os.path.exists(pokedex_path):
+            print(f"ERROR: Main pokedex file not found at {pokedex_path}", file=sys.stderr)
+            return pd.DataFrame()
         main_df = pd.read_csv(pokedex_path)
         print(f"Loaded {len(main_df)} entries from main pokedex.")
     except Exception as e:
