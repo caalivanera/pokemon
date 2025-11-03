@@ -233,83 +233,290 @@ pokedex-dashboard/
 
 ---
 
+## 🚀 Quick Start
+
+### Installation
+
+
+
+```bash### 🔍 **Advanced Filtering System**
+
+# Clone the repository* **Generation Filters:** Filter by 9 generations (Kanto through Paldea)
+
+git clone https://github.com/caalivanera/pokemon.git* **Type Filters:** 18 Pokemon types with color-coded badges
+
+cd pokedex-dashboard* **BST Range Slider:** Filter by Base Stat Total (0-1000)
+
+* **Text Search:** Quick search across all Pokemon names
+
+# Install dependencies* **Real-time Updates:** Instant filter application with session state
+
+pip install -r requirements.txt
+
+### � **Comprehensive Pokemon Details**
+
+# Run the dashboard* **Complete Stats:** All 6 base stats (HP, Attack, Defense, Sp. Attack, Sp. Defense, Speed)
+
+streamlit run enhanced_dashboard.py* **High-Quality Sprites:** 475x475px official artwork from PokeAPI
+
+```* **Type Effectiveness:** Visual type badges with proper color coding
+
+* **Detailed Information:** Abilities, breeding info, descriptions, and percentiles
+
+### Access* **Multiple Data Sources:** Integration of 4+ Pokemon datasets
+
+Open your browser and navigate to `http://localhost:8501`
+
+### 🎬 **Animation Features**
+
+---* **Floating Sprites:** Continuous 3s float animation on all Pokemon sprites
+
+* **Hover Bounce:** Dynamic bounce effect when hovering over cards
+
+## 📊 Data Coverage* **Smooth Transitions:** Optimized timing (0.15s-0.3s) for seamless UX
+
+* **Card Effects:** Scale, shadow, and border animations on interaction
+
+- **Pokemon**: 1,025 (Gen I-IX)* **Sticky Header:** Animated slideDown header with backdrop blur
+
+- **Games**: 38 Pokemon games
+
+- **Latest Update**: Pokemon Legends: Z-A (457 Pokemon, Kalos Pokedex)## �️ **Data Sources**
+
+- **Data Sources**: Bulbapedia, Serebii, Smogon University
+
+This enhanced dashboard integrates multiple high-quality Pokemon datasets:
 
 ---
 
-## 📊 Data Coverage
+### **Primary Data Sources:**
 
-- **Pokemon**: 1,194 forms (1,089 base + 105 variants)
-- **Generations**: 9 (Gen I-IX)
-- **Games**: 32 Pokemon games across 9 generations
-- **Tiers**: 8 competitive tiers (86 Pokemon with tier data)
-- **Movesets**: 1,010 Pokemon (4,040 individual moves)
-- **Usage Stats**: 516 monthly records (6 months of data)
-- **Sprites**: 5,036+ assets (sprites, icons, type graphics)
-- **Data Sources**: Bulbapedia, Serebii.net, Smogon University, PokeAPI
+## 🎯 Latest Updates (v4.0.0)- **`pokedex.csv`** - Comprehensive Pokemon statistics, abilities, competitive analysis, and detailed game mechanics
+
+- **`pokemon_glossary.csv`** - 100+ Pokemon terms and definitions for educational reference
+
+- ✅ Enhanced Evolution & Forms tab with case-insensitive search- **`pokedex_otherVer.csv`** - Alternative Pokemon descriptions and flavor text
+
+- ✅ Fixed Pokemon Legends: Z-A to official Kalos Pokedex (457 Pokemon)- **`poke_corpus.csv`** - Detailed Pokemon lore, descriptions, and extensive background information
+
+- ✅ Improved alternate forms display (Mega, Regional, Gigantamax)
+
+- ✅ Added evolution chain visualization### **Enhanced Data Integration:**
+
+- ✅ Workspace cleanup - removed 19 redundant filesThe application intelligently combines these sources to provide:
+
+- ✅ Code quality improvements and validation- **Complete stat analysis** with competitive insights
+
+- ✅ Synchronized deployment files- **Multiple description sources** for comprehensive Pokemon information  
+
+- **Educational glossary** integration for learning Pokemon mechanics
+
+---- **Rich metadata** including abilities, breeding info, and experience systems
+
+
+
+## 🛠️ Development## 🛠️ Tech Stack
+
+
+
+### File Structure* **Language:** Python 3.8+
+
+```* **Frontend Framework:** [Streamlit](https://streamlit.io/)
+
+pokedex-dashboard/* **Data Processing:** [pandas](https://pandas.pydata.org/) + [numpy](https://numpy.org/)
+
+├── data/                      # Pokemon databases* **HTTP Requests:** [requests](https://requests.readthedocs.io/en/latest/) (for sprite URLs)
+
+├── assets/sprites/            # Sprite cache* **Progress Indicators:** [tqdm](https://github.com/tqdm/tqdm)
+
+├── src/core/app.py            # Streamlit Cloud entry point* **Data Sources:** Multiple CSV datasets (see Data Sources section)
+
+├── enhanced_dashboard.py      # Main application
+
+├── requirements.txt           # Dependencies## � Installation
+
+└── .streamlit/config.toml     # Configuration
+
+```### **Prerequisites:**
+
+* Python 3.8+
+
+### Testing* `git` (for cloning)
+
+```bash* Access to the Pokemon CSV data files (included in project)
+
+# Validate data integrity
+
+python check_version.py### **Installation Steps:**
+
+
+
+# Run comprehensive audit1.  **Clone the Repository:**
+
+python comprehensive_audit.py    ```bash
+
+    git clone https://github.com/caalivanera/pokemon.git
+
+# Test locally    cd pokemon/pokedex-dashboard
+
+streamlit run enhanced_dashboard.py    ```
+
+```
+
+2.  **Create and Activate a Virtual Environment (Recommended):**
+
+---    ```bash
+
+    # For Mac/Linux
+
+## 📝 Documentation    python3 -m venv venv
+
+    source venv/bin/activate
+
+- **Complete Guide**: See full documentation in repo    
+
+- **CHANGELOG**: Version history and updates    # For Windows
+
+- **SECURITY**: Security policy and guidelines    python -m venv venv
+
+    .\venv\Scripts\activate
+
+---    ```
+
+
+
+## 🤝 Contributing3.  **Install Dependencies:**
+
+    ```bash
+
+Contributions welcome! Please:    pip install -r requirements.txt
+
+1. Fork the repository    ```
+
+2. Create a feature branch
+
+3. Test changes locally## 🚀 Usage
+
+4. Submit a Pull Request
+
+### **Running Locally:**
 
 ---
 
-## 🛠️ Tech Stack
+1. **Start the Streamlit App:**
 
-- **Language**: Python 3.13+
-- **Framework**: [Streamlit](https://streamlit.io/) 1.28+
-- **Data Processing**: pandas + numpy
-- **Visualizations**: Plotly Express
-- **Web Scraping**: BeautifulSoup4 (for data collection)
-- **HTTP Requests**: requests library
-- **Data Storage**: CSV + JSON formats
+## 📄 License    ```bash
 
----
+    streamlit run src/core/app.py
 
-## 📝 Documentation
+MIT License - See [LICENSE](LICENSE) for details    ```
 
-- **Project Reports**: See [docs/reports/](docs/reports/) for completion and session reports
-- **Implementation Guides**: See [docs/guides/](docs/guides/) for enhancement plans
-- **Technical Docs**: See [docs/technical/](docs/technical/) for technical specifications
-- **CHANGELOG**: [CHANGELOG.md](CHANGELOG.md) - Version history and updates
-- **Statistics**: [docs/reports/QUANTIFIABLE_STATISTICS.md](docs/reports/QUANTIFIABLE_STATISTICS.md)
+    Your browser will automatically open at `http://localhost:8501`
 
 ---
 
-## 🤝 Contributing
+2. **Explore the Dashboard:**
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+## 🙏 Acknowledgments    - Use the sidebar filters to select Pokemon by type, stats, or physical attributes
 
-### Steps to Contribute:
+    - Click on any Pokemon to see detailed information
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+- The Pokemon Company - Pokemon data and sprites    - Export filtered data as CSV for further analysis
 
----
+- Bulbapedia - Comprehensive Pokemon database    - Search the glossary for Pokemon terminology
 
-## 📄 License
+- Serebii.net - Game data and Pokedex information
 
-MIT License - See [LICENSE](LICENSE) for details
+- Smogon University - Competitive data### **Running with Docker:**
 
----
+- Streamlit - Dashboard framework
 
-## 🙏 Acknowledgments
+1. **Build and run using Docker Compose:**
 
-- **The Pokemon Company** - Pokemon data and sprites
-- **Bulbapedia** - Comprehensive Pokemon database
-- **Serebii.net** - Game data and Pokedex information
-- **Smogon University** - Competitive tier data and analysis
-- **PokeAPI** - Pokemon sprites and assets
-- **Streamlit** - Dashboard framework
+---    ```bash
 
----
+    cd config/docker
 
-<div align="center">
+<div align="center">    docker-compose up -d
+
+    ```
 
 **Made with ❤️ for Pokemon Trainers Worldwide**
 
+2. **Access the dashboard at:** `http://localhost:8501`
+
 *Gotta Catch 'Em All!*
+
+### **Key Features to Try:**
 
 [Live Demo](https://1pokemon.streamlit.app/) • [Report Bug](https://github.com/caalivanera/pokemon/issues) • [Request Feature](https://github.com/caalivanera/pokemon/issues)
 
-**Built by Charles Alivanera** | [GitHub](https://github.com/caalivanera) | [Email](mailto:caalivanera@gmail.com)
+- **Multi-Type Filtering:** Select multiple types to see Pokemon matching any selected type
 
-</div>
+</div>- **Stat Filtering:** Use sliders to find Pokemon within specific stat ranges
+
+- **Glossary Search:** Look up Pokemon terms and mechanics
+- **Data Export:** Download filtered datasets for your own analysis
+
+## ☁️ Deployment
+
+This application is ready to be deployed directly to [Streamlit Community Cloud](https://streamlit.io/cloud).
+
+1.  Push this entire project (all files) to your GitHub repository.
+2.  Sign up for Streamlit Community Cloud (it's free) and link your GitHub account.
+3.  Click "New app" and select your repository, the `main` branch, and the `app.py` file.
+4.  Click "Deploy!"
+
+## � **Advanced Data Engineering Highlights**
+
+This enhanced project demonstrates sophisticated data engineering and analysis capabilities:
+
+### **Multi-Source Data Integration**
+* **Complex ETL Pipeline:** Intelligently merges 4 different CSV data sources with different schemas
+* **Data Quality Management:** Handles missing values, data type conversions, and schema mismatches
+* **Automated Data Processing:** Seamlessly combines competitive data, lore, and statistical information
+* **Performance Optimization:** Efficient data loading with Streamlit caching for sub-second response times
+
+### **Advanced Analytics & Visualization**  
+* **Statistical Analysis:** Percentile rankings, distribution analysis, and comparative metrics
+* **Interactive Filtering:** Real-time multi-dimensional filtering with complex boolean logic
+* **Dynamic Visualizations:** Professional charts that update instantly based on filter selections
+* **Export Capabilities:** Generate filtered datasets for further analysis
+
+### **Production-Ready Features**
+* **Error Handling:** Comprehensive error management for missing data and edge cases
+* **User Experience:** Intuitive interface with contextual help and educational features
+* **Scalable Architecture:** Modular design supporting easy dataset expansion
+* **Documentation:** Extensive inline documentation and user guides
+
+## 🎯 **Enhanced Portfolio Value** 
+
+This project showcases advanced skills in:
+
+### **Data Engineering Excellence**
+* **Multi-Source Integration:** Combining disparate datasets with different formats and schemas
+* **ETL Pipeline Development:** Sophisticated data transformation and loading processes  
+* **Data Quality Assurance:** Robust validation, cleaning, and integrity checks
+* **Performance Engineering:** Optimized data processing with intelligent caching strategies
+
+### **Advanced Analytics Capabilities**
+* **Statistical Analysis:** Complex calculations including percentile rankings and distributions
+* **Interactive Visualization:** Professional-grade charts and real-time data exploration
+* **Business Intelligence:** Comprehensive filtering and data discovery features
+* **Export & Reporting:** Data export capabilities for stakeholder consumption
+
+### **Full-Stack Development Skills**
+* **Frontend Development:** Professional UI/UX with Streamlit and modern design principles
+* **Backend Architecture:** Modular Python design with proper separation of concerns
+* **Documentation & Communication:** Comprehensive documentation for technical and non-technical audiences
+* **Production Deployment:** Ready for cloud deployment with proper configuration management
+
+### **Technical Leadership Qualities**
+* **Code Organization:** Clean, maintainable code structure following best practices
+* **User-Centric Design:** Features designed around actual user needs and workflows
+* **Educational Value:** Built-in glossary and help features demonstrating knowledge sharing
+* **Innovation:** Creative use of multiple data sources to provide unique insights
+
+---
+
+**Built by Charles Alivanera** | [GitHub](https://github.com/caalivanera) | [Email](mailto:caalivanera@gmail.com)
