@@ -1,0 +1,951 @@
+{
+  "dataset_name": "Pokemon National Dex",
+  "total_records": 1045,
+  "total_columns": 94,
+  "columns": {
+    "pokedex_number": {
+      "dtype": "int64",
+      "non_null_count": 1045,
+      "null_count": 0,
+      "description": "National Pokedex number",
+      "min": 1.0,
+      "max": 898.0,
+      "mean": 440.7693779904306,
+      "median": 436.0
+    },
+    "name": {
+      "dtype": "object",
+      "non_null_count": 1045,
+      "null_count": 0,
+      "description": "Pokemon name"
+    },
+    "japanese_name": {
+      "dtype": "object",
+      "non_null_count": 1045,
+      "null_count": 0,
+      "description": "Japanese name"
+    },
+    "generation": {
+      "dtype": "int64",
+      "non_null_count": 1045,
+      "null_count": 0,
+      "description": "Generation introduced",
+      "min": 1.0,
+      "max": 8.0,
+      "mean": 4.098564593301435,
+      "median": 4.0
+    },
+    "status": {
+      "dtype": "object",
+      "non_null_count": 1045,
+      "null_count": 0,
+      "description": "No description available",
+      "unique_values": {
+        "Normal": 918,
+        "Sub Legendary": 55,
+        "Legendary": 42,
+        "Mythical": 30
+      }
+    },
+    "species": {
+      "dtype": "object",
+      "non_null_count": 1045,
+      "null_count": 0,
+      "description": "No description available"
+    },
+    "type_number": {
+      "dtype": "int64",
+      "non_null_count": 1045,
+      "null_count": 0,
+      "description": "No description available",
+      "min": 1.0,
+      "max": 2.0,
+      "mean": 1.5291866028708134,
+      "median": 2.0
+    },
+    "type_1": {
+      "dtype": "object",
+      "non_null_count": 1045,
+      "null_count": 0,
+      "description": "Primary type",
+      "unique_values": {
+        "Water": 134,
+        "Normal": 115,
+        "Grass": 91,
+        "Bug": 81,
+        "Psychic": 81,
+        "Fire": 65,
+        "Electric": 62,
+        "Rock": 60,
+        "Dark": 46,
+        "Ghost": 42,
+        "Fighting": 42,
+        "Dragon": 41,
+        "Poison": 41,
+        "Ground": 41,
+        "Ice": 37,
+        "Steel": 36,
+        "Fairy": 22,
+        "Flying": 8
+      }
+    },
+    "type_2": {
+      "dtype": "object",
+      "non_null_count": 553,
+      "null_count": 492,
+      "description": "Secondary type (if dual-type)",
+      "unique_values": {
+        "Flying": 112,
+        "Fairy": 41,
+        "Psychic": 40,
+        "Ground": 39,
+        "Poison": 38,
+        "Steel": 35,
+        "Fighting": 32,
+        "Dragon": 32,
+        "Grass": 28,
+        "Dark": 27,
+        "Ghost": 26,
+        "Ice": 20,
+        "Water": 20,
+        "Fire": 17,
+        "Rock": 15,
+        "Normal": 11,
+        "Electric": 11,
+        "Bug": 9
+      }
+    },
+    "height_m": {
+      "dtype": "float64",
+      "non_null_count": 1045,
+      "null_count": 0,
+      "description": "Height in meters",
+      "min": 0.1,
+      "max": 100.0,
+      "mean": 1.374066985645933,
+      "median": 1.0
+    },
+    "weight_kg": {
+      "dtype": "float64",
+      "non_null_count": 1044,
+      "null_count": 1,
+      "description": "Weight in kilograms",
+      "min": 0.1,
+      "max": 999.9,
+      "mean": 71.21657088122606,
+      "median": 29.5
+    },
+    "abilities_number": {
+      "dtype": "int64",
+      "non_null_count": 1045,
+      "null_count": 0,
+      "description": "No description available",
+      "min": 0.0,
+      "max": 3.0,
+      "mean": 2.2688995215311003,
+      "median": 2.0
+    },
+    "total_points": {
+      "dtype": "int64",
+      "non_null_count": 1045,
+      "null_count": 0,
+      "description": "Base Stat Total (BST)",
+      "min": 175.0,
+      "max": 1125.0,
+      "mean": 439.3531100478469,
+      "median": 458.0
+    },
+    "hp": {
+      "dtype": "int64",
+      "non_null_count": 1045,
+      "null_count": 0,
+      "description": "Base HP stat",
+      "min": 1.0,
+      "max": 255.0,
+      "mean": 70.06794258373206,
+      "median": 68.0
+    },
+    "attack": {
+      "dtype": "int64",
+      "non_null_count": 1045,
+      "null_count": 0,
+      "description": "Base Attack stat",
+      "min": 5.0,
+      "max": 190.0,
+      "mean": 80.47655502392344,
+      "median": 77.0
+    },
+    "defense": {
+      "dtype": "int64",
+      "non_null_count": 1045,
+      "null_count": 0,
+      "description": "Base Defense stat",
+      "min": 5.0,
+      "max": 250.0,
+      "mean": 74.67081339712918,
+      "median": 70.0
+    },
+    "sp_attack": {
+      "dtype": "int64",
+      "non_null_count": 1045,
+      "null_count": 0,
+      "description": "Base Special Attack stat",
+      "min": 10.0,
+      "max": 194.0,
+      "mean": 73.03157894736842,
+      "median": 65.0
+    },
+    "sp_defense": {
+      "dtype": "int64",
+      "non_null_count": 1045,
+      "null_count": 0,
+      "description": "Base Special Defense stat",
+      "min": 20.0,
+      "max": 250.0,
+      "mean": 72.29856459330144,
+      "median": 70.0
+    },
+    "speed": {
+      "dtype": "int64",
+      "non_null_count": 1045,
+      "null_count": 0,
+      "description": "Base Speed stat",
+      "min": 5.0,
+      "max": 200.0,
+      "mean": 68.80765550239235,
+      "median": 65.0
+    },
+    "catch_rate": {
+      "dtype": "float64",
+      "non_null_count": 1027,
+      "null_count": 18,
+      "description": "Catch rate (0-255)",
+      "min": 3.0,
+      "max": 255.0,
+      "mean": 92.73904576436222,
+      "median": 60.0
+    },
+    "base_friendship": {
+      "dtype": "float64",
+      "non_null_count": 930,
+      "null_count": 115,
+      "description": "Base friendship value",
+      "min": 0.0,
+      "max": 140.0,
+      "mean": 64.06451612903226,
+      "median": 70.0
+    },
+    "base_experience": {
+      "dtype": "float64",
+      "non_null_count": 925,
+      "null_count": 120,
+      "description": "No description available",
+      "min": 36.0,
+      "max": 608.0,
+      "mean": 153.71675675675675,
+      "median": 159.0
+    },
+    "growth_rate": {
+      "dtype": "object",
+      "non_null_count": 1044,
+      "null_count": 1,
+      "description": "No description available",
+      "unique_values": {
+        "Medium Fast": 435,
+        "Slow": 256,
+        "Medium Slow": 245,
+        "Fast": 68,
+        "Erratic": 26,
+        "Fluctuating": 14
+      }
+    },
+    "egg_type_number": {
+      "dtype": "int64",
+      "non_null_count": 1045,
+      "null_count": 0,
+      "description": "No description available",
+      "min": 0.0,
+      "max": 2.0,
+      "mean": 1.2698564593301436,
+      "median": 1.0
+    },
+    "egg_type_1": {
+      "dtype": "object",
+      "non_null_count": 1042,
+      "null_count": 3,
+      "description": "No description available",
+      "unique_values": {
+        "Field": 258,
+        "Undiscovered": 152,
+        "Bug": 90,
+        "Amorphous": 84,
+        "Dragon": 67,
+        "Fairy": 62,
+        "Mineral": 59,
+        "Flying": 58,
+        "Grass": 51,
+        "Human-Like": 45,
+        "Monster": 43,
+        "Water 1": 36,
+        "Water 2": 20,
+        "Water 3": 16,
+        "Ditto": 1
+      }
+    },
+    "egg_type_2": {
+      "dtype": "object",
+      "non_null_count": 285,
+      "null_count": 760,
+      "description": "No description available",
+      "unique_values": {
+        "Water 1": 79,
+        "Monster": 55,
+        "Human-Like": 28,
+        "Grass": 27,
+        "Field": 21,
+        "Mineral": 19,
+        "Water 3": 19,
+        "Flying": 12,
+        "Water 2": 11,
+        "Fairy": 8,
+        "Dragon": 6
+      }
+    },
+    "percentage_male": {
+      "dtype": "float64",
+      "non_null_count": 872,
+      "null_count": 173,
+      "description": "No description available",
+      "min": 0.0,
+      "max": 100.0,
+      "mean": 54.87385321100918,
+      "median": 50.0
+    },
+    "egg_cycles": {
+      "dtype": "float64",
+      "non_null_count": 1044,
+      "null_count": 1,
+      "description": "No description available",
+      "min": 5.0,
+      "max": 120.0,
+      "mean": 31.489463601532567,
+      "median": 20.0
+    },
+    "against_normal": {
+      "dtype": "float64",
+      "non_null_count": 1045,
+      "null_count": 0,
+      "description": "No description available",
+      "min": 0.0,
+      "max": 1.0,
+      "mean": 0.8686602870813397,
+      "median": 1.0
+    },
+    "against_fire": {
+      "dtype": "float64",
+      "non_null_count": 1045,
+      "null_count": 0,
+      "description": "No description available",
+      "min": 0.0,
+      "max": 4.0,
+      "mean": 1.1263157894736842,
+      "median": 1.0
+    },
+    "against_water": {
+      "dtype": "float64",
+      "non_null_count": 1045,
+      "null_count": 0,
+      "description": "No description available",
+      "min": 0.0,
+      "max": 4.0,
+      "mean": 1.0507177033492823,
+      "median": 1.0
+    },
+    "against_electric": {
+      "dtype": "float64",
+      "non_null_count": 1045,
+      "null_count": 0,
+      "description": "No description available",
+      "min": 0.0,
+      "max": 4.0,
+      "mean": 1.0356459330143541,
+      "median": 1.0
+    },
+    "against_grass": {
+      "dtype": "float64",
+      "non_null_count": 1045,
+      "null_count": 0,
+      "description": "No description available",
+      "min": 0.0,
+      "max": 4.0,
+      "mean": 1.0011961722488039,
+      "median": 1.0
+    },
+    "against_ice": {
+      "dtype": "float64",
+      "non_null_count": 1045,
+      "null_count": 0,
+      "description": "No description available",
+      "min": 0.0,
+      "max": 125.0,
+      "mean": 1.675598086124402,
+      "median": 1.0
+    },
+    "against_fight": {
+      "dtype": "float64",
+      "non_null_count": 1045,
+      "null_count": 0,
+      "description": "No description available",
+      "min": 0.0,
+      "max": 4.0,
+      "mean": 1.0751196172248805,
+      "median": 1.0
+    },
+    "against_poison": {
+      "dtype": "float64",
+      "non_null_count": 1045,
+      "null_count": 0,
+      "description": "No description available",
+      "min": 0.0,
+      "max": 4.0,
+      "mean": 0.9531100478468899,
+      "median": 1.0
+    },
+    "against_ground": {
+      "dtype": "float64",
+      "non_null_count": 1045,
+      "null_count": 0,
+      "description": "No description available",
+      "min": 0.0,
+      "max": 4.0,
+      "mean": 1.0822966507177034,
+      "median": 1.0
+    },
+    "against_flying": {
+      "dtype": "float64",
+      "non_null_count": 1045,
+      "null_count": 0,
+      "description": "No description available",
+      "min": 0.25,
+      "max": 4.0,
+      "mean": 1.1688995215311004,
+      "median": 1.0
+    },
+    "against_psychic": {
+      "dtype": "float64",
+      "non_null_count": 1045,
+      "null_count": 0,
+      "description": "No description available",
+      "min": 0.0,
+      "max": 4.0,
+      "mean": 0.9772727272727273,
+      "median": 1.0
+    },
+    "against_bug": {
+      "dtype": "float64",
+      "non_null_count": 1045,
+      "null_count": 0,
+      "description": "No description available",
+      "min": 0.0,
+      "max": 4.0,
+      "mean": 0.9980861244019139,
+      "median": 1.0
+    },
+    "against_rock": {
+      "dtype": "float64",
+      "non_null_count": 1045,
+      "null_count": 0,
+      "description": "No description available",
+      "min": 0.25,
+      "max": 4.0,
+      "mean": 1.2382775119617224,
+      "median": 1.0
+    },
+    "against_ghost": {
+      "dtype": "float64",
+      "non_null_count": 1045,
+      "null_count": 0,
+      "description": "No description available",
+      "min": 0.0,
+      "max": 4.0,
+      "mean": 1.0186602870813397,
+      "median": 1.0
+    },
+    "against_dragon": {
+      "dtype": "float64",
+      "non_null_count": 1045,
+      "null_count": 0,
+      "description": "No description available",
+      "min": 0.0,
+      "max": 2.0,
+      "mean": 0.9770334928229665,
+      "median": 1.0
+    },
+    "against_dark": {
+      "dtype": "float64",
+      "non_null_count": 1045,
+      "null_count": 0,
+      "description": "No description available",
+      "min": 0.25,
+      "max": 4.0,
+      "mean": 1.0710526315789475,
+      "median": 1.0
+    },
+    "against_steel": {
+      "dtype": "float64",
+      "non_null_count": 1045,
+      "null_count": 0,
+      "description": "No description available",
+      "min": 0.0,
+      "max": 4.0,
+      "mean": 0.9815789473684211,
+      "median": 1.0
+    },
+    "against_fairy": {
+      "dtype": "float64",
+      "non_null_count": 1045,
+      "null_count": 0,
+      "description": "No description available",
+      "min": 0.0,
+      "max": 4.0,
+      "mean": 1.0911483253588516,
+      "median": 1.0
+    },
+    "smogon_description": {
+      "dtype": "object",
+      "non_null_count": 945,
+      "null_count": 100,
+      "description": "No description available"
+    },
+    "bulba_description": {
+      "dtype": "object",
+      "non_null_count": 1045,
+      "null_count": 0,
+      "description": "No description available"
+    },
+    "moves": {
+      "dtype": "object",
+      "non_null_count": 1045,
+      "null_count": 0,
+      "description": "No description available"
+    },
+    "ability_1": {
+      "dtype": "object",
+      "non_null_count": 1044,
+      "null_count": 1,
+      "description": "No description available"
+    },
+    "ability_2": {
+      "dtype": "object",
+      "non_null_count": 939,
+      "null_count": 106,
+      "description": "No description available"
+    },
+    "ability_hidden": {
+      "dtype": "object",
+      "non_null_count": 652,
+      "null_count": 393,
+      "description": "No description available"
+    },
+    "ability_1_description": {
+      "dtype": "object",
+      "non_null_count": 1044,
+      "null_count": 1,
+      "description": "No description available"
+    },
+    "ability_2_description": {
+      "dtype": "object",
+      "non_null_count": 939,
+      "null_count": 106,
+      "description": "No description available"
+    },
+    "ability_hidden_description": {
+      "dtype": "object",
+      "non_null_count": 652,
+      "null_count": 393,
+      "description": "No description available"
+    },
+    "corpus_description": {
+      "dtype": "object",
+      "non_null_count": 1045,
+      "null_count": 0,
+      "description": "No description available"
+    },
+    "alt_id": {
+      "dtype": "float64",
+      "non_null_count": 857,
+      "null_count": 188,
+      "description": "No description available",
+      "min": 1.0,
+      "max": 898.0,
+      "mean": 440.08401400233373,
+      "median": 435.0
+    },
+    "alt_name": {
+      "dtype": "object",
+      "non_null_count": 857,
+      "null_count": 188,
+      "description": "No description available"
+    },
+    "alt_height": {
+      "dtype": "float64",
+      "non_null_count": 857,
+      "null_count": 188,
+      "description": "No description available",
+      "min": 1.0,
+      "max": 200.0,
+      "mean": 11.813302217036172,
+      "median": 10.0
+    },
+    "alt_weight": {
+      "dtype": "float64",
+      "non_null_count": 857,
+      "null_count": 188,
+      "description": "No description available",
+      "min": 1.0,
+      "max": 9999.0,
+      "mean": 638.5180863477246,
+      "median": 270.0
+    },
+    "alt_hp": {
+      "dtype": "float64",
+      "non_null_count": 857,
+      "null_count": 188,
+      "description": "No description available",
+      "min": 1.0,
+      "max": 255.0,
+      "mean": 68.84480746791132,
+      "median": 65.0
+    },
+    "alt_attack": {
+      "dtype": "float64",
+      "non_null_count": 857,
+      "null_count": 188,
+      "description": "No description available",
+      "min": 5.0,
+      "max": 181.0,
+      "mean": 75.97782963827305,
+      "median": 75.0
+    },
+    "alt_defense": {
+      "dtype": "float64",
+      "non_null_count": 857,
+      "null_count": 188,
+      "description": "No description available",
+      "min": 5.0,
+      "max": 230.0,
+      "mean": 71.47491248541424,
+      "median": 67.0
+    },
+    "alt_sp_attack": {
+      "dtype": "float64",
+      "non_null_count": 857,
+      "null_count": 188,
+      "description": "No description available",
+      "min": 10.0,
+      "max": 173.0,
+      "mean": 68.94399066511085,
+      "median": 65.0
+    },
+    "alt_sp_defense": {
+      "dtype": "float64",
+      "non_null_count": 857,
+      "null_count": 188,
+      "description": "No description available",
+      "min": 20.0,
+      "max": 230.0,
+      "mean": 69.11785297549592,
+      "median": 65.0
+    },
+    "alt_speed": {
+      "dtype": "float64",
+      "non_null_count": 857,
+      "null_count": 188,
+      "description": "No description available",
+      "min": 5.0,
+      "max": 200.0,
+      "mean": 65.05484247374562,
+      "median": 64.0
+    },
+    "alt_type": {
+      "dtype": "object",
+      "non_null_count": 857,
+      "null_count": 188,
+      "description": "No description available"
+    },
+    "evolution_chain": {
+      "dtype": "float64",
+      "non_null_count": 857,
+      "null_count": 188,
+      "description": "No description available",
+      "min": 1.0,
+      "max": 476.0,
+      "mean": 217.926487747958,
+      "median": 208.0
+    },
+    "alternate_info": {
+      "dtype": "object",
+      "non_null_count": 857,
+      "null_count": 188,
+      "description": "No description available"
+    },
+    "hp_percentile": {
+      "dtype": "float64",
+      "non_null_count": 1045,
+      "null_count": 0,
+      "description": "No description available",
+      "min": 0.09569377990430622,
+      "max": 99.95215311004785,
+      "mean": 50.047846889952154,
+      "median": 50.526315789473685
+    },
+    "attack_percentile": {
+      "dtype": "float64",
+      "non_null_count": 1045,
+      "null_count": 0,
+      "description": "No description available",
+      "min": 0.14354066985645933,
+      "max": 100.0,
+      "mean": 50.047846889952154,
+      "median": 49.9043062200957
+    },
+    "defense_percentile": {
+      "dtype": "float64",
+      "non_null_count": 1045,
+      "null_count": 0,
+      "description": "No description available",
+      "min": 0.14354066985645933,
+      "max": 100.0,
+      "mean": 50.047846889952154,
+      "median": 50.23923444976076
+    },
+    "sp_attack_percentile": {
+      "dtype": "float64",
+      "non_null_count": 1045,
+      "null_count": 0,
+      "description": "No description available",
+      "min": 0.23923444976076555,
+      "max": 100.0,
+      "mean": 50.047846889952154,
+      "median": 48.038277511961724
+    },
+    "sp_defense_percentile": {
+      "dtype": "float64",
+      "non_null_count": 1045,
+      "null_count": 0,
+      "description": "No description available",
+      "min": 0.3827751196172249,
+      "max": 100.0,
+      "mean": 50.047846889952154,
+      "median": 51.00478468899522
+    },
+    "speed_percentile": {
+      "dtype": "float64",
+      "non_null_count": 1045,
+      "null_count": 0,
+      "description": "No description available",
+      "min": 0.19138755980861244,
+      "max": 100.0,
+      "mean": 50.047846889952154,
+      "median": 48.4688995215311
+    },
+    "total_points_percentile": {
+      "dtype": "float64",
+      "non_null_count": 1045,
+      "null_count": 0,
+      "description": "No description available",
+      "min": 0.09569377990430622,
+      "max": 100.0,
+      "mean": 50.047846889952154,
+      "median": 50.0
+    },
+    "physical_special_ratio": {
+      "dtype": "float64",
+      "non_null_count": 1045,
+      "null_count": 0,
+      "description": "No description available",
+      "min": 0.13157894736842105,
+      "max": 9.375,
+      "mean": 1.2537220168704761,
+      "median": 1.0129870129870129
+    },
+    "offensive_rating": {
+      "dtype": "float64",
+      "non_null_count": 1045,
+      "null_count": 0,
+      "description": "Average offensive stat",
+      "min": 10.0,
+      "max": 180.0,
+      "mean": 76.75406698564593,
+      "median": 75.0
+    },
+    "defensive_rating": {
+      "dtype": "float64",
+      "non_null_count": 1045,
+      "null_count": 0,
+      "description": "Average defensive stat",
+      "min": 17.5,
+      "max": 250.0,
+      "mean": 73.48468899521531,
+      "median": 71.0
+    },
+    "bmi": {
+      "dtype": "float64",
+      "non_null_count": 1044,
+      "null_count": 1,
+      "description": "No description available",
+      "min": 0.038910505836575876,
+      "max": 49994.99999999999,
+      "mean": 86.31641718170049,
+      "median": 27.87247932685333
+    },
+    "speed_tier": {
+      "dtype": "category",
+      "non_null_count": 1045,
+      "null_count": 0,
+      "description": "Speed classification",
+      "unique_values": {
+        "Very Slow": 351,
+        "Slow": 345,
+        "Average": 264,
+        "Fast": 81,
+        "Very Fast": 4
+      }
+    },
+    "bst_tier": {
+      "dtype": "category",
+      "non_null_count": 1044,
+      "null_count": 1,
+      "description": "BST tier classification",
+      "unique_values": {
+        "Average": 364,
+        "High": 241,
+        "Low": 215,
+        "Very Low": 161,
+        "Legendary": 63
+      }
+    },
+    "resistances_count": {
+      "dtype": "int64",
+      "non_null_count": 1045,
+      "null_count": 0,
+      "description": "Number of type resistances",
+      "min": 1.0,
+      "max": 13.0,
+      "mean": 4.622966507177034,
+      "median": 4.0
+    },
+    "weaknesses_count": {
+      "dtype": "int64",
+      "non_null_count": 1045,
+      "null_count": 0,
+      "description": "Number of type weaknesses",
+      "min": 0.0,
+      "max": 7.0,
+      "mean": 3.2421052631578946,
+      "median": 3.0
+    },
+    "immunities_count": {
+      "dtype": "int64",
+      "non_null_count": 1045,
+      "null_count": 0,
+      "description": "Number of type immunities",
+      "min": 0.0,
+      "max": 13.0,
+      "mean": 0.7320574162679426,
+      "median": 1.0
+    },
+    "defensive_score": {
+      "dtype": "int64",
+      "non_null_count": 1045,
+      "null_count": 0,
+      "description": "No description available",
+      "min": -4.0,
+      "max": 34.0,
+      "mean": 2.844976076555024,
+      "median": 2.0
+    },
+    "is_legendary": {
+      "dtype": "bool",
+      "non_null_count": 1045,
+      "null_count": 0,
+      "description": "Whether Pokemon is legendary",
+      "min": 0.0,
+      "max": 1.0,
+      "mean": 0.01818181818181818,
+      "median": 0.0
+    },
+    "is_starter": {
+      "dtype": "bool",
+      "non_null_count": 1045,
+      "null_count": 0,
+      "description": "Whether Pokemon is a starter",
+      "min": 0.0,
+      "max": 1.0,
+      "mean": 0.011483253588516746,
+      "median": 0.0
+    },
+    "is_pseudo_legendary": {
+      "dtype": "bool",
+      "non_null_count": 1045,
+      "null_count": 0,
+      "description": "Whether Pokemon is pseudo-legendary",
+      "min": 0.0,
+      "max": 1.0,
+      "mean": 0.07655502392344497,
+      "median": 0.0
+    },
+    "type_count": {
+      "dtype": "int64",
+      "non_null_count": 1045,
+      "null_count": 0,
+      "description": "No description available",
+      "min": 1.0,
+      "max": 2.0,
+      "mean": 1.5291866028708134,
+      "median": 2.0
+    },
+    "is_dual_type": {
+      "dtype": "bool",
+      "non_null_count": 1045,
+      "null_count": 0,
+      "description": "No description available",
+      "min": 0.0,
+      "max": 1.0,
+      "mean": 0.5291866028708134,
+      "median": 1.0
+    },
+    "full_type": {
+      "dtype": "object",
+      "non_null_count": 1045,
+      "null_count": 0,
+      "description": "Combined type string"
+    },
+    "size_category": {
+      "dtype": "category",
+      "non_null_count": 1045,
+      "null_count": 0,
+      "description": "No description available",
+      "unique_values": {
+        "Medium": 377,
+        "Small": 296,
+        "Tiny": 256,
+        "Large": 93,
+        "Huge": 23
+      }
+    },
+    "weight_category": {
+      "dtype": "category",
+      "non_null_count": 1044,
+      "null_count": 1,
+      "description": "No description available",
+      "unique_values": {
+        "Light": 398,
+        "Very Light": 285,
+        "Medium": 180,
+        "Heavy": 91,
+        "Very Heavy": 90
+      }
+    }
+  }
+}

@@ -26,53 +26,57 @@ st.set_page_config(
 )
 
 # --- Constants ---
-DATA_FILE = 'pokemon_enhanced_data.csv'
-POKEMON_LIMIT = 151  # Generation 1
+DATA_DIR = Path(parent_dir) / 'data'
+NATIONAL_DEX_FILE = DATA_DIR / 'national_dex.csv'
+LEGACY_DATA_FILE = 'pokemon_enhanced_data.csv'
+POKEMON_LIMIT = 151  # Generation 1 (for legacy mode)
 
 # --- Data Loading ---
 @st.cache_data(ttl=60*60*24)  # Cache data for 24 hours
-def load_data(file_path: str, limit: int) -> pd.DataFrame:
+def load_national_dex() -> pd.DataFrame:
     """
-    Loads enhanced Pokémon data from local CSV sources.
-    Integrates data from: pokedex.csv, pokemon_glossary.csv, 
-    poke_corpus.csv, pokedex_otherVer.csv
+    Loads the comprehensive National Pokedex dataset.
+    This dataset combines all CSV sources with advanced analytics.
     """
+    if NATIONAL_DEX_FILE.exists():
+        st.success("✅ Loading National Pokedex (1045 Pokemon, 94 columns)...")
+        df = pd.read_csv(NATIONAL_DEX_FILE)
+        st.info(f"📊 Loaded {len(df)} Pokemon across {df['generation'].nunique()} generations")
+        return df
+    else:
+        st.error("❌ National Dex not found! Attempting fallback to legacy mode...")
+        return load_legacy_data()
+
+@st.cache_data(ttl=60*60*24)
+def load_legacy_data() -> pd.DataFrame:
+    """
+    Legacy data loading function (Gen 1 only).
+    Used as fallback if National Dex is not available.
+    """
+    file_path = LEGACY_DATA_FILE
     if os.path.exists(file_path):
         try:
             df = pd.read_csv(file_path)
-            if len(df) >= limit:
-                st.success("✅ Loaded cached enhanced Pokemon data (4 CSV sources integrated)!")
+            if len(df) >= POKEMON_LIMIT:
+                st.success("✅ Loaded cached Gen 1 Pokemon data!")
                 return df
-            else:
-                st.warning("⚠️ Cached data incomplete. Regenerating from sources...")
         except (pd.errors.EmptyDataError, KeyError):
-            st.warning("⚠️ Cached data corrupted. Regenerating from sources...")
+            st.warning("⚠️ Cached data corrupted. Regenerating...")
     
     # Load enhanced data from multiple CSV sources
-    with st.spinner(f"🔄 Loading enhanced data for {limit} Pokémon from 4 CSV files..."):
+    with st.spinner(f"� Loading Gen 1 data for {POKEMON_LIMIT} Pokémon..."):
         try:
-            # Debug: Show current working directory and data file paths
-            st.info(f"🔍 Current directory: {os.getcwd()}")
-            data_dir = os.path.join(parent_dir, 'data')
-            st.info(f"🔍 Data directory: {data_dir}")
-            st.info(f"🔍 Data dir exists: {os.path.exists(data_dir)}")
-            if os.path.exists(data_dir):
-                files = os.listdir(data_dir)
-                st.info(f"🔍 Files in data dir: {files}")
-            
-            df = fetch_all_pokemon(limit=limit)
+            df = fetch_all_pokemon(limit=POKEMON_LIMIT)
             if df is not None and not df.empty:
                 df.to_csv(file_path, index=False)
-                st.success("✅ Enhanced Pokemon data loaded and cached (CSV integration complete)!")
+                st.success("✅ Gen 1 Pokemon data loaded!")
                 return df
             else:
                 st.error("❌ Failed to load Pokemon data!")
-                return None
+                return pd.DataFrame()
         except Exception as e:
             st.error(f"❌ Error loading Pokemon data: {str(e)}")
-            import traceback
-            st.error(f"📋 Traceback: {traceback.format_exc()}")
-            return None
+            return pd.DataFrame()
 
 @st.cache_data
 def load_glossary() -> dict:
@@ -97,7 +101,7 @@ def load_yaml_data() -> dict:
         return {}
 
 # Load the data, glossary, and YAML enrichment
-df = load_data(DATA_FILE, POKEMON_LIMIT)
+df = load_national_dex()
 glossary = load_glossary()
 yaml_data = load_yaml_data()
 
@@ -107,8 +111,9 @@ if df is None or df.empty:
     st.stop()
 
 # --- Sidebar ---
-st.sidebar.image("https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png", width=200)
-st.sidebar.title("⚡ Enhanced Pokédex")
+logo_url = "https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png"
+st.sidebar.image(logo_url, width=200)
+st.sidebar.title("⚡ National Pokédex")
 
 # Pokemon Glossary Section
 with st.sidebar.expander("📚 Pokemon Glossary", expanded=False):
