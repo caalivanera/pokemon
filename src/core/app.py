@@ -639,8 +639,8 @@ def main():
         
         st.markdown(f"**{len(filtered_df)}** Pokémon match filters")
     
-    # Main Tabs (v5.0.0 - Added Type Calculator, Team Builder & Variant Stats)
-    tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9, tab10, tab11, tab12 = st.tabs([
+    # Main Tabs (v5.4.0 - Added Advanced Analytics)
+    tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9, tab10, tab11, tab12, tab13, tab14, tab15 = st.tabs([
         "📊 Overview",
         "🔍 Pokémon Search",
         "⚔️ Competitive Analysis",
@@ -652,7 +652,10 @@ def main():
         "⚡ Type Calculator",
         "👥 Team Builder",
         "📊 Variant Statistics",
-        "🏆 Legacy Team Builder"
+        "🏆 Legacy Team Builder",
+        "📊 Meta Analytics",
+        "⚔️ Damage Calculator",
+        "🤖 Team Recommender"
     ])
     
     # ==================== TAB 1: OVERVIEW ====================
@@ -2002,6 +2005,46 @@ def main():
                 st.plotly_chart(fig, use_container_width=True, key="team_avg_stats")
         else:
             st.info("👆 Select Pokémon above to build your team!")
+    
+    # ==================== TAB 13: META ANALYTICS ====================
+    with tab13:
+        try:
+            # Import analytics module
+            import sys
+            from pathlib import Path
+            analytics_path = Path(__file__).parent.parent / "analytics"
+            if str(analytics_path) not in sys.path:
+                sys.path.insert(0, str(analytics_path))
+            
+            from meta_dashboard import MetaAnalyticsDashboard
+            
+            dashboard = MetaAnalyticsDashboard(data_dir="data")
+            dashboard.render_dashboard()
+        except Exception as e:
+            st.error(f"Error loading Meta Analytics: {e}")
+            st.info("This feature requires competitive data files.")
+    
+    # ==================== TAB 14: DAMAGE CALCULATOR ====================
+    with tab14:
+        try:
+            from damage_calculator import DamageCalculator
+            
+            calculator = DamageCalculator(data_dir="data")
+            calculator.render_calculator()
+        except Exception as e:
+            st.error(f"Error loading Damage Calculator: {e}")
+            st.info("This feature requires moveset database.")
+    
+    # ==================== TAB 15: TEAM RECOMMENDER ====================
+    with tab15:
+        try:
+            from team_recommender import TeamRecommender
+            
+            recommender = TeamRecommender(data_dir="data")
+            recommender.render_recommender()
+        except Exception as e:
+            st.error(f"Error loading Team Recommender: {e}")
+            st.info("This feature requires competitive data and moveset database.")
 
 # ==================== RUN APP ====================
 
