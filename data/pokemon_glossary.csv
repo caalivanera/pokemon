@@ -1,0 +1,117 @@
+Pokémon glossary
+"This is a dictionary of many Pokémon terms and phrases. The Pokémon games can get very complex so this page hopes to demystify game mechanics, competitive battling and hidden data in a simple, easy-to-understand way."
+A
+Ability
+"Ability refers to a Pokemon's special passive skill given to them varying upon effect. Some abilities activate under special conditions, and some are simply stat boosts. Abilities cannot be changed when caught, unless by evolution."
+Asleep
+"A status ailment in battle (shown as SLP in older games) which prevents the Pokémon from moving for 1-3 turns (with some exceptions such as Sleep Talk or Snore). Various moves and abilities can cause a Pokémon to fall asleep, and the condition remains after the battle."
+Attack
+One of the six main Pokémon stats. The Attack stat controls how much damage Physical-category moves do.
+"Prior to Generation 4 (Diamond/Pearl), all moves of the types Normal, Fighting, Poison, Ground, Flying, Bug, Rock, Ghost and Steel were classed as Physical."
+B
+Bad poison
+"A more severe Poison status, inflicted by the move Toxic. Badly poisoned Pokémon lose an increasing amount of HP each turn: 1⁄16, 2⁄16, 3⁄16 and so on."
+BST
+"Base Stat Total, the total of each of a Pokémon's six base stats (HP, Attack, Defense, Special Attack, Special Defense, Speed)."
+Burned
+"A status ailment in battle (shown as BRN in older games) which decreases the Pokemon's Attack by 50%, as well as lowering the Pokemon's HP by 1⁄8 of its maximum HP after each turn. Various moves and abilities can cause a Pokémon to become burned, and the condition remains after the battle. Fire type Pokémon are immune to burns."
+D
+Defense
+One of the six main Pokémon stats. The Defense stat controls how much damage the Pokémon takes from Physical-category moves.
+"Prior to Generation 4 (Diamond/Pearl), all moves of the types Normal, Fighting, Poison, Ground, Flying, Bug, Rock, Ghost and Steel were classed as Physical."
+E
+Egg cycle
+"Egg cycles determine how long an egg takes to hatch. One egg cycle is 257 steps (255 in Generation 4 or 256 in Generation 2-3), and each Pokémon has a number of cycles that must be completed. Every 257 steps this will decrease by 1 until it reaches 0, upon which the egg will hatch."
+"For example, a Rattata takes 15 egg cycles to hatch, so a Rattata egg will take up to 3,855 steps in total to hatch. Note that egg cycles are independent of when the egg is received; an egg cycle could be halfway through when picking up the egg so that number is a maximum."
+"In Generations 3-4 the current egg cycle is reset if another egg is picked up. Using the example above, if 270 steps were taken that is 1 egg cycle (255 steps) plus 25 steps. Picking up another egg at this point means those extra 25 steps would be cancelled, but 1 egg cycle has still been completed, so there are still 14 egg cycles remaining on the first egg."
+"Also in Gen 3-4, the egg hatches at the end of the cycle after the counter reaches 0. So in reality it takes 16 cycles to hatch a Rattata."
+Egg group
+A set of Pokémon in breeding. Pokémon can only breed with those in the same egg group. Some Pokémon are in two egg groups. The Undiscovered egg group cannot breed at all.
+F
+Friendship
+"Also known as Happiness, Friendship was first introduced in Pokémon Yellow for Pikachu only, then expanded to all Pokémon from Generation 2 onwards. It is a value ranging from 0 to 255; most Pokémon start with a base Friendship of 70 but several Pokémon start higher or lower. Pokémon hatched from an egg start with 120 Friendship."
+"Some Pokémon evolve when they have high Friendship (220 or more), and move tutors teaching special moves for starter Pokémon or Draco Meteor require maximum Friendship."
+"Friendship can be raised in several ways, including leveling up, using vitamins, holding a Soothe Bell, catching the Pokémon in a Luxury Ball or Friend Ball, or giving them a massage/haircut/clean depending on the game."
+Friendship is lowered when the Pokémon faints in battle or bitter items (such as Energy Root) are used.
+Frozen
+"A status ailment in battle (shown as FRZ in older games) which prevents the Pokémon from moving for a number of turns. A frozen Pokémon has a 20% chance of thawing themselves out each turn. Various moves can cause a Pokémon to become frozen, and the condition remains after the battle. Ice type Pokémon are immune to freezing."
+H
+HM
+"Hidden Machines (HMs) are special Pokémon moves that help you advance the gameplay. For example, early on in many games there are trees in your way that can only be removed after obtaining the Cut HM, and similarly for other areas such as water."
+Very few HMs are actually useful for battles. Surf is regarded as one of the best Water move (though Waterfall is the better option for Physical Pokémon like Gyarados). Strength may be a viable Normal move since more powerful moves have drawbacks.
+HP
+"Hit Points (HP), one of the six main Pokémon stats. HP is a Pokémon's life force: when attacked in battle, it will usually lose HP (though there are various exceptions). When a Pokémon's HP reaches zero, it will faint. HP can be restored with certain items and moves or replenished at a Pokémon Center."
+Note: HP is sometimes used to refer to the move Hidden Power.
+I
+Ice Rock
+A special ice-covered rock that enables Eevee to evolve into Glaceon when leveled up nearby. Ice Rocks are located at:
+
+Route 217 (northeast) in Sinnoh
+Twist Mountain (basement) in Unova
+Frost Cavern in Kalos
+"Shoal Cave (ice room, low tide) in Hoenn (OR/AS)"
+Mount Lanakila (inside cave) in Alola
+"Icepeak Cavern, Alabaster Icelands in Hisui"
+"From Generation 8 (Sword/Shield) onwards, Eevee can also evolve into Glaceon using the Ice Stone."
+M
+Magnetic Field
+"A special area in several regions that enables Magneton, Nosepass and Charjabug to evolve into Magnezone, Probopass and Vikavolt respectively, when leveled up there. Magnetic Fields are present at:"
+
+Mt Coronet (any section) in Sinnoh
+Chargestone Cave in Unova
+Route 13 in Kalos
+New Mauville in Hoenn (Omega Ruby/Alpha Sapphire)
+Vast Poni Canyon (Sun/Moon/Ultra Sun/Ultra Moon) or Blush Mountain (US/UM only) in Alola
+Coronet Highlands (any section) in Hisui.
+Moss Rock
+A special moss-covered rock that enables Eevee to evolve into Leafeon when leveled up nearby. Moss Rocks are located at:
+
+Eterna Forest (southwest) in Sinnoh
+Pinwheel Forest (southwest) in Unova
+Route 20 (near entrance) in Kalos
+Petalburg Woods (northeast) in Hoenn (OR/AS)
+Lush Jungle (north) in Alola
+"The Heartwood, Obsidian Fieldlands (west) in Hisui"
+"From Generation 8 (Sword/Shield) onwards, Eevee can also evolve into Leafeon using the Leaf Stone."
+O
+OU
+"Over-Used, a fan-made competitive battling tier. OU is the second-highest tier and most popular."
+P
+Paralysis
+"A status ailment in battle (shown as PAR in older games) which decreases the Pokemon's Speed by 50% (75% in older games), and it has a 25% chance of not being able to attack each turn. Various moves and abilities can cause a Pokémon to become paralyzed, and the condition remains after the battle. Electric type Pokémon are immune to paralysis."
+Poisoned
+"A status ailment in battle (shown as PSN in older games) which decreases the Pokemon's HP by 1⁄16 of its maximum HP after each turn. Various moves and abilities can cause a Pokémon to become poisoned, and the condition remains after the battle. Poison and Steel type Pokémon are immune to poisoning. See also: badly poisoned."
+Pseudo-legendary
+A non-legendary Pokémon with stats similar to one. They typically have a BST of 600 and a three-stage evolutionary line. The pseudo-legendary Pokémon in the games are:
+
+Dragonite (Gen 1)
+Tyranitar (Gen 2)
+Salamence (Gen 3)
+Metagross (Gen 3)
+Garchomp (Gen 4)
+Hydreigon (Gen 5)
+Goodra (Gen 6)
+Kommo-o (Gen 7)
+Dragapult (Gen 8)
+Baxcalibur (Gen 9)
+R
+Raised
+"Raised Pokémon are any Pokémon that hover above the ground - specifically Flying types, Pokémon with the Levitate ability, those under the effects of the moves Magnet Rise or Telekinesis, or those holding the Air Balloon item."
+"Raised Pokémon are not affected by Ground type moves, Spikes, Toxic Spikes nor Arena Trap."
+"Pokémon no longer stay raised (and cannot become raised) if Gravity or Ingrain is in effect, the move Smack Down is used against them, or Iron Ball is held."
+S
+Special Attack
+One of the six main Pokémon stats. The Special Attack stat controls how much damage Special-category moves do.
+"Prior to Generation 4 (Diamond/Pearl), all moves of the types Fire, Water, Electric, Grass, Ice, Psychic, Dragon and Dark were classed as Special."
+Special Defense
+One of the six main Pokémon stats. The Special Defense stat controls how much damage the Pokémon takes from Special-category moves.
+"Prior to Generation 4 (Diamond/Pearl), all moves of the types Fire, Water, Electric, Grass, Ice, Psychic, Dragon and Dark were classed as Special."
+Speed
+"One of the six main Pokémon stats. The Speed stat controls which Pokémon moves first under normal circumstances. Various moves and abilities can change that order, however."
+STAB
+Same Type Attack Bonus. This is a 50% power boost that attacks gain when a Pokemon uses a move with the same type as their own. For example a Water type Pokémon using a Water type move.
+U
+Uber
+"A fan-made competitive battling tier. Uber is the top Pokémon tier, containing the very best Pokémon. Most Pokémon in the Uber tier are legendary."
+UU
+"Under-Used, a fan-made competitive battling tier. UU is the third-highest tier."
