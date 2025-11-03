@@ -1,10 +1,241 @@
-# 🧪 Testing Checklist - Pokemon Variant System v4.1.0
+# 🧪 Testing Checklist - Pokemon Dashboard v5.0.0
 
 ## Pre-Testing Setup
 - [ ] Ensure all sprite downloads are complete (check download_progress.json)
 - [ ] Verify CSV loaded correctly: 1,130 entries in total
-- [ ] Confirm app.py version shows 4.1.0
+- [ ] Confirm app.py version shows 5.0.0
 - [ ] Clear browser cache before testing
+- [ ] Check all 12 tabs are visible
+
+---
+
+## 🌙 NEW FEATURE: Dark Mode Testing (v5.0.0)
+
+### Dark Mode Toggle
+- [ ] **Toggle Visibility**
+  - Theme toggle appears in sidebar under "🌙 Theme"
+  - Checkbox is clickable and responsive
+  
+- [ ] **Light to Dark Transition**
+  - Click toggle to enable dark mode
+  - Background changes to dark theme
+  - Text remains readable (high contrast)
+  - All cards/components update
+  - Transition is smooth (no flashing)
+  
+- [ ] **Dark to Light Transition**
+  - Click toggle to disable dark mode
+  - Background changes to light theme
+  - All elements revert to light styling
+  
+- [ ] **Persistence**
+  - Enable dark mode
+  - Refresh page
+  - Dark mode setting persists
+  - Same test for light mode
+
+### Dark Mode UI Elements
+- [ ] **Sidebar** - Proper dark styling
+- [ ] **Cards** - Readable with dark background
+- [ ] **Dataframes** - Proper contrast
+- [ ] **Tabs** - Visible in dark mode
+- [ ] **Buttons** - Hover effects work
+- [ ] **Charts** - Legends readable
+- [ ] **Inputs** - Form elements visible
+
+---
+
+## ⚡ NEW FEATURE: Type Calculator Testing (v5.0.0)
+
+### Type Calculator Tab (Tab 9)
+- [ ] **Tab Visibility**
+  - "⚡ Type Calculator" tab appears
+  - Tab loads without errors
+  
+- [ ] **Type Selection**
+  - Attacking type dropdown works (18 types)
+  - Primary defending type dropdown works
+  - Secondary defending type dropdown works
+  - "None" option available for secondary type
+  
+- [ ] **Damage Calculations**
+  - [ ] **Super Effective (2x)**: Fire vs Grass = 2x
+  - [ ] **Not Effective (0.5x)**: Fire vs Water = 0.5x
+  - [ ] **No Effect (0x)**: Normal vs Ghost = 0x
+  - [ ] **Neutral (1x)**: Fire vs Electric = 1x
+  - [ ] **4x Damage**: Water vs Fire/Rock = 4x
+  - [ ] **0.25x Damage**: Grass vs Fire/Steel = 0.25x
+  
+- [ ] **Coverage Analysis**
+  - Offensive coverage list displays
+  - Shows types hit super effectively
+  - Defensive analysis displays
+  - Shows weaknesses and resistances
+  
+- [ ] **Type Heatmap**
+  - 18x18 heatmap renders
+  - Color coding correct (red=effective, blue=not effective)
+  - Hover shows multiplier values
+  - Legend displays correctly
+
+---
+
+## 👥 NEW FEATURE: Team Builder Testing (v5.0.0)
+
+### Team Builder Tab (Tab 10)
+- [ ] **Tab Visibility**
+  - "👥 Team Builder" tab appears
+  - Tab loads without errors
+  
+- [ ] **Pokemon Selection**
+  - Search bar filters Pokemon
+  - Can type Pokemon name
+  - Dropdown shows filtered results
+  - Pokemon sprites display in results
+  
+- [ ] **Add/Remove Pokemon**
+  - [ ] Add first Pokemon - Success message appears
+  - [ ] Add second Pokemon - Team shows 2/6
+  - [ ] Add six Pokemon - Team shows 6/6
+  - [ ] Try adding 7th - Button disabled or error shown
+  - [ ] Remove one Pokemon - Count updates
+  - [ ] Clear team button works
+  
+- [ ] **Team Display**
+  - Pokemon cards show correctly
+  - Sprites display for each team member
+  - Names and types visible
+  - Remove button on each card works
+  
+- [ ] **Coverage Analysis**
+  - Offensive coverage chart displays
+  - Shows types team can hit
+  - Defensive weaknesses shown
+  - Resistances displayed
+  - Coverage heatmap renders
+  
+- [ ] **Team Stats**
+  - Average stats radar chart displays
+  - HP, Attack, Defense, Sp.Atk, Sp.Def, Speed shown
+  - Values accurate
+  
+- [ ] **Export Functionality**
+  - Export button visible
+  - Click exports JSON file
+  - JSON contains team data
+
+---
+
+## 🔍 NEW FEATURE: Advanced Search Testing (v5.0.0)
+
+### Pokemon Search Tab (Tab 2 - Enhanced)
+- [ ] **Quick Search Bar**
+  - Search bar appears at top
+  - Type Pokemon name - instant filter
+  - Type Pokemon number - instant filter
+  - Clear search works
+  
+- [ ] **Advanced Filters Expander**
+  - "🔧 Advanced Filters & Presets" expander visible
+  - Click to expand - 4 tabs appear
+  - Click to collapse - tabs hide
+  
+### Tab 1: Stats & BST
+- [ ] BST range slider (min-max)
+- [ ] HP range slider
+- [ ] Attack range slider
+- [ ] Speed range slider
+- [ ] Results update in real-time
+
+### Tab 2: Type & Ability
+- [ ] Primary type filter dropdown
+- [ ] Secondary type filter dropdown
+- [ ] "Only Dual-Type" checkbox
+- [ ] Ability search text input
+- [ ] Ability type filter (All/Hidden/Single)
+
+### Tab 3: Advanced
+- [ ] Generation selector (Gen 1-9)
+- [ ] Variant type multiselect
+- [ ] Top N performers slider
+- [ ] "Only Legendary/Mythical" checkbox
+
+### Tab 4: Saved Filters (Presets)
+- [ ] **Starter Pokemon Preset**
+  - Click button
+  - Shows all 27 starter Pokemon (9 gens × 3)
+  - Bulbasaur, Charmander, Squirtle included
+  
+- [ ] **Pseudo-Legendaries Preset**
+  - Click button
+  - Shows Pokemon with BST=600
+  - Dragonite, Tyranitar, Salamence included
+  
+- [ ] **Fast Attackers Preset**
+  - Click button
+  - Shows Speed 100+, Attack 100+
+  - Results accurate
+  
+- [ ] **Tanks Preset**
+  - Click button
+  - Shows HP 100+, Def 80+, SpDef 80+
+  - Snorlax, Blissey type Pokemon shown
+  
+- [ ] **Glass Cannons Preset**
+  - Click button
+  - Shows Attack 110+, Defense ≤70
+  - Alakazam, Gengar type Pokemon shown
+
+### Filter Summary
+- [ ] Match count displays
+- [ ] Percentage shown
+- [ ] Updates with each filter change
+
+---
+
+## 📊 NEW FEATURE: Variant Statistics Testing (v5.0.0)
+
+### Variant Statistics Tab (Tab 11)
+- [ ] **Tab Visibility**
+  - "📊 Variant Statistics" tab appears
+  - Tab loads without errors
+  
+- [ ] **Overview Metrics**
+  - Base Forms count displays
+  - Variant Forms count displays
+  - Total Forms displays (1,130)
+  - Variant percentage shows
+  
+### Sub-Tab 1: Distribution
+- [ ] Pie chart renders (variant types)
+- [ ] Bar chart renders (variant counts)
+- [ ] Breakdown table displays
+- [ ] Percentages accurate
+
+### Sub-Tab 2: Type Changes
+- [ ] Type change list displays
+- [ ] Shows Pokemon with type differences
+- [ ] Base vs Variant types shown
+- [ ] Frequency chart renders
+
+### Sub-Tab 3: Stat Comparisons
+- [ ] Pokemon selector works
+- [ ] Multiple forms shown for selected Pokemon
+- [ ] Stat comparison table displays
+- [ ] Radar chart comparison renders
+- [ ] Stat differences table accurate
+
+### Sub-Tab 4: Mega Evolution
+- [ ] Average stat boost chart displays
+- [ ] BST distribution histogram renders
+- [ ] Top 10 Mega Evolutions table shown
+- [ ] Data accurate (Mega Rayquaza BST 780)
+
+### Sub-Tab 5: Special Forms
+- [ ] Regional forms pie chart
+- [ ] Gigantamax forms list
+- [ ] Other special forms tracked
+- [ ] Counts accurate
 
 ---
 
