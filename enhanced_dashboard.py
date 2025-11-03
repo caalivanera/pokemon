@@ -1,6 +1,7 @@
 """
 Enhanced Pokémon Dashboard - Comprehensive Statistics & Competitive Analysis
-Version 3.0.0 - Complete National Dex with Advanced Features
+Version 4.0.0 - Enhanced UI/UX with Interactive Features (1,025 Pokémon)
+Latest Update: November 2025
 """
 
 import streamlit as st
@@ -153,12 +154,16 @@ st.markdown("""
 
 # ==================== DATA LOADING ====================
 
-@st.cache_data
+@st.cache_data(ttl=3600)  # Cache for 1 hour
 def load_main_dataset():
-    """Load the main National Dex CSV"""
+    """Load the main National Dex CSV - 1,025 Pokemon (Gen 1-9)"""
     csv_path = Path("data/national_dex.csv")
     if csv_path.exists():
-        return pd.read_csv(csv_path)
+        df = pd.read_csv(csv_path)
+        # Ensure we have the latest data
+        if len(df) < 1025:
+            st.warning(f"⚠️ Data may be outdated. Expected 1025 Pokemon, found {len(df)}")
+        return df
     return None
 
 @st.cache_data
@@ -399,7 +404,8 @@ def main():
     
     # Header
     st.markdown('<h1 class="main-header">⚡ National Pokédex Dashboard ⚡</h1>', unsafe_allow_html=True)
-    st.markdown("### Complete Database: All 1,025 Pokémon with Competitive Analysis")
+    st.markdown("### Version 4.0.0 - Complete Database: All 1,025 Pokémon (Gen 1-9) with Enhanced UI & Interactive Features")
+    st.caption("🎮 New: Pokemon Randomizer | Who's That Pokemon Mini-Game | By-Game Filter | Modern UI")
     
     # Load data
     df = load_main_dataset()
@@ -408,11 +414,20 @@ def main():
     
     if df is None:
         st.error("❌ Could not load Pokemon data. Please ensure data/national_dex.csv exists.")
+        st.info("💡 Try refreshing the page or clearing the cache.")
         return
+    
+    # Display actual data count
+    st.sidebar.info(f"📊 **Loaded {len(df)} Pokémon** | v4.0.0")
     
     # Sidebar - Global Filters
     with st.sidebar:
         st.header("🔍 Filters")
+        
+        # Cache management
+        if st.button("🔄 Clear Cache & Reload Data", help="Clear cached data and reload from source"):
+            st.cache_data.clear()
+            st.rerun()
         
         # Animation toggle
         st.subheader("🎬 Display Options")
