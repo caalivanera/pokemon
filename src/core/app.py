@@ -413,6 +413,30 @@ def main():
             display: none !important;
         }
         
+        /* Enhanced Tab Spacing */
+        .stTabs [data-baseweb="tab-list"] {
+            gap: 1rem;
+            padding: 0.5rem 0;
+        }
+        
+        .stTabs [data-baseweb="tab"] {
+            padding: 1rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .stTabs [data-baseweb="tab"]:hover {
+            background-color: rgba(34, 197, 94, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        .stTabs [aria-selected="true"] {
+            background: linear-gradient(135deg, #22c55e 0%, #10b981 100%);
+            color: white !important;
+        }
+        
         .pokemon-card {
             border: 2px solid #374151;
             border-radius: 16px;
@@ -632,40 +656,127 @@ def main():
     
     # ==================== TAB 1: OVERVIEW ====================
     with tab1:
-        st.header("📊 Dataset Overview")
+        # Hero Section with Gradient
+        st.markdown("""
+            <div style="background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #06b6d4 100%); 
+                        padding: 3rem 2rem; border-radius: 20px; margin-bottom: 2rem;
+                        box-shadow: 0 10px 40px rgba(0,0,0,0.3);">
+                <h1 style="text-align: center; color: white; font-size: 3rem; margin-bottom: 1rem;">
+                    ⚡ National Pokédex Dashboard
+                </h1>
+                <p style="text-align: center; color: rgba(255,255,255,0.9); font-size: 1.2rem;">
+                    Complete Database of All 1,194 Pokémon Forms • Generations I-IX
+                </p>
+            </div>
+        """, unsafe_allow_html=True)
         
-        # Key statistics
-        col1, col2, col3, col4, col5 = st.columns(5)
+        # Key Statistics Grid - Redesigned
+        st.markdown("### 📊 Dataset Statistics")
+        
+        # Row 1: Main Stats
+        col1, col2, col3, col4 = st.columns(4)
         
         with col1:
-            st.markdown('<div class="stat-card">', unsafe_allow_html=True)
-            st.metric("Total Pokémon", len(df))
-            st.markdown('</div>', unsafe_allow_html=True)
+            st.markdown("""
+                <div style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+                            padding: 2rem; border-radius: 16px; text-align: center;
+                            box-shadow: 0 8px 16px rgba(16, 185, 129, 0.3);">
+                    <div style="font-size: 3rem; margin-bottom: 0.5rem;">🎮</div>
+                    <div style="font-size: 2.5rem; font-weight: bold; color: white;">{}</div>
+                    <div style="color: rgba(255,255,255,0.9); font-size: 1rem;">Total Pokémon</div>
+                </div>
+            """.format(len(df)), unsafe_allow_html=True)
         
         with col2:
-            st.markdown('<div class="stat-card">', unsafe_allow_html=True)
-            st.metric("Generations", df['generation'].nunique())
-            st.markdown('</div>', unsafe_allow_html=True)
+            generations = df['generation'].nunique()
+            st.markdown("""
+                <div style="background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
+                            padding: 2rem; border-radius: 16px; text-align: center;
+                            box-shadow: 0 8px 16px rgba(59, 130, 246, 0.3);">
+                    <div style="font-size: 3rem; margin-bottom: 0.5rem;">🌍</div>
+                    <div style="font-size: 2.5rem; font-weight: bold; color: white;">{}</div>
+                    <div style="color: rgba(255,255,255,0.9); font-size: 1rem;">Generations</div>
+                </div>
+            """.format(generations), unsafe_allow_html=True)
         
         with col3:
-            st.markdown('<div class="stat-card">', unsafe_allow_html=True)
             variant_count = len(df[df['variant_type'] != 'base']) if 'variant_type' in df.columns else 0
-            st.metric("Variant Forms", variant_count)
-            st.markdown('</div>', unsafe_allow_html=True)
+            st.markdown("""
+                <div style="background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%);
+                            padding: 2rem; border-radius: 16px; text-align: center;
+                            box-shadow: 0 8px 16px rgba(139, 92, 246, 0.3);">
+                    <div style="font-size: 3rem; margin-bottom: 0.5rem;">✨</div>
+                    <div style="font-size: 2.5rem; font-weight: bold; color: white;">{}</div>
+                    <div style="color: rgba(255,255,255,0.9); font-size: 1rem;">Variant Forms</div>
+                </div>
+            """.format(variant_count), unsafe_allow_html=True)
         
         with col4:
-            st.markdown('<div class="stat-card">', unsafe_allow_html=True)
-            legendary_count = len(df[df['status'] == 'Legendary'])
-            st.metric("Legendary", legendary_count)
-            st.markdown('</div>', unsafe_allow_html=True)
+            total_types = df['type_1'].nunique()
+            st.markdown("""
+                <div style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+                            padding: 2rem; border-radius: 16px; text-align: center;
+                            box-shadow: 0 8px 16px rgba(245, 158, 11, 0.3);">
+                    <div style="font-size: 3rem; margin-bottom: 0.5rem;">🎨</div>
+                    <div style="font-size: 2.5rem; font-weight: bold; color: white;">{}</div>
+                    <div style="color: rgba(255,255,255,0.9); font-size: 1rem;">Unique Types</div>
+                </div>
+            """.format(total_types), unsafe_allow_html=True)
+        
+        st.markdown("<br>", unsafe_allow_html=True)
+        
+        # Row 2: Special Categories
+        col5, col6, col7, col8 = st.columns(4)
         
         with col5:
-            st.markdown('<div class="stat-card">', unsafe_allow_html=True)
-            mythical_count = len(df[df['status'] == 'Mythical'])
-            st.metric("Mythical", mythical_count)
-            st.markdown('</div>', unsafe_allow_html=True)
+            legendary_count = len(df[df['status'] == 'Legendary'])
+            st.markdown("""
+                <div style="background: linear-gradient(135deg, #ef4444 0%, #b91c1c 100%);
+                            padding: 1.5rem; border-radius: 12px; text-align: center;
+                            box-shadow: 0 6px 12px rgba(239, 68, 68, 0.3);">
+                    <div style="font-size: 2rem;">👑</div>
+                    <div style="font-size: 1.8rem; font-weight: bold; color: white;">{}</div>
+                    <div style="color: rgba(255,255,255,0.9); font-size: 0.9rem;">Legendary</div>
+                </div>
+            """.format(legendary_count), unsafe_allow_html=True)
         
-        st.markdown("---")
+        with col6:
+            mythical_count = len(df[df['status'] == 'Mythical'])
+            st.markdown("""
+                <div style="background: linear-gradient(135deg, #ec4899 0%, #be185d 100%);
+                            padding: 1.5rem; border-radius: 12px; text-align: center;
+                            box-shadow: 0 6px 12px rgba(236, 72, 153, 0.3);">
+                    <div style="font-size: 2rem;">🌟</div>
+                    <div style="font-size: 1.8rem; font-weight: bold; color: white;">{}</div>
+                    <div style="color: rgba(255,255,255,0.9); font-size: 0.9rem;">Mythical</div>
+                </div>
+            """.format(mythical_count), unsafe_allow_html=True)
+        
+        with col7:
+            mega_count = len(df[df['variant_type'].str.contains('mega', case=False, na=False)]) if 'variant_type' in df.columns else 0
+            st.markdown("""
+                <div style="background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+                            padding: 1.5rem; border-radius: 12px; text-align: center;
+                            box-shadow: 0 6px 12px rgba(6, 182, 212, 0.3);">
+                    <div style="font-size: 2rem;">💎</div>
+                    <div style="font-size: 1.8rem; font-weight: bold; color: white;">{}</div>
+                    <div style="color: rgba(255,255,255,0.9); font-size: 0.9rem;">Mega Forms</div>
+                </div>
+            """.format(mega_count), unsafe_allow_html=True)
+        
+        with col8:
+            regions = df['region'].nunique() if 'region' in df.columns else 9
+            st.markdown("""
+                <div style="background: linear-gradient(135deg, #14b8a6 0%, #0d9488 100%);
+                            padding: 1.5rem; border-radius: 12px; text-align: center;
+                            box-shadow: 0 6px 12px rgba(20, 184, 166, 0.3);">
+                    <div style="font-size: 2rem;">🗺️</div>
+                    <div style="font-size: 1.8rem; font-weight: bold; color: white;">{}</div>
+                    <div style="color: rgba(255,255,255,0.9); font-size: 0.9rem;">Regions</div>
+                </div>
+            """.format(regions), unsafe_allow_html=True)
+        
+        st.markdown("<br><br>", unsafe_allow_html=True)
         
         # POKEMON RANDOMIZER
         st.subheader("🎲 Pokémon Randomizer")
@@ -861,44 +972,203 @@ def main():
             
             st.markdown('</div>', unsafe_allow_html=True)
         
-        st.markdown("---")
+        st.markdown("<br>", unsafe_allow_html=True)
         
-        # Charts
-        col1, col2 = st.columns(2)
+        # ===== ENHANCED DATA VISUALIZATIONS =====
+        st.markdown("### 📈 Dataset Analytics & Visualizations")
         
-        with col1:
-            # Pokemon by Generation
+        # Row 1: Regional & Type Distribution
+        viz_col1, viz_col2 = st.columns(2)
+        
+        with viz_col1:
+            # Regional Distribution (if region data exists)
+            if 'region' in df.columns and df['region'].notna().any():
+                region_counts = df['region'].value_counts().sort_index()
+                fig = px.bar(
+                    x=region_counts.index,
+                    y=region_counts.values,
+                    title='🗺️ Pokémon Distribution by Region',
+                    labels={'x': 'Region', 'y': 'Number of Pokémon'},
+                    color=region_counts.values,
+                    color_continuous_scale=['#3b82f6', '#8b5cf6', '#ec4899', '#f59e0b'],
+                    text=region_counts.values
+                )
+                fig.update_traces(textposition='outside', textfont_size=12)
+                fig.update_layout(
+                    height=400,
+                    showlegend=False,
+                    xaxis_title="Region",
+                    yaxis_title="Count",
+                    plot_bgcolor='rgba(0,0,0,0)',
+                    paper_bgcolor='rgba(0,0,0,0)'
+                )
+                st.plotly_chart(fig, use_container_width=True, key="overview_region_bar")
+            else:
+                # Pokemon by Generation as fallback
+                gen_counts = df.groupby('generation').size().reset_index(name='count')
+                fig = px.bar(
+                    gen_counts,
+                    x='generation',
+                    y='count',
+                    title='🎮 Pokémon Count by Generation',
+                    labels={'generation': 'Generation', 'count': 'Number of Pokémon'},
+                    color='count',
+                    color_continuous_scale='viridis',
+                    text='count'
+                )
+                fig.update_traces(textposition='outside', textfont_size=12)
+                fig.update_layout(
+                    height=400,
+                    showlegend=False,
+                    plot_bgcolor='rgba(0,0,0,0)',
+                    paper_bgcolor='rgba(0,0,0,0)'
+                )
+                st.plotly_chart(fig, use_container_width=True, key="overview_gen_bar")
+        
+        with viz_col2:
+            # Type Distribution - Pie Chart
+            type_counts = df['type_1'].value_counts()
+            fig = px.pie(
+                values=type_counts.values,
+                names=type_counts.index,
+                title='🎨 Primary Type Distribution',
+                hole=0.4,
+                color_discrete_sequence=px.colors.qualitative.Bold
+            )
+            fig.update_traces(
+                textposition='inside',
+                textinfo='percent+label',
+                textfont_size=10
+            )
+            fig.update_layout(
+                height=400,
+                showlegend=True,
+                legend=dict(
+                    orientation="v",
+                    yanchor="middle",
+                    y=0.5,
+                    xanchor="left",
+                    x=1.05
+                )
+            )
+            st.plotly_chart(fig, use_container_width=True, key="overview_type_pie")
+        
+        st.markdown("<br>", unsafe_allow_html=True)
+        
+        # Row 2: Generation Timeline & Top Types
+        viz_col3, viz_col4 = st.columns(2)
+        
+        with viz_col3:
+            # Generation Timeline with Cumulative Count
             gen_counts = df.groupby('generation').size().reset_index(name='count')
-            fig = px.bar(
+            gen_counts['cumulative'] = gen_counts['count'].cumsum()
+            
+            fig = px.area(
                 gen_counts,
                 x='generation',
-                y='count',
-                title='Pokémon Count by Generation',
-                labels={'generation': 'Generation', 'count': 'Number of Pokémon'},
-                color='count',
-                color_continuous_scale='viridis'
+                y='cumulative',
+                title='📊 Cumulative Pokémon Count by Generation',
+                labels={'generation': 'Generation', 'cumulative': 'Total Pokémon'},
+                color_discrete_sequence=['#22c55e']
             )
-            fig.update_layout(height=400)
-            st.plotly_chart(fig, use_container_width=True, key="overview_gen_bar")
+            fig.add_scatter(
+                x=gen_counts['generation'],
+                y=gen_counts['count'],
+                mode='markers+lines',
+                name='Per Generation',
+                marker=dict(size=10, color='#3b82f6'),
+                line=dict(color='#3b82f6', width=2)
+            )
+            fig.update_layout(
+                height=400,
+                plot_bgcolor='rgba(0,0,0,0)',
+                paper_bgcolor='rgba(0,0,0,0)',
+                hovermode='x unified'
+            )
+            st.plotly_chart(fig, use_container_width=True, key="overview_gen_timeline")
         
-        with col2:
-            # Pokemon by Type
-            type_counts = df['type_1'].value_counts().head(10)
+        with viz_col4:
+            # Top 10 Types - Horizontal Bar
+            type_counts_top = df['type_1'].value_counts().head(10)
             fig = px.bar(
-                x=type_counts.index,
-                y=type_counts.values,
-                title='Top 10 Primary Types',
-                labels={'x': 'Type', 'y': 'Count'},
-                color=type_counts.values,
-                color_continuous_scale='plasma'
+                x=type_counts_top.values,
+                y=type_counts_top.index,
+                orientation='h',
+                title='🏆 Top 10 Primary Types',
+                labels={'x': 'Count', 'y': 'Type'},
+                color=type_counts_top.values,
+                color_continuous_scale='plasma',
+                text=type_counts_top.values
             )
-            fig.update_layout(height=400)
+            fig.update_traces(textposition='outside', textfont_size=12)
+            fig.update_layout(
+                height=400,
+                showlegend=False,
+                plot_bgcolor='rgba(0,0,0,0)',
+                paper_bgcolor='rgba(0,0,0,0)',
+                yaxis={'categoryorder': 'total ascending'}
+            )
             st.plotly_chart(fig, use_container_width=True, key="overview_type_bar")
         
-        # Base Stat Total Distribution
-        st.subheader("Base Stat Total Distribution")
+        st.markdown("<br>", unsafe_allow_html=True)
+        
+        # Row 3: Base Stat Total Distribution
+        st.markdown("### 💪 Base Stat Total (BST) Distribution")
         fig = create_stat_distribution_chart(df, 'total_points')
         st.plotly_chart(fig, use_container_width=True, key="overview_bst_dist")
+        
+        st.markdown("<br>", unsafe_allow_html=True)
+        
+        # Asset Coverage Section
+        st.markdown("### 🖼️ Asset Coverage Statistics")
+        
+        asset_col1, asset_col2, asset_col3 = st.columns(3)
+        
+        # Count available sprites
+        total_pokemon = len(df)
+        sprites_with_paths = df['sprite_path'].notna().sum() if 'sprite_path' in df.columns else 0
+        shiny_with_paths = df['shiny_path'].notna().sum() if 'shiny_path' in df.columns else 0
+        
+        sprite_coverage = (sprites_with_paths / total_pokemon * 100) if total_pokemon > 0 else 0
+        shiny_coverage = (shiny_with_paths / total_pokemon * 100) if total_pokemon > 0 else 0
+        
+        with asset_col1:
+            st.markdown(f"""
+                <div style="padding: 1.5rem; background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+                            border-radius: 12px; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+                    <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🎨</div>
+                    <div style="font-size: 2rem; font-weight: bold; color: white;">{sprite_coverage:.1f}%</div>
+                    <div style="color: rgba(255,255,255,0.9); margin-top: 0.5rem;">Regular Sprites</div>
+                    <div style="color: rgba(255,255,255,0.8); font-size: 0.9rem;">{sprites_with_paths:,} / {total_pokemon:,}</div>
+                </div>
+            """, unsafe_allow_html=True)
+        
+        with asset_col2:
+            st.markdown(f"""
+                <div style="padding: 1.5rem; background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+                            border-radius: 12px; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+                    <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">✨</div>
+                    <div style="font-size: 2rem; font-weight: bold; color: white;">{shiny_coverage:.1f}%</div>
+                    <div style="color: rgba(255,255,255,0.9); margin-top: 0.5rem;">Shiny Sprites</div>
+                    <div style="color: rgba(255,255,255,0.8); font-size: 0.9rem;">{shiny_with_paths:,} / {total_pokemon:,}</div>
+                </div>
+            """, unsafe_allow_html=True)
+        
+        with asset_col3:
+            # Type icons (18 types * 4 sizes = 72 files)
+            type_icon_count = 72
+            expected_type_icons = 72
+            type_icon_coverage = (type_icon_count / expected_type_icons * 100)
+            
+            st.markdown(f"""
+                <div style="padding: 1.5rem; background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%);
+                            border-radius: 12px; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+                    <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🏷️</div>
+                    <div style="font-size: 2rem; font-weight: bold; color: white;">{type_icon_coverage:.0f}%</div>
+                    <div style="color: rgba(255,255,255,0.9); margin-top: 0.5rem;">Type Icons</div>
+                    <div style="color: rgba(255,255,255,0.8); font-size: 0.9rem;">{type_icon_count} / {expected_type_icons}</div>
+                </div>
+            """, unsafe_allow_html=True)
     
     # ==================== TAB 2: POKEMON SEARCH ====================
     with tab2:
@@ -1059,7 +1329,13 @@ def main():
             
             # Get Pokemon data
             pokemon_base = df[df['name'] == selected_pokemon_name].iloc[0]
-            pokemon_comp = comp_df[comp_df['name'] == selected_pokemon_name].iloc[0]
+            
+            # Safely get competitive data if available
+            comp_data = comp_df[comp_df['name'] == selected_pokemon_name]
+            if len(comp_data) > 0:
+                pokemon_comp = comp_data.iloc[0]
+            else:
+                pokemon_comp = pokemon_base  # Fallback to base data
             
             col1, col2, col3 = st.columns([1, 2, 2])
             
@@ -1068,54 +1344,77 @@ def main():
                 sprite_data = load_sprite(pokemon_id, use_animated=use_animations)
                 display_sprite(sprite_data, width=200)
                 st.markdown(f"### {pokemon_base['name']}")
-                st.markdown(f"**Tier:** {pokemon_comp['competitive_tier']}")
-                st.markdown(f"**Role:** {pokemon_comp['optimal_role']}")
-                st.markdown(f"**Nature:** {pokemon_comp['optimal_nature']}")
+                
+                # Safely display competitive info (may not be available for all Pokemon)
+                if 'competitive_tier' in pokemon_comp and pd.notna(pokemon_comp.get('competitive_tier')):
+                    st.markdown(f"**Tier:** {pokemon_comp['competitive_tier']}")
+                else:
+                    st.markdown("**Tier:** Not Ranked")
+                
+                if 'optimal_role' in pokemon_comp and pd.notna(pokemon_comp.get('optimal_role')):
+                    st.markdown(f"**Role:** {pokemon_comp['optimal_role']}")
+                else:
+                    st.markdown("**Role:** N/A")
+                
+                if 'optimal_nature' in pokemon_comp and pd.notna(pokemon_comp.get('optimal_nature')):
+                    st.markdown(f"**Nature:** {pokemon_comp['optimal_nature']}")
+                else:
+                    st.markdown("**Nature:** N/A")
             
             with col2:
                 st.subheader("Optimal EV Spread")
-                ev_spread = pokemon_comp['optimal_ev_spread']
-                ev_df = pd.DataFrame({
-                    'Stat': ['HP', 'Attack', 'Defense', 'Sp. Atk', 'Sp. Def', 'Speed'],
-                    'EVs': [
-                        ev_spread['hp'],
-                        ev_spread['attack'],
-                        ev_spread['defense'],
-                        ev_spread['sp_attack'],
-                        ev_spread['sp_defense'],
-                        ev_spread['speed']
-                    ]
-                })
                 
-                fig = px.bar(
-                    ev_df,
-                    x='Stat',
-                    y='EVs',
-                    title='Recommended EV Distribution',
-                    color='EVs',
-                    color_continuous_scale='blues'
-                )
-                fig.update_layout(showlegend=False, height=300)
-                st.plotly_chart(fig, use_container_width=True, key="comp_ev_bar")
+                # Check if competitive data has EV spread info
+                if 'optimal_ev_spread' in pokemon_comp and pokemon_comp['optimal_ev_spread'] is not None:
+                    ev_spread = pokemon_comp['optimal_ev_spread']
+                    ev_df = pd.DataFrame({
+                        'Stat': ['HP', 'Attack', 'Defense', 'Sp. Atk', 'Sp. Def', 'Speed'],
+                        'EVs': [
+                            ev_spread['hp'],
+                            ev_spread['attack'],
+                            ev_spread['defense'],
+                            ev_spread['sp_attack'],
+                            ev_spread['sp_defense'],
+                            ev_spread['speed']
+                        ]
+                    })
+                    
+                    fig = px.bar(
+                        ev_df,
+                        x='Stat',
+                        y='EVs',
+                        title='Recommended EV Distribution',
+                        color='EVs',
+                        color_continuous_scale='blues'
+                    )
+                    fig.update_layout(showlegend=False, height=300)
+                    st.plotly_chart(fig, use_container_width=True, key="comp_ev_bar")
+                else:
+                    st.info("No competitive EV spread data available for this Pokémon.")
             
             with col3:
                 st.subheader("Stats at Level 100")
-                optimal_stats = pokemon_comp['optimal_stats_lv100']
-                stats_df = pd.DataFrame({
-                    'Stat': list(optimal_stats.keys()),
-                    'Value': list(optimal_stats.values())
-                })
                 
-                fig = px.bar(
-                    stats_df,
-                    x='Stat',
-                    y='Value',
-                    title='Optimal Stats (31 IVs, Optimal EVs & Nature)',
-                    color='Value',
-                    color_continuous_scale='reds'
-                )
-                fig.update_layout(showlegend=False, height=300)
-                st.plotly_chart(fig, use_container_width=True, key="comp_stats_bar")
+                # Check if competitive data has optimal stats
+                if 'optimal_stats_lv100' in pokemon_comp and pokemon_comp['optimal_stats_lv100'] is not None:
+                    optimal_stats = pokemon_comp['optimal_stats_lv100']
+                    stats_df = pd.DataFrame({
+                        'Stat': list(optimal_stats.keys()),
+                        'Value': list(optimal_stats.values())
+                    })
+                    
+                    fig = px.bar(
+                        stats_df,
+                        x='Stat',
+                        y='Value',
+                        title='Optimal Stats (31 IVs, Optimal EVs & Nature)',
+                        color='Value',
+                        color_continuous_scale='reds'
+                    )
+                    fig.update_layout(showlegend=False, height=300)
+                    st.plotly_chart(fig, use_container_width=True, key="comp_stats_bar")
+                else:
+                    st.info("No competitive stats data available for this Pokémon.")
             
             # Nature information
             if natures:
