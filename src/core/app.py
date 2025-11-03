@@ -51,6 +51,15 @@ def load_data(file_path: str, limit: int) -> pd.DataFrame:
     # Load enhanced data from multiple CSV sources
     with st.spinner(f"🔄 Loading enhanced data for {limit} Pokémon from 4 CSV files..."):
         try:
+            # Debug: Show current working directory and data file paths
+            st.info(f"🔍 Current directory: {os.getcwd()}")
+            data_dir = os.path.join(parent_dir, 'data')
+            st.info(f"🔍 Data directory: {data_dir}")
+            st.info(f"🔍 Data dir exists: {os.path.exists(data_dir)}")
+            if os.path.exists(data_dir):
+                files = os.listdir(data_dir)
+                st.info(f"🔍 Files in data dir: {files}")
+            
             df = fetch_all_pokemon(limit=limit)
             if df is not None and not df.empty:
                 df.to_csv(file_path, index=False)
@@ -61,6 +70,8 @@ def load_data(file_path: str, limit: int) -> pd.DataFrame:
                 return None
         except Exception as e:
             st.error(f"❌ Error loading Pokemon data: {str(e)}")
+            import traceback
+            st.error(f"📋 Traceback: {traceback.format_exc()}")
             return None
 
 @st.cache_data
