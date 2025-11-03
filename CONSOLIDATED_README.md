@@ -82,15 +82,43 @@
 - Average team stats visualization
 - Add/remove team members dynamically
 
-## 🚀 Installation
+## 🚀 Installation & Deployment
 
-### Prerequisites
+### Quick Deploy to Streamlit Cloud ☁️
+
+**One-Command Deployment:**
+```bash
+python deploy_streamlit.py
+```
+
+This will:
+1. Open Streamlit Cloud dashboard
+2. Show deployment instructions
+3. Pre-configure repository settings
+
+**Manual Deployment:**
+1. Go to https://share.streamlit.io/
+2. Sign in with GitHub
+3. Click "New app"
+4. Enter:
+   - Repository: `caalivanera/pokemon`
+   - Branch: `main`
+   - Main file: `pokedex-dashboard/enhanced_dashboard.py`
+5. Click "Deploy!"
+
+**Your app will be live at:** `https://[your-subdomain].streamlit.app`
+
+📖 **Detailed Guide:** See [STREAMLIT_DEPLOY.md](STREAMLIT_DEPLOY.md)
+
+### Local Installation
+
+**Prerequisites:**
 ```bash
 Python 3.9+
 pip
 ```
 
-### Setup
+**Setup:**
 ```bash
 # Clone the repository
 git clone https://github.com/caalivanera/pokemon.git
@@ -102,6 +130,8 @@ pip install -r requirements.txt
 # Run the dashboard
 streamlit run enhanced_dashboard.py
 ```
+
+**Access at:** http://localhost:8501
 
 ## 📁 Project Structure
 
