@@ -1237,7 +1237,7 @@ def main():
             "Attack": "attack",
             "Defense": "defense"
         }
-        display_df = display_df.sort_values(sort_mapping[sort_by])
+        display_df = display_df.sort_values(sort_mapping[sort_by]).reset_index(drop=True)
         
         # Dynamic results display with enhanced UI
         if search_query and len(display_df) > 0:
@@ -1849,7 +1849,7 @@ def main():
             show_names = st.checkbox("Show names", value=True)
         
         # Use filtered_df so filters apply
-        display_df = filtered_df.head(gallery_limit)
+        display_df = filtered_df.head(gallery_limit).reset_index(drop=True)
         
         if len(filtered_df) == 0:
             st.warning("No Pokemon match the selected filters. Try adjusting your filters in the sidebar.")
