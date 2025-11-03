@@ -1,17 +1,37 @@
-# ⚡ Pokemon National Dex Dashboard v5.0.0
+# ⚡ Pokemon National Dex Dashboard v5.1.0
 
 [![Python 3.13+](https://img.shields.io/badge/python-3.13+-blue.svg)](https://www.python.org/downloads/)
 [![Streamlit](https://img.shields.io/badge/streamlit-1.28+-red.svg)](https://streamlit.io/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Live Demo](https://img.shields.io/badge/demo-live-green.svg)](https://1pokemon.streamlit.app/)
-[![Data: 1,130 Forms](https://img.shields.io/badge/forms-1,130-red.svg)](https://bulbapedia.bulbagarden.net)
+[![Data: 1,194 Forms](https://img.shields.io/badge/forms-1,194-red.svg)](https://bulbapedia.bulbagarden.net)
+[![Sprites: 98.6%](https://img.shields.io/badge/sprites-98.6%25-brightgreen.svg)]()
 [![Dark Mode](https://img.shields.io/badge/dark%20mode-enabled-purple.svg)]()
 [![Type Calculator](https://img.shields.io/badge/type-calculator-orange.svg)]()
 [![Team Builder](https://img.shields.io/badge/team-builder-green.svg)]()
 
-> **Comprehensive Pokemon Database Dashboard** featuring all 1,130 Pokemon forms (1,025 base Pokemon + 105 variants) from Generations I-IX with **Dark Mode**, **Type Calculator**, **Team Builder**, **Advanced Search**, interactive visualizations, competitive data, and 2,909 high-quality sprites (including animated Gen 1-5 sprites).
+> **Comprehensive Pokemon Database Dashboard** featuring all **1,194** Pokemon forms (**1,089 base Pokemon + 105 variants**) from Generations I-IX with **98.6% sprite coverage**, **Dark Mode**, **Type Calculator**, **Team Builder**, **Advanced Search**, interactive visualizations, competitive data, and **1,583+ high-quality sprites** (including 190 animated and 216 shiny variants).
 
 🌐 **Live Application:** [https://1pokemon.streamlit.app/](https://1pokemon.streamlit.app/)
+
+---
+
+## 📊 Project Statistics
+
+| Metric | Value |
+|--------|-------|
+| **Total Pokemon Forms** | 1,194 |
+| **Base Forms** | 1,089 (91.2%) |
+| **Variant Forms** | 105 (8.8%) |
+| **Static Sprites** | 1,177 (98.6% coverage) |
+| **Animated Sprites** | 190 (15.9% coverage) |
+| **Shiny Sprites** | 216 (18.1% coverage) |
+| **Total Asset Files** | 1,583+ files |
+| **Documentation** | 2,259 lines (14,650 words) |
+| **Code Base** | 10,600+ lines of Python |
+| **Repository Size** | 62.5 MB |
+
+📈 **See detailed statistics:** [QUANTIFIABLE_STATISTICS.md](QUANTIFIABLE_STATISTICS.md)
 
 ---
 
