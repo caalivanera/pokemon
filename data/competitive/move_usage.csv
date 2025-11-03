@@ -1,0 +1,238 @@
+pokemon_id,pokemon_name,move_name,usage_percent,move_slot
+384,Mega Rayquaza,Facade,75.44,1
+384,Mega Rayquaza,Sleep Talk,77.8,2
+384,Mega Rayquaza,Taunt,67.18,3
+384,Mega Rayquaza,Roost,31.73,4
+890,Eternatus,Toxic,34.12,1
+890,Eternatus,Stealth Rock,55.01,2
+890,Eternatus,Rest,90.77,3
+890,Eternatus,Rapid Spin,61.55,4
+150,Mewtwo,Roost,45.36,1
+150,Mewtwo,Quick Attack,23.26,2
+150,Mewtwo,Toxic,81.37,3
+150,Mewtwo,Taunt,85.4,4
+382,Kyogre,Will-O-Wisp,64.02,1
+382,Kyogre,Recover,50.97,2
+382,Kyogre,Taunt,60.58,3
+382,Kyogre,Roost,28.72,4
+382,Kyogre,Defog,53.99,5
+382,Kyogre,Facade,45.43,6
+383,Groudon,Facade,94.72,1
+383,Groudon,Rapid Spin,62.27,2
+383,Groudon,Taunt,91.56,3
+383,Groudon,Recover,26.97,4
+384,Rayquaza,Roost,30.3,1
+384,Rayquaza,Taunt,63.21,2
+384,Rayquaza,Hyper Voice,80.75,3
+384,Rayquaza,Substitute,34.91,4
+384,Rayquaza,Stealth Rock,87.21,5
+483,Dialga,Substitute,49.77,1
+483,Dialga,Recover,50.7,2
+483,Dialga,Toxic,38.35,3
+483,Dialga,Rest,79.36,4
+484,Palkia,Facade,36.33,1
+484,Palkia,Substitute,48.07,2
+484,Palkia,Protect,27.61,3
+484,Palkia,Quick Attack,91.52,4
+493,Arceus,Quick Attack,91.75,1
+493,Arceus,Taunt,25.54,2
+493,Arceus,Defog,22.32,3
+493,Arceus,Rest,65.06,4
+716,Xerneas,Hyper Voice,67.85,1
+716,Xerneas,Taunt,60.02,2
+716,Xerneas,Body Slam,43.2,3
+716,Xerneas,Will-O-Wisp,66.1,4
+716,Xerneas,Substitute,64.58,5
+717,Yveltal,Substitute,46.17,1
+717,Yveltal,Roost,25.15,2
+717,Yveltal,Hyper Voice,38.65,3
+717,Yveltal,Recover,51.8,4
+717,Yveltal,Rapid Spin,61.42,5
+249,Lugia,Roost,53.31,1
+249,Lugia,Body Slam,56.09,2
+249,Lugia,Facade,21.37,3
+249,Lugia,Protect,83.93,4
+250,Ho-oh,Recover,88.67,1
+250,Ho-oh,Quick Attack,32.61,2
+250,Ho-oh,Sleep Talk,66.09,3
+250,Ho-oh,Defog,64.12,4
+250,Ho-oh,Roost,85.94,5
+445,Garchomp,Roost,75.54,1
+445,Garchomp,Stealth Rock,41.39,2
+445,Garchomp,Hyper Voice,76.58,3
+445,Garchomp,Defog,75.91,4
+445,Garchomp,Rest,68.19,5
+598,Ferrothorn,Recover,87.73,1
+598,Ferrothorn,Body Slam,23.56,2
+598,Ferrothorn,Sleep Talk,83.97,3
+598,Ferrothorn,Rest,81.62,4
+598,Ferrothorn,Stealth Rock,71.64,5
+748,Toxapex,Roost,75.23,1
+748,Toxapex,Defog,88.54,2
+748,Toxapex,Facade,78.56,3
+748,Toxapex,Body Slam,75.14,4
+748,Toxapex,Will-O-Wisp,56.72,5
+748,Toxapex,Recover,65.32,6
+887,Dragapult,Taunt,68.23,1
+887,Dragapult,Recover,80.97,2
+887,Dragapult,Hyper Voice,67.89,3
+887,Dragapult,Roost,87.96,4
+812,Rillaboom,Protect,63.59,1
+812,Rillaboom,Roost,77.89,2
+812,Rillaboom,Taunt,26.28,3
+812,Rillaboom,Will-O-Wisp,53.41,4
+823,Corviknight,Stealth Rock,75.28,1
+823,Corviknight,Facade,81.23,2
+823,Corviknight,Quick Attack,24.96,3
+823,Corviknight,Taunt,85.81,4
+485,Heatran,Rapid Spin,58.22,1
+485,Heatran,Hyper Voice,35.45,2
+485,Heatran,Rest,42.64,3
+485,Heatran,Body Slam,63.76,4
+248,Tyranitar,Defog,46.25,1
+248,Tyranitar,Quick Attack,69.37,2
+248,Tyranitar,Protect,63.89,3
+248,Tyranitar,Rest,21.46,4
+248,Tyranitar,Toxic,30.55,5
+149,Dragonite,Toxic,31.7,1
+149,Dragonite,Hyper Voice,24.66,2
+149,Dragonite,Recover,21.32,3
+149,Dragonite,Defog,37.34,4
+149,Dragonite,Body Slam,31.59,5
+149,Dragonite,Stealth Rock,77.17,6
+373,Salamence,Hyper Voice,54.95,1
+373,Salamence,Protect,77.44,2
+373,Salamence,Toxic,80.66,3
+373,Salamence,Will-O-Wisp,80.71,4
+373,Salamence,Rapid Spin,76.11,5
+373,Salamence,Quick Attack,55.03,6
+242,Blissey,Defog,89.41,1
+242,Blissey,Will-O-Wisp,79.5,2
+242,Blissey,Body Slam,65.65,3
+242,Blissey,Taunt,86.94,4
+6,Charizard,Rapid Spin,56.93,1
+6,Charizard,Rest,87.35,2
+6,Charizard,Roost,60.21,3
+6,Charizard,Stealth Rock,44.58,4
+94,Gengar,Roost,79.04,1
+94,Gengar,Will-O-Wisp,75.94,2
+94,Gengar,Recover,45.37,3
+94,Gengar,Substitute,85.86,4
+36,Clefable,Substitute,63.11,1
+36,Clefable,Quick Attack,74.95,2
+36,Clefable,Body Slam,41.28,3
+36,Clefable,Recover,81.1,4
+36,Clefable,Will-O-Wisp,68.5,5
+36,Clefable,Stealth Rock,33.08,6
+785,Tapu Koko,Stealth Rock,63.25,1
+785,Tapu Koko,Defog,37.97,2
+785,Tapu Koko,Sleep Talk,84.92,3
+785,Tapu Koko,Toxic,94.15,4
+785,Tapu Koko,Facade,34.45,5
+786,Tapu Lele,Body Slam,28.36,1
+786,Tapu Lele,Toxic,70.08,2
+786,Tapu Lele,Substitute,40.85,3
+786,Tapu Lele,Defog,35.86,4
+786,Tapu Lele,Quick Attack,90.55,5
+786,Tapu Lele,Will-O-Wisp,23.5,6
+462,Magnezone,Toxic,53.07,1
+462,Magnezone,Rapid Spin,35.23,2
+462,Magnezone,Protect,23.96,3
+462,Magnezone,Rest,28.8,4
+462,Magnezone,Body Slam,22.52,5
+530,Excadrill,Quick Attack,24.07,1
+530,Excadrill,Defog,52.85,2
+530,Excadrill,Rest,83.41,3
+530,Excadrill,Substitute,90.48,4
+212,Scizor,Quick Attack,72.35,1
+212,Scizor,Body Slam,26.09,2
+212,Scizor,Defog,78.11,3
+212,Scizor,Toxic,37.21,4
+473,Mamoswine,Sleep Talk,48.77,1
+473,Mamoswine,Rest,21.38,2
+473,Mamoswine,Facade,67.86,3
+473,Mamoswine,Stealth Rock,40.84,4
+260,Swampert,Will-O-Wisp,73.79,1
+260,Swampert,Defog,42.09,2
+260,Swampert,Body Slam,83.5,3
+260,Swampert,Recover,75.03,4
+260,Swampert,Stealth Rock,67.62,5
+34,Nidoking,Quick Attack,44.38,1
+34,Nidoking,Defog,85.71,2
+34,Nidoking,Body Slam,71.28,3
+34,Nidoking,Toxic,91.88,4
+635,Hydreigon,Facade,73.73,1
+635,Hydreigon,Sleep Talk,70.54,2
+635,Hydreigon,Hyper Voice,79.42,3
+635,Hydreigon,Protect,33.33,4
+80,Slowbro,Substitute,81.17,1
+80,Slowbro,Taunt,46.03,2
+80,Slowbro,Rapid Spin,32.79,3
+80,Slowbro,Roost,73.65,4
+450,Hippowdon,Sleep Talk,85.64,1
+450,Hippowdon,Rest,69.09,2
+450,Hippowdon,Quick Attack,42.81,3
+450,Hippowdon,Defog,23.68,4
+450,Hippowdon,Protect,54.11,5
+553,Krookodile,Rest,60.51,1
+553,Krookodile,Protect,42.03,2
+553,Krookodile,Hyper Voice,48.77,3
+553,Krookodile,Defog,29.94,4
+553,Krookodile,Taunt,79.44,5
+553,Krookodile,Sleep Talk,47.8,6
+184,Azumarill,Sleep Talk,34.49,1
+184,Azumarill,Rapid Spin,71.74,2
+184,Azumarill,Quick Attack,89.86,3
+184,Azumarill,Stealth Rock,35.07,4
+184,Azumarill,Defog,40.36,5
+625,Bisharp,Recover,32.23,1
+625,Bisharp,Rapid Spin,48.65,2
+625,Bisharp,Sleep Talk,91.94,3
+625,Bisharp,Roost,86.17,4
+625,Bisharp,Toxic,30.31,5
+721,Volcanion,Quick Attack,20.93,1
+721,Volcanion,Hyper Voice,49.5,2
+721,Volcanion,Taunt,34.43,3
+721,Volcanion,Substitute,88.52,4
+721,Volcanion,Protect,92.07,5
+721,Volcanion,Stealth Rock,27.99,6
+730,Primarina,Quick Attack,53.8,1
+730,Primarina,Rest,78.65,2
+730,Primarina,Stealth Rock,24.15,3
+730,Primarina,Sleep Talk,63.89,4
+730,Primarina,Taunt,47.54,5
+793,Nihilego,Roost,39.79,1
+793,Nihilego,Toxic,90.03,2
+793,Nihilego,Sleep Talk,20.26,3
+793,Nihilego,Facade,93.08,4
+638,Cobalion,Defog,82.23,1
+638,Cobalion,Body Slam,53.5,2
+638,Cobalion,Sleep Talk,32.38,3
+638,Cobalion,Roost,64.35,4
+638,Cobalion,Recover,24.86,5
+59,Arcanine,Stealth Rock,51.12,1
+59,Arcanine,Roost,89.6,2
+59,Arcanine,Recover,79.62,3
+59,Arcanine,Quick Attack,43.22,4
+59,Arcanine,Protect,84.55,5
+197,Umbreon,Substitute,76.93,1
+197,Umbreon,Body Slam,30.87,2
+197,Umbreon,Rest,68.68,3
+197,Umbreon,Roost,81.4,4
+706,Goodra,Roost,53.1,1
+706,Goodra,Body Slam,48.37,2
+706,Goodra,Quick Attack,88.9,3
+706,Goodra,Will-O-Wisp,36.16,4
+706,Goodra,Recover,23.23,5
+706,Goodra,Protect,52.31,6
+232,Donphan,Body Slam,48.05,1
+232,Donphan,Defog,68.52,2
+232,Donphan,Sleep Talk,31.97,3
+232,Donphan,Toxic,26.21,4
+232,Donphan,Roost,67.44,5
+232,Donphan,Quick Attack,51.19,6
+196,Espeon,Rapid Spin,84.36,1
+196,Espeon,Body Slam,56.11,2
+196,Espeon,Taunt,55.89,3
+196,Espeon,Defog,93.5,4
+196,Espeon,Protect,82.83,5
