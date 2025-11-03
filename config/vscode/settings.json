@@ -1,0 +1,188 @@
+{
+  "python.defaultInterpreterPath": "${workspaceFolder}/venv/Scripts/python.exe",
+  "python.terminal.activateEnvironment": true,
+  "python.terminal.activateEnvInCurrentTerminal": true,
+  
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "explicit"
+    },
+    "editor.rulers": [79],
+    "editor.tabSize": 4
+  },
+  
+  "python.linting.enabled": true,
+  "python.linting.flake8Enabled": true,
+  "python.linting.flake8Args": [
+    "--max-line-length=79",
+    "--exclude=venv,__pycache__,.git,build,dist"
+  ],
+  "python.linting.mypyEnabled": true,
+  "python.linting.mypyArgs": [
+    "--ignore-missing-imports",
+    "--follow-imports=silent",
+    "--show-column-numbers",
+    "--strict-optional"
+  ],
+  "python.linting.pylintEnabled": false,
+  
+  "python.formatting.provider": "none",
+  "python.formatting.blackArgs": [
+    "--line-length=79"
+  ],
+  
+  "python.testing.pytestEnabled": true,
+  "python.testing.unittestEnabled": false,
+  "python.testing.pytestArgs": [
+    "tests"
+  ],
+  
+  "python.analysis.typeCheckingMode": "basic",
+  "python.analysis.autoImportCompletions": true,
+  "python.analysis.diagnosticMode": "workspace",
+  
+  "files.exclude": {
+    "**/__pycache__": true,
+    "**/*.pyc": true,
+    "**/.pytest_cache": true,
+    "**/.mypy_cache": true,
+    "**/*.egg-info": true,
+    "**/.coverage": true,
+    "**/htmlcov": true
+  },
+  
+  "files.watcherExclude": {
+    "**/venv/**": true,
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/node_modules/**": true,
+    "**/__pycache__/**": true
+  },
+  
+  "files.associations": {
+    "*.yml": "yaml",
+    "*.yaml": "yaml",
+    ".env.example": "dotenv",
+    ".env": "dotenv",
+    "Dockerfile*": "dockerfile",
+    "docker-compose*.yml": "dockercompose"
+  },
+  
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": false,
+  "editor.formatOnType": false,
+  
+  "yaml.schemas": {
+    "https://json.schemastore.org/github-workflow.json": ".github/workflows/*.yml"
+  },
+  
+  "docker.dockerComposeBuild": true,
+  "docker.dockerComposeDetached": true,
+  
+  "git.enableSmartCommit": true,
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  
+  "terminal.integrated.defaultProfile.windows": "PowerShell",
+  
+  "todo-tree.general.tags": [
+    "TODO",
+    "FIXME",
+    "NOTE",
+    "HACK",
+    "XXX",
+    "BUG"
+  ],
+  
+  "errorLens.enabledDiagnosticLevels": [
+    "error",
+    "warning",
+    "info"
+  ],
+  
+  "cSpell.words": [
+    "pokedex",
+    "pokemon",
+    "streamlit",
+    "pandas",
+    "numpy",
+    "sqlalchemy",
+    "alembic",
+    "psycopg",
+    "pydantic",
+    "pytest",
+    "mypy",
+    "flake",
+    "pylint",
+    "dotenv",
+    "yaml",
+    "pokemondbgit",
+    "bulbasaur",
+    "charizard",
+    "pikachu",
+    "eevee"
+  ],
+  
+  "better-comments.tags": [
+    {
+      "tag": "!",
+      "color": "#FF2D00",
+      "strikethrough": false,
+      "backgroundColor": "transparent"
+    },
+    {
+      "tag": "?",
+      "color": "#3498DB",
+      "strikethrough": false,
+      "backgroundColor": "transparent"
+    },
+    {
+      "tag": "//",
+      "color": "#474747",
+      "strikethrough": true,
+      "backgroundColor": "transparent"
+    },
+    {
+      "tag": "todo",
+      "color": "#FF8C00",
+      "strikethrough": false,
+      "backgroundColor": "transparent"
+    },
+    {
+      "tag": "*",
+      "color": "#98C379",
+      "strikethrough": false,
+      "backgroundColor": "transparent"
+    }
+  ],
+  
+  "sqltools.connections": [
+    {
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 5432,
+      "driver": "PostgreSQL",
+      "name": "Pokemon Database",
+      "database": "pokemon_db",
+      "username": "pokemon_user",
+      "password": ""
+    }
+  ],
+  
+  "jupyter.jupyterServerType": "local",
+  "jupyter.askForKernelRestart": false,
+  
+  "markdown.extension.toc.levels": "2..6",
+  "markdown.extension.toc.updateOnSave": true,
+  
+  "csv-preview.separator": ",",
+  "csv-preview.resizeColumns": "all",
+  
+  "code-runner.executorMap": {
+    "python": "$pythonPath -u $fullFileName"
+  },
+  "code-runner.runInTerminal": true,
+  "code-runner.saveFileBeforeRun": true
+}
