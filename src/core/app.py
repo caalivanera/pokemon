@@ -156,11 +156,25 @@ st.markdown("""
 
 @st.cache_data(ttl=3600)  # Cache for 1 hour
 def load_main_dataset():
-    """Load the main National Dex CSV - 1,025 Pokemon (Gen 1-9)"""
+    """Load the enhanced National Dex CSV with variants - 1,130 entries (1,025 base + 105 variants)"""
+    # Try new variant CSV first
+    variant_csv_path = Path("data/national_dex_with_variants.csv")
+    if variant_csv_path.exists():
+        df = pd.read_csv(variant_csv_path)
+        # Add variant support columns if missing
+        if 'variant_type' not in df.columns:
+            df['variant_type'] = 'base'
+        if 'base_pokemon_id' not in df.columns:
+            df['base_pokemon_id'] = df['pokedex_number']
+        return df
+    
+    # Fallback to original CSV
     csv_path = Path("data/national_dex.csv")
     if csv_path.exists():
         df = pd.read_csv(csv_path)
-        # Ensure we have the latest data
+        # Add variant columns for compatibility
+        df['variant_type'] = 'base'
+        df['base_pokemon_id'] = df['pokedex_number']
         if len(df) < 1025:
             st.warning(f"⚠️ Data may be outdated. Expected 1025 Pokemon, found {len(df)}")
         return df
@@ -193,24 +207,36 @@ def load_game_data():
             return pd.DataFrame(json.load(f))
     return None
 
-def load_sprite(pokemon_id, sprite_type='official', use_animated=False):
+def load_sprite(pokemon_id, sprite_type='official', use_animated=False, variant_type='base', shiny=False):
     """
-    Load Pokemon sprite image or animation
+    Load Pokemon sprite image or animation with variant support
     
     Args:
         pokemon_id: Pokemon ID number
         sprite_type: 'official', 'icon', or 'animated'
         use_animated: If True, tries to load GIF animation first
+        variant_type: 'base', 'mega', 'mega-x', 'mega-y', 'alolan', 'galarian', 'gigantamax', etc.
+        shiny: If True, loads shiny variant
     
     Returns:
         tuple: (content, is_gif) - content is either Image or file path
     """
+    # Build filename based on variant and shiny
+    if variant_type != 'base':
+        variant_suffix = variant_type.replace('-', '_')
+        base_filename = f"{pokemon_id:03d}_{variant_suffix}"
+    else:
+        base_filename = f"{pokemon_id:03d}"
+    
+    if shiny:
+        base_filename += "_shiny"
+    
     # Try animated GIF first if requested
     if use_animated or sprite_type == 'animated':
         animated_dir = Path("assets/animated")
-        for file in animated_dir.glob(f"{pokemon_id:04d}_*.gif"):
-            if file.exists():
-                return (str(file), True)
+        gif_path = animated_dir / f"{base_filename}.gif"
+        if gif_path.exists():
+            return (str(gif_path), True)
     
     # Determine directory based on type
     if sprite_type == 'icon':
@@ -218,14 +244,24 @@ def load_sprite(pokemon_id, sprite_type='official', use_animated=False):
     else:  # official
         sprite_dir = Path("assets/sprites")
     
-    # Try to find PNG sprite
-    for file in sprite_dir.glob(f"{pokemon_id:04d}_*.png"):
+    # Try to find PNG sprite with exact filename
+    png_path = sprite_dir / f"{base_filename}.png"
+    if png_path.exists():
         try:
-            return (Image.open(file), False)
+            return (Image.open(png_path), False)
         except Exception:
             pass
     
-    # Fallback: Try to load from PokeAPI URL directly
+    # Fallback: Try base sprite if variant not found
+    if variant_type != 'base':
+        fallback_path = sprite_dir / f"{pokemon_id:03d}.png"
+        if fallback_path.exists():
+            try:
+                return (Image.open(fallback_path), False)
+            except Exception:
+                pass
+    
+    # Final fallback: Try to load from PokeAPI URL directly
     try:
         import requests
         response = requests.get(
@@ -281,6 +317,28 @@ def display_sprite(sprite_data, width=None, use_container_width=False):
 
 # ==================== HELPER FUNCTIONS ====================
 
+def get_pokemon_variants(df, base_pokemon_id):
+    """Get all variant forms of a Pokemon"""
+    if 'base_pokemon_id' not in df.columns:
+        return []
+    
+    # Get all forms with matching base_pokemon_id (including base form)
+    variants = df[df['base_pokemon_id'] == base_pokemon_id].copy()
+    
+    # Sort: base first, then mega, then others
+    variant_order = {'base': 0, 'mega': 1, 'mega-x': 2, 'mega-y': 3, 
+                     'alolan': 4, 'galarian': 5, 'hisuian': 6, 
+                     'paldean': 7, 'gigantamax': 8}
+    
+    if 'variant_type' in variants.columns:
+        variants['sort_order'] = variants['variant_type'].map(
+            lambda x: variant_order.get(x, 99)
+        )
+        variants = variants.sort_values('sort_order')
+    
+    return variants.to_dict('records')
+
+
 def get_type_color(type_name):
     """Get color for Pokemon type"""
     colors = {
@@ -293,14 +351,20 @@ def get_type_color(type_name):
     }
     return colors.get(type_name, '#777777')
 
-def display_pokemon_card(pokemon, show_sprite=True, use_animated=True):
-    """Display a Pokemon card with sprite and info"""
+def display_pokemon_card(pokemon, show_sprite=True, use_animated=True, shiny=False):
+    """Display a Pokemon card with sprite and info, supporting variants"""
     col1, col2 = st.columns([1, 2])
     
     with col1:
         if show_sprite:
             pokemon_id = int(pokemon['pokedex_number'])
-            sprite_data = load_sprite(pokemon_id, use_animated=use_animated)
+            variant_type = pokemon.get('variant_type', 'base')
+            sprite_data = load_sprite(
+                pokemon_id, 
+                use_animated=use_animated,
+                variant_type=variant_type,
+                shiny=shiny
+            )
             if sprite_data[0] is not None:
                 display_sprite(sprite_data, width=150)
             else:
@@ -309,7 +373,13 @@ def display_pokemon_card(pokemon, show_sprite=True, use_animated=True):
     with col2:
         poke_num = int(pokemon['pokedex_number'])
         poke_name = pokemon['name']
-        st.markdown(f"### #{poke_num:04d} {poke_name}")
+        
+        # Show form name if it's a variant
+        if 'form_name' in pokemon and pd.notna(pokemon['form_name']):
+            variant_badge = "✨" if shiny else ""
+            st.markdown(f"### #{poke_num:04d} {variant_badge}{pokemon['form_name']}")
+        else:
+            st.markdown(f"### #{poke_num:04d} {poke_name}")
         
         # Type badges
         type1 = pokemon["type_1"]
@@ -404,8 +474,8 @@ def main():
     
     # Header
     st.markdown('<h1 class="main-header">⚡ National Pokédex Dashboard ⚡</h1>', unsafe_allow_html=True)
-    st.markdown("### Version 4.0.0 - Complete Database: All 1,025 Pokémon (Gen 1-9) with Enhanced UI & Interactive Features")
-    st.caption("🎮 New: Pokemon Randomizer | Who's That Pokemon Mini-Game | By-Game Filter | Modern UI")
+    st.markdown("### Version 4.1.0 - Variant System: 1,130 Forms (Base + Mega + Regional + Gigantamax)")
+    st.caption("🔥 NEW: Variant Forms Support | Shiny Mode | 48 Mega Evolutions | Regional Forms | Animated Sprites")
     
     # Load data
     df = load_main_dataset()
@@ -437,6 +507,25 @@ def main():
             help="Show moving GIF sprites when available"
         )
         
+        # Shiny mode toggle
+        shiny_mode = st.checkbox(
+            "✨ Shiny Mode",
+            value=False,
+            help="Display shiny variants of all Pokemon"
+        )
+        
+        st.markdown("---")
+        
+        # Variant filter (NEW!)
+        st.subheader("🔥 Variant Forms")
+        variant_options = ["Base Forms", "Mega Evolution", "Regional Forms", "Gigantamax"]
+        selected_variants = st.multiselect(
+            "Show Forms",
+            options=variant_options,
+            default=["Base Forms"],
+            help="Filter by Pokemon form types"
+        )
+        
         st.markdown("---")
         
         # Generation filter
@@ -458,6 +547,21 @@ def main():
         
         # Apply filters
         filtered_df = df.copy()
+        
+        # Apply variant filter (NEW!)
+        if selected_variants:
+            variant_filter = []
+            if "Base Forms" in selected_variants:
+                variant_filter.append('base')
+            if "Mega Evolution" in selected_variants:
+                variant_filter.extend(['mega', 'mega-x', 'mega-y'])
+            if "Regional Forms" in selected_variants:
+                variant_filter.extend(['alolan', 'galarian', 'hisuian', 'paldean'])
+            if "Gigantamax" in selected_variants:
+                variant_filter.append('gigantamax')
+            
+            if variant_filter and 'variant_type' in filtered_df.columns:
+                filtered_df = filtered_df[filtered_df['variant_type'].isin(variant_filter)]
         
         if selected_gen != "All":
             gen_num = int(selected_gen.split()[1])
@@ -508,7 +612,8 @@ def main():
         
         with col3:
             st.markdown('<div class="stat-card">', unsafe_allow_html=True)
-            st.metric("Types", df['type_1'].nunique())
+            variant_count = len(df[df['variant_type'] != 'base']) if 'variant_type' in df.columns else 0
+            st.metric("Variant Forms", variant_count)
             st.markdown('</div>', unsafe_allow_html=True)
         
         with col4:
@@ -813,8 +918,32 @@ def main():
             
             poke_num = int(pokemon['pokedex_number'])
             poke_name = pokemon['name']
+            base_id = int(pokemon.get('base_pokemon_id', poke_num))
+            
+            # Get all variants of this Pokemon
+            variants = get_pokemon_variants(df, base_id)
+            
             with st.expander(f"#{poke_num:04d} - {poke_name}", expanded=False):
-                display_pokemon_card(pokemon, use_animated=use_animations)
+                # Show variant tabs if multiple forms exist
+                if len(variants) > 1:
+                    variant_tabs = st.tabs([
+                        v.get('form_name', v['name']) if pd.notna(v.get('form_name')) 
+                        else v['name'] for v in variants
+                    ])
+                    
+                    for tab_idx, variant in enumerate(variants):
+                        with variant_tabs[tab_idx]:
+                            display_pokemon_card(variant, use_animated=use_animations, shiny=shiny_mode)
+                            
+                            # Show variant-specific info
+                            if variant.get('variant_type') != 'base':
+                                st.info(f"**Form:** {variant.get('form_name', 'Unknown')}")
+                                if pd.notna(variant.get('mega_stone')):
+                                    st.write(f"🔮 **Mega Stone:** {variant['mega_stone']}")
+                                if pd.notna(variant.get('gmax_move')):
+                                    st.write(f"⚡ **G-Max Move:** {variant['gmax_move']}")
+                else:
+                    display_pokemon_card(pokemon, use_animated=use_animations, shiny=shiny_mode)
                 
                 # Additional details
                 col1, col2 = st.columns(2)
@@ -1348,17 +1477,35 @@ def main():
                         pokemon = display_df.iloc[i + j]
                         with col:
                             pokemon_id = int(pokemon['pokedex_number'])
+                            variant_type = pokemon.get('variant_type', 'base')
+                            
+                            # Show variant badge
+                            badge = ""
+                            if variant_type != 'base':
+                                if 'mega' in variant_type:
+                                    badge = "🔥"
+                                elif variant_type in ['alolan', 'galarian', 'hisuian']:
+                                    badge = "🌍"
+                                elif variant_type == 'gigantamax':
+                                    badge = "⚡"
+                            
+                            if shiny_mode:
+                                badge += "✨"
+                            
                             sprite_data = load_sprite(
                                 pokemon_id,
-                                use_animated=use_animations
+                                use_animated=use_animations,
+                                variant_type=variant_type,
+                                shiny=shiny_mode
                             )
                             display_sprite(sprite_data, use_container_width=True)
                             
                             if show_names:
+                                display_name = pokemon.get('form_name', pokemon['name']) if pd.notna(pokemon.get('form_name')) else pokemon['name']
                                 st.markdown(
                                     f"<div style='text-align: center; font-size: 0.75rem;'>"
-                                    f"#{int(pokemon['pokedex_number']):04d}<br>"
-                                    f"<b>{pokemon['name']}</b>"
+                                    f"#{int(pokemon['pokedex_number']):04d} {badge}<br>"
+                                    f"<b>{display_name}</b>"
                                     f"</div>",
                                     unsafe_allow_html=True
                                 )
