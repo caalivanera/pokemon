@@ -39,7 +39,7 @@ def load_national_dex() -> pd.DataFrame:
     This dataset combines all CSV sources with advanced analytics.
     """
     if NATIONAL_DEX_FILE.exists():
-        st.success("✅ Loading National Pokedex (1045 Pokemon, 94 columns)...")
+        st.success("✅ Loading National Pokedex (1076 Pokemon with all regional & Mega forms)...")
         df = pd.read_csv(NATIONAL_DEX_FILE)
         
         # Add column aliases for compatibility with app code
@@ -50,7 +50,14 @@ def load_national_dex() -> pd.DataFrame:
         if 'pokedex_number' in df.columns:
             df['id'] = df['pokedex_number']
         
-        st.info(f"📊 Loaded {len(df)} Pokemon across {df['generation'].nunique()} generations")
+        # Count variants for display
+        hisuian = len(df[df['name'].str.contains('Hisuian', na=False)])
+        paldean = len(df[df['name'].str.contains('Paldean', na=False)])
+        alolan = len(df[df['name'].str.contains('Alolan', na=False)])
+        galarian = len(df[df['name'].str.contains('Galarian', na=False)])
+        mega = len(df[df['name'].str.contains('Mega', na=False)])
+        
+        st.info(f"📊 Loaded {len(df)} Pokemon | Variants: {hisuian} Hisuian, {paldean} Paldean, {alolan} Alolan, {galarian} Galarian, {mega} Mega")
         return df
     else:
         st.error("❌ National Dex not found! Attempting fallback to legacy mode...")
