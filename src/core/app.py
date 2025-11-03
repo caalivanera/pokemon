@@ -1,1150 +1,1316 @@
+"""
+Enhanced Pokémon Dashboard - Comprehensive Statistics & Competitive Analysis
+Version 4.0.0 - Enhanced UI/UX with Interactive Features (1,025 Pokémon)
+Latest Update: November 2025
+"""
+
 import streamlit as st
 import pandas as pd
-import os
+import plotly.express as px
+import plotly.graph_objects as go
+import json
 from pathlib import Path
-import sys
-import requests
-from urllib.parse import quote
+from PIL import Image
+import io
+import base64
 
-# Add parent directory to path for imports
-current_dir = os.path.dirname(os.path.abspath(__file__))
-parent_dir = os.path.dirname(os.path.dirname(current_dir))
-sys.path.insert(0, parent_dir)
+# ==================== CONFIGURATION ====================
 
-from src.data_loaders.data_extractor import (
-    fetch_all_pokemon,
-    load_pokemon_glossary
-)
-from src.data_loaders.yaml_loader import PokemonDataLoader
-
-# --- Configuration ---
 st.set_page_config(
-    page_title="National Pokédex Dashboard",
+    page_title="National Pokédex Dashboard - Enhanced",
     page_icon="⚡",
     layout="wide",
-    initial_sidebar_state="collapsed"
+    initial_sidebar_state="expanded"
 )
 
-# --- Constants ---
-DATA_DIR = Path(parent_dir) / 'data'
-NATIONAL_DEX_FILE = DATA_DIR / 'national_dex.csv'
-LEGACY_DATA_FILE = 'pokemon_enhanced_data.csv'
-POKEMON_LIMIT = 151
-
-# Generation/Region mappings
-GENERATION_RANGES = {
-    "Generation I (Kanto)": (1, 151),
-    "Generation II (Johto)": (152, 251),
-    "Generation III (Hoenn)": (252, 386),
-    "Generation IV (Sinnoh)": (387, 493),
-    "Generation V (Unova)": (494, 649),
-    "Generation VI (Kalos)": (650, 721),
-    "Generation VII (Alola)": (722, 809),
-    "Generation VIII (Galar)": (810, 905),
-    "Generation IX (Paldea)": (906, 1025)
-}
-
-# Game/Pokemon mappings by generation
-POKEMON_GAMES = {
-    "Red/Blue/Yellow (Gen I)": {
-        "range": (1, 151),
-        "release_year": "1996-1998",
-        "region": "Kanto",
-        "icon": "🔴🔵🟡"
-    },
-    "Gold/Silver/Crystal (Gen II)": {
-        "range": (1, 251),
-        "release_year": "1999-2001",
-        "region": "Johto",
-        "icon": "🟡⚪💎"
-    },
-    "Ruby/Sapphire/Emerald (Gen III)": {
-        "range": (1, 386),
-        "release_year": "2002-2005",
-        "region": "Hoenn",
-        "icon": "🔴🔵🟢"
-    },
-    "FireRed/LeafGreen (Gen III Remakes)": {
-        "range": (1, 386),
-        "release_year": "2004",
-        "region": "Kanto",
-        "icon": "🔥🍃"
-    },
-    "Diamond/Pearl/Platinum (Gen IV)": {
-        "range": (1, 493),
-        "release_year": "2006-2009",
-        "region": "Sinnoh",
-        "icon": "💎⚪⚫"
-    },
-    "HeartGold/SoulSilver (Gen IV Remakes)": {
-        "range": (1, 493),
-        "release_year": "2009-2010",
-        "region": "Johto",
-        "icon": "💛🩶"
-    },
-    "Black/White (Gen V)": {
-        "range": (1, 649),
-        "release_year": "2010-2011",
-        "region": "Unova",
-        "icon": "⚫⚪"
-    },
-    "Black 2/White 2 (Gen V)": {
-        "range": (1, 649),
-        "release_year": "2012",
-        "region": "Unova",
-        "icon": "⚫⚪"
-    },
-    "X/Y (Gen VI)": {
-        "range": (1, 721),
-        "release_year": "2013",
-        "region": "Kalos",
-        "icon": "❌🇾"
-    },
-    "Omega Ruby/Alpha Sapphire (Gen VI Remakes)": {
-        "range": (1, 721),
-        "release_year": "2014",
-        "region": "Hoenn",
-        "icon": "🔴🔵"
-    },
-    "Sun/Moon (Gen VII)": {
-        "range": (1, 809),
-        "release_year": "2016",
-        "region": "Alola",
-        "icon": "☀️🌙"
-    },
-    "Ultra Sun/Ultra Moon (Gen VII)": {
-        "range": (1, 809),
-        "release_year": "2017",
-        "region": "Alola",
-        "icon": "🌟☀️🌙"
-    },
-    "Let's Go Pikachu/Eevee (Gen VII)": {
-        "range": (1, 151),
-        "release_year": "2018",
-        "region": "Kanto",
-        "icon": "⚡🦊"
-    },
-    "Sword/Shield (Gen VIII)": {
-        "range": (1, 905),
-        "release_year": "2019",
-        "region": "Galar",
-        "icon": "⚔️🛡️"
-    },
-    "Brilliant Diamond/Shining Pearl (Gen VIII Remakes)": {
-        "range": (1, 493),
-        "release_year": "2021",
-        "region": "Sinnoh",
-        "icon": "💎✨"
-    },
-    "Legends: Arceus (Gen VIII)": {
-        "range": (1, 905),
-        "release_year": "2022",
-        "region": "Hisui",
-        "icon": "🏔️"
-    },
-    "Scarlet/Violet (Gen IX)": {
-        "range": (1, 1025),
-        "release_year": "2022",
-        "region": "Paldea",
-        "icon": "🔴🟣"
+# Modern dynamic styling with enhanced design
+st.markdown("""
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+    
+    * {
+        font-family: 'Poppins', sans-serif;
     }
-}
-
-# Type colors for badges
-TYPE_COLORS = {
-    'normal': '#A8A878', 'fire': '#F08030', 'water': '#6890F0',
-    'electric': '#F8D030', 'grass': '#78C850', 'ice': '#98D8D8',
-    'fighting': '#C03028', 'poison': '#A040A0', 'ground': '#E0C068',
-    'flying': '#A890F0', 'psychic': '#F85888', 'bug': '#A8B820',
-    'rock': '#B8A038', 'ghost': '#705898', 'dragon': '#7038F8',
-    'dark': '#705848', 'steel': '#B8B8D0', 'fairy': '#EE99AC'
-}
-
-# --- Helper Functions ---
-def get_pokemon_sprite_url(pokemon_id: int, name: str = "", 
-                          high_quality: bool = True) -> str:
-    """Generate high-quality Pokemon sprite URL from PokeAPI"""
-    clean_name = name.lower().replace(" ", "-").replace("'", "")
     
-    # Handle regional forms
-    if "alolan" in clean_name:
-        form_name = clean_name.replace("alolan-", "") + "-alola"
-        return f"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{form_name}.png"
-    elif "galarian" in clean_name:
-        form_name = clean_name.replace("galarian-", "") + "-galar"
-        return f"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{form_name}.png"
-    elif "hisuian" in clean_name:
-        form_name = clean_name.replace("hisuian-", "") + "-hisui"
-        return f"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{form_name}.png"
-    elif "paldean" in clean_name:
-        form_name = clean_name.replace("paldean-", "") + "-paldea"
-        return f"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{form_name}.png"
-    elif "mega" in clean_name:
-        base_name = clean_name.replace("mega-", "").replace("-x", "").replace("-y", "")
-        if "-x" in clean_name:
-            form_name = f"{base_name}-mega-x"
-        elif "-y" in clean_name:
-            form_name = f"{base_name}-mega-y"
-        else:
-            form_name = f"{base_name}-mega"
-        return f"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{form_name}.png"
+    .main-header {
+        font-size: 3.5rem;
+        font-weight: 800;
+        text-align: center;
+        background: linear-gradient(135deg, #22c55e 0%, #10b981 25%, #14b8a6 50%, #06b6d4 75%, #22c55e 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-size: 200% 200%;
+        animation: gradient 3s ease infinite;
+        margin-bottom: 1rem;
+        text-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
     
-    # Use high-quality official artwork or HOME sprites
-    if high_quality:
-        return f"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{pokemon_id}.png"
-    else:
-        return f"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{pokemon_id}.png"
-
-
-def inject_custom_css():
-    """Inject dark theme CSS with green accents"""
-    st.markdown("""
-    <style>
-        /* Dark Theme with Green Accent */
-        :root {
-            --bg-black: #141414;
-            --bg-dark: #1F1F1F;
-            --accent-green: #10B981;
-            --pokemon-green: #10B981;
-            --bg-white: #FFFFFF;
-            --text-primary: #E5E5E5;
-            --text-secondary: #B3B3B3;
-            --hover-bg: #2F2F2F;
-        }
-        
-        /* Main app dark background */
-        .stApp {
-            background-color: var(--bg-black);
-            color: var(--text-primary);
-        }
-        
-        /* Hide Streamlit branding */
-        #MainMenu {visibility: hidden;}
-        footer {visibility: hidden;}
-        header {visibility: hidden;}
-        
-        /* Sticky animated header */
-        .sticky-header {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background: linear-gradient(180deg, #141414 0%, rgba(20,20,20,0.95) 100%);
-            backdrop-filter: blur(10px);
-            padding: 20px 0;
-            border-bottom: 2px solid var(--accent-green);
-            animation: slideDown 0.3s ease-out;
-        }
-        
-        @keyframes slideDown {
-            from {
-                transform: translateY(-100%);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-        
-        /* Floating animation for sprites */
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0px);
-            }
-            50% {
-                transform: translateY(-15px);
-            }
-        }
-        
-        @keyframes bounce {
-            0%, 100% {
-                transform: translateY(0) scale(1);
-            }
-            25% {
-                transform: translateY(-10px) scale(1.02);
-            }
-            75% {
-                transform: translateY(-5px) scale(0.98);
-            }
-        }
-        
-        /* Pokemon card styling */
-        .pokemon-card {
-            background: var(--bg-dark);
-            border-radius: 16px;
-            padding: 20px;
-            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-            cursor: pointer;
-            border: 2px solid transparent;
-            position: relative;
-            overflow: hidden;
-            min-height: 360px;
-        }
-        
-        .pokemon-card:hover {
-            transform: scale(1.08) translateY(-8px);
-            border-color: var(--pokemon-green);
-            box-shadow: 0 15px 40px rgba(16, 185, 129, 0.4);
-            z-index: 10;
-        }
-        
-        .pokemon-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(16, 185, 129, 0.1), transparent);
-            transition: left 0.4s;
-        }
-        
-        .pokemon-card:hover::before {
-            left: 100%;
-        }
-        
-        /* Sprite animations */
-        .pokemon-sprite {
-            width: 100%;
-            height: 250px;
-            object-fit: contain;
-            filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.6));
-            transition: transform 0.2s ease;
-            animation: float 3s ease-in-out infinite;
-        }
-        
-        .pokemon-card:hover .pokemon-sprite {
-            animation: bounce 0.6s ease-in-out;
-            transform: scale(1.15) rotateY(20deg);
-        }
-        
-        /* TBA placeholder styling */
-        .tba-placeholder {
-            width: 100%;
-            height: 250px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, #1F1F1F 0%, #2F2F2F 100%);
-            border-radius: 12px;
-            border: 2px dashed var(--pokemon-green);
-            color: var(--pokemon-green);
-            font-size: 56px;
-            font-weight: bold;
-            letter-spacing: 10px;
-            text-shadow: 0 0 25px rgba(16, 185, 129, 0.6);
-        }
-        
-        /* Type badges */
-        .type-badge {
-            display: inline-block;
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 13px;
-            font-weight: bold;
-            text-transform: uppercase;
-            margin: 3px;
-            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
-            letter-spacing: 0.8px;
-            transition: transform 0.2s;
-        }
-        
-        .type-badge:hover {
-            transform: scale(1.1);
-        }
-        
-        /* Tabs styling */
-        .stTabs [data-baseweb="tab-list"] {
-            gap: 8px;
-            background-color: var(--bg-dark);
-            padding: 8px;
-            border-radius: 8px;
-        }
-        
-        .stTabs [data-baseweb="tab"] {
-            height: 50px;
-            background-color: transparent;
-            border-radius: 8px;
-            color: var(--text-secondary);
-            font-weight: 600;
-            padding: 0 24px;
-            transition: all 0.15s;
-        }
-        
-        .stTabs [data-baseweb="tab"]:hover {
-            background-color: var(--hover-bg);
-            color: var(--text-primary);
-        }
-        
-        .stTabs [aria-selected="true"] {
-            background-color: var(--accent-green) !important;
-            color: white !important;
-        }
-        
-        /* Buttons */
-        .stButton>button {
-            background: var(--accent-green);
-            color: white;
-            border: none;
-            border-radius: 4px;
-            padding: 12px 24px;
-            font-weight: bold;
-            transition: all 0.2s;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .stButton>button:hover {
-            background: #059669;
-            transform: scale(1.05);
-            box-shadow: 0 8px 16px rgba(16, 185, 129, 0.4);
-        }
-        
-        /* Select boxes and inputs */
-        .stSelectbox, .stMultiSelect, .stTextInput {
-            color: var(--text-primary);
-        }
-        
-        .stSelectbox>div>div, .stMultiSelect>div>div {
-            background-color: var(--bg-dark);
-            border-color: #444;
-            color: var(--text-primary);
-        }
-        
-        /* Metrics */
-        [data-testid="stMetricValue"] {
-            color: var(--accent-green);
-            font-size: 28px;
-            font-weight: bold;
-        }
-        
-        [data-testid="stMetricLabel"] {
-            color: var(--text-secondary);
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        /* Dataframes */
-        .stDataFrame {
-            background-color: var(--bg-dark);
-        }
-        
-        /* Sliders */
-        .stSlider>div>div>div {
-            background-color: var(--accent-green);
-        }
-        
-        /* Loading animation */
-        .stSpinner>div {
-            border-top-color: var(--accent-green) !important;
-        }
-        
-        /* Headings */
-        h1, h2, h3 {
-            color: var(--text-primary);
-            font-weight: 700;
-        }
-        
-        /* Grid layout for gallery */
-        .pokemon-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 20px;
-            padding: 20px 0;
-        }
-        
-        /* Search bar */
-        .search-container {
-            position: relative;
-            margin: 20px 0;
-        }
-        
-        .search-container input {
-            width: 100%;
-            padding: 15px 50px 15px 20px;
-            background: var(--bg-dark);
-            border: 2px solid #444;
-            border-radius: 8px;
-            color: var(--text-primary);
-            font-size: 16px;
-            transition: all 0.2s;
-        }
-        
-        .search-container input:focus {
-            border-color: var(--pokemon-green);
-            outline: none;
-            box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
-        }
-        
-        /* Scrollbar */
-        ::-webkit-scrollbar {
-            width: 12px;
-        }
-        
-        ::-webkit-scrollbar-track {
-            background: var(--bg-black);
-        }
-        
-        ::-webkit-scrollbar-thumb {
-            background: var(--pokemon-green);
-            border-radius: 6px;
-        }
-        
-        ::-webkit-scrollbar-thumb:hover {
-            background: #059669;
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .pokemon-grid {
-                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            }
-        }
-    </style>
-    """, unsafe_allow_html=True)
-
-
-def get_generation_for_pokemon(pokedex_num: int) -> str:
-    """Get generation name for a Pokemon based on Pokedex number"""
-    for gen_name, (start, end) in GENERATION_RANGES.items():
-        if start <= pokedex_num <= end:
-            return gen_name
-    return "Unknown"
-
-
-def create_type_badge(type_name: str) -> str:
-    """Create HTML for type badge with proper color"""
-    color = TYPE_COLORS.get(type_name.lower(), '#777')
-    return f'<span class="type-badge" style="background-color: {color}; color: white;">{type_name}</span>'
-
-
-def create_pokemon_card_html(pokemon_data: pd.Series, sprite_url: str) -> str:
-    """Create Pokemon card HTML with TBA placeholder for missing sprites"""
-    type_badges = create_type_badge(pokemon_data['primary_type'])
-    if pd.notna(pokemon_data.get('secondary_type')) and str(pokemon_data.get('secondary_type')) != 'nan':
-        type_badges += ' ' + create_type_badge(pokemon_data['secondary_type'])
+    @keyframes gradient {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
     
-    return f"""
-    <div class="pokemon-card">
-        <div style="position: relative; width: 100%; height: 250px; margin-bottom: 15px;">
-            <img src="{sprite_url}" 
-                 class="pokemon-sprite" 
-                 alt="{pokemon_data['name']}"
-                 style="width: 100%; height: 250px; object-fit: contain; filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.6)); animation: float 3s ease-in-out infinite;"
-                 onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\\'tba-placeholder\\' style=\\'height: 250px; font-size: 56px;\\'>TBA</div>';">
-        </div>
-        <h3 style="text-align: center; margin: 15px 0 10px 0; color: #E5E5E5; font-size: 20px; font-weight: 700;">
-            #{int(pokemon_data['pokedex_number'])} {pokemon_data['name']}
-        </h3>
-        <div style="text-align: center; margin: 12px 0;">
-            {type_badges}
-        </div>
-        <div style="margin-top: 15px; text-align: center; color: #10B981; font-size: 16px; font-weight: 600;">
-            BST: {int(pokemon_data['total_points'])}
-        </div>
-    </div>
+    .stat-card {
+        background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        padding: 1.8rem;
+        border-radius: 16px;
+        color: white;
+        text-align: center;
+        box-shadow: 0 8px 16px rgba(16, 185, 129, 0.3);
+        transition: all 0.3s ease;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .stat-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 24px rgba(16, 185, 129, 0.4);
+    }
+    
+    .pokemon-card {
+        border: 2px solid #374151;
+        border-radius: 16px;
+        padding: 1.5rem;
+        background: linear-gradient(135deg, #1F2937 0%, #111827 100%);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        transition: all 0.3s ease;
+    }
+    
+    .pokemon-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 24px rgba(34, 197, 94, 0.3);
+        border-color: #22c55e;
+    }
+    
+    .type-badge {
+        display: inline-block;
+        padding: 0.4rem 1rem;
+        border-radius: 24px;
+        font-weight: 700;
+        margin: 0.3rem;
+        font-size: 0.9rem;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        transition: transform 0.2s;
+    }
+    
+    .type-badge:hover {
+        transform: scale(1.1);
+    }
+    
+    .stTabs [data-baseweb="tab-list"] {
+        gap: 8px;
+        background: linear-gradient(135deg, #1F2937 0%, #111827 100%);
+        padding: 12px;
+        border-radius: 16px;
+    }
+    
+    .stTabs [data-baseweb="tab"] {
+        height: 56px;
+        padding: 0 24px;
+        font-weight: 700;
+        border-radius: 12px;
+        transition: all 0.3s ease;
+        border: 2px solid transparent;
+    }
+    
+    .stTabs [data-baseweb="tab"]:hover {
+        background-color: rgba(34, 197, 94, 0.1);
+        border-color: #22c55e;
+    }
+    
+    .stTabs [aria-selected="true"] {
+        background: linear-gradient(135deg, #22c55e 0%, #10b981 100%);
+        color: white !important;
+        box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
+    }
+    
+    .randomizer-button {
+        background: linear-gradient(135deg, #22c55e 0%, #10b981 100%);
+        color: white;
+        padding: 1rem 2rem;
+        border-radius: 12px;
+        border: none;
+        font-size: 1.1rem;
+        font-weight: 700;
+        box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
+    
+    .randomizer-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(34, 197, 94, 0.4);
+    }
+    
+    .game-container {
+        background: linear-gradient(135deg, #1F2937 0%, #111827 100%);
+        border-radius: 16px;
+        padding: 2rem;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+        border: 2px solid #22c55e;
+    }
+</style>
+""", unsafe_allow_html=True)
+
+# ==================== DATA LOADING ====================
+
+@st.cache_data(ttl=3600)  # Cache for 1 hour
+def load_main_dataset():
+    """Load the main National Dex CSV - 1,025 Pokemon (Gen 1-9)"""
+    csv_path = Path("data/national_dex.csv")
+    if csv_path.exists():
+        df = pd.read_csv(csv_path)
+        # Ensure we have the latest data
+        if len(df) < 1025:
+            st.warning(f"⚠️ Data may be outdated. Expected 1025 Pokemon, found {len(df)}")
+        return df
+    return None
+
+@st.cache_data
+def load_competitive_data():
+    """Load competitive data (IVs, EVs, Natures)"""
+    json_path = Path("data/competitive/competitive_data.json")
+    if json_path.exists():
+        with open(json_path, 'r', encoding='utf-8') as f:
+            return pd.DataFrame(json.load(f))
+    return None
+
+@st.cache_data
+def load_natures():
+    """Load nature information"""
+    json_path = Path("data/competitive/natures_reference.json")
+    if json_path.exists():
+        with open(json_path, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    return None
+
+@st.cache_data
+def load_game_data():
+    """Load comprehensive game data"""
+    json_path = Path("data/enhanced/comprehensive_game_data.json")
+    if json_path.exists():
+        with open(json_path, 'r', encoding='utf-8') as f:
+            return pd.DataFrame(json.load(f))
+    return None
+
+def load_sprite(pokemon_id, sprite_type='official', use_animated=False):
     """
+    Load Pokemon sprite image or animation
+    
+    Args:
+        pokemon_id: Pokemon ID number
+        sprite_type: 'official', 'icon', or 'animated'
+        use_animated: If True, tries to load GIF animation first
+    
+    Returns:
+        tuple: (content, is_gif) - content is either Image or file path
+    """
+    # Try animated GIF first if requested
+    if use_animated or sprite_type == 'animated':
+        animated_dir = Path("assets/animated")
+        for file in animated_dir.glob(f"{pokemon_id:04d}_*.gif"):
+            if file.exists():
+                return (str(file), True)
+    
+    # Determine directory based on type
+    if sprite_type == 'icon':
+        sprite_dir = Path("assets/icons")
+    else:  # official
+        sprite_dir = Path("assets/sprites")
+    
+    # Try to find PNG sprite
+    for file in sprite_dir.glob(f"{pokemon_id:04d}_*.png"):
+        try:
+            return (Image.open(file), False)
+        except Exception:
+            pass
+    
+    # Fallback: Try to load from PokeAPI URL directly
+    try:
+        import requests
+        response = requests.get(
+            f"https://raw.githubusercontent.com/PokeAPI/sprites/master/"
+            f"sprites/pokemon/other/official-artwork/{pokemon_id}.png",
+            timeout=5
+        )
+        if response.status_code == 200:
+            return (Image.open(io.BytesIO(response.content)), False)
+    except Exception:
+        pass
+    
+    return (None, False)
 
 
-# --- Data Loading ---
-@st.cache_data(ttl=60*60*24)
-def load_national_dex() -> pd.DataFrame:
-    """Load comprehensive National Pokedex dataset"""
-    if NATIONAL_DEX_FILE.exists():
-        df = pd.read_csv(NATIONAL_DEX_FILE)
+def display_sprite(sprite_data, width=None, use_container_width=False):
+    """
+    Display sprite - handles both static PNG and animated GIF
+    
+    Args:
+        sprite_data: tuple (content, is_gif) from load_sprite()
+        width: Width in pixels for static images
+        use_container_width: Use container width for static images
+    """
+    if sprite_data[0] is None:
+        st.write("🎮 No sprite available")
+        return
+    
+    content, is_gif = sprite_data
+    
+    if is_gif:
+        # Display animated GIF using HTML
+        with open(content, "rb") as f:
+            gif_data = f.read()
+            gif_b64 = io.BytesIO(gif_data)
+            import base64
+            gif_encoded = base64.b64encode(gif_data).decode()
+            
+        style = f"width: {width}px;" if width else "width: 100%;"
+        st.markdown(
+            f'<img src="data:image/gif;base64,{gif_encoded}" '
+            f'style="{style}" alt="Pokemon sprite">',
+            unsafe_allow_html=True
+        )
+    else:
+        # Display static PNG
+        if width:
+            st.image(content, width=width)
+        elif use_container_width:
+            st.image(content, use_container_width=True)
+        else:
+            st.image(content)
+
+# ==================== HELPER FUNCTIONS ====================
+
+def get_type_color(type_name):
+    """Get color for Pokemon type"""
+    colors = {
+        'Normal': '#A8A878', 'Fire': '#F08030', 'Water': '#6890F0',
+        'Electric': '#F8D030', 'Grass': '#78C850', 'Ice': '#98D8D8',
+        'Fighting': '#C03028', 'Poison': '#A040A0', 'Ground': '#E0C068',
+        'Flying': '#A890F0', 'Psychic': '#F85888', 'Bug': '#A8B820',
+        'Rock': '#B8A038', 'Ghost': '#705898', 'Dragon': '#7038F8',
+        'Dark': '#705848', 'Steel': '#B8B8D0', 'Fairy': '#EE99AC'
+    }
+    return colors.get(type_name, '#777777')
+
+def display_pokemon_card(pokemon, show_sprite=True, use_animated=True):
+    """Display a Pokemon card with sprite and info"""
+    col1, col2 = st.columns([1, 2])
+    
+    with col1:
+        if show_sprite:
+            pokemon_id = int(pokemon['pokedex_number'])
+            sprite_data = load_sprite(pokemon_id, use_animated=use_animated)
+            if sprite_data[0] is not None:
+                display_sprite(sprite_data, width=150)
+            else:
+                st.write("🎮 No sprite")
+    
+    with col2:
+        poke_num = int(pokemon['pokedex_number'])
+        poke_name = pokemon['name']
+        st.markdown(f"### #{poke_num:04d} {poke_name}")
         
-        # Add column aliases
-        if 'type_1' in df.columns:
-            df['primary_type'] = df['type_1']
-        if 'type_2' in df.columns:
-            df['secondary_type'] = df['type_2']
-        if 'pokedex_number' in df.columns:
-            df['id'] = df['pokedex_number']
+        # Type badges
+        type1 = pokemon["type_1"]
+        type_color1 = get_type_color(type1)
+        type_html = (
+            f'<span class="type-badge" '
+            f'style="background-color: {type_color1}">{type1}</span>'
+        )
         
-        # Sort by Pokedex number by default
-        df = df.sort_values('pokedex_number').reset_index(drop=True)
+        if pd.notna(pokemon.get('type_2')) and pokemon.get('type_2'):
+            type2 = pokemon["type_2"]
+            type_color2 = get_type_color(type2)
+            type_html += (
+                f'<span class="type-badge" '
+                f'style="background-color: {type_color2}">{type2}</span>'
+            )
+        st.markdown(type_html, unsafe_allow_html=True)
         
-        # Add generation column
-        df['generation'] = df['pokedex_number'].apply(get_generation_for_pokemon)
+        # Stats
+        col_a, col_b, col_c = st.columns(3)
+        with col_a:
+            st.metric("HP", int(pokemon.get('hp', 0)))
+        with col_b:
+            st.metric("Attack", int(pokemon.get('attack', 0)))
+        with col_c:
+            st.metric("Defense", int(pokemon.get('defense', 0)))
+
+def create_stat_distribution_chart(df, stat_name):
+    """Create an interactive distribution chart for a stat"""
+    fig = px.histogram(
+        df, 
+        x=stat_name,
+        nbins=50,
+        title=f'{stat_name.title()} Distribution Across All Pokémon',
+        labels={stat_name: stat_name.title()},
+        color_discrete_sequence=['#ff6b6b']
+    )
+    fig.update_layout(
+        showlegend=False,
+        height=400,
+        hovermode='x unified'
+    )
+    return fig
+
+def create_type_effectiveness_heatmap(pokemon):
+    """Create type effectiveness heatmap for a Pokemon"""
+    types = [
+        'normal', 'fire', 'water', 'electric', 'grass', 'ice',
+        'fighting', 'poison', 'ground', 'flying', 'psychic', 'bug',
+        'rock', 'ghost', 'dragon', 'dark', 'steel', 'fairy'
+    ]
+    
+    effectiveness = []
+    for t in types:
+        col_name = f'against_{t}'
+        if col_name in pokemon:
+            effectiveness.append(pokemon[col_name])
+        else:
+            effectiveness.append(1.0)
+    
+    # Create heatmap
+    fig = go.Figure(data=go.Heatmap(
+        z=[effectiveness],
+        x=[t.title() for t in types],
+        y=['Defensive'],
+        colorscale=[
+            [0, '#00ff00'],  # Immune (0x)
+            [0.25, '#90EE90'],  # Resistant (0.25x, 0.5x)
+            [0.5, '#FFFF00'],  # Normal (1x)
+            [0.75, '#FFA500'],  # Weak (2x)
+            [1, '#FF0000']  # Very Weak (4x)
+        ],
+        text=[[f'{e}x' for e in effectiveness]],
+        texttemplate='%{text}',
+        textfont={"size": 10},
+        colorbar=dict(title="Multiplier")
+    ))
+    
+    fig.update_layout(
+        title='Type Effectiveness (Defensive)',
+        height=200,
+        xaxis_title='Attacking Type',
+        margin=dict(l=50, r=50, t=50, b=50)
+    )
+    
+    return fig
+
+# ==================== MAIN APP ====================
+
+def main():
+    """Main application logic"""
+    
+    # Header
+    st.markdown('<h1 class="main-header">⚡ National Pokédex Dashboard ⚡</h1>', unsafe_allow_html=True)
+    st.markdown("### Version 4.0.0 - Complete Database: All 1,025 Pokémon (Gen 1-9) with Enhanced UI & Interactive Features")
+    st.caption("🎮 New: Pokemon Randomizer | Who's That Pokemon Mini-Game | By-Game Filter | Modern UI")
+    
+    # Load data
+    df = load_main_dataset()
+    comp_df = load_competitive_data()
+    natures = load_natures()
+    
+    if df is None:
+        st.error("❌ Could not load Pokemon data. Please ensure data/national_dex.csv exists.")
+        st.info("💡 Try refreshing the page or clearing the cache.")
+        return
+    
+    # Display actual data count
+    st.sidebar.info(f"📊 **Loaded {len(df)} Pokémon** | v4.0.0")
+    
+    # Sidebar - Global Filters
+    with st.sidebar:
+        st.header("🔍 Filters")
         
-        # Add high-quality sprite URLs
-        df['sprite_url_hq'] = df.apply(
-            lambda row: get_pokemon_sprite_url(
-                int(row['pokedex_number']),
-                str(row['name']),
-                high_quality=True
-            ),
+        # Cache management
+        if st.button("🔄 Clear Cache & Reload Data", help="Clear cached data and reload from source"):
+            st.cache_data.clear()
+            st.rerun()
+        
+        # Animation toggle
+        st.subheader("🎬 Display Options")
+        use_animations = st.checkbox(
+            "Enable Animated Sprites",
+            value=True,
+            help="Show moving GIF sprites when available"
+        )
+        
+        st.markdown("---")
+        
+        # Generation filter
+        generations = ["All"] + [f"Gen {i}" for i in range(1, 10)]
+        selected_gen = st.selectbox("Generation", generations)
+        
+        # Type filter
+        all_types = sorted(df['type_1'].dropna().unique())
+        selected_types = st.multiselect("Primary Type", all_types)
+        
+        # Status filter
+        statuses = ["All", "Normal", "Legendary", "Mythical"]
+        selected_status = st.selectbox("Status", statuses)
+        
+        # Stat range filters
+        st.subheader("Stat Ranges")
+        min_bst = st.slider("Min Base Stat Total", 0, 800, 0)
+        max_bst = st.slider("Max Base Stat Total", 0, 800, 800)
+        
+        # Apply filters
+        filtered_df = df.copy()
+        
+        if selected_gen != "All":
+            gen_num = int(selected_gen.split()[1])
+            filtered_df = filtered_df[filtered_df['generation'] == gen_num]
+        
+        if selected_types:
+            filtered_df = filtered_df[filtered_df['type_1'].isin(selected_types)]
+        
+        if selected_status != "All":
+            filtered_df = filtered_df[filtered_df['status'] == selected_status]
+        
+        filtered_df = filtered_df[
+            (filtered_df['total_points'] >= min_bst) &
+            (filtered_df['total_points'] <= max_bst)
+        ]
+        
+        st.markdown(f"**{len(filtered_df)}** Pokémon match filters")
+    
+    # Main Tabs
+    tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9 = st.tabs([
+        "📊 Overview",
+        "🔍 Pokémon Search",
+        "⚔️ Competitive Analysis",
+        "📈 Statistics & Trends",
+        "🎨 Type Analysis",
+        "🧬 Evolution & Forms",
+        "🎮 By Game",
+        "🎨 Sprite Gallery",
+        "🏆 Team Builder"
+    ])
+    
+    # ==================== TAB 1: OVERVIEW ====================
+    with tab1:
+        st.header("📊 Dataset Overview")
+        
+        # Key statistics
+        col1, col2, col3, col4, col5 = st.columns(5)
+        
+        with col1:
+            st.markdown('<div class="stat-card">', unsafe_allow_html=True)
+            st.metric("Total Pokémon", len(df))
+            st.markdown('</div>', unsafe_allow_html=True)
+        
+        with col2:
+            st.markdown('<div class="stat-card">', unsafe_allow_html=True)
+            st.metric("Generations", df['generation'].nunique())
+            st.markdown('</div>', unsafe_allow_html=True)
+        
+        with col3:
+            st.markdown('<div class="stat-card">', unsafe_allow_html=True)
+            st.metric("Types", df['type_1'].nunique())
+            st.markdown('</div>', unsafe_allow_html=True)
+        
+        with col4:
+            st.markdown('<div class="stat-card">', unsafe_allow_html=True)
+            legendary_count = len(df[df['status'] == 'Legendary'])
+            st.metric("Legendary", legendary_count)
+            st.markdown('</div>', unsafe_allow_html=True)
+        
+        with col5:
+            st.markdown('<div class="stat-card">', unsafe_allow_html=True)
+            mythical_count = len(df[df['status'] == 'Mythical'])
+            st.metric("Mythical", mythical_count)
+            st.markdown('</div>', unsafe_allow_html=True)
+        
+        st.markdown("---")
+        
+        # POKEMON RANDOMIZER
+        st.subheader("🎲 Pokémon Randomizer")
+        col_random1, col_random2, col_random3 = st.columns([2, 1, 2])
+        
+        with col_random2:
+            if st.button("🎲 Generate Random Pokémon", use_container_width=True):
+                random_pokemon = df.sample(1).iloc[0]
+                st.session_state['random_pokemon'] = random_pokemon
+        
+        if 'random_pokemon' in st.session_state:
+            random_poke = st.session_state['random_pokemon']
+            st.markdown('<div class="game-container">', unsafe_allow_html=True)
+            
+            col_r1, col_r2, col_r3 = st.columns([1, 2, 1])
+            with col_r2:
+                poke_id = int(random_poke['pokedex_number'])
+                sprite_data = load_sprite(poke_id, use_animated=use_animations)
+                display_sprite(sprite_data, width=250)
+                
+                st.markdown(
+                    f"<h2 style='text-align: center;'>#{poke_id:04d} {random_poke['name']}</h2>",
+                    unsafe_allow_html=True
+                )
+                
+                type1 = random_poke["type_1"]
+                type_color1 = get_type_color(type1)
+                type_html = (
+                    f'<div style="text-align: center;">'
+                    f'<span class="type-badge" style="background-color: {type_color1}">{type1}</span>'
+                )
+                
+                if pd.notna(random_poke.get('type_2')) and random_poke.get('type_2'):
+                    type2 = random_poke["type_2"]
+                    type_color2 = get_type_color(type2)
+                    type_html += f'<span class="type-badge" style="background-color: {type_color2}">{type2}</span>'
+                
+                type_html += '</div>'
+                st.markdown(type_html, unsafe_allow_html=True)
+                
+                st.markdown(f"**Generation:** {int(random_poke['generation'])}")
+                st.markdown(f"**Base Stat Total:** {int(random_poke['total_points'])}")
+            
+            st.markdown('</div>', unsafe_allow_html=True)
+        
+        st.markdown("---")
+        
+        # POKEMON GUESSING GAME
+        st.subheader("🎮 Who's That Pokémon?")
+        
+        if 'game_pokemon' not in st.session_state:
+            st.session_state['game_pokemon'] = None
+            st.session_state['game_revealed'] = False
+            st.session_state['game_score'] = 0
+            st.session_state['game_attempts'] = 0
+        
+        col_game1, col_game2 = st.columns([1, 2])
+        
+        with col_game1:
+            if st.button("🎮 Start New Game", use_container_width=True):
+                st.session_state['game_pokemon'] = df.sample(1).iloc[0]
+                st.session_state['game_revealed'] = False
+            
+            if st.button("🔄 Reset Score", use_container_width=True):
+                st.session_state['game_score'] = 0
+                st.session_state['game_attempts'] = 0
+                st.success("Score reset!")
+        
+        with col_game2:
+            st.markdown(
+                f"**Score:** {st.session_state['game_score']} / {st.session_state['game_attempts']}"
+            )
+        
+        if st.session_state['game_pokemon'] is not None:
+            game_poke = st.session_state['game_pokemon']
+            
+            st.markdown('<div class="game-container">', unsafe_allow_html=True)
+            
+            if not st.session_state['game_revealed']:
+                col_g1, col_g2, col_g3 = st.columns([1, 2, 1])
+                with col_g2:
+                    poke_id = int(game_poke['pokedex_number'])
+                    sprite_data = load_sprite(poke_id, use_animated=False)
+                    
+                    if sprite_data[0] is not None:
+                        content, is_gif = sprite_data
+                        if not is_gif:
+                            from PIL import ImageOps, ImageEnhance
+                            silhouette = content.convert("L")
+                            silhouette = ImageOps.colorize(
+                                silhouette, 
+                                black="black", 
+                                white="black"
+                            )
+                            st.image(silhouette, width=250)
+                    
+                    st.markdown("### Guess the Pokémon!")
+                    
+                    guess = st.text_input(
+                        "Enter Pokémon name:",
+                        key="guess_input"
+                    )
+                    
+                    if st.button("✅ Submit Guess"):
+                        st.session_state['game_attempts'] += 1
+                        if guess.lower().strip() == game_poke['name'].lower().strip():
+                            st.session_state['game_score'] += 1
+                            st.session_state['game_revealed'] = True
+                            st.success("🎉 Correct!")
+                            st.balloons()
+                        else:
+                            st.error(f"❌ Wrong! Try again or reveal the answer.")
+                    
+                    if st.button("👁️ Reveal"):
+                        st.session_state['game_revealed'] = True
+                        st.info(f"It was {game_poke['name']}!")
+            else:
+                col_g1, col_g2, col_g3 = st.columns([1, 2, 1])
+                with col_g2:
+                    poke_id = int(game_poke['pokedex_number'])
+                    sprite_data = load_sprite(poke_id, use_animated=use_animations)
+                    display_sprite(sprite_data, width=250)
+                    
+                    st.markdown(
+                        f"<h2 style='text-align: center;'>#{poke_id:04d} {game_poke['name']}</h2>",
+                        unsafe_allow_html=True
+                    )
+                    
+                    st.info("Click 'Start New Game' to play again!")
+            
+            st.markdown('</div>', unsafe_allow_html=True)
+        
+        st.markdown("---")
+        
+        # Charts
+        col1, col2 = st.columns(2)
+        
+        with col1:
+            # Pokemon by Generation
+            gen_counts = df.groupby('generation').size().reset_index(name='count')
+            fig = px.bar(
+                gen_counts,
+                x='generation',
+                y='count',
+                title='Pokémon Count by Generation',
+                labels={'generation': 'Generation', 'count': 'Number of Pokémon'},
+                color='count',
+                color_continuous_scale='viridis'
+            )
+            fig.update_layout(height=400)
+            st.plotly_chart(fig, use_container_width=True, key="overview_gen_bar")
+        
+        with col2:
+            # Pokemon by Type
+            type_counts = df['type_1'].value_counts().head(10)
+            fig = px.bar(
+                x=type_counts.index,
+                y=type_counts.values,
+                title='Top 10 Primary Types',
+                labels={'x': 'Type', 'y': 'Count'},
+                color=type_counts.values,
+                color_continuous_scale='plasma'
+            )
+            fig.update_layout(height=400)
+            st.plotly_chart(fig, use_container_width=True, key="overview_type_bar")
+        
+        # Base Stat Total Distribution
+        st.subheader("Base Stat Total Distribution")
+        fig = create_stat_distribution_chart(df, 'total_points')
+        st.plotly_chart(fig, use_container_width=True, key="overview_bst_dist")
+    
+    # ==================== TAB 2: POKEMON SEARCH ====================
+    with tab2:
+        st.header("🔍 Pokémon Search & Details")
+        
+        # Search options
+        search_col1, search_col2 = st.columns([3, 1])
+        
+        with search_col1:
+            search_query = st.text_input(
+                "Search by name or Pokédex number",
+                placeholder="e.g., Pikachu, 25, Charizard"
+            )
+        
+        with search_col2:
+            sort_by = st.selectbox(
+                "Sort by",
+                ["Pokédex #", "Name", "Total Stats", "HP", "Attack", "Defense"]
+            )
+        
+        # Display filtered Pokemon
+        display_df = filtered_df.copy()
+        
+        if search_query:
+            display_df = display_df[
+                display_df['name'].str.contains(search_query, case=False, na=False) |
+                display_df['pokedex_number'].astype(str).str.contains(search_query, na=False)
+            ]
+        
+        # Sort
+        sort_mapping = {
+            "Pokédex #": "pokedex_number",
+            "Name": "name",
+            "Total Stats": "total_points",
+            "HP": "hp",
+            "Attack": "attack",
+            "Defense": "defense"
+        }
+        display_df = display_df.sort_values(sort_mapping[sort_by])
+        
+        st.markdown(f"**Showing {len(display_df)} Pokémon**")
+        
+        # Pagination
+        items_per_page = 20
+        total_pages = (len(display_df) - 1) // items_per_page + 1
+        page = st.number_input("Page", 1, total_pages, 1)
+        
+        start_idx = (page - 1) * items_per_page
+        end_idx = start_idx + items_per_page
+        
+        # Display Pokemon cards
+        for idx in range(start_idx, min(end_idx, len(display_df))):
+            pokemon = display_df.iloc[idx]
+            
+            poke_num = int(pokemon['pokedex_number'])
+            poke_name = pokemon['name']
+            with st.expander(f"#{poke_num:04d} - {poke_name}", expanded=False):
+                display_pokemon_card(pokemon, use_animated=use_animations)
+                
+                # Additional details
+                col1, col2 = st.columns(2)
+                
+                with col1:
+                    st.subheader("Basic Info")
+                    st.write(f"**Generation:** {int(pokemon['generation'])}")
+                    st.write(f"**Status:** {pokemon['status']}")
+                    st.write(f"**Species:** {pokemon.get('species', 'N/A')}")
+                    st.write(f"**Height:** {pokemon.get('height_m', 'N/A')} m")
+                    st.write(f"**Weight:** {pokemon.get('weight_kg', 'N/A')} kg")
+                
+                with col2:
+                    st.subheader("Abilities")
+                    if pd.notna(pokemon.get('ability_1')):
+                        st.write(f"• {pokemon['ability_1']}")
+                    if pd.notna(pokemon.get('ability_2')):
+                        st.write(f"• {pokemon['ability_2']}")
+                    if pd.notna(pokemon.get('ability_hidden')):
+                        st.write(f"• **Hidden:** {pokemon['ability_hidden']}")
+                
+                # Type Effectiveness
+                st.subheader("Type Effectiveness")
+                fig = create_type_effectiveness_heatmap(pokemon)
+                st.plotly_chart(fig, use_container_width=True, key=f"type_eff_{idx}")
+    
+    # ==================== TAB 3: COMPETITIVE ANALYSIS ====================
+    with tab3:
+        st.header("⚔️ Competitive Battle Analysis")
+        
+        if comp_df is not None:
+            st.success(f"✅ Competitive data loaded for {len(comp_df)} Pokémon")
+            
+            # Competitive tier distribution
+            col1, col2 = st.columns(2)
+            
+            with col1:
+                tier_counts = comp_df['competitive_tier'].value_counts()
+                fig = px.pie(
+                    values=tier_counts.values,
+                    names=tier_counts.index,
+                    title='Competitive Tier Distribution',
+                    color_discrete_sequence=px.colors.qualitative.Set3
+                )
+                st.plotly_chart(fig, use_container_width=True, key="comp_tier_chart")
+            
+            with col2:
+                role_counts = comp_df['optimal_role'].value_counts()
+                fig = px.bar(
+                    x=role_counts.index,
+                    y=role_counts.values,
+                    title='Optimal Role Distribution',
+                    labels={'x': 'Role', 'y': 'Count'},
+                    color=role_counts.values,
+                    color_continuous_scale='sunset'
+                )
+                fig.update_layout(xaxis_tickangle=-45)
+                st.plotly_chart(fig, use_container_width=True, key="comp_role_bar")
+            
+            # Pokemon selector for detailed analysis
+            st.subheader("Detailed Competitive Analysis")
+            selected_pokemon_name = st.selectbox(
+                "Select a Pokémon",
+                options=sorted(df['name'].tolist())
+            )
+            
+            # Get Pokemon data
+            pokemon_base = df[df['name'] == selected_pokemon_name].iloc[0]
+            pokemon_comp = comp_df[comp_df['name'] == selected_pokemon_name].iloc[0]
+            
+            col1, col2, col3 = st.columns([1, 2, 2])
+            
+            with col1:
+                pokemon_id = int(pokemon_base['pokedex_number'])
+                sprite_data = load_sprite(pokemon_id, use_animated=use_animations)
+                display_sprite(sprite_data, width=200)
+                st.markdown(f"### {pokemon_base['name']}")
+                st.markdown(f"**Tier:** {pokemon_comp['competitive_tier']}")
+                st.markdown(f"**Role:** {pokemon_comp['optimal_role']}")
+                st.markdown(f"**Nature:** {pokemon_comp['optimal_nature']}")
+            
+            with col2:
+                st.subheader("Optimal EV Spread")
+                ev_spread = pokemon_comp['optimal_ev_spread']
+                ev_df = pd.DataFrame({
+                    'Stat': ['HP', 'Attack', 'Defense', 'Sp. Atk', 'Sp. Def', 'Speed'],
+                    'EVs': [
+                        ev_spread['hp'],
+                        ev_spread['attack'],
+                        ev_spread['defense'],
+                        ev_spread['sp_attack'],
+                        ev_spread['sp_defense'],
+                        ev_spread['speed']
+                    ]
+                })
+                
+                fig = px.bar(
+                    ev_df,
+                    x='Stat',
+                    y='EVs',
+                    title='Recommended EV Distribution',
+                    color='EVs',
+                    color_continuous_scale='blues'
+                )
+                fig.update_layout(showlegend=False, height=300)
+                st.plotly_chart(fig, use_container_width=True, key="comp_ev_bar")
+            
+            with col3:
+                st.subheader("Stats at Level 100")
+                optimal_stats = pokemon_comp['optimal_stats_lv100']
+                stats_df = pd.DataFrame({
+                    'Stat': list(optimal_stats.keys()),
+                    'Value': list(optimal_stats.values())
+                })
+                
+                fig = px.bar(
+                    stats_df,
+                    x='Stat',
+                    y='Value',
+                    title='Optimal Stats (31 IVs, Optimal EVs & Nature)',
+                    color='Value',
+                    color_continuous_scale='reds'
+                )
+                fig.update_layout(showlegend=False, height=300)
+                st.plotly_chart(fig, use_container_width=True, key="comp_stats_bar")
+            
+            # Nature information
+            if natures:
+                with st.expander("📖 Nature Guide", expanded=False):
+                    st.subheader("All 25 Natures")
+                    
+                    nature_data = []
+                    for nature_name, nature_info in natures.items():
+                        increases = nature_info.get('increases', 'None')
+                        decreases = nature_info.get('decreases', 'None')
+                        nature_data.append({
+                            'Nature': nature_name,
+                            'Increases': increases if increases else 'None',
+                            'Decreases': decreases if decreases else 'None'
+                        })
+                    
+                    nature_df = pd.DataFrame(nature_data)
+                    st.dataframe(nature_df, use_container_width=True, height=400)
+        
+        else:
+            st.warning("⚠️ Competitive data not yet loaded. Run `python scripts/fetch_competitive_data.py` to generate competitive analysis.")
+    
+    # ==================== TAB 4: STATISTICS & TRENDS ====================
+    with tab4:
+        st.header("📈 Statistics & Trends Analysis")
+        
+        # Stat correlations
+        st.subheader("Stat Correlations")
+        stats_cols = ['hp', 'attack', 'defense', 'sp_attack', 'sp_defense', 'speed']
+        corr_matrix = df[stats_cols].corr()
+        
+        fig = px.imshow(
+            corr_matrix,
+            labels=dict(color="Correlation"),
+            x=['HP', 'Attack', 'Defense', 'Sp. Atk', 'Sp. Def', 'Speed'],
+            y=['HP', 'Attack', 'Defense', 'Sp. Atk', 'Sp. Def', 'Speed'],
+            color_continuous_scale='RdBu',
+            aspect="auto",
+            title="Stat Correlation Matrix"
+        )
+        fig.update_layout(height=500)
+        st.plotly_chart(fig, use_container_width=True, key="stats_corr_matrix")
+        
+        # Scatter plots
+        col1, col2 = st.columns(2)
+        
+        with col1:
+            st.subheader("Attack vs Defense")
+            fig = px.scatter(
+                df,
+                x='attack',
+                y='defense',
+                color='type_1',
+                size='total_points',
+                hover_data=['name'],
+                title='Attack vs Defense by Type',
+                labels={'attack': 'Attack', 'defense': 'Defense'}
+            )
+            fig.update_layout(height=400)
+            st.plotly_chart(fig, use_container_width=True, key="stats_atk_def_scatter")
+        
+        with col2:
+            st.subheader("Speed vs Total Stats")
+            fig = px.scatter(
+                df,
+                x='speed',
+                y='total_points',
+                color='generation',
+                hover_data=['name'],
+                title='Speed vs Base Stat Total',
+                labels={'speed': 'Speed', 'total_points': 'BST'}
+            )
+            fig.update_layout(height=400)
+            st.plotly_chart(fig, use_container_width=True, key="stats_speed_bst_scatter")
+        
+        # Average stats by generation
+        st.subheader("Average Stats by Generation")
+        gen_stats = df.groupby('generation')[stats_cols].mean().reset_index()
+        gen_stats_melted = gen_stats.melt(id_vars='generation', var_name='Stat', value_name='Average')
+        
+        fig = px.line(
+            gen_stats_melted,
+            x='generation',
+            y='Average',
+            color='Stat',
+            markers=True,
+            title='Average Stats Trend Across Generations'
+        )
+        fig.update_layout(height=400)
+        st.plotly_chart(fig, use_container_width=True, key="stats_gen_trend_line")
+    
+    # ==================== TAB 5: TYPE ANALYSIS ====================
+    with tab5:
+        st.header("🎨 Type Analysis & Matchups")
+        
+        # Type combination analysis
+        st.subheader("Type Combinations")
+        
+        df['type_combo'] = df.apply(
+            lambda x: f"{x['type_1']}/{x['type_2']}" if pd.notna(x.get('type_2')) and x.get('type_2') else x['type_1'],
             axis=1
         )
         
-        return df
-    else:
-        st.error("National Dex not found!")
-        return pd.DataFrame()
-
-
-@st.cache_data
-def load_glossary() -> dict:
-    """Load Pokemon glossary"""
-    return load_pokemon_glossary()
-
-
-@st.cache_data
-def load_yaml_data() -> dict:
-    """Load YAML data"""
-    try:
-        yaml_loader = PokemonDataLoader()
-        return yaml_loader.load_all_yaml_data()
-    except Exception:
-        return {}
-
-
-# Inject custom CSS
-inject_custom_css()
-
-# Load data
-with st.spinner("Loading Pokemon data..."):
-    df = load_national_dex()
-    glossary = load_glossary()
-    yaml_data = load_yaml_data()
-
-if df is None or df.empty:
-    st.error("Failed to load Pokemon data.")
-    st.stop()
-
-# --- Sticky Header ---
-st.markdown("""
-<div class="sticky-header">
-    <div style="max-width: 1400px; margin: 0 auto; padding: 0 20px;">
-        <h1 style="margin: 0; font-size: 42px; font-weight: 900; text-align: center;">
-            <span style="color: var(--accent-green);">⚡</span> 
-            NATIONAL POKÉDEX
-            <span style="color: var(--accent-green);">⚡</span>
-        </h1>
-        <p style="text-align: center; color: var(--text-secondary); margin: 8px 0 0 0; font-size: 16px;">
-            Explore all {len(df)} Pokemon from Generation 1 to 9
-        </p>
-    </div>
-</div>
-""", unsafe_allow_html=True)
-
-# --- Main Tabbed Interface ---
-tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
-    "🏠 Gallery", 
-    "🔍 Search & Filter", 
-    "🎮 By Game",
-    "📊 Statistics", 
-    "📚 Glossary",
-    "⚙️ Settings"
-])
-
-# ===== TAB 1: GALLERY VIEW =====
-with tab1:
-    st.markdown("<br>", unsafe_allow_html=True)
-    
-    # Quick filters
-    col_filter1, col_filter2, col_filter3 = st.columns(3)
-    
-    with col_filter1:
-        selected_gen = st.selectbox(
-            "Filter by Generation",
-            ["All Generations"] + list(GENERATION_RANGES.keys()),
-            key="gallery_gen"
-        )
-    
-    with col_filter2:
-        all_types = sorted(pd.concat([df['primary_type'], df['secondary_type']]).dropna().unique())
-        selected_type_filter = st.selectbox(
-            "Filter by Type",
-            ["All Types"] + all_types,
-            key="gallery_type"
-        )
-    
-    with col_filter3:
-        search_query = st.text_input("🔍 Search Pokemon", placeholder="Enter name or number...", key="gallery_search")
-    
-    # Apply filters
-    df_gallery = df.copy()
-    
-    if selected_gen != "All Generations":
-        df_gallery = df_gallery[df_gallery['generation'] == selected_gen]
-    
-    if selected_type_filter != "All Types":
-        df_gallery = df_gallery[
-            (df_gallery['primary_type'] == selected_type_filter) |
-            (df_gallery['secondary_type'] == selected_type_filter)
-        ]
-    
-    if search_query:
-        df_gallery = df_gallery[
-            df_gallery['name'].str.contains(search_query, case=False, na=False) |
-            df_gallery['pokedex_number'].astype(str).str.contains(search_query, na=False)
-        ]
-    
-    st.markdown(f"<h3 style='color: var(--text-primary);'>Showing {len(df_gallery)} Pokemon</h3>", unsafe_allow_html=True)
-    
-    # Display Pokemon grid (4 columns for better space utilization)
-    cols_per_row = 4
-    rows = [df_gallery.iloc[i:i+cols_per_row] for i in range(0, len(df_gallery), cols_per_row)]
-    
-    for row_idx, row in enumerate(rows):
-        cols = st.columns(cols_per_row)
-        for col_idx, (pokemon_idx, pokemon) in enumerate(row.iterrows()):
-            with cols[col_idx]:
-                sprite_url = pokemon.get('sprite_url_hq', get_pokemon_sprite_url(
-                    int(pokemon['pokedex_number']),
-                    str(pokemon['name']),
-                    high_quality=True
-                ))
-                st.markdown(create_pokemon_card_html(pokemon, sprite_url), unsafe_allow_html=True)
-                if st.button(f"View Details", key=f"btn_gallery_{row_idx}_{col_idx}_{pokemon_idx}", use_container_width=True):
-                    st.session_state['selected_pokemon'] = pokemon['name']
-                    st.rerun()
-
-# ===== TAB 2: SEARCH & FILTER =====
-with tab2:
-    st.markdown("<br>", unsafe_allow_html=True)
-    
-    # Advanced search
-    search_col1, search_col2 = st.columns([2, 1])
-    
-    with search_col1:
-        search_name = st.text_input("🔍 Search by Name", placeholder="Enter Pokemon name...")
-    
-    with search_col2:
-        search_id = st.number_input("🔢 Search by ID", min_value=1, max_value=len(df), value=1)
-    
-    # Filters
-    st.markdown("### 🎯 Advanced Filters")
-    
-    filter_col1, filter_col2, filter_col3 = st.columns(3)
-    
-    with filter_col1:
-        gen_filter = st.multiselect(
-            "Generation",
-            list(GENERATION_RANGES.keys()),
-            key="search_gen"
-        )
-    
-    with filter_col2:
-        type_filter = st.multiselect(
-            "Type",
-            sorted(pd.concat([df['primary_type'], df['secondary_type']]).dropna().unique()),
-            key="search_type"
-        )
-    
-    with filter_col3:
-        bst_range = st.slider(
-            "Base Stat Total",
-            int(df['total_points'].min()),
-            int(df['total_points'].max()),
-            (int(df['total_points'].min()), int(df['total_points'].max()))
-        )
-    
-    # Apply filters
-    df_filtered = df.copy()
-    
-    if search_name:
-        df_filtered = df_filtered[df_filtered['name'].str.contains(search_name, case=False, na=False)]
-    
-    if gen_filter:
-        df_filtered = df_filtered[df_filtered['generation'].isin(gen_filter)]
-    
-    if type_filter:
-        df_filtered = df_filtered[
-            df_filtered['primary_type'].isin(type_filter) |
-            df_filtered['secondary_type'].isin(type_filter)
-        ]
-    
-    df_filtered = df_filtered[
-        df_filtered['total_points'].between(bst_range[0], bst_range[1])
-    ]
-    
-    st.markdown(f"### Found {len(df_filtered)} Pokemon")
-    
-    # Display results
-    if len(df_filtered) > 0:
-        selected_pokemon_name = st.selectbox(
-            "Select a Pokemon to view details:",
-            df_filtered['name'].tolist()
-        )
+        type_combo_counts = df['type_combo'].value_counts().head(20)
         
-        if selected_pokemon_name:
-            pokemon_data = df_filtered[df_filtered['name'] == selected_pokemon_name].iloc[0]
+        fig = px.bar(
+            x=type_combo_counts.index,
+            y=type_combo_counts.values,
+            title='Top 20 Type Combinations',
+            labels={'x': 'Type Combination', 'y': 'Count'},
+            color=type_combo_counts.values,
+            color_continuous_scale='rainbow'
+        )
+        fig.update_layout(xaxis_tickangle=-45, height=500)
+        st.plotly_chart(fig, use_container_width=True, key="type_combo_bar")
+        
+        # Average stats by type
+        st.subheader("Average Stats by Primary Type")
+        type_stats = df.groupby('type_1')[stats_cols + ['total_points']].mean().round(1)
+        type_stats = type_stats.sort_values('total_points', ascending=False)
+        
+        st.dataframe(
+            type_stats.style.background_gradient(cmap='YlOrRd', axis=0),
+            use_container_width=True,
+            height=400
+        )
+    
+    # ==================== TAB 6: EVOLUTION & FORMS ====================
+    with tab6:
+        st.header("🧬 Evolution & Forms")
+        
+        game_df = load_game_data()
+        
+        if game_df is not None:
+            st.success(f"✅ Game data loaded for {len(game_df)} Pokémon forms & variants")
             
-            # Pokemon detail view - Enhanced layout
-            st.markdown("<br>", unsafe_allow_html=True)
-            detail_col1, detail_col2 = st.columns([1, 2], gap="large")
-            
-            with detail_col1:
-                sprite_url = pokemon_data.get('sprite_url_hq', get_pokemon_sprite_url(
-                    int(pokemon_data['pokedex_number']),
-                    str(pokemon_data['name']),
-                    high_quality=True
-                ))
-                
-                # Enhanced sprite display
-                st.markdown(f"""
-                <div style="background: linear-gradient(135deg, #1F1F1F 0%, #2F2F2F 100%); 
-                            border-radius: 20px; padding: 30px; text-align: center; 
-                            border: 3px solid #10B981; box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);">
-                    <img src="{sprite_url}" 
-                         style="width: 100%; max-width: 400px; height: auto; 
-                                filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.7)); 
-                                animation: float 3s ease-in-out infinite;"
-                         alt="{pokemon_data['name']}">
-                </div>
-                """, unsafe_allow_html=True)
-                
-                st.markdown("<br>", unsafe_allow_html=True)
-                
-                type_badges = create_type_badge(pokemon_data['primary_type'])
-                if pd.notna(pokemon_data.get('secondary_type')):
-                    type_badges += ' ' + create_type_badge(pokemon_data['secondary_type'])
-                st.markdown(f"<div style='text-align: center; margin: 20px 0;'>{type_badges}</div>", unsafe_allow_html=True)
-                
-                # Key metrics
-                st.markdown(f"""
-                <div style="background: #1F1F1F; border-radius: 15px; padding: 20px; margin: 15px 0; border: 2px solid #10B981;">
-                    <div style="text-align: center; color: #10B981; font-size: 18px; font-weight: 700; margin-bottom: 10px;">TOTAL BST</div>
-                    <div style="text-align: center; color: #E5E5E5; font-size: 36px; font-weight: 900;">{int(pokemon_data['total_points'])}</div>
-                </div>
-                <div style="background: #1F1F1F; border-radius: 15px; padding: 15px; margin: 10px 0;">
-                    <div style="color: #B3B3B3; font-size: 14px;">Catch Rate: <span style="color: #10B981; font-weight: 600;">{float(pokemon_data['catch_rate']):.0f}%</span></div>
-                    <div style="color: #B3B3B3; font-size: 14px; margin-top: 8px;">Base EXP: <span style="color: #10B981; font-weight: 600;">{float(pokemon_data['base_experience']):.0f}</span></div>
-                </div>
-                """, unsafe_allow_html=True)
-            
-            with detail_col2:
-                st.markdown(f"""
-                <h1 style='color: #E5E5E5; font-size: 42px; font-weight: 900; margin-bottom: 15px;'>
-                    #{int(pokemon_data['pokedex_number'])} {pokemon_data['name']}
-                </h1>
-                """, unsafe_allow_html=True)
-                
-                # Info cards
-                st.markdown(f"""
-                <div style="background: #1F1F1F; border-radius: 15px; padding: 25px; margin: 20px 0; border-left: 5px solid #10B981;">
-                    <div style="color: #E5E5E5; font-size: 18px; margin-bottom: 12px;"><strong>Species:</strong> {pokemon_data['species']}</div>
-                    <div style="color: #E5E5E5; font-size: 18px; margin-bottom: 12px;"><strong>Generation:</strong> {pokemon_data['generation']}</div>
-                    <div style="color: #E5E5E5; font-size: 18px;"><strong>Dimensions:</strong> {pokemon_data['height_m']} m × {pokemon_data['weight_kg']} kg</div>
-                </div>
-                """, unsafe_allow_html=True)
-                
-                # Abilities
-                st.markdown("<h3 style='color: #10B981; font-size: 24px; margin: 25px 0 15px 0;'>⚡ Abilities</h3>", unsafe_allow_html=True)
-                abilities_html = "<div style='background: #1F1F1F; border-radius: 15px; padding: 20px;'>"
-                for i in range(1, 4):
-                    ability_col = f'ability_{i}' if i < 3 else 'ability_hidden'
-                    if ability_col in pokemon_data.index:
-                        ability = pokemon_data.get(ability_col)
-                        if pd.notna(ability) and str(ability) != 'nan':
-                            hidden_label = " 🌟 (Hidden)" if ability_col == 'ability_hidden' else ""
-                            abilities_html += f"<div style='color: #E5E5E5; font-size: 17px; margin: 10px 0; padding: 10px; background: #2F2F2F; border-radius: 8px;'>• <strong>{ability}</strong>{hidden_label}</div>"
-                abilities_html += "</div>"
-                st.markdown(abilities_html, unsafe_allow_html=True)
-                
-                # Base stats with progress bars
-                st.markdown("<h3 style='color: #10B981; font-size: 24px; margin: 30px 0 20px 0;'>📊 Base Stats</h3>", unsafe_allow_html=True)
-                stats_data = {
-                    'HP': pokemon_data['hp'],
-                    'Attack': pokemon_data['attack'],
-                    'Defense': pokemon_data['defense'],
-                    'Sp. Atk': pokemon_data['sp_attack'],
-                    'Sp. Def': pokemon_data['sp_defense'],
-                    'Speed': pokemon_data['speed']
-                }
-                
-                # Display stats with visual bars
-                for stat_name, stat_value in stats_data.items():
-                    stat_val = int(stat_value)
-                    percentage = min(100, (stat_val / 255) * 100)
-                    st.markdown(f"""
-                    <div style="margin: 15px 0;">
-                        <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
-                            <span style="color: #E5E5E5; font-weight: 600; font-size: 16px;">{stat_name}</span>
-                            <span style="color: #10B981; font-weight: 700; font-size: 16px;">{stat_val}</span>
-                        </div>
-                        <div style="background: #2F2F2F; height: 25px; border-radius: 12px; overflow: hidden;">
-                            <div style="background: linear-gradient(90deg, #10B981, #059669); 
-                                        width: {percentage}%; height: 100%; 
-                                        transition: width 0.5s ease;
-                                        border-radius: 12px;"></div>
-                        </div>
-                    </div>
-                    """, unsafe_allow_html=True)
-    else:
-        st.warning("No Pokemon match your search criteria.")
-
-# ===== TAB 3: BY GAME =====
-with tab3:
-    st.markdown("<br>", unsafe_allow_html=True)
-    st.markdown("## 🎮 Pokemon by Game Version")
-    st.markdown("Explore which Pokemon are available in each mainline game!")
-    
-    # Game selector
-    selected_game = st.selectbox(
-        "Select a Pokemon Game",
-        list(POKEMON_GAMES.keys()),
-        key="game_selector"
-    )
-    
-    if selected_game:
-        game_info = POKEMON_GAMES[selected_game]
-        
-        # Display game info card
-        st.markdown(f"""
-        <div style="background: linear-gradient(135deg, #1F1F1F 0%, #2F2F2F 100%); 
-                    border-radius: 20px; padding: 30px; margin: 20px 0; 
-                    border: 3px solid #10B981; 
-                    box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);">
-            <h2 style="color: #10B981; margin: 0 0 15px 0; font-size: 32px;">
-                {game_info['icon']} {selected_game}
-            </h2>
-            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; margin-top: 20px;">
-                <div>
-                    <div style="color: #B3B3B3; font-size: 14px;">Region</div>
-                    <div style="color: #E5E5E5; font-size: 20px; font-weight: 700;">{game_info['region']}</div>
-                </div>
-                <div>
-                    <div style="color: #B3B3B3; font-size: 14px;">Release Year</div>
-                    <div style="color: #E5E5E5; font-size: 20px; font-weight: 700;">{game_info['release_year']}</div>
-                </div>
-                <div>
-                    <div style="color: #B3B3B3; font-size: 14px;">National Dex Range</div>
-                    <div style="color: #10B981; font-size: 20px; font-weight: 700;">#{game_info['range'][0]} - #{game_info['range'][1]}</div>
-                </div>
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
-        
-        # Filter Pokemon for this game
-        min_dex, max_dex = game_info['range']
-        df_game = df[
-            (df['pokedex_number'] >= min_dex) & 
-            (df['pokedex_number'] <= max_dex)
-        ].copy()
-        
-        # Additional filters for game tab
-        st.markdown("### 🎯 Filter Pokemon")
-        game_filter_col1, game_filter_col2, game_filter_col3 = st.columns(3)
-        
-        with game_filter_col1:
-            game_type_filter = st.selectbox(
-                "Filter by Type",
-                ["All Types"] + sorted(pd.concat([df_game['primary_type'], 
-                                                  df_game['secondary_type']]).dropna().unique()),
-                key="game_type_filter"
+            # Search for Pokemon
+            evo_search = st.text_input(
+                "Search Pokémon for evolution info",
+                placeholder="e.g., Bulbasaur, Eevee, Charizard"
             )
-        
-        with game_filter_col2:
-            game_sort = st.selectbox(
-                "Sort by",
-                ["Pokedex Number", "Name (A-Z)", "Total BST (High-Low)", 
-                 "Total BST (Low-High)"],
-                key="game_sort"
-            )
-        
-        with game_filter_col3:
-            game_search = st.text_input(
-                "🔍 Search", 
-                placeholder="Pokemon name...",
-                key="game_search"
-            )
-        
-        # Apply filters
-        if game_type_filter != "All Types":
-            df_game = df_game[
-                (df_game['primary_type'] == game_type_filter) |
-                (df_game['secondary_type'] == game_type_filter)
-            ]
-        
-        if game_search:
-            df_game = df_game[
-                df_game['name'].str.contains(game_search, case=False, na=False)
-            ]
-        
-        # Apply sorting
-        if game_sort == "Name (A-Z)":
-            df_game = df_game.sort_values('name')
-        elif game_sort == "Total BST (High-Low)":
-            df_game = df_game.sort_values('total_points', ascending=False)
-        elif game_sort == "Total BST (Low-High)":
-            df_game = df_game.sort_values('total_points', ascending=True)
-        else:  # Pokedex Number
-            df_game = df_game.sort_values('pokedex_number')
-        
-        # Display count and stats
-        st.markdown(f"""
-        <div style="background: #1F1F1F; border-radius: 15px; padding: 20px; margin: 20px 0;">
-            <h3 style="color: #10B981; margin: 0 0 15px 0;">
-                📊 {len(df_game)} Pokemon Available
-            </h3>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px;">
-                <div>
-                    <div style="color: #B3B3B3; font-size: 13px;">Average BST</div>
-                    <div style="color: #E5E5E5; font-size: 18px; font-weight: 600;">{df_game['total_points'].mean():.0f}</div>
-                </div>
-                <div>
-                    <div style="color: #B3B3B3; font-size: 13px;">Highest BST</div>
-                    <div style="color: #E5E5E5; font-size: 18px; font-weight: 600;">{df_game['total_points'].max():.0f}</div>
-                </div>
-                <div>
-                    <div style="color: #B3B3B3; font-size: 13px;">Lowest BST</div>
-                    <div style="color: #E5E5E5; font-size: 18px; font-weight: 600;">{df_game['total_points'].min():.0f}</div>
-                </div>
-                <div>
-                    <div style="color: #B3B3B3; font-size: 13px;">Unique Types</div>
-                    <div style="color: #E5E5E5; font-size: 18px; font-weight: 600;">{df_game['primary_type'].nunique()}</div>
-                </div>
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
-        
-        # Display Pokemon grid
-        if len(df_game) > 0:
-            cols_per_row = 4
-            rows = [df_game.iloc[i:i+cols_per_row] 
-                   for i in range(0, len(df_game), cols_per_row)]
             
-            for row_idx, row in enumerate(rows):
-                cols = st.columns(cols_per_row)
-                for col_idx, (pokemon_idx, pokemon) in enumerate(row.iterrows()):
-                    with cols[col_idx]:
-                        sprite_url = pokemon.get(
-                            'sprite_url_hq', 
-                            get_pokemon_sprite_url(
-                                int(pokemon['pokedex_number']),
-                                str(pokemon['name']),
-                                high_quality=True
-                            )
+            if evo_search:
+                # Find matching Pokemon
+                matching = game_df[
+                    game_df['name'].str.contains(evo_search, case=False, na=False)
+                ]
+                
+                if len(matching) > 0:
+                    for idx, pokemon_form in matching.iterrows():
+                        with st.expander(
+                            f"{pokemon_form['name']} - {pokemon_form.get('form_name', 'Standard Form')}",
+                            expanded=True
+                        ):
+                            col1, col2 = st.columns([1, 2])
+                            
+                            with col1:
+                                poke_id = int(pokemon_form['pokedex_number'])
+                                sprite_data = load_sprite(poke_id, use_animated=use_animations)
+                                display_sprite(sprite_data, width=200)
+                            
+                            with col2:
+                                st.markdown(f"**Pokédex #:** {int(pokemon_form['pokedex_number'])}")
+                                st.markdown(f"**Generation:** {int(pokemon_form['generation'])}")
+                                
+                                if pd.notna(pokemon_form.get('form_name')):
+                                    st.markdown(f"**Form:** {pokemon_form['form_name']}")
+                                
+                                if pd.notna(pokemon_form.get('species')):
+                                    st.markdown(f"**Species:** {pokemon_form['species']}")
+                                
+                                # Evolution info
+                                if pd.notna(pokemon_form.get('evolution_details')):
+                                    st.markdown("### Evolution Requirements")
+                                    st.info(pokemon_form['evolution_details'])
+                                
+                                # Form-specific stats
+                                if all(k in pokemon_form for k in ['hp', 'attack', 'defense']):
+                                    st.markdown("### Base Stats")
+                                    col_a, col_b, col_c = st.columns(3)
+                                    with col_a:
+                                        st.metric("HP", int(pokemon_form.get('hp', 0)))
+                                    with col_b:
+                                        st.metric("Attack", int(pokemon_form.get('attack', 0)))
+                                    with col_c:
+                                        st.metric("Defense", int(pokemon_form.get('defense', 0)))
+                else:
+                    st.warning("No Pokémon found matching that search.")
+            else:
+                st.info("👆 Enter a Pokémon name to view evolution & form details")
+        else:
+            st.warning("⏳ Comprehensive game data not yet loaded. The Evolution & Forms feature requires the enhanced game dataset.")
+    
+    # ==================== TAB 7: BY GAME ====================
+    with tab7:
+        st.header("🎮 Pokémon by Game")
+        st.subheader("Filter Pokémon by their game of origin and availability")
+        
+        import yaml
+        
+        # Load games data
+        games_path = Path("data/games.yaml")
+        if games_path.exists():
+            with open(games_path, 'r', encoding='utf-8') as f:
+                games_data = yaml.safe_load(f)
+            
+            # Create game selector
+            game_list = [(k, v['name']) for k, v in games_data.items()]
+            game_names = [g[1] for g in game_list]
+            
+            selected_game = st.selectbox(
+                "Select a Pokémon Game",
+                options=game_names,
+                help="Choose a game to see which Pokémon are available"
+            )
+            
+            # Find the game key
+            game_key = next((k for k, v in games_data.items() if v['name'] == selected_game), None)
+            
+            if game_key:
+                game_info = games_data[game_key]
+                
+                col1, col2 = st.columns(2)
+                with col1:
+                    st.markdown(f"### {game_info['name']}")
+                    st.markdown(f"**Release Group:** {game_info['release']}")
+                
+                with col2:
+                    # Determine generation from release
+                    release_to_gen = {
+                        'red-blue': 1, 'yellow': 1,
+                        'gold-silver': 2, 'crystal': 2,
+                        'ruby-sapphire': 3, 'firered-leafgreen': 3, 'emerald': 3,
+                        'diamond-pearl': 4, 'platinum': 4, 'heartgold-soulsilver': 4,
+                        'black-white': 5, 'black-white-2': 5,
+                        'x-y': 6, 'omega-ruby-alpha-sapphire': 6,
+                        'sun-moon': 7, 'ultra-sun-ultra-moon': 7, 'lets-go-pikachu-eevee': 7,
+                        'sword-shield': 8, 'brilliant-diamond-shining-pearl': 8, 'legends-arceus': 8,
+                        'scarlet-violet': 9, 'legends-z-a': 9
+                    }
+                    
+                    game_gen = release_to_gen.get(game_info['release'], 0)
+                    st.markdown(f"**Generation:** {game_gen}")
+                
+                st.markdown("---")
+                
+                # Filter Pokemon available in this game (up to that generation)
+                if game_gen > 0:
+                    game_pokemon = df[df['generation'] <= game_gen]
+                    
+                    st.success(f"✅ {len(game_pokemon)} Pokémon available in {game_info['name']}")
+                    
+                    # Display stats
+                    col1, col2, col3 = st.columns(3)
+                    
+                    with col1:
+                        st.metric("Total Pokémon", len(game_pokemon))
+                    
+                    with col2:
+                        game_types = game_pokemon['type_1'].nunique()
+                        st.metric("Types", game_types)
+                    
+                    with col3:
+                        game_legendaries = len(game_pokemon[game_pokemon['status'] == 'Legendary'])
+                        st.metric("Legendary", game_legendaries)
+                    
+                    # Type distribution in this game
+                    st.subheader(f"Type Distribution in {game_info['name']}")
+                    type_counts = game_pokemon['type_1'].value_counts().head(10)
+                    
+                    fig = px.bar(
+                        x=type_counts.index,
+                        y=type_counts.values,
+                        title=f'Top 10 Types in {game_info['name']}',
+                        labels={'x': 'Type', 'y': 'Count'},
+                        color=type_counts.values,
+                        color_continuous_scale='viridis'
+                    )
+                    fig.update_layout(height=400)
+                    st.plotly_chart(fig, use_container_width=True, key="game_type_bar")
+                    
+                    # Searchable list
+                    st.subheader("Pokémon List")
+                    
+                    game_search = st.text_input(
+                        "Search in this game's Pokédex",
+                        placeholder="Search by name or number..."
+                    )
+                    
+                    display_game_df = game_pokemon.copy()
+                    if game_search:
+                        display_game_df = display_game_df[
+                            display_game_df['name'].str.contains(game_search, case=False, na=False) |
+                            display_game_df['pokedex_number'].astype(str).str.contains(game_search, na=False)
+                        ]
+                    
+                    # Show data table
+                    st.dataframe(
+                        display_game_df[[
+                            'pokedex_number', 'name', 'type_1', 'type_2',
+                            'total_points', 'generation', 'status'
+                        ]].rename(columns={
+                            'pokedex_number': 'Dex #',
+                            'name': 'Name',
+                            'type_1': 'Type 1',
+                            'type_2': 'Type 2',
+                            'total_points': 'BST',
+                            'generation': 'Gen',
+                            'status': 'Status'
+                        }),
+                        use_container_width=True,
+                        height=400
+                    )
+        else:
+            st.error("❌ Games data file not found. Please ensure data/games.yaml exists.")
+    
+    # ==================== TAB 8: SPRITE GALLERY ====================
+    with tab8:
+        st.header("🎨 Sprite Gallery")
+        
+        # Grid display of sprites
+        sprites_per_row = 6
+        display_df = filtered_df.head(60)  # Limit for performance
+        
+        st.markdown(f"**Showing {len(display_df)} sprites** (filtered results)")
+        
+        for i in range(0, len(display_df), sprites_per_row):
+            cols = st.columns(sprites_per_row)
+            for j, col in enumerate(cols):
+                if i + j < len(display_df):
+                    pokemon = display_df.iloc[i + j]
+                    with col:
+                        pokemon_id = int(pokemon['pokedex_number'])
+                        sprite_data = load_sprite(
+                            pokemon_id,
+                            use_animated=use_animations
                         )
+                        display_sprite(sprite_data, use_container_width=True)
                         st.markdown(
-                            create_pokemon_card_html(pokemon, sprite_url), 
+                            f"<div style='text-align: center; font-size: 0.8rem;'>"
+                            f"#{int(pokemon['pokedex_number']):04d}<br>"
+                            f"<b>{pokemon['name']}</b>"
+                            f"</div>",
                             unsafe_allow_html=True
                         )
-                        if st.button(
-                            f"View Details", 
-                            key=f"btn_game_{selected_game}_{row_idx}_{col_idx}_{pokemon_idx}",
-                            use_container_width=True
-                        ):
-                            st.session_state['selected_pokemon'] = pokemon['name']
-                            st.rerun()
-        else:
-            st.warning("No Pokemon match your filters.")
-
-# ===== TAB 4: STATISTICS =====
-with tab4:
-    st.markdown("<br>", unsafe_allow_html=True)
-    st.markdown("## 📈 Pokemon Statistics & Analytics")
     
-    stats_col1, stats_col2, stats_col3, stats_col4 = st.columns(4)
-    
-    with stats_col1:
-        st.metric("Total Pokemon", len(df))
-    
-    with stats_col2:
-        st.metric("Generations", len(GENERATION_RANGES))
-    
-    with stats_col3:
-        st.metric("Unique Types", len(TYPE_COLORS))
-    
-    with stats_col4:
-        avg_bst = df['total_points'].mean()
-        st.metric("Avg BST", f"{avg_bst:.0f}")
-    
-    # Distribution by generation
-    st.markdown("### Pokemon by Generation")
-    gen_counts = df['generation'].value_counts().sort_index()
-    st.bar_chart(gen_counts)
-    
-    # Top 10 highest BST
-    st.markdown("### 🏆 Top 10 Highest Base Stat Total")
-    top_10 = df.nlargest(10, 'total_points')[['pokedex_number', 'name', 'primary_type', 'secondary_type', 'total_points']]
-    st.dataframe(top_10, use_container_width=True, hide_index=True)
-    
-    # Type distribution
-    st.markdown("### Pokemon by Primary Type")
-    type_counts = df['primary_type'].value_counts()
-    st.bar_chart(type_counts)
-
-# ===== TAB 5: GLOSSARY =====
-with tab5:
-    st.markdown("<br>", unsafe_allow_html=True)
-    st.markdown("## 📚 Pokemon Glossary")
-    st.markdown("Comprehensive dictionary of Pokemon terms and concepts.")
-    
-    if glossary:
-        glossary_search = st.text_input("🔍 Search glossary", placeholder="Enter term...", key="glossary_search_main")
+    # ==================== TAB 9: TEAM BUILDER ====================
+    with tab9:
+        st.header("🏆 Team Builder")
+        st.subheader("Build your competitive team")
         
-        if glossary_search:
-            matching_terms = {k: v for k, v in glossary.items()
-                            if glossary_search.lower() in k.lower() or glossary_search.lower() in v.lower()}
+        if 'team' not in st.session_state:
+            st.session_state.team = []
+        
+        # Team member selection
+        col1, col2 = st.columns([2, 1])
+        
+        with col1:
+            pokemon_options = sorted(df['name'].tolist())
+            selected_pokemon = st.selectbox(
+                "Add Pokémon to team",
+                options=pokemon_options,
+                key='team_selector'
+            )
+        
+        with col2:
+            if st.button("➕ Add to Team") and len(st.session_state.team) < 6:
+                if selected_pokemon not in st.session_state.team:
+                    st.session_state.team.append(selected_pokemon)
+                    st.success(f"Added {selected_pokemon}!")
+                else:
+                    st.warning(f"{selected_pokemon} is already in your team!")
             
-            if matching_terms:
-                for term, definition in matching_terms.items():
-                    with st.expander(f"**{term}**"):
-                        st.write(definition)
-            else:
-                st.warning("No matching terms found.")
+            if st.button("🗑️ Clear Team"):
+                st.session_state.team = []
+                st.info("Team cleared!")
+        
+        # Display team
+        if st.session_state.team:
+            st.subheader(f"Your Team ({len(st.session_state.team)}/6)")
+            
+            team_cols = st.columns(6)
+            for idx, pokemon_name in enumerate(st.session_state.team):
+                with team_cols[idx]:
+                    pokemon = df[df['name'] == pokemon_name].iloc[0]
+                    pokemon_id = int(pokemon['pokedex_number'])
+                    sprite_data = load_sprite(
+                        pokemon_id,
+                        use_animated=use_animations
+                    )
+                    display_sprite(sprite_data, use_container_width=True)
+                    st.markdown(f"**{pokemon_name}**")
+                    st.markdown(f"{pokemon['type_1']}")
+                    
+                    if st.button("❌", key=f"remove_{idx}"):
+                        st.session_state.team.pop(idx)
+                        st.rerun()
+            
+            # Team analysis
+            st.subheader("Team Analysis")
+            
+            team_pokemon = df[df['name'].isin(st.session_state.team)]
+            
+            # Type coverage
+            col1, col2 = st.columns(2)
+            
+            with col1:
+                st.markdown("**Type Coverage:**")
+                all_team_types = list(team_pokemon['type_1']) + list(team_pokemon['type_2'].dropna())
+                type_coverage = pd.Series(all_team_types).value_counts()
+                
+                fig = px.bar(
+                    x=type_coverage.index,
+                    y=type_coverage.values,
+                    title='Type Distribution in Team',
+                    labels={'x': 'Type', 'y': 'Count'}
+                )
+                st.plotly_chart(fig, use_container_width=True, key="team_type_dist")
+            
+            with col2:
+                st.markdown("**Average Stats:**")
+                avg_stats = team_pokemon[stats_cols].mean().round(1)
+                
+                fig = px.bar(
+                    x=avg_stats.index,
+                    y=avg_stats.values,
+                    title='Team Average Stats',
+                    labels={'x': 'Stat', 'y': 'Average Value'}
+                )
+                st.plotly_chart(fig, use_container_width=True, key="team_avg_stats")
         else:
-            # Display all terms
-            st.markdown(f"**{len(glossary)} terms available**")
-            for term, definition in sorted(glossary.items())[:20]:  # Show first 20
-                with st.expander(f"**{term}**"):
-                    st.write(definition)
-            
-            if len(glossary) > 20:
-                st.info(f"Showing 20 of {len(glossary)} terms. Use search to find specific terms.")
-    else:
-        st.warning("Glossary data not available.")
+            st.info("👆 Select Pokémon above to build your team!")
 
-# ===== TAB 6: SETTINGS =====
-with tab6:
-    st.markdown("<br>", unsafe_allow_html=True)
-    st.markdown("## ⚙️ Application Settings")
-    
-    st.markdown("### Display Options")
-    display_mode = st.radio("Gallery View Mode", ["Grid", "List"], horizontal=True)
-    
-    st.markdown("### Data Management")
-    if st.button("🔄 Refresh Data"):
-        st.cache_data.clear()
-        st.success("Cache cleared! Reloading data...")
-        st.rerun()
-    
-    if st.button("💾 Export All Data"):
-        csv = df.to_csv(index=False)
-        st.download_button(
-            label="📥 Download CSV",
-            data=csv,
-            file_name=f"national_dex_complete_{len(df)}_pokemon.csv",
-            mime="text/csv"
-        )
-    
-    st.markdown("### About")
-    st.info("""
-    **National Pokédex Dashboard**
-    
-    Version: 2.0
-    - 🎨 Modern dark theme with green accents
-    - 📊 1,076 Pokemon with comprehensive data
-    - 🖼️ High-quality official artwork
-    - 🔍 Advanced search and filtering
-    - 📈 Statistics and analytics
-    
-    Built with Streamlit • Data from PokeAPI
-    """)
+# ==================== RUN APP ====================
 
-# Footer
-st.markdown("<br><br>", unsafe_allow_html=True)
-st.markdown("""
-<div style="text-align: center; padding: 40px 20px; border-top: 2px solid var(--bg-dark);">
-    <p style="color: var(--text-secondary); margin: 0;">
-        © 2025 National Pokédex Dashboard • 
-        Built with ❤️ by Charles Alivanera • 
-        Data from <a href="https://pokeapi.co" style="color: var(--accent-green);">PokeAPI</a>
-    </p>
-</div>
-""", unsafe_allow_html=True)
+if __name__ == "__main__":
+    main()
