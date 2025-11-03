@@ -12,7 +12,33 @@
 
 ## 📖 What is a Pokédex?
 
-> **Comprehensive Pokemon Database Dashboard** featuring all 1,025 Pokemon (Generations I-IX) with interactive visualizations, competitive data, and game availability tracking.
+# 🎮 Pokemon National Dex Dashboard v4.1.0
+
+[![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
+[![Streamlit](https://img.shields.io/badge/streamlit-1.51.0-red.svg)](https://streamlit.io/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Live Demo](https://img.shields.io/badge/demo-live-green.svg)](https://1pokemon.streamlit.app/)
+[![Data: 1,025 Pokemon](https://img.shields.io/badge/pokemon-1,025-red.svg)](https://bulbapedia.bulbagarden.net)
+
+> **Comprehensive Pokemon Database Dashboard** featuring all 1,025 Pokemon (Generations I-IX) with interactive visualizations, competitive data, game availability tracking, and enhanced user experience.
+
+🌐 **Live Application:** [https://1pokemon.streamlit.app/](https://1pokemon.streamlit.app/)
+
+---
+
+## 📑 Table of Contents
+
+- [Features](#-features)
+- [Screenshots](#-screenshots)
+- [Quick Start](#-quick-start)
+- [Technical Documentation](#-technical-documentation)
+- [Data Architecture](#-data-architecture)
+- [API Reference](#-api-reference)
+- [Deployment](#-deployment)
+- [Development](#-development)
+- [Troubleshooting](#-troubleshooting)
+- [Contributing](#-contributing)
+- [License](#-license)
 
 A **Pokédex** is a digital electronic encyclopedia that acts as a guide for Pokémon trainers, recording data on Pokémon species they encounter. In the games, it tracks the player's progress in catching or observing Pokémon, with detailed entries unlocked as a trainer catches or obtains a species. It's an essential tool for any trainer, and in some versions of the games and the anime, it functions as a reference tool to learn about Pokémon types, sizes, and locations.
 

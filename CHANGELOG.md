@@ -7,6 +7,92 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [4.1.0] - 2024-12-03
+
+### 🚀 Enhanced User Experience & Bug Fixes
+
+#### Added
+- **Dynamic Sprite Gallery** (Task 1)
+  - Gallery limit slider: display 60 to 1,025 Pokemon (default: 120)
+  - Sprites per row selector: 4, 6, 8, or 10 columns for flexible grid layout
+  - Show/hide Pokemon names toggle for cleaner display
+  - Filter integration: respects all sidebar filters (generation, type, BST, game)
+  - Improved feedback: "Showing X of Y Pokemon (filtered results)"
+  - Warning messages when no Pokemon match current filters
+  
+- **Comprehensive Pokemon Randomizer** (Task 4)
+  - 3-column responsive layout (sprite | stats | additional info)
+  - Complete base stats display: HP, Attack, Defense, Sp.Atk, Sp.Def, Speed, BST
+  - Abilities list: primary, secondary, and hidden abilities (marked with "H")
+  - Evolution chain visualization (e.g., "Charmander → Charmeleon → Charizard")
+  - Physical characteristics: height (meters) and weight (kilograms)
+  - Species information display
+  
+- **Comprehensive Technical Documentation** (Task 11)
+  - Complete README.md rewrite (678 lines, 40,812 bytes)
+  - Added sections: Features, Quick Start, Technical Documentation, Data Architecture
+  - API Reference with function signatures and examples
+  - Deployment guide (Streamlit Cloud + Docker)
+  - Development guidelines with code examples
+  - Troubleshooting section with common issues and solutions
+  - Contributing guidelines with code standards
+
+#### Fixed
+- **Who's That Pokemon Mini-Game Silhouette** (Task 3)
+  - Replaced broken `ImageOps.colorize()` implementation
+  - Implemented pixel-by-pixel alpha channel processing
+  - Algorithm: for each pixel, if alpha > 50, convert to black (0,0,0,255)
+  - Preserves Pokemon shape while creating proper silhouette
+  - Added comprehensive error handling with fallback messages
+  - Added warning for animated sprites in quiz mode
+  
+- **File Synchronization** (Task 8)
+  - Automated sync: `enhanced_dashboard.py` → `src/core/app.py`
+  - Both files now identical (1,408 lines)
+  - Ready for Streamlit Cloud auto-deployment
+
+#### Changed
+- **Sprite Gallery Tab** (Lines 1247-1300)
+  - Removed hardcoded 60 Pokemon limit
+  - Dynamic display with user-configurable controls
+  - Better performance with on-demand image loading
+  
+- **Mini-Game Tab** (Lines 604-635)
+  - Complete silhouette generation rewrite
+  - More reliable image processing
+  
+- **Randomizer Tab** (Lines 537-617)
+  - Enhanced from basic 2-column to comprehensive 3-column layout
+  - Added 10+ additional data points per Pokemon
+
+#### Technical Details
+- **Code Changes:**
+  - `enhanced_dashboard.py`: 3 major function rewrites (gallery, mini-game, randomizer)
+  - `src/core/app.py`: synchronized to match development version
+  - `README.md`: completely rewritten with technical documentation
+  
+- **Data Architecture:**
+  - 27,586 records in `national_dex.csv` (1,025 unique Pokemon)
+  - 783 static PNG sprites (475×475px)
+  - 318 type/badge icons
+  - 38+ games in `comprehensive_game_data.json`
+  
+- **Performance:**
+  - Data caching: 60-second TTL with `@st.cache_data`
+  - Lazy loading: sprites loaded on-demand
+  - Efficient filtering: Pandas vectorized operations
+  
+#### Known Issues
+- **Animated Sprites:** Code supports GIF display, but `assets/animated/` folder is empty (0 files)
+- **Mega Evolution Data:** Charizard mega evolution consistency needs verification (Task 5)
+
+#### Workspace Cleanup (Task 12)
+- Removed `README.md.old` (10,467 bytes)
+- Created `README.md.backup` before comprehensive rewrite
+- Workspace decluttered
+
+---
+
 ## [4.0.0] - 2025-11-03
 
 ### 🎉 Major Update - Evolution & Forms Enhancement + Data Accuracy

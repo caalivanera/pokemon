@@ -539,16 +539,21 @@ def main():
             st.markdown('<div class="game-container">', unsafe_allow_html=True)
             
             col_r1, col_r2, col_r3 = st.columns([1, 2, 1])
-            with col_r2:
+            
+            # Left column - Sprite
+            with col_r1:
                 poke_id = int(random_poke['pokedex_number'])
                 sprite_data = load_sprite(poke_id, use_animated=use_animations)
-                display_sprite(sprite_data, width=250)
-                
+                display_sprite(sprite_data, width=200)
+            
+            # Middle column - Basic info and stats
+            with col_r2:
                 st.markdown(
                     f"<h2 style='text-align: center;'>#{poke_id:04d} {random_poke['name']}</h2>",
                     unsafe_allow_html=True
                 )
                 
+                # Types
                 type1 = random_poke["type_1"]
                 type_color1 = get_type_color(type1)
                 type_html = (
@@ -565,7 +570,51 @@ def main():
                 st.markdown(type_html, unsafe_allow_html=True)
                 
                 st.markdown(f"**Generation:** {int(random_poke['generation'])}")
-                st.markdown(f"**Base Stat Total:** {int(random_poke['total_points'])}")
+                st.markdown(f"**Species:** {random_poke.get('species', 'Unknown')}")
+                
+                # Base Stats
+                st.markdown("#### 📊 Base Stats")
+                stats_col1, stats_col2 = st.columns(2)
+                with stats_col1:
+                    st.metric("HP", int(random_poke['hp']))
+                    st.metric("Attack", int(random_poke['attack']))
+                    st.metric("Defense", int(random_poke['defense']))
+                with stats_col2:
+                    st.metric("Sp. Atk", int(random_poke['sp_attack']))
+                    st.metric("Sp. Def", int(random_poke['sp_defense']))
+                    st.metric("Speed", int(random_poke['speed']))
+                
+                st.markdown(f"**Total BST:** {int(random_poke['total_points'])}")
+            
+            # Right column - Additional info
+            with col_r3:
+                st.markdown("#### 🎮 Info")
+                
+                # Abilities
+                abilities = []
+                if pd.notna(random_poke.get('ability_1')):
+                    abilities.append(random_poke['ability_1'])
+                if pd.notna(random_poke.get('ability_2')):
+                    abilities.append(random_poke['ability_2'])
+                if pd.notna(random_poke.get('ability_hidden')):
+                    abilities.append(f"{random_poke['ability_hidden']} (H)")
+                
+                if abilities:
+                    st.markdown(f"**Abilities:**")
+                    for ability in abilities:
+                        st.caption(f"• {ability}")
+                
+                # Evolution chain
+                if pd.notna(random_poke.get('evolution_chain')):
+                    evo_chain_id = random_poke['evolution_chain']
+                    chain_members = df[df['evolution_chain'] == evo_chain_id]['name'].tolist()
+                    if len(chain_members) > 1:
+                        st.markdown(f"**Evolution:**")
+                        st.caption(f"{' → '.join(chain_members)}")
+                
+                # Physical characteristics
+                st.markdown(f"**Height:** {random_poke.get('height_m', 'N/A')} m")
+                st.markdown(f"**Weight:** {random_poke.get('weight_kg', 'N/A')} kg")
             
             st.markdown('</div>', unsafe_allow_html=True)
         
@@ -611,14 +660,28 @@ def main():
                     if sprite_data[0] is not None:
                         content, is_gif = sprite_data
                         if not is_gif:
-                            from PIL import ImageOps, ImageEnhance
-                            silhouette = content.convert("L")
-                            silhouette = ImageOps.colorize(
-                                silhouette, 
-                                black="black", 
-                                white="black"
-                            )
-                            st.image(silhouette, width=250)
+                            try:
+                                from PIL import ImageOps, ImageEnhance, ImageDraw
+                                # Create a proper silhouette
+                                img = content.convert("RGBA")
+                                # Create black silhouette from alpha channel
+                                silhouette = Image.new("RGBA", img.size, (0, 0, 0, 0))
+                                draw = ImageDraw.Draw(silhouette)
+                                # Use alpha channel to create black silhouette
+                                for x in range(img.width):
+                                    for y in range(img.height):
+                                        r, g, b, a = img.getpixel((x, y))
+                                        if a > 50:  # If not transparent
+                                            silhouette.putpixel((x, y), (0, 0, 0, 255))
+                                st.image(silhouette, width=250)
+                            except Exception as e:
+                                st.warning(f"Could not create silhouette. Error: {e}")
+                                # Fallback: show a placeholder
+                                st.markdown("### 🎮 **WHO'S THAT POKEMON?**")
+                        else:
+                            st.warning("Animated sprites not supported for quiz")
+                    else:
+                        st.error("Could not load Pokemon sprite")
                     
                     st.markdown("### Guess the Pokémon!")
                     
@@ -1247,32 +1310,58 @@ def main():
     # ==================== TAB 8: SPRITE GALLERY ====================
     with tab8:
         st.header("🎨 Sprite Gallery")
+        st.caption("Browse all Pokemon sprites with filters applied from sidebar")
         
-        # Grid display of sprites
-        sprites_per_row = 6
-        display_df = filtered_df.head(60)  # Limit for performance
+        # Gallery controls
+        col_ctrl1, col_ctrl2, col_ctrl3 = st.columns([2, 1, 1])
+        with col_ctrl1:
+            gallery_limit = st.slider(
+                "Sprites to display",
+                min_value=60,
+                max_value=min(len(filtered_df), 1025),
+                value=min(120, len(filtered_df)),
+                step=60,
+                help="Adjust number of sprites shown (more may slow loading)"
+            )
+        with col_ctrl2:
+            sprites_per_row = st.selectbox(
+                "Sprites per row",
+                options=[4, 6, 8, 10],
+                index=1
+            )
+        with col_ctrl3:
+            show_names = st.checkbox("Show names", value=True)
         
-        st.markdown(f"**Showing {len(display_df)} sprites** (filtered results)")
+        # Use filtered_df so filters apply
+        display_df = filtered_df.head(gallery_limit)
         
-        for i in range(0, len(display_df), sprites_per_row):
-            cols = st.columns(sprites_per_row)
-            for j, col in enumerate(cols):
-                if i + j < len(display_df):
-                    pokemon = display_df.iloc[i + j]
-                    with col:
-                        pokemon_id = int(pokemon['pokedex_number'])
-                        sprite_data = load_sprite(
-                            pokemon_id,
-                            use_animated=use_animations
-                        )
-                        display_sprite(sprite_data, use_container_width=True)
-                        st.markdown(
-                            f"<div style='text-align: center; font-size: 0.8rem;'>"
-                            f"#{int(pokemon['pokedex_number']):04d}<br>"
-                            f"<b>{pokemon['name']}</b>"
-                            f"</div>",
-                            unsafe_allow_html=True
-                        )
+        if len(filtered_df) == 0:
+            st.warning("No Pokemon match the selected filters. Try adjusting your filters in the sidebar.")
+        else:
+            st.info(f"**Showing {len(display_df)} of {len(filtered_df)} Pokemon** (filtered results)")
+            
+            # Grid display of sprites with pagination
+            for i in range(0, len(display_df), sprites_per_row):
+                cols = st.columns(sprites_per_row)
+                for j, col in enumerate(cols):
+                    if i + j < len(display_df):
+                        pokemon = display_df.iloc[i + j]
+                        with col:
+                            pokemon_id = int(pokemon['pokedex_number'])
+                            sprite_data = load_sprite(
+                                pokemon_id,
+                                use_animated=use_animations
+                            )
+                            display_sprite(sprite_data, use_container_width=True)
+                            
+                            if show_names:
+                                st.markdown(
+                                    f"<div style='text-align: center; font-size: 0.75rem;'>"
+                                    f"#{int(pokemon['pokedex_number']):04d}<br>"
+                                    f"<b>{pokemon['name']}</b>"
+                                    f"</div>",
+                                    unsafe_allow_html=True
+                                )
     
     # ==================== TAB 9: TEAM BUILDER ====================
     with tab9:
