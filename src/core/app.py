@@ -7,9 +7,14 @@ from pathlib import Path
 import sys
 
 # Add parent directory to path for imports
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+current_dir = os.path.dirname(os.path.abspath(__file__))
+parent_dir = os.path.dirname(os.path.dirname(current_dir))
+sys.path.insert(0, parent_dir)
 
-from src.data_loaders.data_extractor import fetch_all_pokemon, load_pokemon_glossary
+from src.data_loaders.data_extractor import (
+    fetch_all_pokemon,
+    load_pokemon_glossary
+)
 from src.data_loaders.yaml_loader import PokemonDataLoader
 
 # --- Configuration ---
