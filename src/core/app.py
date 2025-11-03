@@ -575,9 +575,9 @@ def main():
             validation_results = validator.validate_all_data_files()
             
             # Show warnings for any issues (non-blocking)
-            for category, results in validation_results.items():
-                for result in results:
-                    if not result['valid']:
+            if 'files' in validation_results:
+                for result in validation_results['files']:
+                    if not result.get('valid', True):
                         st.warning(f"⚠️ Data validation warning in {result.get('file', 'unknown')}: "
                                  f"{result.get('error', 'Unknown issue')}")
     
