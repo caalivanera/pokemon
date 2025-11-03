@@ -1,0 +1,38 @@
+{
+  "timestamp": "2025-11-04T05:39:05.775637",
+  "version": "5.4.3",
+  "sections": {
+    "file_counts": {
+      "python": 82,
+      "markdown": 46,
+      "csv": 17,
+      "json": 15,
+      "yml": 3
+    },
+    "critical_files": {
+      "requirements.txt": true,
+      "README.md": true,
+      ".gitignore": true,
+      "src/core/app.py": true,
+      "tests/comprehensive_test_suite.py": true,
+      "tests/stress_tests.py": true,
+      ".github/workflows/ci-cd.yml": true
+    },
+    "feature_files": {
+      "favorites_manager.py": true,
+      "evolution_visualizer.py": true,
+      "similar_pokemon_finder.py": true,
+      "user_preferences.py": true
+    },
+    "test_results": {
+      "comprehensive_tests": {
+        "exists": true,
+        "passed": true,
+        "failed": true
+      },
+      "stress_tests": {
+        "exists": false
+      }
+    }
+  }
+}

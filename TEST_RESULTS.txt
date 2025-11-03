@@ -1,0 +1,36 @@
+================================================================================
+COMPREHENSIVE TEST RESULTS
+================================================================================
+
+PASSED: 111
+FAILED: 10
+WARNINGS: 3
+ERRORS: 1
+
+
+FAILED TESTS:
+  - Import: streamlit: Import failed
+    No module named 'streamlit'
+  - Import: pandas: Import failed
+    No module named 'pandas'
+  - Import: numpy: Import failed
+    No module named 'numpy'
+  - Import: plotly: Import failed
+    No module named 'plotly'
+  - Import: sklearn: Import failed
+    No module named 'sklearn'
+  - Import: networkx: Import failed
+    No module named 'networkx'
+  - Feature: features.favorites_manager: Import failed
+    No module named 'streamlit'
+  - Feature: features.evolution_visualizer: Import failed
+    No module named 'streamlit'
+  - Feature: features.similar_pokemon_finder: Import failed
+    No module named 'streamlit'
+  - Feature: features.user_preferences: Import failed
+    No module named 'streamlit'
+
+WARNINGS:
+  - Memory Test: psutil not installed, skipping
+  - Favorites Manager: Could not import: No module named 'streamlit'
+  - Similar Pokemon Finder: Could not import: No module named 'streamlit'
