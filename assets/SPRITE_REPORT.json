@@ -1,0 +1,19 @@
+{
+  "date_generated": "2024-12-03",
+  "pokemon_count": 1025,
+  "assets": {
+    "static_sprites": 782,
+    "icons": 318,
+    "animated_sprites": 0
+  },
+  "variants": {
+    "Mega": 55,
+    "Alolan": 17,
+    "Galarian": 17,
+    "Hisuian": 14,
+    "Paldean": 2,
+    "Gigantamax": 0
+  },
+  "fallback_strategy": "PokeAPI dynamic loading for missing sprites",
+  "status": "ready_for_production"
+}
