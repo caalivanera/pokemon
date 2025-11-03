@@ -50,14 +50,18 @@ def load_data(file_path: str, limit: int) -> pd.DataFrame:
     
     # Load enhanced data from multiple CSV sources
     with st.spinner(f"🔄 Loading enhanced data for {limit} Pokémon from 4 CSV files..."):
-        df = fetch_all_pokemon(limit=limit)
-        if not df.empty:
-            df.to_csv(file_path, index=False)
-            st.success("✅ Enhanced Pokemon data loaded and cached (CSV integration complete)!")
-        else:
-            st.error("❌ Failed to load Pokemon data!")
-    
-    return df
+        try:
+            df = fetch_all_pokemon(limit=limit)
+            if df is not None and not df.empty:
+                df.to_csv(file_path, index=False)
+                st.success("✅ Enhanced Pokemon data loaded and cached (CSV integration complete)!")
+                return df
+            else:
+                st.error("❌ Failed to load Pokemon data!")
+                return None
+        except Exception as e:
+            st.error(f"❌ Error loading Pokemon data: {str(e)}")
+            return None
 
 @st.cache_data
 def load_glossary() -> dict:
@@ -86,6 +90,11 @@ df = load_data(DATA_FILE, POKEMON_LIMIT)
 glossary = load_glossary()
 yaml_data = load_yaml_data()
 
+# Check if data loaded successfully
+if df is None or df.empty:
+    st.error("❌ Failed to load Pokemon data. Please check data files.")
+    st.stop()
+
 # --- Sidebar ---
 st.sidebar.image("https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png", width=200)
 st.sidebar.title("⚡ Enhanced Pokédex")
@@ -110,9 +119,24 @@ with st.sidebar.expander("📚 Pokemon Glossary", expanded=False):
 st.sidebar.markdown("---")
 st.sidebar.subheader("🔍 Filters")
 
-# Get unique types for the filter (handling missing secondary types)
-all_types = pd.concat([df['primary_type'], df['secondary_type']]).dropna().unique()
-all_types = sorted(all_types)
+# Get unique types for the filter (handling different column name possibilities)
+try:
+    # Try common column name variations
+    if 'primary_type' in df.columns and 'secondary_type' in df.columns:
+        all_types = pd.concat([df['primary_type'], df['secondary_type']]).dropna().unique()
+    elif 'type1' in df.columns and 'type2' in df.columns:
+        all_types = pd.concat([df['type1'], df['type2']]).dropna().unique()
+    elif 'type_1' in df.columns and 'type_2' in df.columns:
+        all_types = pd.concat([df['type_1'], df['type_2']]).dropna().unique()
+    elif 'Type 1' in df.columns and 'Type 2' in df.columns:
+        all_types = pd.concat([df['Type 1'], df['Type 2']]).dropna().unique()
+    else:
+        st.warning(f"⚠️ Type columns not found. Available columns: {list(df.columns)}")
+        all_types = []
+    all_types = sorted(all_types) if len(all_types) > 0 else []
+except Exception as e:
+    st.error(f"Error getting types: {e}")
+    all_types = []
 
 # Type Filter
 selected_types = st.sidebar.multiselect(
