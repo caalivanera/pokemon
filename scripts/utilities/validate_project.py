@@ -1,6 +1,5 @@
 """
 Comprehensive Project Validation Script
-Author: Copilot
 Date: November 4, 2025
 
 This script validates all project files, data integrity, and folder organization.

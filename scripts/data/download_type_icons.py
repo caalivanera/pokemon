@@ -1,6 +1,5 @@
 """
 Download Pokemon Type Icons and Create Color Mapping
-Author: Copilot
 Date: November 4, 2025
 
 This script downloads official Pokemon type icons from multiple sources

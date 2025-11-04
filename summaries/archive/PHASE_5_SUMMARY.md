@@ -245,7 +245,7 @@ CLI: Image Optimizer
 **You now have**:
 - Professional-grade competitive analytics
 - Precise damage calculations
-- AI-powered team recommendations
+- Advanced team recommendations
 - Performance optimization tools
 
 **Total Implementation Time**: ~4 hours  
@@ -311,7 +311,7 @@ CLI: Image Optimizer
 ✅ 5,036+ assets  
 ✅ 15 feature-rich tabs  
 ✅ Advanced analytics  
-✅ AI-powered tools  
+✅ Strategic tools  
 ✅ Competitive data  
 ✅ Meta insights  
 

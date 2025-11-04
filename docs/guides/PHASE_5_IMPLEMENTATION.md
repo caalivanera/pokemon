@@ -2,7 +2,7 @@
 
 ## Overview
 
-This guide covers the implementation of Phase 5 features for the Pokemon National Dex Dashboard, focusing on **Advanced Analytics**, **AI-Powered Features**, and **Performance Optimization**.
+This guide covers the implementation of Phase 5 features for the Pokemon National Dex Dashboard, focusing on **Advanced Analytics**, **Team Recommendations**, and **Performance Optimization**.
 
 ---
 

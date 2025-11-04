@@ -1,6 +1,5 @@
 """
 Add Regional Grouping to Pokemon Dataset
-Author: Copilot
 Date: November 4, 2025
 
 This script adds regional information (Kanto, Johto, etc.) to the national dex CSV

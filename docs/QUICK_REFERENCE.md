@@ -17,7 +17,7 @@ Navigate to: Tab 13 "📊 Meta Analytics"
 - **Move Analysis**: Most used moves by type and popularity
 - **Ability Stats**: Top abilities with usage counts
 - **Tier Distribution**: Pokemon distribution across 8 tiers
-- **Meta Insights**: AI-powered recommendations
+- **Meta Insights**: Strategic recommendations and analysis
 
 ### Tips
 ✅ Use date range filter for specific periods  

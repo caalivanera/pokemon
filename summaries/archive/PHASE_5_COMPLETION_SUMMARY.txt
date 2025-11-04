@@ -84,7 +84,7 @@ Your Pokemon Dashboard now includes:
    5,036+ assets
    15 feature-rich tabs
    Advanced analytics
-   AI-powered tools
+   Strategic tools
    Meta insights
    Damage calculations
 

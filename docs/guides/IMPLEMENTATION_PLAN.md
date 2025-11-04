@@ -378,7 +378,7 @@ ITEMS_PER_PAGE = 50
 - **Mitigation**: 
   1. Fallback to base form sprite with badge
   2. Use PokeAPI dynamic loading
-  3. AI-generated placeholders for missing sprites
+  3. Community-sourced placeholders for missing sprites
 
 ### Medium Risk: Data Consistency
 - **Issue**: Conflicting stats from different sources
@@ -424,4 +424,4 @@ ITEMS_PER_PAGE = 50
 
 **Last Updated**: November 3, 2025
 **Version**: 1.0
-**Author**: AI Assistant with user approval pending
+

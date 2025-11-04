@@ -1,5 +1,5 @@
 """
-AI-Powered Team Recommendation System
+Team Recommendation System
 Suggests optimal Pokemon teams based on meta analysis
 """
 

@@ -845,7 +845,7 @@ If you want to implement any of these features:
 **Enhanced Analytics**
 - Variant Statistics Dashboard
 - Evolution Chain Visualization
-- AI-powered team recommendations
+- Advanced team recommendations
 - Weakness/resistance heatmaps
 
 **Performance & Scale**
